@@ -231,7 +231,7 @@ def index():
     )
 
 
-@app.route('/post/<record_id>')
+@app.route('/post/<record_id>.html')
 def detail(record_id):
     records = fetch_bitable_records()
     
