@@ -18,7 +18,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
-            <a href="/" class="nav-brand">
+            <a href="{{ url_for('index') }}" class="nav-brand">
                 <span class="nav-brand-icon">📖</span>
                 <span>阅读与思考</span>
             </a>
@@ -42,7 +42,7 @@
         <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="/" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="{{ url_for('index') }}" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
