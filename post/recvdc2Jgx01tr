@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
+    <title>顶级邪修再战 Nano Banana Pro ，超多玩法，太猛了这玩意！ — 阅读与思考</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-icon">📖</span>
+                <span>阅读与思考</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    🔍
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    🌙
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose">ESC</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            🔗 分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">顶级邪修再战 Nano Banana Pro ，超多玩法，太猛了这玩意！</h1>
+
+        <!-- Quote -->
+        
+        <div class="detail-quote">
+            ❝ Nano Banana Pro 模型通过突破性的图像处理能力，支持混合14张图片并保持人物一致性，结合世界知识、多模态功能和强大的中文支持，实现了多样化的创新应用玩法。
+        </div>
+        
+
+        <!-- Review -->
+        
+
+        <!-- Table of Contents -->
+        
+
+        <!-- Content -->
+        <div class="detail-content">
+            <p>以下是《顶级邪修再战 Nano Banana Pro》的核心提炼（198字）：</p>
+<p><strong>核心突破：</strong><br />
+Nano Banana Pro 实现多模态图片生成重大升级，支持<strong>14图混合元素</strong>、保持<strong>5人像一致性</strong>，并兼容<strong>2K/4K分辨率</strong>及多种纵横比。</p>
+<p><strong>关键能力验证：</strong><br />
+1. <strong>中文多语言</strong>：生成中/英/韩三语旅游手帐，字体边缘清晰；<br />
+2. <strong>实时推理</strong>：准确调用北京天气数据创作UI设计；<br />
+3. <strong>商品与人像一致性</strong>：米色皮革手机壳海报细节精准，人像美颜自然保留特征；<br />
+4. <strong>版权处理</strong>：成功生成美日IP内容；<br />
+5. <strong>多模态创作</strong>：实现拍立得相框、手写日记仿真、漫画翻译上色（测试案例：海贼王）；<br />
+6. <strong>设计迁移</strong>：将照片转换为现代平面海报，UI风格复刻能力突出。</p>
+<p><strong>落地支持</strong>：<br />
+通过Gemini官方APP/API及5个三方平台可用。作者强调其"突破性进展"，尤其推荐设计类应用。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="/post/recVhE5NKv" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">源码公开！告别手动发帖！小红书全自动运营神器开源：自动发布、爆款复刻、智能回复，一人顶一个团队！</span>
+        </a>
+        
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

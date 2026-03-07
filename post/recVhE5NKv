@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
+    <title>源码公开！告别手动发帖！小红书全自动运营神器开源：自动发布、爆款复刻、智能回复，一人顶一个团队！ — 阅读与思考</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-icon">📖</span>
+                <span>阅读与思考</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    🔍
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    🌙
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose">ESC</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            🔗 分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">源码公开！告别手动发帖！小红书全自动运营神器开源：自动发布、爆款复刻、智能回复，一人顶一个团队！</h1>
+
+        <!-- Quote -->
+        
+        <div class="detail-quote">
+            ❝ 该开源工具 xiaohongshu-ops-skill 基于 CDP 自动化技术，实现小红书账号全自动运营（包括自动发布、爆款复刻和智能回复），显著提升效率，让一人可顶一个团队。
+        </div>
+        
+
+        <!-- Review -->
+        
+
+        <!-- Table of Contents -->
+        
+
+        <!-- Content -->
+        <div class="detail-content">
+            <p>以下是文章核心提炼（198字）：</p>
+<p><strong>核心功能与技术</strong><br />
+开源项目<code>xiaohongshu-ops-skill</code>基于CDP协议与Openclaw框架，实现小红书全自动运营：<br />
+1. <strong>自动发布笔记</strong>：模拟真人操作浏览器，绕过平台风控；<br />
+2. <strong>爆款复刻系统</strong>：自动抓取热门笔记模板，批量生成相似内容；<br />
+3. <strong>智能人设回复</strong>：通过<code>persona.md</code>配置人格化话术，自动回复评论/私信。  </p>
+<p><strong>关键数据与效果</strong><br />
+- 节省80%人力成本，单人可运营多账号；<br />
+- 案例实测：陪看剧账号日更5-10篇笔记，自动回复率达100%；<br />
+- 模块化设计支持灵活扩展（如多账号管理、数据监控）。  </p>
+<p><strong>意义</strong><br />
+解放运营人力，实现“一人顶一团队”，推动社交媒体自动化技术落地。  </p>
+<blockquote>
+<p>项目地址：https://github.com/Xiangyu-CAS/xiaohongshu-ops-skill</p>
+</blockquote>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="/post/recvdc2Jgx01tr" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">顶级邪修再战 Nano Banana Pro ，超多玩法，太猛了这玩意！</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
