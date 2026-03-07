@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}阅读与思考 — 个人博客{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">阅读与思考</h1>
+        <p class="hero-subtitle">探索设计、科技与人文的交汇点</p>
+        <div class="hero-stats">
+            📚 共 {{ total_count }} 篇文章
+        </div>
+        <div class="hero-divider"></div>
+    </section>
+
+    <!-- Category Filter -->
+    {% if all_categories %}
+    <section class="filter-section">
+        <div class="filter-tags" id="filterTags">
+            <button class="filter-tag active" data-category="all">全部</button>
+            {% for cat in all_categories %}
+            <button class="filter-tag" data-category="{{ cat }}">{{ cat }}</button>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Article List -->
+    <main class="article-list" id="articleList">
+        {% for article in articles %}
+        <a href="/post/{{ article.id }}" target="_blank" class="article-card"
+            data-categories="{{ article.categories | join(',') }}">
+            <!-- Meta: Tags + Reading Time -->
+            <div class="card-meta">
+                <div class="card-tags">
+                    {% for cat in article.categories %}
+                    <span class="card-tag">{{ cat }}</span>
+                    {% endfor %}
+                </div>
+                <span class="card-reading-time">
+                    ⏱ {{ article.reading_time }} min
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="article-title">{{ article.title }}</h2>
+
+            <!-- Quote -->
+            {% if article.quote %}
+            <div class="article-quote">
+                {{ article.quote }}
+            </div>
+            {% endif %}
+
+            <!-- Review -->
+            {% if article.review %}
+            <div class="article-review">
+                <strong>🗣 点评：</strong>{{ article.review }}
+            </div>
+            {% endif %}
+
+            <!-- Preview -->
+            <div class="article-preview">
+                {{ article.preview }}
+            </div>
+
+            <!-- Read More -->
+            <div class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </div>
+        </a>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon">📝</div>
+            <p class="empty-state-text">暂无文章，请在飞书多维表格中添加数据。</p>
+        </div>
+        {% endfor %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+    </footer>
+</div>
+{% endblock %}
+
+{% block search_data %}
+<script>
+    // Inject article data for client-side search
+    window.__ARTICLES__ = [
+        {% for article in articles %}
+    {
+        id: "{{ article.id }}",
+            title: "{{ article.title | e }}",
+                quote: "{{ article.quote | e }}",
+                    preview: "{{ article.preview | e }}",
+                        categories: { { article.categories | tojson } }
+    } {% if not loop.last %}, {% endif %}
+    {% endfor %}
+    ];
+</script>
+{% endblock %}

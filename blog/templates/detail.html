@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} — 阅读与思考{% endblock %}
+
+{% block progress_bar %}
+<div class="progress-bar" id="progressBar"></div>
+{% endblock %}
+
+{% block content %}
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            🔗 分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            {% for cat in article.categories %}
+            <span class="card-tag">{{ cat }}</span>
+            {% endfor %}
+            <span class="detail-reading-time">⏱ 约 {{ article.reading_time }} 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">{{ article.title }}</h1>
+
+        <!-- Quote -->
+        {% if article.quote %}
+        <div class="detail-quote">
+            ❝ {{ article.quote }}
+        </div>
+        {% endif %}
+
+        <!-- Review -->
+        {% if article.review %}
+        <div class="detail-review">
+            <strong>🗣 点评：</strong>{{ article.review }}
+        </div>
+        {% endif %}
+
+        <!-- Table of Contents -->
+        {% if article.toc %}
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">📑 目录</span>
+                <span class="toc-toggle">▼</span>
+            </div>
+            <ul class="toc-list">
+                {% for item in article.toc %}
+                <li class="toc-item level-{{ item.level }}">
+                    <a href="#{{ item.slug }}" class="toc-link">{{ item.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Content -->
+        <div class="detail-content">
+            {{ article.content | markdown_with_ids }}
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    {% if prev_article or next_article %}
+    <nav class="article-nav">
+        {% if prev_article %}
+        <a href="/post/{{ prev_article.id }}" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">{{ prev_article.title }}</span>
+        </a>
+        {% endif %}
+        {% if next_article %}
+        <a href="/post/{{ next_article.id }}" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">{{ next_article.title }}</span>
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+    </footer>
+</div>
+{% endblock %}
