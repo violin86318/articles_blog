@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Openclaw自己操作Claude code完整开发了TikTok爆款分析系统 — 阅读与思考</title>
+    <title>告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程） — 阅读与思考</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
@@ -94,16 +94,25 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
-        <h1 class="detail-title">Openclaw自己操作Claude code完整开发了TikTok爆款分析系统</h1>
+        <h1 class="detail-title">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</h1>
 
         <!-- Quote -->
         
         <div class="detail-quote">
-            ❝ 通过OpenClaw作为项目经理指挥Claude Code开发，用户仅需描述产品需求即可自动完成TikTok爆款分析系统的全流程构建，大幅提升开发效率。
+            ❝ ### 一句话提炼全文最有价值的亮点：
+**OpenClaw通过企业微信插件无缝接入微信，实现AI助理在微信中直接对话，为用户提供随时在线、安全可控的私人智能助手，彻底告别复杂平台。**
+
+### 亮点解析：
+- **核心价值**：将OpenClaw AI助理融入14亿用户日常使用的微信，解决了飞书、QQ等平台不便的问题，让AI真正服务于普通人。
+- **关键优势**：  
+  - **便捷性**：微信直接对话，无需切换应用（如定时推送天气、日程提醒）。  
+  - **安全性**：数据托管在用户自有服务器（云部署），避免隐私泄露。  
+  - **低成本**：个人用户无需认证企业微信，公网IP即可完成配置。  
+- **技术突破**：利用企业微信的“微信插件”能力，打通OpenClaw与微信的通信链路，实现“天选组合”。
         </div>
         
 
@@ -115,13 +124,23 @@
 
         <!-- Content -->
         <div class="detail-content">
-            <p>以下是文章核心提炼（196字）：</p>
-<p>作者饼干哥哥分享利用<strong>OpenClaw指挥Claude Code</strong>全自动开发TikTok爆款视频分析系统的经验。初期单独使用OpenClaw时遭遇<strong>进程管理空白、交互阻塞、结果返回失败</strong>等技术瓶颈。突破性方案是让<strong>OpenClaw担任项目经理</strong>，通过命令行以<strong>PTY模式</strong>调度<strong>Claude Code作为开发工程师</strong>执行全流程：<br />
-1. 需求理解与PRD编写<br />
-2. 项目初始化与环境配置<br />
-3. 逐功能模块开发<br />
-4. 自动化测试与报告生成  </p>
-<p>该方案通过<strong>预定义Skill文件规范开发流程</strong>，实现用户仅需描述需求即可自动交付完整系统。作者强调PTY模式解决了关键阻塞问题，并推荐关注公众号「饼干哥哥AGI」获取Claude Code深度教程。</p>
+            <p>以下是全文核心提炼（196字）：</p>
+<p><strong>核心内容：</strong><br />
+通过企业微信插件，实现OpenClaw与微信的直接对话，打造个人AI助理。  </p>
+<p><strong>关键步骤与数据：</strong><br />
+1. <strong>公网配置</strong>：需将OpenClaw部署至云服务器（腾讯云/阿里云），修改配置文件（<code>bind</code>设为<code>lan</code>，<code>allowedOrigins</code>填公网IP）。<br />
+2. <strong>插件安装</strong>：运行命令 <code>openclaw plugins install @openclaw-china/wecom-app</code> 安装官方微信插件。<br />
+3. <strong>企业微信应用</strong>：<br />
+   - 创建应用时需配置 <strong>5项参数</strong>（Corp ID/Secret、Agent ID、Token）。<br />
+   - 回调URL格式：<code>http://公网IP:18789/wecom/agent</code>（HTTP协议+固定端口）。<br />
+   - 必须添加服务器IP到 <strong>企业可信IP</strong> 列表。  </p>
+<p><strong>核心价值：</strong><br />
+- <strong>微信直连</strong>：借助企业微信插件，在14亿用户使用的微信中直接调用OpenClaw。<br />
+- <strong>功能场景</strong>：支持定时任务（如天气推送）、数据私有化（服务器自主可控）。<br />
+- <strong>部署建议</strong>：云服务器更安全稳定，避免本地复杂配置风险。  </p>
+<blockquote>
+<p>总结：该方案以企业微信为桥梁，打通OpenClaw与微信生态，实现“私人AI助理进驻微信”的便捷体验。</p>
+</blockquote>
         </div>
     </article>
 
@@ -129,15 +148,10 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdi7pZhiX7C" class="article-nav-link prev">
-            <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</span>
-        </a>
         
-        
-        <a href="/post/recvdhtQaiUiIV" class="article-nav-link next">
+        <a href="/post/recvdhwFNosb9P" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
-            <span class="article-nav-title">让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制</span>
+            <span class="article-nav-title">Openclaw自己操作Claude code完整开发了TikTok爆款分析系统</span>
         </a>
         
     </nav>

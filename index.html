@@ -77,7 +77,7 @@
         <h1 class="hero-title">阅读与思考</h1>
         <p class="hero-subtitle">探索设计、科技与人文的交汇点</p>
         <div class="hero-stats">
-            📚 共 5 篇文章
+            📚 共 6 篇文章
         </div>
         <div class="hero-divider"></div>
     </section>
@@ -87,6 +87,63 @@
 
     <!-- Article List -->
     <main class="article-list" id="articleList">
+        
+        <a href="/post/recvdi7pZhiX7C" target="_blank" class="article-card"
+            data-categories="">
+            <!-- Meta: Tags + Reading Time -->
+            <div class="card-meta">
+                <div class="card-tags">
+                    
+                </div>
+                <span class="card-reading-time">
+                    ⏱ 2 min
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="article-title">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</h2>
+
+            <!-- Quote -->
+            
+            <div class="article-quote">
+                ### 一句话提炼全文最有价值的亮点：
+**OpenClaw通过企业微信插件无缝接入微信，实现AI助理在微信中直接对话，为用户提供随时在线、安全可控的私人智能助手，彻底告别复杂平台。**
+
+### 亮点解析：
+- **核心价值**：将OpenClaw AI助理融入14亿用户日常使用的微信，解决了飞书、QQ等平台不便的问题，让AI真正服务于普通人。
+- **关键优势**：  
+  - **便捷性**：微信直接对话，无需切换应用（如定时推送天气、日程提醒）。  
+  - **安全性**：数据托管在用户自有服务器（云部署），避免隐私泄露。  
+  - **低成本**：个人用户无需认证企业微信，公网IP即可完成配置。  
+- **技术突破**：利用企业微信的“微信插件”能力，打通OpenClaw与微信的通信链路，实现“天选组合”。
+            </div>
+            
+
+            <!-- Review -->
+            
+
+            <!-- Preview -->
+            <div class="article-preview">
+                以下是全文核心提炼（196字）：
+
+**核心内容：**  
+通过企业微信插件，实现OpenClaw与微信的直接对话，打造个人AI助理。  
+
+**关键步骤与数据：**  
+1. **公网配置**：需将OpenClaw部署至云服务器（腾讯云/阿里云），修改配置文件（`bind`设为`lan`，`allowedOrigins`填公网IP）。  
+2. **插件安装**：运行命令 `openclaw p...
+            </div>
+
+            <!-- Read More -->
+            <div class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </div>
+        </a>
         
         <a href="/post/recvdhwFNosb9P" target="_blank" class="article-card"
             data-categories="">
@@ -339,6 +396,30 @@ Nano Banana Pro 实现多模态图片生成重大升级，支持**14图混合元
     // Inject article data for client-side search
     window.__ARTICLES__ = [
         
+    {
+        id: "recvdi7pZhiX7C",
+            title: "告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）",
+                quote: "### 一句话提炼全文最有价值的亮点：
+**OpenClaw通过企业微信插件无缝接入微信，实现AI助理在微信中直接对话，为用户提供随时在线、安全可控的私人智能助手，彻底告别复杂平台。**
+
+### 亮点解析：
+- **核心价值**：将OpenClaw AI助理融入14亿用户日常使用的微信，解决了飞书、QQ等平台不便的问题，让AI真正服务于普通人。
+- **关键优势**：  
+  - **便捷性**：微信直接对话，无需切换应用（如定时推送天气、日程提醒）。  
+  - **安全性**：数据托管在用户自有服务器（云部署），避免隐私泄露。  
+  - **低成本**：个人用户无需认证企业微信，公网IP即可完成配置。  
+- **技术突破**：利用企业微信的“微信插件”能力，打通OpenClaw与微信的通信链路，实现“天选组合”。",
+                    preview: "以下是全文核心提炼（196字）：
+
+**核心内容：**  
+通过企业微信插件，实现OpenClaw与微信的直接对话，打造个人AI助理。  
+
+**关键步骤与数据：**  
+1. **公网配置**：需将OpenClaw部署至云服务器（腾讯云/阿里云），修改配置文件（`bind`设为`lan`，`allowedOrigins`填公网IP）。  
+2. **插件安装**：运行命令 `openclaw p...",
+                        categories: { { article.categories | tojson } }
+    } , 
+    
     {
         id: "recvdhwFNosb9P",
             title: "Openclaw自己操作Claude code完整开发了TikTok爆款分析系统",
