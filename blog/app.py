@@ -173,7 +173,7 @@ def fetch_bitable_records():
         if formatted_record['title']:
             formatted_records.append(formatted_record)
             
-    return formatted_records
+    return formatted_records[::-1]
 
 
 @app.template_filter('markdown')
