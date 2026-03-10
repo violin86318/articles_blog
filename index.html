@@ -77,7 +77,7 @@
         <h1 class="hero-title">阅读与思考</h1>
         <p class="hero-subtitle">探索设计、科技与人文的交汇点</p>
         <div class="hero-stats">
-            📚 共 9 篇文章
+            📚 共 10 篇文章
         </div>
         <div class="hero-divider"></div>
     </section>
@@ -87,6 +87,47 @@
 
     <!-- Article List -->
     <main class="article-list" id="articleList">
+        
+        <a href="/post/recvdqzD1t2Stx" target="_blank" class="article-card"
+            data-categories="">
+            <!-- Meta: Tags + Reading Time -->
+            <div class="card-meta">
+                <div class="card-tags">
+                    
+                </div>
+                <span class="card-reading-time">
+                    ⏱ 1 min
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="article-title">百万字长篇，如何用AI拆书？</h2>
+
+            <!-- Quote -->
+            
+            <div class="article-quote">
+                突破性断点续拆机制实现百万字网文AI解析
+            </div>
+            
+
+            <!-- Review -->
+            
+
+            <!-- Preview -->
+            <div class="article-preview">
+                文章《百万字长篇，如何用AI拆书？》探讨了利用AI技术高效拆解百万字级别网文的新方法。传统AI工具受限于上下文窗口（如GPT模型无法处理超长文本），无法一次性处理整部作品。为此，提出一种专门的“拆书skill”解决方案：首先，分拆章节（通过脚本识别章节标题，生成多个MD文件存储于“原文拆解”文件夹）；其次，用子agent分析每章内容，提取剧情梗概（约500字），并可根据需求定制维度如节奏或情绪；再...
+            </div>
+
+            <!-- Read More -->
+            <div class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </div>
+        </a>
         
         <a href="/post/recvdoLXgChRMr" target="_blank" class="article-card"
             data-categories="">
@@ -514,6 +555,14 @@ Nano Banana Pro 实现多模态图片生成重大升级，支持**14图混合元
     // Inject article data for client-side search
     window.__ARTICLES__ = [
         
+    {
+        id: "recvdqzD1t2Stx",
+            title: "百万字长篇，如何用AI拆书？",
+                quote: "突破性断点续拆机制实现百万字网文AI解析",
+                    preview: "文章《百万字长篇，如何用AI拆书？》探讨了利用AI技术高效拆解百万字级别网文的新方法。传统AI工具受限于上下文窗口（如GPT模型无法处理超长文本），无法一次性处理整部作品。为此，提出一种专门的“拆书skill”解决方案：首先，分拆章节（通过脚本识别章节标题，生成多个MD文件存储于“原文拆解”文件夹）；其次，用子agent分析每章内容，提取剧情梗概（约500字），并可根据需求定制维度如节奏或情绪；再...",
+                        categories: { { article.categories | tojson } }
+    } , 
+    
     {
         id: "recvdoLXgChRMr",
             title: "我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流）",
