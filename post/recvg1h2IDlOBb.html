@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>编程智能体的核心组件【译】（重发，补图） — 阅读与思考</title>
+    <title>量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力 — 阅读与思考</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
@@ -94,13 +94,17 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
-        <h1 class="detail-title">编程智能体的核心组件【译】（重发，补图）</h1>
+        <h1 class="detail-title">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</h1>
 
         <!-- Quote -->
+        
+        <div class="detail-quote">
+            ❝ Coxy通过本地代理将GitHub Copilot协议翻译为OpenAI兼容API，解锁其全部潜力并支持多账号管理。
+        </div>
         
 
         <!-- Review -->
@@ -111,7 +115,16 @@
 
         <!-- Content -->
         <div class="detail-content">
-            
+            <p>以下是文章核心提炼（198字）：</p>
+<p><strong>核心工具：Coxy本地代理</strong><br />
+- <strong>功能</strong>：将GitHub Copilot私有协议转为标准OpenAI API（<code>localhost:3000/api</code>），兼容Open WebUI等第三方工具。<br />
+- <strong>部署</strong>：一行Docker命令启动（<code>docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest</code>），免Node.js依赖。<br />
+- <strong>机制</strong>：复用Copilot官方语言服务器包（<code>@github/copilot-language-server</code>），外部封装API接口。<br />
+- <strong>关键特性</strong>：<br />
+  1. <strong>多模型支持</strong>：直接调用<code>gpt-4.1</code>、<code>gpt-4o</code>及需手动开启的<code>GPT-5 mini</code>模型；<br />
+  2. <strong>多账号管理</strong>：支持绑定多个GitHub账号独立使用免费额度，数据本地SQLite存储（Docker需挂载防丢失）；<br />
+  3. <strong>免鉴权简化</strong>：设置默认token后无需Authorization头。</p>
+<p><strong>延伸工具</strong>：Copilot CLI提供命令行代码编写/部署能力。两者结合可最大化释放Copilot潜力，尤其适合多账号用户避免额度浪费。</p>
         </div>
     </article>
 
@@ -119,15 +132,10 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg1h2IDlOBb" class="article-nav-link prev">
-            <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</span>
-        </a>
         
-        
-        <a href="/post/recvfX5Z1NwEbT" class="article-nav-link next">
+        <a href="/post/recvfX69KSCOMv" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
-            <span class="article-nav-title">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</span>
+            <span class="article-nav-title">编程智能体的核心组件【译】（重发，补图）</span>
         </a>
         
     </nav>
