@@ -96,6 +96,11 @@ FAILED_GENERATION_MARKERS = (
     '请把目标微信文章的具体文本内容粘贴给我',
     '麻烦您将需要提炼处理的目标网页完整内容粘贴发送给我',
 )
+PUBLISH_BLOCK_MARKERS = (
+    *FAILED_GENERATION_MARKERS,
+    '未提供相关文章内容',
+    '无法访问或提取网页内容',
+)
 
 LOW_SIGNAL_TITLES = {'无', '未命名', '无法提取标题'}
 SOURCE_LINK_PATTERN = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
@@ -143,6 +148,35 @@ def clean_title(title):
     return title
 
 
+def contains_failure_text(*values):
+    combined = '\n'.join((value or '').strip() for value in values if value)
+    return any(marker in combined for marker in PUBLISH_BLOCK_MARKERS)
+
+
+def is_publishable(record):
+    status = (record.get('status') or '').strip().lower()
+    publish_status = (record.get('publish_status') or '').strip().lower()
+    title = record.get('title', '')
+    summary = record.get('summary', '')
+    content = record.get('content', '')
+    review = record.get('review', '')
+
+    if status or publish_status:
+        return (
+            status == 'ready' and
+            publish_status in {'publish_ready', 'published'} and
+            bool(title.strip()) and
+            bool(summary.strip() or content.strip()) and
+            not contains_failure_text(title, summary, content, review)
+        )
+
+    return (
+        bool(title.strip()) and
+        bool(summary.strip() or content.strip()) and
+        not contains_failure_text(title, summary, content, review)
+    )
+
+
 def parse_source_link(value):
     text = first_useful_text(value)
     if not text:
@@ -170,13 +204,21 @@ def normalize_terms(value):
                 terms.append(text)
         return terms
     if isinstance(value, str):
-        return [value.strip()] if value.strip() else []
+        parts = re.split(r'[、,，/|]+', value)
+        return [part.strip() for part in parts if part.strip()]
     return []
 
 
 def sort_categories(categories):
     order = {name: index for index, name in enumerate(CATEGORY_ORDER)}
     return sorted(categories, key=lambda name: (order.get(name, len(order)), name))
+
+
+def get_review_text(getter):
+    return first_useful_text(
+        getter('点评'),
+        getter('黄叔点评'),
+    )
 
 
 @cached(cache=data_cache)
@@ -289,7 +331,7 @@ def fetch_bitable_records():
                 get_text_value(fields.get('金句输出', '')),
                 get_text_value(fields.get('金句提炼.输出结果', ''))
             )),
-            'review': first_useful_text(get_text_value(fields.get('黄叔点评', ''))),
+            'review': get_review_text(lambda name: get_text_value(fields.get(name, ''))),
             'summary': summary,
             'content': first_useful_text(
                 get_text_value(fields.get('全文', '')),
@@ -299,9 +341,14 @@ def fetch_bitable_records():
             'categories': categories,
             'tags': tags,
             'source_label': source_label,
-            'source_url': source_url
+            'source_url': source_url,
+            'status': get_text_value(fields.get('处理状态', '')),
+            'publish_status': get_text_value(fields.get('发布状态', '')),
+            'error': get_text_value(fields.get('失败原因', '')),
+            'author': get_text_value(fields.get('作者', '')),
+            'published_at': get_text_value(fields.get('发布日期', '')),
         }
-        if formatted_record['title']:
+        if is_publishable(formatted_record):
             formatted_records.append(formatted_record)
             
     return formatted_records[::-1]
@@ -404,16 +451,21 @@ def fetch_bitable_records_with_lark_cli():
             'id': record_ids[index] if index < len(record_ids) else f'lark_{index}',
             'title': clean_title(as_text(field_map.get('标题'))),
             'quote': quote,
-            'review': '',
+            'review': get_review_text(lambda name: as_text(field_map.get(name))),
             'summary': summary,
             'content': content,
             'category': categories[0] if categories else '',
             'categories': categories,
             'tags': tags,
             'source_label': source_label,
-            'source_url': source_url
+            'source_url': source_url,
+            'status': as_text(field_map.get('处理状态')),
+            'publish_status': as_text(field_map.get('发布状态')),
+            'error': as_text(field_map.get('失败原因')),
+            'author': as_text(field_map.get('作者')),
+            'published_at': as_text(field_map.get('发布日期')),
         }
-        if formatted_record['title']:
+        if is_publishable(formatted_record):
             formatted_records.append(formatted_record)
 
     return formatted_records
