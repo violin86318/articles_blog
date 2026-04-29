@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>不写代码如何榨干模型 token plan 价值？ — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI应用</span>
+            
+            
+            <span class="topic-chip">AI Agent</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">自动化</span>
+            
+            <span class="topic-chip">开源工具</span>
+            
+            <span class="topic-chip">效率提升</span>
+            
+            <span class="topic-chip">API优化</span>
+            
+            <span class="detail-reading-time">约 5 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">不写代码如何榨干模型 token plan 价值？</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>怎么让 Agent 24 小时来产出，人休息的时候它还在工作？ 我的方法是用 Skill 来扩应用场景：分为主动（定时跑任务）和被动的任务（有需求再找他） 尽可能找稳定的skill 场景。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍了如何通过Skill扩展AI Agent的应用场景，充分利用模型API额度。作者分享了主动型任务（如RSS总结、播客处理、素材采集）和被动型任务（如飞书、钉钉、MiniMax等官方Skill），让Agent在人休息时也能持续工作，提升效率。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/7dBI3BRjX5K3u6XfqZTLrA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>文章实用性强，针对模型API使用率低的痛点，提出了通过Skill扩展应用场景的解决方案。作者分享了多个具体案例和开源工具，涵盖信息处理、办公协作、内容生成等多个领域，为读者提供了可操作的思路。内容结构清晰，从主动到被动任务分类明确，对提升AI Agent使用效率有很好的参考价值。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#不写代码如何榨干模型-token-plan-价值" class="toc-link">不写代码如何榨干模型 token plan 价值？</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="不写代码如何榨干模型-token-plan-价值">不写代码如何榨干模型 token plan 价值？</h1>
+<p>大家好，我是空格，换个新头像冒个泡，顺便分享些有用的</p>
+<p>身边订阅模型 API 的人越来越多了，但发现很多人一个月用不到 1/10 额度。</p>
+<p>怎么让 Agent 24 小时来产出，人休息的时候它还在工作？</p>
+<p>我的方法是用 Skill 来扩应用场景：</p>
+<p>分为主动（定时跑任务）和被动的任务（有需求再找他）</p>
+<p>主动型：<br />
+1 每天早上 RSS 总结。<br />
+我用的是 rss-aggregator 这个 Skill，把订阅的博客和资讯源博主地址喂给它。早上一睁眼信息就在手机里了。<br />
+github.com/zephyrwang6/info-skill</p>
+<p>2 播客自动处理。<br />
+关注的 YouTube 频道一更新，先用扫最近 48 小时的新视频，再把字幕拉下来翻成中文，最后跑一遍摘要、金句提取，全部塞进飞书知识库。我醒来直接看精华。</p>
+<p>github.com/zephyrwang6/info-skill</p>
+<p>3 选题素材采集。<br />
+每天扫一遍 X、即刻、小红书的关键词，把跟我领域相关的爆款内容抓回来归档，顺手生成选题候选。<br />
+早上醒来，有值得研究的就深入看</p>
+<p>github.com/zephyrwang6/info-skill/tree/main/topic-collector</p>
+<p>被动型：<br />
+尽可能找稳定的skill 场景。<br />
+一种是我自己做，比如PPT、原型图、流程图、架构图，这些我都有分享过</p>
+<p>还有一些是第三方软件提供的 Skill，可以直接让你的 Agent 来操作 SaaS 工具</p>
+<p>1 飞书 lark cli<br />
+飞书官方出品，200 多个命令加 23 个 AI Agent Skill。日历、文档、电子表格、多维表格、IM、知识库、视频会议任务全覆盖。<br />
+github.com/larksuite/cli</p>
+<p>2 钉钉 dingtalk-workspace-cli<br />
+钉钉官方 CLI，文档、AI 多维表格、群聊、会议室、日程、待办全在里面。<br />
+github.com/DingTalk-Real-AI/dingtalk-workspace-cli</p>
+<p>3 MiniMax 官方 skill<br />
+16 个Skill。 多模态 生成、 语音、音乐、视频、图片、GIF 表情包、PPTX、DOCX、XLSX、PDF。前端、安卓、iOS、Flutter、React Native 也全。<br />
+github.com/MiniMax-AI/skills</p>
+<p>4 Agents365-ai/drawio-skill<br />
+用 Agent 出drawio 文件，如 ERD、UML、时序图、架构图、ML 网络图、流程图六种。<br />
+github.com/Agents365-ai/drawio-skill</p>
+<p>5 Agents365-ai/video-podcast-maker<br />
+B 站和 YouTube 视频播客一站式生成<br />
+github.com/Agents365-ai/video-podcast-maker</p>
+<p>6 科大讯飞 SkillHub<br />
+企业级 Skill 。RBAC、审计、版本管理，Docker 一键部署<br />
+github.com/iflytek/skillhub</p>
+<p>7 wpsnote-skills<br />
+WPS 的 40 多个 Skill<br />
+github.com/wpsnote/wpsnote-skills</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvi1Jeegn4lB.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">开源一个我写小说的skill，顺便说下我的搭建思路和使用方法</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
