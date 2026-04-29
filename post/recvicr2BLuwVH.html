@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>从 Claude Code 忠实用户到被说服切换到 Codex：一场 64 分钟的 OpenAI Codex 大师课 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">人工智能</span>
+            
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">AI编程</span>
+            
+            <span class="topic-chip">OpenAI Codex</span>
+            
+            <span class="topic-chip">自动化工作流</span>
+            
+            <span class="topic-chip">Computer Use</span>
+            
+            <span class="topic-chip">GPT-5.5</span>
+            
+            <span class="detail-reading-time">约 21 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">从 Claude Code 忠实用户到被说服切换到 Codex：一场 64 分钟的 OpenAI Codex 大师课</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Codex 不是一个编码工具,而是一个把编码、文档、表格、PPT、研究、浏览器操作、计算机操作、自动化全部塞进同一个界面的“超级应用” 一个好范例胜过一段好指令;五个好范例就能稳定输出 如果你刚要进入 AI 协作工作流,Codex 当前是上手成本最低、覆盖任务面最广的单一入口</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文基于Greg Isenberg与Riley Brown的64分钟对谈，探讨了OpenAI Codex作为集成编码、文档、研究等多功能的“超级应用”的优势。Riley展示了Codex在复杂任务、自动化工作流及Computer Use等方面的实际能力，并建议与Claude Code结合使用，以发挥各自所长。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/sIyY2QtrXcYx6uJJ6WooRw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>文章通过一场生动的对谈，清晰对比了Codex与Claude Code的定位差异，强调了Codex作为集成化“超级应用”的潜力。Riley提出的“双订阅”策略和“范例优于指令”的方法论极具启发性，为开发者提供了务实的工具选择与AI落地思路。内容详实，观点鲜明，对关注AI编程工具发展的读者有很高参考价值。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#从-claude-code-忠实用户到被说服切换到-codex一场-64-分钟的-openai-codex-大师课" class="toc-link">从 Claude Code 忠实用户到被说服切换到 Codex：一场 64 分钟的 OpenAI Codex 大师课</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#核心论点-openai-codex-正在变成知识工作-编码的-super-app" class="toc-link">核心论点: OpenAI Codex 正在变成&#34;知识工作 + 编码&#34;的 Super App</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#claude-code-vs-codex-riley-的实际取舍" class="toc-link">Claude Code vs Codex: Riley 的实际取舍</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#gpt-55-的关键变化与够用就好的精度选择" class="toc-link">GPT 5.5 的关键变化与&#34;够用就好&#34;的精度选择</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#plugins-skills-mcp-connectors-术语乱局的实用拆解" class="toc-link">Plugins / Skills / MCP / Connectors: 术语乱局的实用拆解</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#notion-集成的外科手术式权限" class="toc-link">Notion 集成的&#34;外科手术式&#34;权限</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#computer-use-的宽带时刻" class="toc-link">Computer Use 的&#34;宽带时刻&#34;</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#chronicle屏幕级记忆层隐私警告" class="toc-link">Chronicle:屏幕级记忆层(隐私警告)</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#remotion被低估的代码生成视频工作流" class="toc-link">Remotion:被低估的&#34;代码生成视频&#34;工作流</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#computer-use-与-swift-移动应用一次成型" class="toc-link">Computer Use 与 Swift 移动应用一次成型</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第一天上手的-4-个练习项目" class="toc-link">第一天上手的 4 个练习项目</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#值得直接抄走的几条原则" class="toc-link">值得直接抄走的几条原则</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#最后一句话总结" class="toc-link">最后一句话总结</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#codex-相关资源推荐" class="toc-link">Codex 相关资源推荐</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="从-claude-code-忠实用户到被说服切换到-codex一场-64-分钟的-openai-codex-大师课">从 Claude Code 忠实用户到被说服切换到 Codex：一场 64 分钟的 OpenAI Codex 大师课</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_jpg/3KDziaaZDosmLmUWQEJhVt7pD2tEOXFDxFL1gjktfaTHZpbyukGDx4icTDC3PyMOy6nSzBrIw4ug6ibbW3x1TIicejicR4eiboRUr5vmS2TS8oyXU/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<blockquote>
+<p>基于 Greg Isenberg × Riley Brown 的 64 分钟对谈（<em>Startup Ideas Podcast</em>） </p>
+<p>视频原链接：YouTube — Stop using Claude. Start using Codex? </p>
+<p>https://www.youtube.com/watch?v=LWx4FGam2aQ&amp;t=1804s</p>
+</blockquote>
+<p>这是一期"怀疑者被说服"的对谈。Greg 自己坦言此前从未下载过 Codex，长期使用 Claude Code，而 Riley Brown（这是他第 5 次上 <em>Startup Ideas Podcast</em>）的任务是用一小时把他拉进 Codex 生态。咱们看看他是怎么做到的？你会不会也能成功被吸引到 Codex 阵营中？！</p>
+<hr />
+<h2 id="核心论点-openai-codex-正在变成知识工作-编码的-super-app">核心论点: OpenAI Codex 正在变成"知识工作 + 编码"的 Super App</h2>
+<p>Riley 的中心主张是:<strong>Codex 不是一个编码工具,而是一个把编码、文档、表格、PPT、研究、浏览器操作、计算机操作、自动化全部塞进同一个界面的"超级应用"</strong>,底层模型是刚发布的 GPT 5.5。</p>
+<p>他给出的对照参考是 Claude 的产品分裂:</p>
+<ul>
+<li>Claude Code 负责写代码;</li>
+<li>Claude Cowork 负责知识工作;</li>
+<li>两者权限体系、运行环境互不相通。</li>
+</ul>
+<p>Riley 认为这种割裂"没有任何合理理由"——做 landing page 的人本来就需要在同一个界面里写文档、做调研、生成站点。Codex 的产品决策是把这些合并到一个 GUI 里:左边对话列表、中间 agent、右边产物(这恰好也是新版 Cursor 和新版 Claude Desktop 收敛到的同一个 GUI 范式)。</p>
+<blockquote>
+<p>值得注意的判断:<strong>2025 是 TUI 之年,2026 行业共识正在回到 GUI。</strong> Claude Code 的早期终端体验虽然让极客兴奋,但对大多数业务用户门槛过高。</p>
+</blockquote>
+<hr />
+<h2 id="claude-code-vs-codex-riley-的实际取舍">Claude Code vs Codex: Riley 的实际取舍</h2>
+<p>不是非此即彼,而是"叠加订阅"。Riley 给出的真实工作流是:</p>
+<ol>
+<li>平时用 Codex(GPT 5.5),因为它对<strong>复杂基础设施类任务</strong>更稳。他和七位工程师组成的团队都已切换。他举了一个例子:用 GPT 5.4 一次性(one-shot)生成了一个类似 Replit 的 vibe coding 工具,含沙箱,耗时 1 小时 20 分钟。</li>
+<li>在 Codex 内按 <code>Cmd+J</code> 打开终端,输入 <code>claude</code>,就能在 Codex 里直接跑 Claude Code,<strong>同时复用 Anthropic 订阅的 token 额度</strong>。</li>
+<li>设计类调整交给 Claude("Claude 在设计审美上更强"是他直接承认的);底层重活交给 Codex。</li>
+</ol>
+<p>这个组合的隐含信息是:<strong>目前没有一个模型能在所有维度领先</strong>,订阅经济(每月 $100–200 包含上千美元等值 token)让"双订阅"变成成本最低的策略。</p>
+<hr />
+<h2 id="gpt-55-的关键变化与够用就好的精度选择">GPT 5.5 的关键变化与"够用就好"的精度选择</h2>
+<ul>
+<li>API 价格大约是 GPT 5.4 的 <strong>2 倍</strong>,比 Opus 4.7 高约 <strong>20%</strong>。</li>
+<li>但 Riley 指出更关键的指标变化:<strong>Token 效率不再是衡量标准,"完成同一任务的总耗时与总成本"才是</strong>。GPT 5.5 更会揣摩用户意图,因此走弯路更少。</li>
+<li>Effort 档位有四档:low / medium / high / extra high。社区(Theo 等)的经验是:<strong>简单改动用 low/medium 即可</strong>,extra high 反而会让模型过度思考、自行扩大改动范围。Riley 自己承认懒得切档,长期挂在 extra high。</li>
+</ul>
+<p>对独立开发者的现实建议:<strong>默认 medium,只有真复杂的任务才升档。</strong> 这是省钱且更可控的姿态。</p>
+<hr />
+<h2 id="plugins-skills-mcp-connectors-术语乱局的实用拆解">Plugins / Skills / MCP / Connectors: 术语乱局的实用拆解</h2>
+<p>Riley 也吐槽了这套术语的混乱(plugin 用 <code>@</code> 触发,skill 用 <code>/</code> 触发,UI 还把它们混在同一个 tab 里)。他给出的可用心智模型:</p>
+<p>| 概念 | 谁能创建 | 本质 |<br />
+| --- | --- | --- |<br />
+| <strong>Plugin</strong> | 仅 OpenAI 审核通过的官方集成(Slack、Notion、Sheets、Expo、Remotion、Canva 等) | 深度集成 |<br />
+| <strong>Skill</strong> | 任何用户都能建 | 一个文件夹 + 一个 <code>SKILL.md</code>,里面是给 agent 的指令 |</p>
+<p>创建 Skill 的方法朴素到让人意外:<strong>直接对 Codex 说"帮我创建一个做 X 的 skill"</strong>,模型会自动生成 <code>SKILL.md</code> 并落盘。Riley 的两个示例:</p>
+<ul>
+<li><code>YouTube Researcher</code>:拉取频道近 N 个视频的 transcript 并生成报告。</li>
+<li><code>Internet Image Puller</code>:抓取一个公司的全部品牌资产(logo、配色、字体)落地为 HTML,供 Remotion 调用。</li>
+</ul>
+<p>这一段最有价值的方法论是:<strong>与其教 AI"怎么做",不如给它"好结果的样本"</strong>。Riley 反复强调:"一个好范例胜过一段好指令;五个好范例就能稳定输出。" 他给企业的建议是 —— <strong>把 AI 落地的关键工作不是写 prompt,而是系统性收集"好的成品样本"</strong>,存进 Notion 数据库,让 agent 检索引用。</p>
+<hr />
+<h2 id="notion-集成的外科手术式权限">Notion 集成的"外科手术式"权限</h2>
+<p>这是被低估的实用细节:Notion 插件允许<strong>只授权一个 database</strong>,而不是整个 workspace。对在意隐私和安全边界的用户,这意味着可以让 agent 只读写"视频脚本库"这种单一空间,不污染其他内容。</p>
+<p>Riley 自己已经基本不再深度使用 Notion("上手成本太高,难以让团队成员加入"),但保留它作为视频脚本评论区。他更看好的未来形态是:<strong>Notion 作为浏览器里的一个网页存在,agent 通过浏览器操作它,订阅成本由 Codex 一侧承担</strong>。</p>
+<hr />
+<h2 id="computer-use-的宽带时刻">Computer Use 的"宽带时刻"</h2>
+<p>去年 Manus 等产品的 browser/computer use 体验"像拨号上网"。Riley 在节目中演示了一个 one-shot 提示:</p>
+<blockquote>
+<p>"做一个国际象棋游戏,然后用 computer use 在游戏里和自己对弈,直到一方获胜。"</p>
+</blockquote>
+<p>Codex 一次成型生成了游戏,调起浏览器,自己同时执行白方和黑方,直至将死。<strong>速度接近正常人手动操作。</strong> Riley 的判断:<strong>到 2026 年年底,browser agent 的速度将逼近人类</strong>,意味着"任何能用浏览器完成的事都能被自动化"。</p>
+<p>伴随而来的是 Atlas(OpenAI 的浏览器)正在被并入 Codex,未来会成为持久登录的完整浏览器——这是和 Claude Code / Cursor 的产品边界差异最大的一点。</p>
+<hr />
+<h2 id="chronicle屏幕级记忆层隐私警告">Chronicle:屏幕级记忆层(隐私警告)</h2>
+<p>发布时间是录制前两天。机制是 <strong>持续观察屏幕,把上下文沉淀为 Codex 的长期记忆</strong>。Riley 自己开了,但明确说"这是工作机,我不在乎隐私;不建议你直接照做"。</p>
+<p>它的潜在价值在于:<strong>不再需要给 agent 解释你正在做什么</strong>。但风险面同样真实。专业建议是:<strong>了解它存在 → 评估你的合规边界 → 不要默认启用。</strong></p>
+<hr />
+<h2 id="remotion被低估的代码生成视频工作流">Remotion:被低估的"代码生成视频"工作流</h2>
+<p>Remotion 是用 React 代码生成 motion graphics 视频的框架。Codex 自带 Remotion 插件,<code>@remotion</code> 即可触发。Riley 的工作流:</p>
+<ol>
+<li>先用 <code>Internet Image Puller</code> 抓取品牌资产到 <code>brand-assets</code> 目录;</li>
+<li>在 Remotion 任务里引用资产路径:"请用 X logo + 这套配色生成 Y 场景";</li>
+<li>Codex 同时启动 Remotion 预览(类似 CapCut 时间轴)让你 review。</li>
+</ol>
+<p>Anthropic 的产品发布视频几乎全是 Remotion 产出。Greg 提到他认识的多个账号靠 Remotion 视频从 0 涨到 10 万 Instagram 粉丝。<strong>对早期创业者来说,这是当前性价比最高的 launch video 路径</strong>——比 Sora 类生成视频可控,比 After Effects 门槛低。</p>
+<blockquote>
+<p>Riley 的设计原则:<strong>好的发布视频永远只让一件事在屏幕上发生</strong>,避免视觉过载。</p>
+</blockquote>
+<hr />
+<h2 id="computer-use-与-swift-移动应用一次成型">Computer Use 与 Swift 移动应用一次成型</h2>
+<ul>
+<li>Computer Use 现在能<strong>同时控制多个本地应用</strong>。Riley 演示过让它操作 Canva、导出文件、再把结果回喂给 Codex。</li>
+<li>Swift 移动应用:本地需要 Mac + Xcode,但 Codex 能 one-shot 出<strong>完整移动应用</strong>。Riley 的原话:"已经到了让我有点害怕的程度——任何能存在的 app 都将存在。"</li>
+</ul>
+<p>这两点指向同一个方向:<strong>未来差异不在"能不能造",而在"造什么、为谁造、如何分发"</strong>。</p>
+<hr />
+<h2 id="第一天上手的-4-个练习项目">第一天上手的 4 个练习项目</h2>
+<p>Riley 把这部分单独写下来了,按顺序执行价值最大:</p>
+<ol>
+<li><strong>做一个游戏,让 computer use 和自己对弈</strong>——直观感受 computer agent 的现状与三个月后的位置。</li>
+<li><strong>一次端到端的深度研究</strong>:让 agent 用 max effort 调研一个主题 → 输出 spreadsheet → 转成 doc → 转成 deck。一遍走完,你就懂了"知识工作管线"。</li>
+<li><strong>3D 模拟</strong>——纯粹好玩,但能让你直觉化感知物理引擎类任务的能力上限。</li>
+<li><strong>把现有 web app 迁成 Swift 移动应用</strong>——只在你有真实需求时做。</li>
+</ol>
+<p>完成上述之后,<strong>列出你每天最烦的工作 → 用 Plugin 或 Skill 拼出工作流 → 让 agent 把它转成 Automation(Codex 自带的定时任务)</strong>。Riley 给出的句式很简单:"I want you to do this every Friday at 9am, please create an automation." 模型直接帮你建调度。</p>
+<p>Greg 现场演示了一遍:让 Codex 每周五早上 9 点拉取本周视频做"只挑毛病的报告"。</p>
+<hr />
+<h2 id="值得直接抄走的几条原则">值得直接抄走的几条原则</h2>
+<ol>
+<li><strong>挑一套技术栈,坚持下去</strong>。Riley 反复强调"在热门工具间反复横跳是反生产力的"。换栈的代价是放弃肌肉记忆和自建 skills 库。</li>
+<li><strong>承担"看起来很笨"的成本</strong>。在 SF 真正赢的人不是"tinkerer"本身,而是<strong>不怕看起来笨的 tinkerer</strong>。</li>
+<li><strong>用录屏代替写文档</strong>。即将到来的 Codex 版本会支持上传视频学习工作流——意味着<strong>现在养成录屏习惯就是为未来 agent 训练数据做储蓄</strong>。这也是 Meta、Microsoft 内部要求员工录屏的真正动机。</li>
+<li><strong>examples &gt; instructions</strong>。这是企业落地 AI 的最大杠杆。</li>
+</ol>
+<hr />
+<h2 id="最后一句话总结">最后一句话总结</h2>
+<blockquote>
+<p>如果你已经在 Claude Code 里做得顺手,不必迁移;如果你刚要进入 AI 协作工作流,<strong>Codex 当前是上手成本最低、覆盖任务面最广的单一入口</strong>——但请把它当作"实验场",按 Riley 的 4 个项目走一遍,再决定要不要把它接进你的真实业务流。</p>
+</blockquote>
+<hr />
+<h2 id="codex-相关资源推荐">Codex 相关资源推荐</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496787&amp;idx=1&amp;sn=737e84fcc60df9e9da2f9f65f10ee543&amp;scene=21#wechat_redirect">OpenAI Codex 官方最佳实践和最新六大关键能力升级</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496782&amp;idx=1&amp;sn=13834e1685cd4251cad4d82126db298d&amp;scene=21#wechat_redirect">Codex + GPT-5.4 vs. Claude Code + Opus 4.6，Codex 除了慢几乎全面占优、自主性强、适合企业开发，CC 速度和迭代快适合中小型开发</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496683&amp;idx=1&amp;sn=11d899f9a7b8c75c8d0c93209bd2cc72&amp;scene=21#wechat_redirect">OpenAI Codex 核心成员访谈：Codex 团队如何用 Codex 做研发工作，对 AI Native 团队又有哪些重要启发？</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496549&amp;idx=1&amp;sn=e77c28290d2ca3204de3147522b71832&amp;scene=21#wechat_redirect">OpenAI Codex 最佳实践指南——8个步骤完整闭环、5个实操结论和7个典型误区</a></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvicmnjSxkvY.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">不写代码如何榨干模型 token plan 价值？</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
