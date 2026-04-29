@@ -91,7 +91,7 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">教程实操</span>
+            <span class="card-tag card-tag-primary">技术教程</span>
             
             
             <span class="topic-chip">OpenClaw</span>
@@ -102,7 +102,7 @@
             
             <span class="topic-chip">自动化</span>
             
-            <span class="detail-reading-time">约 8 分钟阅读</span>
+            <span class="detail-reading-time">约 57 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +114,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>OpenClaw接入微信实现AI助理在微信中的直接对话。</p>
+                <p>调通了，OpenClaw+微信才是天选组合。 这个方案的原理是使用企业微信的微信插件能力，让用户可以在手机微信APP上和企业微信AI主理对话聊天。 教程分成3部分：1、配置OpenClaw 成公网 2、开通企业微信应用 3、设置企业微信插件</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>核心内容： 通过企业微信插件，实现OpenClaw与微信的直接对话，打造个人AI助理。 关键步骤与数据： 1. 公网配置：需将OpenClaw部署至云服务器（腾讯云/阿里云），修改配置文件（bind设为lan，allowedOrigins填公网IP）。 2. 插件安装：运行命令 openclaw plugins install @openclaw-china/wecom-app 安装官方微信插件。 3. 企业微信应用： 创建应用时需配置 5项参数（Corp ID/Secret、Agent ID、Token）。 回调URL格式：http://公网IP:18789/wecom/agent（HTTP协议+固定端口）。 必须添加服务器IP到 企业可信IP 列表。 核心价值： 微信直连：借助企业微信插件，在14亿用户使用的微信中直接调用OpenClaw。 功能场景：支持定时任务（如天气推送）、数据私有化（服务器自主可控）。 部署建议：云服务器更安全稳定，避免本地复杂配置风险。 总结：该方案以企业微信为桥梁，打通OpenClaw与微信生态，实现“私人AI助理进驻微信”的便捷体验。</p>
+                <p>本文介绍了如何将OpenClaw接入微信的保姆级教程，通过企业微信的微信插件能力，实现用户在手机微信APP上与OpenClaw助理对话。教程分为配置OpenClaw为公网、开通企业微信应用和设置企业微信插件三部分，详细说明了操作步骤和参数配置。</p>
             </div>
             
             
@@ -134,41 +134,222 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文提供了一篇详尽的保姆级教程，指导用户如何将OpenClaw接入微信，解决了用户在使用飞书、QQ等平台时的纠结。通过企业微信的微信插件，实现了在微信中直接与AI助理对话的功能，提升了日常使用的便捷性。教程步骤清晰，适合技术爱好者参考。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#告别飞书和qqopenclaw接入微信才是天选组合保姆级教程" class="toc-link">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#一配置微信插件" class="toc-link">一、配置微信插件</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#二openclaw配置成公网" class="toc-link">二、OpenClaw配置成公网</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#三安装微信插件" class="toc-link">三、安装微信插件</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#四创建企业微信应用" class="toc-link">四、创建企业微信应用</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#1新建企业微信应用" class="toc-link">1、新建企业微信应用</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#2为openclaw配置通道" class="toc-link">2、为OpenClaw配置通道</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#corp-id" class="toc-link">Corp ID</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#corp-secret" class="toc-link">Corp Secret</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#agent-id" class="toc-link">Agent ID</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#token" class="toc-link">Token</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#3配置url" class="toc-link">3、配置URL</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#4配置企业可信ip" class="toc-link">4、配置企业可信IP</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#5测试企业微信应用" class="toc-link">5、测试企业微信应用</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#五写在最后" class="toc-link">五、写在最后</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#openclaw-微信-ai工具-ai教程" class="toc-link">openclaw #微信 #AI工具 #AI教程</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题：告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</p>
-<p>文章摘要：<br />
-这篇文章主要介绍了如何将OpenClaw接入微信，实现AI助理在微信中的直接对话。文章详细描述了配置OpenClaw成为公网、开通企业微信应用、设置企业微信插件等步骤，帮助用户实现这一功能。</p>
-<p>文章正文：<br />
-兄弟们！你们安装小龙虾（OpenClaw）之后，在接入聊天软件时是不是都会纠结？现在OpenClaw支持：飞书、QQ、企业微信、钉钉、Telegram、Discord。企业微信和钉钉是办公软件，后两个一般用户使用不了。相比飞书和QQ，微信才是大家日常用的最多的聊天工具。刚好想起前天看到江枫老师写的微信接入OpenClaw的文章，试着操作了下。调通了，OpenClaw+微信才是天选组合。可以在微信中直接和OpenClaw助理对话，我给他设定了个定时任务，每天帮我推送深圳的天气。这个方案的原理是使用企业微信的微信插件能力，让用户可以在微信中调用。</p>
-<p>教程分成3部分：<br />
-1、配置OpenClaw 成公网<br />
-2、开通企业微信应用<br />
-3、设置企业微信插件</p>
-<p>一、配置微信插件<br />
-企业微信中有个微信插件，微信扫码后，就可以在微信中接受企业通知和使用企业应用。创建微信插件：上传logo，微信扫提二维码关注企业微信。借助微信插件把OpenClaw和微信打通。可以直接在微信中合openclaw助理对话，让安装skills：</p>
-<p>二、OpenClaw配置成公网<br />
-首先说下，我是使用腾讯云服务器来配备的（阿里云也是支持的），本地部署方法据说会比较麻烦（设置NAT穿越）。本身云服务就有公网IP，我们可以把服务器配置成公网地址。打开OpenClaw.json文件，修改下面几个配置：bind--修改成lan、allowedOriginsd修改成你的公网IP、allowInsecureAuth修改 true、dangerouslyDisableDeviceAuth修改 true。修改参数后，用HTTP的方式也能访问，但是出于安全性不要泄露自己的IP以及token。修改好之后，运行重起指令让配置生效。openclaw gateway restart。进入WEBUI页面，在快照地方看到状态是绿色的正常，说明配置成功了。</p>
-<p>三、安装微信插件<br />
-安装openclaw官方微信插件，运行下面的指令：openclaw plugins install @openclaw-china/wecom-app。等待一会时间，插件安装完成。</p>
-<p>四、创建企业微信应用<br />
-这一步是创建企业微信应用，详细教程也可以看官方说明。OpenClaw快速接入企业微信指南：https://cloud.tencent.com/developer/article/2625147</p>
-<p>1、新建企业微信应用<br />
-首先说明，个人也是可以创建企业微信的，只是无法认证。地址：https://work.weixin.qq.com/。用微信扫码登录后，进入应用管理 应用页面，在自建位置点击【创建应用】。上传应用Logo、填写应用名称、选择可见范围，点击【创建应用】按钮。</p>
-<p>2、为OpenClaw配置通道<br />
-在腾讯云应用管理控制台，进入应用详情页，在OpenClaw配置面板中，添加企业微信应用通道，需要配置五个参数。Corp ID、Corp Secret、Agent ID、Token。这五个参数全部填写完成后，单击下方的添加并应用按钮并确认操作。等待片刻完成配置后，可以看到已接入通道中企业微信应用显示“运行中”状态。</p>
-<p>此时需要返回之前配置URL的应用管理页面，参考以下步骤来配置URL。行者的企业微信没有认证，用的是企业微信使用公网IP地址组成URL链接的方式来配置URL。进入腾讯云控制台，找到对应的已部署OpenClaw的服务器，复制服务器的公网IP地址。将复制好的公网IP地址，替换到下面的URL链接中，填入到企业微信管理页面的URL输入框中。注意URL需要使用http而非https，并使用英文冒号，并且加上端口号（默认为18789）和 /wecom/agent 。</p>
-<p>4、配置企业可信IP<br />
-配置企业可信IP，这一步决定了您的企业微信应用是否能够接收到来自您部署的OpenClaw回复的信息。同样需要进入前面创建的企业微信应用管理详情页，在页面底部找到企业可信IP，并单击配置。在配置企业可信IP的弹窗中，填入OpenClaw的轻量应用服务器的IP地址，点击确定。</p>
-<p>5、测试企业微信应用<br />
-配置完成后，您可以前往企业微信客户端软件的工作台，找到刚才创建的应用，可以尝试与它进行对话。如果企业微信应用能够以AI的方式对话，则说明您已经成功完成OpenClaw接入企业微信应用。</p>
-<p>五、写在最后<br />
-今天有个朋友打电话问我，小龙虾没有安卓中文版，他说下载了一个APP，结果把他的手机文件删了。也有朋友问本地部署，有没有什么安全要注意的。这些问题让我意识到：现在OpenClaw还是小众的玩具，复杂度还是很高。如果你只是想体验 OpenClaw AI 助理的强大能力，使用云服务器部署是最稳妥的选择。再结合今天分享的微信接入方案，你就拥有了一个：随时在线的私人助理（微信里直接对话）、专属定制的智能管家（设置天气推送、日程提醒）、安全可控的 AI 工具（数据在自己的服务器上）。OpenClaw 的接入越来越简单，但它带给我们的可能性却越来越大。当 AI 助理住进了 14 亿人都在用的微信，更是让 AI 真正为普通人服务的开始。你的 AI 助理，现在就在微信里等你。</p>
+            <h1 id="告别飞书和qqopenclaw接入微信才是天选组合保姆级教程">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/x131BwxsiaQ4tNic07QCZNhABnykDzKHWVpO6JP9yablJgVib5RjkHdAPdJ4Jjo3uk7nm5XdpVWf0PXzTu0v28Ud615zu0UXVINdoibACuvicFSI/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>兄弟们！</p>
+<p>你们安装小龙虾（OpenClaw）之后，在接入聊天软件时是不是都会纠结？</p>
+<p>现在OpenClaw支持：飞书、QQ、企业微信、钉钉、Telegram、Discord。</p>
+<p>企业微信和钉钉是办公软件，后两个一般用户使用不了。</p>
+<p>相比飞书和QQ，微信才是大家日常用的最多的聊天工具。</p>
+<p>刚好想起前天看到江枫老师写的微信接入OpenClaw的文章，试着操作了下。</p>
+<p>调通了，OpenClaw+微信才是天选组合。</p>
+<p>可以在微信中直接和OpenClaw助理对话，我给他设定了个定时任务，每天帮我推送深圳的天气。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/x131BwxsiaQ5A6LTnRialvDVH1V3F0iapv7wolMQflO15htJibbn3p89xELsly6qjLxkpQruGeE42lHuictYz1ZNWuZUMfj1r5jk6Dtuv58c1jDk/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" /></p>
+<p>这个方案的原理是使用企业微信的微信插件能力，让用户可以在手机微信APP上和企业微信AI主理对话聊天。</p>
+<blockquote>
+<p>教程分成3部分：</p>
+<p>1、配置OpenClaw 成公网</p>
+<p>2、开通企业微信应用</p>
+<p>3、设置企业微信插件</p>
+</blockquote>
+<h2 id="一配置微信插件">一、配置微信插件</h2>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>企业微信中有个微信插件，微信扫码后，就可以在微信中接受企业通知和使用企业应用。</p>
+<p>创建微信插件：上传logo，微信扫提二维码关注企业微信</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>借助微信插件把OpenClaw和微信打通。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>可以直接在微信中合openclaw助理对话，让安装skills：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="二openclaw配置成公网">二、OpenClaw配置成公网</h2>
+<p>首先说下，我是使用腾讯云服务器来配备的（阿里云也是支持的），本地部署方法据说会比较麻烦（设置NAT穿越）。</p>
+<p>本身云服务就有公网IP，我们可以把服务器配置成公网地址。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>打开OpenClaw.json文件，修改下面几个配置：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<blockquote>
+<ol>
+<li>bind--&gt;修改成lan</li>
+<li>allowedOriginsd--&gt;修改成你的公网IP</li>
+<li>allowInsecureAuth--&gt;修改 true,</li>
+<li>dangerouslyDisableDeviceAuth--&gt;修改 true</li>
+</ol>
+</blockquote>
+<p>修改参数后，用HTTP的方式也能访问，但是出于安全性不要泄露自己的IP以及token。</p>
+<p>修改好之后，运行重起指令让配置生效。</p>
+<blockquote>
+<p>openclaw gateway restart</p>
+</blockquote>
+<p>进入WEBUI页面，在快照地方看到状态是绿色的正常，说明配置成功了。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="三安装微信插件">三、安装微信插件</h2>
+<p>安装openclaw官方微信插件，运行下面的指令：</p>
+<blockquote>
+<p>openclaw plugins install @openclaw-china/wecom-app</p>
+</blockquote>
+<p>等待一会时间，插件安装完成。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="四创建企业微信应用">四、创建企业微信应用</h2>
+<p>这一步是创建企业微信应用，详细教程也可以看官方说明。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>OpenClaw快速接入企业微信指南:</strong></p>
+<p>https://cloud.tencent.com/developer/article/2625147</p>
+<h3 id="1新建企业微信应用">1、新建企业微信应用</h3>
+<p>首先说明，个人也是可以创建企业微信的，只是无法认证。</p>
+<p>地址：https://work.weixin.qq.com/</p>
+<p>用微信扫码登录后，进入应用管理 &gt; 应用页面，在自建位置点击<strong>【创建应用】。</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>上传应用Logo、填写应用名称、选择可见范围，点击【**创建应用】**按钮。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h3 id="2为openclaw配置通道">2、为OpenClaw配置通道</h3>
+<p>在腾讯云应用管理控制台，进入应用详情页，在OpenClaw配置面板中，添加<strong>企业微信应用</strong>通道，需要配置五个参数。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h4 id="corp-id">Corp ID</h4>
+<p>在企业微信管理后台中，找到“我的企业-企业信息”页面，在页面底部找到企业ID并且复制，后续步骤中需要使用。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>将复制好的企业ID，粘贴至OpenClaw配置面板中的对应位置（Corp ID）输入框。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h4 id="corp-secret">Corp Secret</h4>
+<p>在企业微信管理后台中，找到刚才创建好的OpenClaw应用，进入应用详情。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>在应用详情页内，找到<strong>Secret</strong>，点击查看按钮，在弹窗中点击<strong>发送。</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>企业微信会收到一条消息提醒，在这个界面内复制Secret。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>将复制好的Secret，粘贴到OpenClaw配置面板中的**【Corp Secret】**输入框中。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h4 id="agent-id">Agent ID</h4>
+<p>在企业微信应该管理中，找到Agent ID，复制并粘贴到OpenClaw配置面板中的**【Agent ID】**输入框中。</p>
+<h4 id="token">Token</h4>
+<p>在企业微信应用管理详情页【接收消息】，点击【<strong>设置API接收】。</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>点击随机获取Token和EncodingAESKey，然后将这两个参数分别填入OpenClaw配置面板的对应位置输入框中。</p>
+<p>这五个参数全部填写完成后，单击下方的<strong>添加并应用</strong>按钮并确认操作。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>等待片刻完成配置后，可以看到已接入通道中企业微信应用显示“运行中”状态。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>此时需要返回之前配置URL的应用管理页面，参考以下步骤来配置URL。</p>
+<h3 id="3配置url">3、配置URL</h3>
+<p>行者的企业微信没有认证，用的是企业微信使用公网IP地址组成URL链接的方式来配置URL。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>进入腾讯云控制台，找到对应的已部署OpenClaw的服务器，复制服务器的公网IP地址。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>将复制好的公网IP地址，替换到下面的URL链接中，填入到企业微信管理页面的URL输入框中。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>注意URL需要使用http而非https，并使用英文冒号，并且加上端口号（默认为18789）和 /wecom/agent 。</p>
+<h3 id="4配置企业可信ip">4、配置企业可信IP</h3>
+<p>配置企业可信IP，这一步决定了您的企业微信应用是否能够接收到来自您部署的OpenClaw回复的信息。</p>
+<p>同样需要进入前面创建的企业微信应用管理详情页，在页面底部找到<strong>企业可信IP</strong>，并单击<strong>配置。</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>在配置企业可信IP的弹窗中，填入OpenClaw的轻量应用服务器的IP地址，点击<strong>确定。</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h3 id="5测试企业微信应用">5、测试企业微信应用</h3>
+<p>配置完成后，您可以前往企业微信客户端软件的<strong>工作台，</strong>找到刚才创建的应用，可以尝试与它进行对话。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>如果企业微信应用能够以AI的方式对话，则说明您已经成功完成OpenClaw接入企业微信应用。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="五写在最后">五、写在最后</h2>
+<p>今天有个朋友打电话问我，小龙虾没有安卓中文版，他说下载了一个APP，结果把他的手机文件删了。</p>
+<p>也有朋友问本地部署，有没有什么安全要注意的。</p>
+<p>这些问题让我意识到：现在OpenClaw还是小众的玩具，复杂度还是很高。</p>
+<p>如果你只是想体验 OpenClaw AI 助理的强大能力，使用云服务器部署是最稳妥的选择。</p>
+<p>再结合今天分享的微信接入方案，你就拥有了一个：</p>
+<ul>
+<li>随时在线的私人助理（微信里直接对话）</li>
+<li>专属定制的智能管家（设置天气推送、日程提醒）</li>
+<li>安全可控的 AI 工具（数据在自己的服务器上）</li>
+</ul>
+<p>OpenClaw 的接入越来越简单，但它带给我们的可能性却越来越大。</p>
+<p>当 AI 助理住进了 14 亿人都在用的微信，更是让 AI 真正为普通人服务的开始。</p>
+<p>你的 AI 助理，现在就在微信里等你。</p>
+<h1 id="openclaw-微信-ai工具-ai教程">openclaw #微信 #AI工具 #AI教程</h1>
+<p>今天的干货就分享到这里啦！觉得有用的话，点赞❤️、在看🌟、转发↗️ 三连鼓励下吧～  </p>
+<p>如果想第一时间收到推送，也可以给我点个星标哦！⭐</p>
         </div>
     </article>
 

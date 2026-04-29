@@ -91,7 +91,7 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">内容创作</span>
+            <span class="card-tag card-tag-primary">AI应用</span>
             
             
             <span class="topic-chip">公众号</span>
@@ -102,7 +102,7 @@
             
             <span class="topic-chip">内容创作</span>
             
-            <span class="detail-reading-time">约 3 分钟阅读</span>
+            <span class="detail-reading-time">约 24 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +114,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>作者成功开发了一个全自动AI Skill，通过解决微信平台技术挑战实现公众号文章端到端自动化生产。</p>
+                <p>微信公众号编辑器底层用的是 ProseMirror——一个富文本编辑框架。ProseMirror 在处理粘贴内容时，会对 HTML 做&#39;清洗&#39;，把它认为&#39;不安全&#39;或&#39;不规范&#39;的 CSS 全部剥掉。 这些规则没有任何官方文档。全是一个个试出来的。 每一个坑，都变成了流水线上的一个检查点。每一次失败，都变成了 fallback ladder 上的一级台阶。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>在《我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill》一文中，作者分享了利用AI自动化公众号写作的经历。核心挑战包括：微信编辑器导致HTML样式丢失、微信HTML语法差异（需用section替代div）、封面图需API上传获取mediaid、工具链兼容性问题及AI错误致草稿为空。解决方案为：直接调用微信API写入HTML、遵循微信规则（如table模拟flex）、设计fallback降级策略确保稳定性、使用Pencil模板排版并生成证据台账。最终开发了全自动Skill，通过capability alias解耦工具、phase-based pipeline支持多格式输入输出。作者总结，Skill已从幻想变现实，每个坑转为检查点，并邀请用户反馈及加入AI分享群。（198字）</p>
+                <p>作者分享了利用AI自动撰写和发布微信公众号文章的完整经历，详细记录了在开发过程中遇到的五个主要坑点，包括微信编辑器样式丢失、HTML兼容性问题、封面图要求、工具链崩溃以及AI操作层错误。最终，作者将这些经验整合成一个名为research-to-wechat的全自动Skill，实现了从研究到发布的端到端自动化流程。</p>
             </div>
             
             
@@ -134,62 +134,141 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文以第一人称视角，生动记录了作者在探索AI自动化撰写公众号文章过程中遇到的种种技术挑战与解决方案。文章不仅分享了具体的技术踩坑经验，如微信编辑器的HTML处理机制、平台特定的样式限制等，还详细介绍了如何将这些经验系统化为一个可复用的全自动Skill。这种从实践出发、将问题转化为工具的方法论，对从事内容自动化、AI应用开发的读者具有很高的参考价值。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#我让-ai-帮我写公众号踩了无数坑后做了一个全自动-skill" class="toc-link">我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill》。文章主要讲述了作者如何利用 AI 自动撰写公众号文章的经历，以及在此过程中遇到的种种挑战和解决方案。</p>
-<p>文章内容分为以下几个部分：</p>
-<ol>
-<li>
-<p><strong>引言</strong>：作者介绍了自己的背景，以及使用 AI 写公众号的初衷。</p>
-</li>
-<li>
-<p><strong>遇到的挑战</strong>：</p>
-</li>
-<li>微信编辑器对样式进行处理，导致粘贴的 HTML 样式丢失。</li>
-<li>微信的 HTML 语法与标准 HTML 有所不同，需要特别处理。</li>
-<li>微信文章必须有封面图，需要通过 API 上传图片并获取 media_id。</li>
-<li>工具链在关键时刻出现兼容性问题。</li>
-<li>
-<p>AI 操作过程中出现错误，导致草稿内容为空。</p>
-</li>
-<li>
-<p><strong>解决方案</strong>：</p>
-</li>
-<li>使用微信提供的 API 直接写入 HTML，绕过编辑器。</li>
-<li>遵循微信的 HTML 规则，使用 section 替代 div，用 table 模拟 flex，使用 inline style。</li>
-<li>通过 API 上传图片到微信 CDN，获取 media_id 并保存草稿。</li>
-<li>设计 fallback ladder 降级策略，确保流程的稳定性。</li>
-<li>使用 Pencil 设计模板进行排版和配图。</li>
-<li>
-<p>生成证据台账，明确信息来源和可信度。</p>
-</li>
-<li>
-<p><strong>Skill 的设计和实现</strong>：</p>
-</li>
-<li>使用 capability alias 解耦工具，方便更换和升级。</li>
-<li>设计 phase-based pipeline，实现端到端的公众号文章生产。</li>
-<li>
-<p>支持多种输入和输出格式。</p>
-</li>
-<li>
-<p><strong>致谢</strong>：作者感谢了翔宇、宝玉和 md2wechat 等人在此过程中的帮助和支持。</p>
-</li>
-<li>
-<p><strong>总结</strong>：作者表示，尽管 Skill 还不完美，但它已经从幻想变成了现实，每个坑都变成了检查点，每次失败都变成了 fallback ladder 的一级台阶。</p>
-</li>
-<li>
-<p><strong>展望</strong>：作者希望得到用户的反馈，并询问用户希望他开发什么样的 Skill。</p>
-</li>
-<li>
-<p><strong>结尾</strong>：作者邀请读者加入 AI 自动化分享群，分享 AI 使用心得和最新动态。</p>
-</li>
-</ol>
-<p>以上就是文章的主要内容。</p>
+            <h1 id="我让-ai-帮我写公众号踩了无数坑后做了一个全自动-skill">我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill</h1>
+<p>想用 AI 自动写公众号？我踩完了所有坑，做了一个从研究到发布的全自动 Skill。这是踩坑全记录和致谢。 </p>
+<p>一切的起点</p>
+<p>事情要从一个很简单的念头说起。</p>
+<p>我本职工作是 IT 项目经理，业余时间折腾跨境电商和各种 AI 工具。最近迷上了 OpenClaw——一个开源的 AI 代理框架，可以让 AI 像真正的助手一样帮你干活：管日程、发消息、写代码、操控浏览器。</p>
+<p>用了一段时间后，我有了一个很自然的想法：<strong>能不能让 AI 帮我写公众号文章？</strong></p>
+<p>不是那种"帮我润色一下"的程度。我想要的是：给一个话题，或者丢一个链接进去，AI 自己研究、写稿、排版、配图、转成微信能发的 HTML，最后直接保存到公众号草稿箱。我只需要最后看一眼，点发布。</p>
+<p>听起来不难对吧？</p>
+<p>我当时也是这么觉得的。</p>
+<p><img alt="AI 辅助开发" src="https://mmecoa.qpic.cn/mmecoa_jpg/4RibiaAzdwicxkLEsyRkOomNXxHdocXv98m935kwQPaok6GxNB5uaGKzAnmzIHRiaRBdOicQ0CQQOn2FiaAaTJPjR5GZnconNCJCwoPCOZ98ibM4qs/640?wx_fmt=jpeg&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=10005&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>第一个坑：微信编辑器吞掉了我的样式</p>
+<p>第一次尝试的时候，我让 AI 生成了一篇排版精美的 HTML 文章。标题有颜色，代码块有高亮，引用块有左边框和背景色——在浏览器里预览，效果非常好。</p>
+<p>然后我把它粘贴到微信公众号编辑器里。</p>
+<p>样式全没了。</p>
+<p>标题变成了普通文字，代码块失去了高亮，引用块变成了缩进文本。我精心调整的字号、行距、颜色，一个都没留下。</p>
+<p>查了半天才搞明白原因：微信公众号编辑器底层用的是 <strong>ProseMirror</strong>——一个富文本编辑框架。ProseMirror 在处理粘贴内容时，会对 HTML 做"清洗"，把它认为"不安全"或"不规范"的 CSS 全部剥掉。</p>
+<p>你可以理解为：微信编辑器有一个隐形的过滤器，你粘贴进去的 HTML 会先被脱一层皮。</p>
+<p><strong>最终解决方案：</strong>不走编辑器，直接走 API。微信有一个内部接口叫 <code>operate_appmsg</code>，可以绕过编辑器直接把 HTML 写进文章的 <code>content0</code> 字段。这样样式就不会被 ProseMirror 剥离了。</p>
+<p>但这只是第一个坑。</p>
+<p>第二个坑：微信的 HTML 不是你以为的 HTML</p>
+<p>绕过编辑器之后，我以为终于可以用标准的 HTML + CSS 了。</p>
+<p><strong>并不能。</strong></p>
+<p>• <strong>不能用 div</strong>，要用 section。div 在部分客户端上会被忽略</p>
+<p>• <strong>不能用 flexbox 和 grid 布局</strong>。想做多列？用 table</p>
+<p>• <strong>不支持外部 CSS 和 class 选择器</strong>。所有样式必须写成 inline style</p>
+<p>• <strong>字体必须统一</strong>。用 Microsoft YaHei 或微软雅黑</p>
+<p>这意味着你得写一种<strong>"微信方言的 HTML"</strong>——用 section 替代 div，用 table 模拟 flex，每个元素都挂着一长串 inline style。</p>
+<p>这些规则没有任何官方文档。全是一个个试出来的。</p>
+<p>写了一个 section，在 iOS 上看没问题，在安卓上段落间距消失了。用了一个 line-height: 1.8，在 PC 端看挺好，在手机端行距变成了 1.5。</p>
+<p>每一条规则的背后，都是几轮测试和"为什么又不对了"的自我怀疑。</p>
+<p>第三个坑：封面图拦截了保存</p>
+<p>好不容易搞定了 HTML，文章内容通过 API 成功注入到编辑器——标题有了、正文有了、摘要有了。</p>
+<p>点击"保存为草稿"。</p>
+<p>弹出了图片选择器。</p>
+<p>原来微信公众号的文章要求必须有封面图，没有封面图就不能保存。而这个封面图不是一个简单的图片 URL——你得先通过 <code>filetransfer</code> API 把图片上传到微信的素材库，获得一个 <code>media_id</code>，然后把这个 media_id 填到保存接口的 fileid 字段里。</p>
+<p><strong>完整链路：</strong>本地图片 → 上传到微信 CDN → 拿到 media_id → 写入草稿保存请求。漏掉任何一步，保存就会被拦截。</p>
+<p>第四个坑：工具链在关键时刻崩了</p>
+<p>到这一步，我已经把流程理清了，开始寻找现成的工具来串联整条链路。</p>
+<p>我找到了<strong>宝玉</strong>（GitHub: JimLiu）做的一系列 baoyu-skills——他是最早在 AI agent 生态里做"内容生产 skill"的人之一。他的 <code>baoyu-markdown-to-html</code> 可以把 Markdown 转成带主题的 HTML，<code>baoyu-post-to-wechat</code> 可以通过浏览器自动化把文章发到公众号。</p>
+<p>问题是，<code>baoyu-markdown-to-html</code> 底层依赖 unified/remark 这套 Markdown 处理生态。在我的运行环境里（Bun 1.3.x），一个叫 <code>unist-util-visit-parents</code> 的模块解析失败了。</p>
+<p>就这么一个模块兼容问题，整条链路就断了。</p>
+<p>而且这个问题出现的时机特别糟糕——我是在让 AI 子代理执行全流程时发现的。子代理有 10 分钟的执行超时。它花了 7 分钟完成研究、写稿、配图，然后在最后的 HTML 转换环节卡住了。</p>
+<p>10 分钟到了。子代理被强制终止。前面所有的工作白费了。</p>
+<p>第五个坑：AI 说"成功"，但草稿是空的</p>
+<p>最让人哭笑不得的是调试过程中的一次经历。</p>
+<p>我通过浏览器 CDP 自动化了整个保存流程。脚本运行完毕，日志里清清楚楚地写着：</p>
+<p>[wechat] Body content verified OK.</p>
+<p>[wechat] Summary verified OK.</p>
+<p>[wechat] Saving as draft...</p>
+<p>[wechat] Done.</p>
+<p>"verified OK"。太好了。</p>
+<p>然后我打开公众号后台一看——<strong>正文是空的。字数显示 0。</strong></p>
+<p>原因是在粘贴内容之前，有一个图片库的弹窗覆盖了编辑器。脚本以为自己在编辑器里操作，其实是在弹窗的背景层里操作。所有的"验证"都是验证的弹窗层，不是编辑器层。</p>
+<p>AI 很认真地完成了所有步骤。只不过是在错误的层上完成的。</p>
+<p>所以，我做了一个 Skill</p>
+<p>踩完这些坑之后，我决定把所有经验打包成一个系统化的 Skill。</p>
+<p>这就是 <strong>research-to-wechat</strong>——一个端到端的公众号文章生产 Skill。从研究到发布，7 个阶段，全自动。</p>
+<p><strong>Phase 1 — 素材收集</strong>：给一个话题、URL、或者视频链接，自动抓取并整理成结构化的素材包</p>
+<p><strong>Phase 2 — 研究架构</strong>：生成研究大纲，包括核心研究问题和 32+ 个分层问题</p>
+<p><strong>Phase 3 — 研究整合</strong>：把素材整合成带有"已验证 / 推断 / 待确认"三区划分的研究报告</p>
+<p><strong>Phase 4 — 正文写作</strong>：根据文章类型选择对应的写作框架，生成完整初稿</p>
+<p><strong>Phase 5 — 排版与配图</strong>：精排 Markdown，生成配图和封面，应用 Pencil 设计模板</p>
+<p><strong>Phase 6 — WeChat 交付</strong>：转换 HTML，上传图片，保存草稿</p>
+<p><strong>Phase 7 — 多平台分发</strong>（可选）：一键转小红书卡片、即刻帖子、播客脚本、朋友圈文案</p>
+<p>关键设计</p>
+<p><strong>Capability Alias</strong>：没有硬编码具体工具名。用"能力别名"解耦——<code>wechat-render</code> 这个别名可以解析到不同的工具。工具换了，流程不变。</p>
+<p><strong>Fallback Ladder</strong>：草稿保存有四级降级策略。L0 走 API，L1 走全自动浏览器，L2 走半自动浏览器（需要扫码登录），L3 给你文件路径手动粘贴。不管环境多残缺，总有一条路能走通。</p>
+<p><strong>Pencil 设计模板</strong>：内置 10 种排版设计（极简/编辑/杂志/科技/生活/典雅/粗犷/活泼/商务/艺术），每种都有 Light 和 Dark 两个版本，根据文章主题自动匹配。本文使用的是 <strong>04 科技（Light）</strong>模板。</p>
+<p>▼ Pencil 内置 10 种设计模板 · Light 版</p>
+<p><img alt="Pencil 设计模板 Light 版" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>▼ Pencil 内置 10 种设计模板 · Dark 版</p>
+<p><img alt="Pencil 设计模板 Dark 版" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>Evidence Ledger</strong>：每篇文章都会生成一份证据台账，明确标注信息来源和可信度。文章最后会声明 AI 参与程度。不装作是人写的。</p>
+<p><img alt="AI 自动化工作流" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>站在前人的肩膀上</p>
+<p>这个 Skill 不是从零开始的。它之所以能存在，是因为有一群人在前面铺了路。</p>
+<p>🙏 翔宇 — 深度研究写作方法论</p>
+<p>翔宇老师提供了<strong>深度研究文章写作的核心思路和方法论框架</strong>。</p>
+<p>research-to-wechat 的研究架构——四层问题格（基础层、连接层、应用层、前沿层）、结构化研究大纲、证据台账的三区划分（已验证/推断/待确认）——这些设计背后的底层思路，直接来源于翔宇老师对"如何用 AI 写出有深度的文章"这个问题的长期思考和实践。</p>
+<p>方法论决定了上限。没有这套思路打底，research-to-wechat 写出来的文章再怎么自动化，也不过是"AI 生成的速食内容"。</p>
+<p>🙏 宝玉（JimLiu）— baoyu-skills 生态</p>
+<p>宝玉是 baoyu-skills 整个生态的创建者。他做了十几个 skill——从 Markdown 转 HTML、公众号发布、封面图生成、文章配图，到漫画生成、信息图、小红书图片。</p>
+<p>这些 skill 定义了<strong>"用 AI agent 做内容生产"</strong>的基本范式：每个能力一个 skill，skill 之间通过标准接口组合，上层 orchestrator 负责编排。</p>
+<p>research-to-wechat 的整个架构思路——capability alias、downstream worker、phase-based pipeline——直接受益于宝玉在 baoyu-skills 里建立的模式。<strong>没有这些下游工具，research-to-wechat 就是一个空壳。</strong></p>
+<p>🙏 md2wechat — Markdown 转微信 HTML</p>
+<p>md2wechat（<strong>github.com/geekjourneyx/md2wechat-skill</strong>）解决了一个关键问题：<strong>把 Markdown 可靠地转成微信兼容的 HTML</strong>。</p>
+<p>这个工具用 Go 写成，不依赖 Node.js 生态（所以没有 Bun 兼容问题）。它的 AI 模式调用 Claude 来生成样式化的 HTML，内置了多个配色主题（秋日暖光、春日清新、深海静谧）。更重要的是，它支持一键上传图片到微信 CDN 和直接保存草稿。</p>
+<p>在其他 HTML 转换工具因为环境问题不可用的时候，<strong>md2wechat 成了可靠的 fallback</strong>。这也是我在 Skill 里设计 fallback ladder 的直接动机。</p>
+<p>现在的样子</p>
+<p>v0.4.0 已经发布到了 ClawHub，任何 OpenClaw 用户都可以一键安装：</p>
+<p>clawhub install research-to-wechat</p>
+<p>📦 GitHub 开源地址：<a href="https://github.com/Fei2-Labs/skill-genie">github.com/Fei2-Labs/skill-genie</a></p>
+<p>• <strong>支持的输入</strong>：话题、URL、视频链接、已有文章、Markdown 文件</p>
+<p>• <strong>支持的框架</strong>：深度分析、教程、评论、叙事、趋势报告、创始人信、Newsletter</p>
+<p>• <strong>支持的输出</strong>：公众号草稿、小红书卡片、即刻帖子、播客脚本、朋友圈文案</p>
+<p>整个流程只需要一句话：<strong>"把这个写成一篇公众号文章"</strong>。剩下的，Skill 自己跑。</p>
+<p>当然，它还不完美。但它已经从"一个美好的幻想"变成了"一条真正能跑通的流水线"。</p>
+<p>每一个坑，都变成了流水线上的一个检查点。每一次失败，都变成了 fallback ladder 上的一级台阶。</p>
+<p>这大概就是做工具的意义——把自己踩过的坑铺成别人的路。</p>
+<p>⚠️ <strong>目前 research-to-wechat 还在持续打磨中</strong>，我自己也还在不断测试和迭代。非常欢迎大家试用，有任何问题和反馈请随时告诉我。</p>
+<p>💬 <strong>你希望我做什么样的 Skill？评论区留言告诉我！</strong></p>
+<p>👇 扫码加我微信</p>
+<p><img alt="微信二维码" src="https://mmecoa.qpic.cn/sz_mmecoa_png/4RibiaAzdwicxkeThGZ1JhRIflwvwWe4NzZRd54xWBr6HDTp3qv8QzLW24fgVWnOFiciaQ9TItQRPAcQD7OG7sL4I0QOHKM4xmRK9axdcNAictQmI/640?wx_fmt=png&amp;watermark=1&amp;tp=webp&amp;wxfrom=10005&amp;wx_lazy=1#imgIndex=4" /></p>
+<p>付费「AI 自动化分享群」¥399/人</p>
+<p>🔥 前 20 名早鸟价 ¥299</p>
+<p>群里分享：我的 AI 使用心得 · 最前沿的 AI 工具和玩法 · 帮你跨过信息差</p>
+<p>不卖课。就是一群在认真用 AI 搞事情的人，互相交流、少走弯路。</p>
+<p>本文由作者基于真实开发经历撰写，AI 辅助组织和润色。</p>
+<p>排版设计：Pencil · 04 科技（Light）</p>
+<p>GitHub：<a href="https://github.com/Fei2-Labs/skill-genie">github.com/Fei2-Labs/skill-genie</a></p>
         </div>
     </article>
 

@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">知识管理</span>
+            <span class="card-tag card-tag-primary">AI应用</span>
             
             
-            <span class="topic-chip">拆书</span>
+            <span class="topic-chip">AI拆书</span>
             
-            <span class="topic-chip">知识管理</span>
+            <span class="topic-chip">网文写作</span>
             
-            <span class="topic-chip">AI 阅读</span>
+            <span class="topic-chip">skill制作</span>
             
-            <span class="detail-reading-time">约 3 分钟阅读</span>
+            <span class="topic-chip">上下文限制</span>
+            
+            <span class="topic-chip">自动化流程</span>
+            
+            <span class="topic-chip">需求表达</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>突破性断点续拆机制实现百万字网文AI解析</p>
+                <p>拆书是网文作者们的刚需，很多小伙伴学写网文，都是从拆书开始。 AI越来越能干，帮我们释放双手，让我们可以专心去释放创造力。 最底层的能力要求一直没有变，那就是——清晰、准确、完整表达需求的能力。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>文章《百万字长篇，如何用AI拆书？》探讨了利用AI技术高效拆解百万字级别网文的新方法。传统AI工具受限于上下文窗口（如GPT模型无法处理超长文本），无法一次性处理整部作品。为此，提出一种专门的“拆书skill”解决方案：首先，分拆章节（通过脚本识别章节标题，生成多个MD文件存储于“原文拆解”文件夹）；其次，用子agent分析每章内容，提取剧情梗概（约500字），并可根据需求定制维度如节奏或情绪；再者，引入断点机制以应对流程中断风险，确保连续性；最后，定义文件结构存放原始和分析结果。这种方法不仅节省时间（避免手动操作），还能帮助作者学习写作趋势，释放创造力，并适用于其他AI应用场景，强调在AIGC时代清晰表达需求的重要性。（字数：175）</p>
+                <p>本文介绍了如何利用AI工具突破上下文限制，自动拆解百万字长篇网文。作者提出通过制作拆书skill，分章节处理、定义拆文维度、设计断点机制等步骤，实现高效拆书。文章强调清晰表达需求是AIGC时代的核心能力。</p>
             </div>
             
             
@@ -132,34 +138,85 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文针对网文作者拆书的实际痛点，提出了利用AI工具和自动化流程的解决方案。作者不仅分享了具体的技术思路，如分章处理、断点续传，还强调了清晰表达需求的重要性。文章实用性强，对网文创作者和AI应用者都有启发，体现了AIGC时代工具与人的协作关系。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#百万字长篇如何用ai拆书" class="toc-link">百万字长篇，如何用AI拆书？</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《百万字长篇，如何用AI拆书？》，内容主要讨论了如何利用AI技术来拆解长篇网文，特别是针对百万字级别的长篇作品。文章指出，传统的AI拆书方法受限于模型能力，难以处理大量文本，因此提出了一种新的方法来突破这一限制。</p>
-<p>文章首先强调了拆书对于网文作者的重要性，无论是新手还是成熟作者，都需要通过拆书来学习和跟上新的写作趋势。然而，现有的AI拆书工具在处理长篇文本时存在上下文窗口的限制，导致无法一次性处理整个长篇作品。</p>
-<p>为了解决这个问题，文章提出了一种新的思路，即制作一个专门的拆书skill。这个skill将包括以下几个步骤：</p>
+            <h1 id="百万字长篇如何用ai拆书">百万字长篇，如何用AI拆书？</h1>
+<p>前些天，群里有小伙伴聊起了AI拆书的话题。</p>
+<p>拆书是网文作者们的刚需，很多小伙伴学写网文，都是从拆书开始。不光萌新需要拆书学习，网文圈卷生卷死，推陈出新速度之快令人目不暇接，成熟作者们同样离不开靠拆书来紧跟新风向。</p>
+<p>然而，大家之前用的AI拆书方法，受限于模型能力，效果并不理想。一部长篇网文动辄百万字起步，扔给AI后，要么上下文不够用，十几万字就到顶了，要么AI只能处理开头部分内容，很难直接拆书到位。</p>
+<p>6202年了，你还在因为大模型上下文窗口束手束脚吗？</p>
+<p>不至于，真不至于！</p>
+<p>今天咱们就来看看，如何突破上下文限制，让AI帮你自动拆完百万字长篇。</p>
+<p><strong>思路整理</strong></p>
+<p>为了方便后续复用拆书能力，我们可以制作一个skill来跑拆书流程。</p>
+<p>第一步，我们需要理清楚拆书的需求。</p>
+<p>拆书的目的不同，拆的角度和方法也会有所差异，不过其中还是有一些共通的部分，我们就先把这些共性需求整理出来吧。我认为，大致有如下几点：</p>
 <ol>
 <li>
-<p><strong>分拆章节</strong>：首先，AI需要将长篇作品按照章节进行拆分，以便于逐章处理。这可以通过设计脚本来实现，脚本会读取小说原文的前50字，确定章节标题的样式，然后将整本书拆解成多个MD格式的文件，并按照章节顺序命名和排序，存储在一个名为“原文拆解”的文件夹下。</p>
+<p>分拆章节，让AI读懂内容不难，但一次性读懂几百万字就太为难它了，为了避免出现只读开头和上下文超限的问题，第一步可以让AI先把原文分拆成章节，一章一章来拆文，完全在模型能力范围内。</p>
 </li>
 <li>
-<p><strong>分析章节内容</strong>：接下来，运行子agent来分析每个章节的内容，提取章节的剧情梗概（大约500字左右）。这里可以根据具体需求来调整提取的内容，比如节奏、情绪、钩子等。</p>
+<p>定义拆文的维度或流程，这一步会更个性化一点，你想要归纳单章的剧情梗概，还是想要整理出每一章的节奏、情绪、钩子，或是综合多章来分析一个剧情单元的结构框架、人物弧光等，都可以。</p>
 </li>
 <li>
-<p><strong>定义拆文维度或流程</strong>：这一步需要根据个人的需求来定义，比如归纳单章的剧情梗概，整理每一章的节奏和情绪，或是综合多章来分析一个剧情单元的结构框架和人物弧光等。</p>
-</li>
-<li>
-<p><strong>断点机制</strong>：由于拆书过程可能比较长，耗费的token较多，因此需要设计断点机制，确保在流程的任意步骤中断后，可以从断点处继续执行后续步骤，而不是重新开始。</p>
-</li>
-<li>
-<p><strong>文件结构定义</strong>：为了存放拆书过程中产生的文件，需要定义一套文件结构。这个结构可以包括原始文件、拆解后的章节文件、分析结果等。</p>
+<p>拆书过程比较长，耗费token多，要考虑异常中断的情况，最好每次中断后无需重新开始，而是从断点处继续执行。当然，为了最大限度降低异常中断，可以将拆书任务分散到不同agent中，避免共用上下文。</p>
 </li>
 </ol>
-<p>文章最后提到，这种快速制作skill的方法可以应用于其他需要AI解决问题的场景中，省时省力。同时，也强调了清晰、准确、完整表达需求的能力在AIGC时代的重要性。通过这种方式，AI可以帮助作者释放双手，让他们可以更加专注于创造性的工作。</p>
+<p>基于以上需求，这套拆书skill大体的思路就明确了。</p>
+<p>那么，我们要如何搭建这套skill呢？手搓提示词吗？</p>
+<p>不需要，有更省时省力的方法！</p>
+<p><strong>搭建拆书skill</strong></p>
+<p>我之前做过一套让AI辅助设计skill的skill，可参见<a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654974330&amp;idx=1&amp;sn=4fee039fbbdcd5a964ba28dbae14c2d0&amp;scene=21#wechat_redirect">《邪修大法速通「skill」，网文、漫剧、短剧适用》</a>获取。</p>
+<p>我们可以先把这套skill塞进<a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654974272&amp;idx=1&amp;sn=8156bdc709f8b9e1a0ec4326bea09992&amp;scene=21#wechat_redirect">「Antigravity」</a>里，用它来帮忙生成拆书skill。为什么选择「Antigravity」，当然是因为它可以白嫖Gemini、Claude、GPT啦~</p>
+<p>接下来，把我们的需求提给AI牛马干活，例如：</p>
+<p>请你帮我生成一个用于拆书的skill，它会分为多个步骤，我的思路如下：</p>
+<p>1. 整个拆书流程过程较长，需要一个主控agent负责维护总体的任务进度，确保所有步骤调用子agent执行到位，不会占用主控agent的上下文</p>
+<p>2. 由于拆书过程耗时较长，你需要设计断点机制，确保在流程的任意步骤中断后，可以从断点处继续执行后续步骤，而不是重新开始</p>
+<p>3. 请你为拆书过程定义一套文件结构，用于存放拆书过程中产生的文件，[你可在此处明确对文件结构的要求……]</p>
+<p>4. 拆书步骤如下：</p>
+<p>a. 第1步：拆书skill需要先对小说原文（可能是txt或docx等各种格式）分章，设计一个脚本读取小说原文的前50字，确定本书章节标题样式后，再写个脚本，以章节为单位将整本书拆解成多个md格式文件，并按照章节顺序命名排序，存储在`原文拆解`文件夹下</p>
+<p>b. 第2步：运行子agent分析单个章节的内容，提取章节剧情梗概（500字左右），[或其他提取要求……]</p>
+<p>c. 第3步，[其他步骤设计……]</p>
+<p>这里只是大致的框架，每个人拆书的习惯、目标不同，细节处理也可能会存在差异，把自己的需求整合进去即可。</p>
+<p>由此生成的拆书skill，只需要我们提供原文文件，不管是百万字的作品还是千万字的作品，都不是问题，它都可以自动按流程拆完整本书。</p>
+<p>为了节省token，我并没有把所有工作都直接丢给AI来做，而是让AI生成了一些脚本来辅助分章。</p>
+<p>等「Antigravity」生成完，我们拿本书来实测一下，调一调不满意的地方，这款拆书skill就做好了。</p>
+<p><strong>小结</strong></p>
+<p>刚好我上周也随手搓了个拆书skill玩，就顺带把这套思路整理出来，分享给大家。这种快速制作skill的方法，同样可以用在让AI解决其他需求的场景中，省时省力。</p>
+<p>回想起一年前，大家还在各种死磕提示词，搓一套提示词调来调去要耗费不少时间。如今想要让AI帮忙完成什么任务，或是设计提示词、skill，简直不要太轻松，直接把思路丢给AI，分分钟就能出草稿，改改就能用。</p>
+<p>不过，最底层的能力要求一直没有变，那就是——<strong>清晰、准确、完整表达需求的能力</strong>。</p>
+<p>偏偏这一条门槛，拦住了很多人。</p>
+<p>AI越来越能干，帮我们释放双手，让我们可以专心去释放创造力。如何深挖我们的奇思妙想，如何精准表达，或许是我们在AIGC时代更应该锻炼的能力。</p>
+<p>(๑•̀ㅂ•́)و✧</p>
+<p><strong>往期精彩内容</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654971266&amp;idx=1&amp;sn=83906bbee62db0c84051a939cacf6e66&amp;scene=21#wechat_redirect">课程 |「AI写网文」提示词入门教程</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654972941&amp;idx=1&amp;sn=95a28e9056772ee3149570afd443c64e&amp;scene=21#wechat_redirect">课程 |「AI写网文」提示词进阶教程</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=3718550945471414275&amp;scene=126&amp;sessionid=1762240741514#wechat_redirect">教程 | 用「obsidian」搭建写网文工作台</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=4281205832005713923&amp;scene=126&amp;sessionid=1765330770265#wechat_redirect">教程 | 用「Claude Code」搭建写网文工作台</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=4347603766829858832&amp;scene=126&amp;sessionid=1769001753291#wechat_redirect">教程 | 用「Antigravity」搭建写网文工作台</a></p>
         </div>
     </article>
 
