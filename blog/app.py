@@ -1,11 +1,15 @@
 import os
+import html
+import json
 import re
+import subprocess
 import requests
-from flask import Flask, render_template, abort, jsonify
+from flask import Flask, render_template, abort, url_for
 from config import Config
 from cachetools import cached, TTLCache
 import markdown
 import markupsafe
+from markdown.extensions.toc import TocExtension, slugify_unicode
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -52,24 +56,134 @@ def extract_toc(content):
     """Extract headings from markdown content for table of contents."""
     if not content:
         return []
-    toc = []
-    # Match markdown headings: ## or ###
-    heading_pattern = re.compile(r'^(#{2,3})\s+(.+)$', re.MULTILINE)
-    for match in heading_pattern.finditer(content):
-        level = len(match.group(1))
-        title = match.group(2).strip()
-        # Create a slug for anchor
-        slug = re.sub(r'[^\w\u4e00-\u9fff]+', '-', title).strip('-').lower()
-        toc.append({
-            'level': level,
-            'title': title,
-            'slug': slug
-        })
+    _, toc = render_markdown_content(content)
     return toc
+
+
+def flatten_toc_tokens(tokens):
+    toc = []
+    for token in tokens:
+        toc.append({
+            'level': token.get('level'),
+            'title': html.unescape(token.get('name', '')),
+            'slug': token.get('id', '')
+        })
+        toc.extend(flatten_toc_tokens(token.get('children', [])))
+    return toc
+
+
+def render_markdown_content(text):
+    md = markdown.Markdown(
+        extensions=[
+            'fenced_code',
+            'nl2br',
+            TocExtension(slugify=slugify_unicode)
+        ]
+    )
+    rendered = md.convert(text or '')
+    return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
+
+
+FAILED_GENERATION_MARKERS = (
+    '抱歉，我无法直接访问',
+    '无法直接访问该微信文章',
+    '无法提取标题',
+    '环境异常，完成验证后即可继续访问',
+    '核心内容完全无法获取',
+    '没有文章内容可供分析',
+    '当前运行环境异常',
+    '网页的核心内容完全无法获取',
+    '请把目标微信文章的具体文本内容粘贴给我',
+    '麻烦您将需要提炼处理的目标网页完整内容粘贴发送给我',
+)
+
+LOW_SIGNAL_TITLES = {'无', '未命名', '无法提取标题'}
+SOURCE_LINK_PATTERN = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
+PLAIN_URL_PATTERN = re.compile(r'https?://\S+')
+CATEGORY_ORDER = [
+    'AI 工具',
+    '自动化工作流',
+    '编程开发',
+    '内容创作',
+    '设计与视觉',
+    '知识管理',
+    '产品增长',
+    '商业机会',
+    '教程实操',
+]
+
+
+def is_failed_generation(text):
+    return any(marker in text for marker in FAILED_GENERATION_MARKERS)
+
+
+def first_useful_text(*values):
+    for value in values:
+        text = (value or '').strip()
+        if text and not is_failed_generation(text):
+            return text
+    return ''
+
+
+def clean_digest_text(text):
+    text = first_useful_text(text)
+    if not text:
+        return ''
+    text = re.sub(r'^以下是[^：]{0,60}：\s*', '', text)
+    text = re.sub(r'[`*_]{1,3}', '', text)
+    text = re.sub(r'^\s*[>#-]\s*', '', text, flags=re.MULTILINE)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
+def clean_title(title):
+    title = first_useful_text(title)
+    if title in LOW_SIGNAL_TITLES:
+        return ''
+    return title
+
+
+def parse_source_link(value):
+    text = first_useful_text(value)
+    if not text:
+        return '', ''
+
+    markdown_link = SOURCE_LINK_PATTERN.search(text)
+    if markdown_link:
+        return markdown_link.group(1).strip(), markdown_link.group(2).strip()
+
+    plain_url = PLAIN_URL_PATTERN.search(text)
+    if plain_url:
+        return '原文链接', plain_url.group(0).strip()
+
+    return text, ''
+
+
+def normalize_terms(value):
+    if isinstance(value, list):
+        terms = []
+        for item in value:
+            if isinstance(item, dict):
+                item = item.get('text') or item.get('name') or item.get('value') or ''
+            text = str(item).strip()
+            if text and text not in terms:
+                terms.append(text)
+        return terms
+    if isinstance(value, str):
+        return [value.strip()] if value.strip() else []
+    return []
+
+
+def sort_categories(categories):
+    order = {name: index for index, name in enumerate(CATEGORY_ORDER)}
+    return sorted(categories, key=lambda name: (order.get(name, len(order)), name))
 
 
 @cached(cache=data_cache)
 def fetch_bitable_records():
+    if should_use_lark_cli():
+        return fetch_bitable_records_with_lark_cli()
+
     token = get_tenant_access_token()
     if not token:
         return []
@@ -121,6 +235,8 @@ def fetch_bitable_records():
     
     while True:
         params = {"page_size": 100}
+        if app.config.get('VIEW_ID'):
+            params["view_id"] = app.config['VIEW_ID']
         if page_token:
             params["page_token"] = page_token
         try:
@@ -156,19 +272,34 @@ def fetch_bitable_records():
         
         def get_multi_select(field_data):
             """Parse multi-select field from Feishu."""
-            if isinstance(field_data, list):
-                return [str(item) for item in field_data]
-            elif isinstance(field_data, str):
-                return [field_data]
-            return []
+            return normalize_terms(field_data)
+
+        categories = get_multi_select(fields.get('分类', []))
+        tags = get_multi_select(fields.get('标签', []))
+        summary = clean_digest_text(first_useful_text(
+            get_text_value(fields.get('概要内容输出', '')),
+            get_text_value(fields.get('概要内容提炼.输出结果', ''))
+        ))
+        source_label, source_url = parse_source_link(get_text_value(fields.get('文章链接', '')))
         
         formatted_record = {
             'id': item.get('record_id'),
-            'title': get_text_value(fields.get('标题', '')),
-            'quote': get_text_value(fields.get('金句输出', '')),
-            'review': get_text_value(fields.get('黄叔点评', '')),
-            'content': get_text_value(fields.get('概要内容输出', '')),
-            'categories': get_multi_select(fields.get('分类', []))
+            'title': clean_title(get_text_value(fields.get('标题', ''))),
+            'quote': clean_digest_text(first_useful_text(
+                get_text_value(fields.get('金句输出', '')),
+                get_text_value(fields.get('金句提炼.输出结果', ''))
+            )),
+            'review': first_useful_text(get_text_value(fields.get('黄叔点评', ''))),
+            'summary': summary,
+            'content': first_useful_text(
+                get_text_value(fields.get('全文', '')),
+                summary
+            ),
+            'category': categories[0] if categories else '',
+            'categories': categories,
+            'tags': tags,
+            'source_label': source_label,
+            'source_url': source_url
         }
         if formatted_record['title']:
             formatted_records.append(formatted_record)
@@ -176,12 +307,124 @@ def fetch_bitable_records():
     return formatted_records[::-1]
 
 
+def should_use_lark_cli():
+    if app.config.get('USE_LARK_CLI') == '1':
+        return True
+    return (
+        not app.config.get('FEISHU_APP_ID')
+        and bool(app.config.get('BASE_ID'))
+        and bool(app.config.get('TABLE_ID'))
+    )
+
+
+def fetch_bitable_records_with_lark_cli():
+    command = [
+        'lark-cli',
+        'base',
+        '+record-list',
+        '--base-token',
+        app.config['BASE_ID'],
+        '--table-id',
+        app.config['TABLE_ID'],
+        '--limit',
+        '500'
+    ]
+    if app.config.get('VIEW_ID'):
+        command.extend(['--view-id', app.config['VIEW_ID']])
+
+    command_env = os.environ.copy()
+    for proxy_key in (
+        'HTTP_PROXY',
+        'HTTPS_PROXY',
+        'ALL_PROXY',
+        'http_proxy',
+        'https_proxy',
+        'all_proxy',
+    ):
+        command_env.pop(proxy_key, None)
+    command_env['NO_PROXY'] = 'open.feishu.cn,mcp.feishu.cn,accounts.feishu.cn,localhost,127.0.0.1,::1'
+    command_env['no_proxy'] = command_env['NO_PROXY']
+
+    try:
+        result = subprocess.run(
+            command,
+            check=True,
+            capture_output=True,
+            text=True,
+            env=command_env,
+            timeout=40
+        )
+        payload = json.loads(result.stdout)
+    except Exception as e:
+        print(f"Error fetching records with lark-cli: {e}")
+        return []
+
+    data = payload.get('data', {})
+    fields = data.get('fields', [])
+    rows = data.get('data', [])
+    record_ids = data.get('record_id_list', [])
+
+    def as_text(value):
+        if isinstance(value, list):
+            return ''.join(as_text(item) for item in value)
+        if isinstance(value, dict):
+            return value.get('text') or value.get('link') or json.dumps(value, ensure_ascii=False)
+        if value is None:
+            return ''
+        return str(value)
+
+    def as_terms(value):
+        if isinstance(value, list):
+            return normalize_terms([as_text(item) for item in value])
+        text = as_text(value).strip()
+        return [text] if text else []
+
+    formatted_records = []
+    for index, row in enumerate(rows):
+        field_map = {
+            fields[i]: row[i]
+            for i in range(min(len(fields), len(row)))
+        }
+        categories = as_terms(field_map.get('分类'))
+        tags = as_terms(field_map.get('标签'))
+        summary = clean_digest_text(first_useful_text(
+            as_text(field_map.get('概要内容输出')),
+            as_text(field_map.get('概要内容提炼.输出结果'))
+        ))
+        source_label, source_url = parse_source_link(as_text(field_map.get('文章链接')))
+        content = first_useful_text(
+            as_text(field_map.get('全文')),
+            summary
+        )
+        quote = clean_digest_text(first_useful_text(
+            as_text(field_map.get('金句输出')),
+            as_text(field_map.get('金句提炼.输出结果'))
+        ))
+        formatted_record = {
+            'id': record_ids[index] if index < len(record_ids) else f'lark_{index}',
+            'title': clean_title(as_text(field_map.get('标题'))),
+            'quote': quote,
+            'review': '',
+            'summary': summary,
+            'content': content,
+            'category': categories[0] if categories else '',
+            'categories': categories,
+            'tags': tags,
+            'source_label': source_label,
+            'source_url': source_url
+        }
+        if formatted_record['title']:
+            formatted_records.append(formatted_record)
+
+    return formatted_records
+
+
 @app.template_filter('markdown')
 def markdown_filter(text):
     if not text:
         return ""
-    html = markdown.markdown(text, extensions=['fenced_code', 'nl2br', 'toc'])
-    return markupsafe.Markup(html)
+    rendered, _ = render_markdown_content(text)
+    return markupsafe.Markup(rendered)
 
 
 @app.template_filter('markdown_with_ids')
@@ -189,19 +432,8 @@ def markdown_with_ids_filter(text):
     """Render markdown and add id attributes to headings for TOC linking."""
     if not text:
         return ""
-    # Use toc extension to auto-generate heading IDs
-    md = markdown.Markdown(extensions=['fenced_code', 'nl2br', 'toc'])
-    html = md.convert(text)
-    
-    # Add IDs to headings manually if toc extension doesn't
-    def add_heading_id(match):
-        tag = match.group(1)
-        content = match.group(2)
-        slug = re.sub(r'[^\w\u4e00-\u9fff]+', '-', content).strip('-').lower()
-        return f'<{tag} id="{slug}">{content}</{tag}>'
-    
-    html = re.sub(r'<(h[2-3])>([^<]+)</\1>', add_heading_id, html)
-    return markupsafe.Markup(html)
+    rendered, _ = render_markdown_content(text)
+    return markupsafe.Markup(rendered)
 
 
 @app.route('/')
@@ -210,24 +442,42 @@ def index():
     
     # Enrich records with computed fields
     all_categories = set()
+    tag_counts = {}
+    search_index = []
     for record in records:
         content = record.get('content', '')
+        summary = record.get('summary') or content
         # Preview: first 200 chars
-        if len(content) > 200:
-            record['preview'] = content[:200] + '...'
+        if len(summary) > 200:
+            record['preview'] = summary[:200] + '...'
         else:
-            record['preview'] = content
+            record['preview'] = summary
         # Reading time
         record['reading_time'] = estimate_reading_time(content)
+        record['url'] = url_for('detail', record_id=record['id'])
         # Collect all categories
         for cat in record.get('categories', []):
             all_categories.add(cat)
+        for tag in record.get('tags', []):
+            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+        search_index.append({
+            'id': record.get('id', ''),
+            'title': record.get('title', ''),
+            'quote': record.get('quote', ''),
+            'summary': record.get('summary', '')[:500],
+            'preview': record.get('preview', ''),
+            'categories': record.get('categories', []),
+            'tags': record.get('tags', []),
+            'url': record.get('url', '')
+        })
     
     return render_template(
         'index.html',
         articles=records,
         total_count=len(records),
-        all_categories=sorted(all_categories)
+        all_categories=sort_categories(all_categories),
+        all_tags=[tag for tag, _ in sorted(tag_counts.items(), key=lambda item: (-item[1], item[0]))],
+        search_index=search_index
     )
 
 

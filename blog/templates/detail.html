@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title }} — 阅读与思考{% endblock %}
+{% block title %}{{ article.title }} — 拾读库{% endblock %}
 
 {% block progress_bar %}
 <div class="progress-bar" id="progressBar"></div>
@@ -10,15 +10,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="{{ url_for('index') }}" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -26,26 +22,46 @@
     <article class="detail-container" id="articleContent">
         <!-- Meta -->
         <div class="detail-meta">
-            {% for cat in article.categories %}
-            <span class="card-tag">{{ cat }}</span>
+            {% if article.category %}
+            <span class="card-tag card-tag-primary">{{ article.category }}</span>
+            {% endif %}
+            {% for tag in article.tags %}
+            <span class="topic-chip">{{ tag }}</span>
             {% endfor %}
-            <span class="detail-reading-time">⏱ 约 {{ article.reading_time }} 分钟阅读</span>
+            <span class="detail-reading-time">约 {{ article.reading_time }} 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">{{ article.title }}</h1>
 
-        <!-- Quote -->
-        {% if article.quote %}
-        <div class="detail-quote">
-            ❝ {{ article.quote }}
-        </div>
+        <!-- Digest -->
+        {% if article.quote or article.summary or article.source_url %}
+        <section class="digest-panel">
+            {% if article.quote %}
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>{{ article.quote }}</p>
+            </div>
+            {% endif %}
+            {% if article.summary %}
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>{{ article.summary }}</p>
+            </div>
+            {% endif %}
+            {% if article.source_url %}
+            <a class="source-link" href="{{ article.source_url }}" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>{{ article.source_label or '微信公众号原文' }}</strong>
+            </a>
+            {% endif %}
+        </section>
         {% endif %}
 
         <!-- Review -->
         {% if article.review %}
         <div class="detail-review">
-            <strong>🗣 点评：</strong>{{ article.review }}
+            <strong>黄叔点评</strong>{{ article.review }}
         </div>
         {% endif %}
 
@@ -53,8 +69,8 @@
         {% if article.toc %}
         <div class="toc" id="toc">
             <div class="toc-header" id="tocHeader">
-                <span class="toc-title">📑 目录</span>
-                <span class="toc-toggle">▼</span>
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
             </div>
             <ul class="toc-list">
                 {% for item in article.toc %}
@@ -67,6 +83,7 @@
         {% endif %}
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
             {{ article.content | markdown_with_ids }}
         </div>
@@ -76,13 +93,13 @@
     {% if prev_article or next_article %}
     <nav class="article-nav">
         {% if prev_article %}
-        <a href="/post/{{ prev_article.id }}" class="article-nav-link prev">
+        <a href="{{ url_for('detail', record_id=prev_article.id) }}" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">{{ prev_article.title }}</span>
         </a>
         {% endif %}
         {% if next_article %}
-        <a href="/post/{{ next_article.id }}" class="article-nav-link next">
+        <a href="{{ url_for('detail', record_id=next_article.id) }}" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">{{ next_article.title }}</span>
         </a>
@@ -92,7 +109,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 {% endblock %}
