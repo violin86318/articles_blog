@@ -3,6 +3,9 @@ import html
 import json
 import re
 import subprocess
+import hashlib
+from pathlib import Path
+from urllib.parse import urlparse, urlsplit, parse_qs
 import requests
 from flask import Flask, render_template, abort, url_for
 from config import Config
@@ -13,6 +16,9 @@ from markdown.extensions.toc import TocExtension, slugify_unicode
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+STATIC_ROOT = Path(app.root_path) / 'static'
+ARTICLE_IMAGE_DIR = STATIC_ROOT / 'article-images'
 
 # 缓存飞书 tenant_access_token (存活1小时)
 token_cache = TTLCache(maxsize=1, ttl=3600)
@@ -84,6 +90,90 @@ def render_markdown_content(text):
     return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
 
 
+def canonical_image_url(url):
+    return url.split('#', 1)[0].strip()
+
+
+def infer_image_extension(url, content_type=''):
+    content_type = (content_type or '').lower()
+    if 'jpeg' in content_type or 'jpg' in content_type:
+        return 'jpg'
+    if 'png' in content_type:
+        return 'png'
+    if 'webp' in content_type:
+        return 'webp'
+    if 'gif' in content_type:
+        return 'gif'
+
+    query = parse_qs(urlsplit(url).query)
+    wx_fmt = query.get('wx_fmt', [''])
+    if wx_fmt and wx_fmt[0]:
+        return wx_fmt[0].lower()
+
+    path = urlparse(url).path.lower()
+    match = re.search(r'\.(jpg|jpeg|png|webp|gif)$', path)
+    if match:
+        ext = match.group(1).lower()
+        return 'jpg' if ext == 'jpeg' else ext
+    return 'jpg'
+
+
+def should_localize_image(url):
+    if not url:
+        return False
+    if url.startswith('data:image/svg+xml'):
+        return False
+    if not url.startswith(('http://', 'https://')):
+        return False
+    host = urlparse(url).netloc.lower()
+    return host.endswith('qpic.cn') or host.endswith('qq.com') or 'wx_fmt=' in url
+
+
+def download_article_image(url, article_id, image_index):
+    canonical_url = canonical_image_url(url)
+    ARTICLE_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    digest = hashlib.sha1(canonical_url.encode('utf-8')).hexdigest()[:10]
+    file_stem = f'{article_id}-{image_index}-{digest}'
+
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    try:
+        response = requests.get(canonical_url, headers=headers, timeout=30)
+        response.raise_for_status()
+    except Exception as exc:
+        print(f'Error downloading article image {canonical_url}: {exc}')
+        return url
+
+    ext = infer_image_extension(canonical_url, response.headers.get('Content-Type', ''))
+    file_name = f'{file_stem}.{ext}'
+    file_path = ARTICLE_IMAGE_DIR / file_name
+    if not file_path.exists():
+        file_path.write_bytes(response.content)
+    return url_for('static', filename=f'article-images/{file_name}')
+
+
+def localize_markdown_images(text, article_id):
+    if not text or not article_id:
+        return text
+
+    image_index = {'value': 0}
+    localized = {}
+
+    def replace(match):
+        alt_text = match.group(1)
+        raw_url = match.group(2).strip()
+        if raw_url.startswith('data:image/svg+xml'):
+            return ''
+        if not should_localize_image(raw_url):
+            return match.group(0)
+        canonical_url = canonical_image_url(raw_url)
+        if canonical_url not in localized:
+            localized[canonical_url] = download_article_image(canonical_url, article_id, image_index['value'])
+            image_index['value'] += 1
+        return f'![{alt_text}]({localized[canonical_url]})'
+
+    return MARKDOWN_IMAGE_PATTERN.sub(replace, text)
+
+
 FAILED_GENERATION_MARKERS = (
     '抱歉，我无法直接访问',
     '无法直接访问该微信文章',
@@ -105,6 +195,7 @@ PUBLISH_BLOCK_MARKERS = (
 LOW_SIGNAL_TITLES = {'无', '未命名', '无法提取标题'}
 SOURCE_LINK_PATTERN = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
 PLAIN_URL_PATTERN = re.compile(r'https?://\S+')
+MARKDOWN_IMAGE_PATTERN = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)')
 CATEGORY_ORDER = [
     'AI 工具',
     '自动化工作流',
@@ -304,6 +395,7 @@ def fetch_bitable_records():
     formatted_records = []
     for item in records:
         fields = item.get('fields', {})
+        record_id = item.get('record_id')
         
         def get_text_value(field_data):
             if isinstance(field_data, list):
@@ -322,10 +414,17 @@ def fetch_bitable_records():
             get_text_value(fields.get('概要内容输出', '')),
             get_text_value(fields.get('概要内容提炼.输出结果', ''))
         ))
+        localized_content = localize_markdown_images(
+            first_useful_text(
+                get_text_value(fields.get('全文', '')),
+                summary
+            ),
+            record_id,
+        )
         source_label, source_url = parse_source_link(get_text_value(fields.get('文章链接', '')))
         
         formatted_record = {
-            'id': item.get('record_id'),
+            'id': record_id,
             'title': clean_title(get_text_value(fields.get('标题', ''))),
             'quote': clean_digest_text(first_useful_text(
                 get_text_value(fields.get('金句输出', '')),
@@ -333,10 +432,7 @@ def fetch_bitable_records():
             )),
             'review': get_review_text(lambda name: get_text_value(fields.get(name, ''))),
             'summary': summary,
-            'content': first_useful_text(
-                get_text_value(fields.get('全文', '')),
-                summary
-            ),
+            'content': localized_content,
             'category': categories[0] if categories else '',
             'categories': categories,
             'tags': tags,
@@ -432,6 +528,7 @@ def fetch_bitable_records_with_lark_cli():
             fields[i]: row[i]
             for i in range(min(len(fields), len(row)))
         }
+        record_id = record_ids[index] if index < len(record_ids) else f'lark_{index}'
         categories = as_terms(field_map.get('分类'))
         tags = as_terms(field_map.get('标签'))
         summary = clean_digest_text(first_useful_text(
@@ -439,16 +536,19 @@ def fetch_bitable_records_with_lark_cli():
             as_text(field_map.get('概要内容提炼.输出结果'))
         ))
         source_label, source_url = parse_source_link(as_text(field_map.get('文章链接')))
-        content = first_useful_text(
-            as_text(field_map.get('全文')),
-            summary
+        content = localize_markdown_images(
+            first_useful_text(
+                as_text(field_map.get('全文')),
+                summary
+            ),
+            record_id,
         )
         quote = clean_digest_text(first_useful_text(
             as_text(field_map.get('金句输出')),
             as_text(field_map.get('金句提炼.输出结果'))
         ))
         formatted_record = {
-            'id': record_ids[index] if index < len(record_ids) else f'lark_{index}',
+            'id': record_id,
             'title': clean_title(as_text(field_map.get('标题'))),
             'quote': quote,
             'review': get_review_text(lambda name: as_text(field_map.get(name))),
