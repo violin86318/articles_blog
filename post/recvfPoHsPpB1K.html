@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI工具</span>
             
-            
-            <span class="topic-chip">Skill</span>
             
             <span class="topic-chip">开源项目</span>
             
-            <span class="topic-chip">知识管理</span>
+            <span class="topic-chip">AI技能管理</span>
             
-            <span class="detail-reading-time">约 2 分钟阅读</span>
+            <span class="topic-chip">GitHub同步</span>
+            
+            <span class="topic-chip">跨设备协作</span>
+            
+            <span class="topic-chip">写作工具</span>
+            
+            <span class="topic-chip">产品经理工具</span>
+            
+            <span class="detail-reading-time">约 8 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>开源所有技能并基于GitHub CLI实现自动化管理方法，实现跨工具、跨电脑、跨网络的技能共享与定时同步。</p>
+                <p>现在离开了Skill，根本没有办法工作 所有 skill: https://github.com/zephyrwang6/myskill 对于skill工作的创造和管理，我已经在社群里分享过很多</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>作者为实现跨设备、跨工具的skill共享，将100余个自研skill开源并建立系统化管理体系。核心方法包括： 1. 全局skill目录：统一存放于.claude/skills，按写作/画图/信息获取/产品经理四大类分文件夹管理 2. 跨工具同步：通过软链接将Codex等工具的skill根目录同步至全局目录 3. 自动化流程： 使用skill-mannage工具定时自动Git推送 推荐GitHub CLI实现Agent无障碍操作仓库 4. 开源共享：所有skill已同步至GitHub仓库（https://github.com/zephyrwang6/myskill），涵盖AI绘画提示、写作模板等实用技能。 作者强调此体系支持跨网络环境协作，并在社群持续分享skill开发与管理技巧，呼吁读者参与开源生态建设。</p>
+                <p>作者分享了将100多个AI技能（Skill）进行同步和分类管理的方法，通过.claude/skills实现跨工具、跨电脑、跨网络使用，并按写作、画图、信息获取、产品经理四大类在GitHub建仓分享，方便他人使用。</p>
             </div>
             
             
@@ -132,14 +138,134 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章分享了一套实用的AI技能管理方案，解决了多设备、多工具间技能同步的痛点。作者将技能系统化分类并开源，体现了开源精神，对AI工具使用者有很好的参考价值。方法具体，可操作性强，但部分技术细节如软链接操作对新手可能有一定门槛。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#开源我的所有-skill以及-skill-管理方法" class="toc-link">开源我的所有 skill，以及 skill 管理方法</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#确认提交投诉" class="toc-link">确认提交投诉</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《开源我的所有 skill，以及 skill 管理方法》。文章内容主要讲述了作者在家办公时，为了使自己的电脑也能使用工作电脑的 skill，将 100 多个 skill 进行了同步和分类。这些 skill 可以实现跨工具、跨电脑、跨网络的使用和分享。作者使用的方法包括用 .claude/skills 来做全局 skill，其他工具如 codex 的 skill 根目录做软链接同步 claude/skill，对全局 skill 按类型拆分文件夹，并在 GitHub 建仓同步，最后建立一个 skill-mannage 来定时自动推送 git。作者还强烈建议使用 GitHub CLI 来实现让 Agent 无障碍增删改查 git。文章最后分享了作者的四大类 skill，包括写作类、画图类、信息获取类、产品经理类，并提供了相应的 GitHub 仓库地址。所有 skill 的 GitHub 仓库地址为 https://github.com/zephyrwang6/myskill。作者还在社群里分享了很多关于 skill 工作的创造和管理方法，并鼓励大家点赞支持，后续会分享制作技巧和管理方法，以使 Agent 更有用。</p>
+            <h1 id="开源我的所有-skill以及-skill-管理方法">开源我的所有 skill，以及 skill 管理方法</h1>
+<p>假期也没有闲着，今天在家办公，发现现在离开了Skill，根本没有办法工作，为了让自己在家里电脑也能用工作电脑的 skill，我把 100 多个 skill 做了一个同步和分类。</p>
+<p>可以实现跨工具、跨电脑、跨网络来使用和分享 skill。</p>
+<p>主要用到的方法就是用.claude/skills 来做全局 skill，其他工具如 codex 的skill 根目录做软链接同步.claude/skill。</p>
+<p>再对全局 skill 按类型拆分文件夹，并在 github 建仓同步，这就实现了跨网络/电脑/工具同步了，最后，再建立一个 skill-mannage 来定时自动推送 git。</p>
+<p>对于 git 的处理，强烈建议 GitHub CLI，可以实现让 Agent 无碍障增删改查 git。</p>
+<p>既然做了分类，就给大家分享一下我的四大类 skill，分类清晰更便于各位使用。</p>
+<p>共 100 多个 Skill 分了写作类、画图类、信息获取类、产品经理类，建了四个仓库</p>
+<p>1 写作类，write-skill，21 个 Skill，覆盖内容创作全流程：</p>
+<p>地址：https://github.com/zephyrwang6/write-skill</p>
+<p>2 画图类draw-skill，13 个 Skill，解决"AI 配图"全场景：</p>
+<p>地址：https://github.com/zephyrwang6/draw-skill</p>
+<p>3 信息获取类：info-skill，14 个 Skill，把散落各处的信息收回来。</p>
+<p>地址：https://github.com/zephyrwang6/info-skill</p>
+<p>4 产品经理类：protodesign，13 个 Skill，产品经理的工具箱：</p>
+<p>地址：https://github.com/zephyrwang6/protodesign</p>
+<p>所有 skill: https://github.com/zephyrwang6/myskill</p>
+<p>对于skill工作 的创造和管理，我已经在社群里分享过很多，如果大家感兴趣，可以点赞支持一下，后面再发长文分享制作技巧和管理方法，让你的 Agent 更有用</p>
+<p>关闭</p>
+<p>更多</p>
+<p>名称已清空</p>
+<p><strong>微信扫一扫赞赏作者</strong></p>
+<p>喜欢作者<a href="javascript:;">其它金额</a></p>
+<p>赞赏后展示我的头像</p>
+<p>作品</p>
+<p>暂无作品</p>
+<p>喜欢作者</p>
+<p>其它金额</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>确定</p>
+<p>返回</p>
+<p><strong>其它金额</strong></p>
+<p>更多</p>
+<p>赞赏金额</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>0</p>
+<p>.</p>
+<p>广东,2026年4月4日 20:45</p>
+<p>留言</p>
+<p>暂无留言</p>
+<p>1条留言</p>
+<p>已无更多数据</p>
+<p><a href="javascript:;">发消息</a></p>
+<p>写留言:</p>
+<p><img alt="" src="https://mmbiz.qpic.cn/mmbiz_png/CFe2b8yvCowgwMLiakL6tcXgTQu3FQoPxsqfmNbTauoxFIEOIBaR3mOb4rtDgrlT8w8yI258YL782H9kXhguKic6xfjUPLUvau6qrcyNziam5I/300?wx_fmt=png&amp;wxfrom=18" /></p>
+<p>空格的键盘</p>
+<p>已关注</p>
+<p>赞</p>
+<p>分享</p>
+<p>推荐</p>
+<p>写留言</p>
+<p>轻触查看原文</p>
+<p><img alt="" src="http://mmbiz.qpic.cn/mmbiz_png/CFe2b8yvCowgwMLiakL6tcXgTQu3FQoPxsqfmNbTauoxFIEOIBaR3mOb4rtDgrlT8w8yI258YL782H9kXhguKic6xfjUPLUvau6qrcyNziam5I/0?wx_fmt=png" /></p>
+<p>空格的键盘</p>
+<p>向上滑动看下一个</p>
+<p><a href="javascript:;">知道了</a></p>
+<p>微信扫一扫<br />
+使用小程序</p>
+<p><a href="javascript:void(0);">取消</a> <a href="javascript:void(0);">允许</a></p>
+<p><a href="javascript:void(0);">取消</a> <a href="javascript:void(0);">允许</a></p>
+<p><a href="javascript:void(0);">取消</a> <a href="javascript:void(0);">允许</a></p>
+<p>× 分析</p>
+<p><img alt="作者头像" src="http://mmbiz.qpic.cn/mmbiz_png/CFe2b8yvCowgwMLiakL6tcXgTQu3FQoPxsqfmNbTauoxFIEOIBaR3mOb4rtDgrlT8w8yI258YL782H9kXhguKic6xfjUPLUvau6qrcyNziam5I/0?wx_fmt=png" /></p>
+<p>微信扫一扫可打开此内容，<br />
+使用完整服务</p>
+<p>： ， ， ， ， ， ， ， ， ， ， ， ， 。   视频 小程序 赞 ，轻点两下取消赞 在看 ，轻点两下取消在看 分享 留言 收藏 听过</p>
+<p>关闭</p>
+<h2 id="确认提交投诉">确认提交投诉</h2>
+<p>你可以补充投诉原因（选填）</p>
+<p>确定</p>
+<p>,</p>
+<p>,</p>
+<p>选择留言身份</p>
+<p>可在「公众号 &gt; 右上角 &gt; 划线」找到划线过的内容</p>
+<p><img alt="划线引导图" src="https://res.wx.qq.com/op_res/opqv3ix6k9E4e64ZzO7uIqE3ZblwIojfmt7u70m59yS1ylFK-hTu6Ra8V_LaWQJ1P4OlUJPdXLfVBtrm3TwRrw" /></p>
+<p>我知道了</p>
+<p>**</p>
+<p>留言</p>
+<p>**</p>
+<p>暂无留言</p>
+<p>1条留言</p>
+<p>已无更多数据</p>
+<p><a href="javascript:;">发消息</a></p>
+<p>写留言:</p>
+<p>关闭</p>
+<p><strong>0个朋友</strong></p>
+<p>更多</p>
+<p>暂无内容</p>
         </div>
     </article>
 
@@ -149,13 +275,13 @@
         
         <a href="recvfPoRha6Lc0.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">今天干脆一次性把小红书矩阵这件事说清楚</span>
+            <span class="article-nav-title">小红书矩阵到底怎么做？这篇文章讲透了</span>
         </a>
         
         
         <a href="recvfPovYBe5hq.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
-            <span class="article-nav-title">阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析</span>
+            <span class="article-nav-title">Qwen3.6 真好玩，使我的大脑旋转</span>
         </a>
         
     </nav>

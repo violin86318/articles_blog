@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">知识管理</span>
+            <span class="card-tag card-tag-primary">效率工具</span>
             
             
             <span class="topic-chip">Obsidian</span>
             
             <span class="topic-chip">Web Clipper</span>
             
-            <span class="topic-chip">知识管理</span>
+            <span class="topic-chip">知识库</span>
             
-            <span class="detail-reading-time">约 2 分钟阅读</span>
+            <span class="topic-chip">B站</span>
+            
+            <span class="topic-chip">飞书</span>
+            
+            <span class="topic-chip">AI总结</span>
+            
+            <span class="detail-reading-time">约 39 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>作者蔡蔡啊分享了榨干原版Obsidian Web Clipper价值的实用配置使用技巧，还推出了支持B站视频和飞书文档处理、开源仅用于学习的中文增强版Obsidian Web Clipper，助力用户最大化该插件价值。</p>
+                <p>Markdown 格式的文本内容，在 AI 时代几乎就是硬通货的存在，因为 AI 能无损理解，而且还能跨平台、保存还久。 有了解释器后， Obsidian Web Clipper 就不只是剪存网页内容，还可以用在翻译、提取特定文本片段、格式转换等场景，只要我们能用自然语言描述清楚就可以实现。 obsidian-clipper-cn 通过接入飞书开放平台 API，通过结构化接口完整获取文档内容。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>本文是作者蔡蔡啊创作的《如何把Obsidian Web Clipper价值最大化？》，分享提升Obsidian网页剪藏插件使用价值的方法，内容分两部分展开：第一部分讲解榨干原版插件价值的使用技巧，包括配置解释器引入AI能力、设置模板触发条件、高亮文本、适配沉浸式翻译等；第二部分介绍覆盖原版全功能的中文增强版，其额外支持B站视频、飞书文档内容提取，讲解了对应插件obsidian-clipper-cn的用法。文末声明插件开源仅用于学习，作者将持续分享AI编程、AI Agent等相关内容。</p>
+                <p>本文介绍了如何最大化利用Obsidian Web Clipper插件，包括配置解释器引入AI能力、设置模板触发条件、高亮文本以及结合沉浸式翻译等技巧。同时，作者分享了自己开发的中文增强版插件obsidian-clipper-cn，支持B站视频字幕和飞书文档的完整剪存，解决了原版对中文内容支持不足的问题。</p>
             </div>
             
             
@@ -132,18 +138,192 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文实用性强，详细拆解了Obsidian Web Clipper的进阶玩法，特别是“解释器”功能的引入，将网页剪存工具升级为AI辅助的知识处理入口，极具启发性。作者针对中文用户痛点开发增强插件并开源，体现了技术分享精神。文章结构清晰，从原版技巧到增强版功能，循序渐进，对知识管理爱好者有很高参考价值。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#如何把obsidian-web-clipper价值最大化" class="toc-link">如何把Obsidian Web Clipper价值最大化？</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《如何把Obsidian Web Clipper价值最大化？》，作者是蔡蔡啊。文章主要介绍了如何使用Obsidian Web Clipper插件来保存网页内容和YouTube视频的文字稿到Obsidian中，以及如何通过配置插件来提高其使用效率。</p>
-<p>文章分为两部分：如何“榨干”原版Obsidian Web Clipper和如何使用中文增强版Obsidian Web Clipper。</p>
-<p>第一部分主要介绍了原版Obsidian Web Clipper的使用技巧，包括配置“解释器”来引入AI能力，设置模板触发条件，高亮文本以及沉浸式翻译等功能。</p>
-<p>第二部分介绍了中文增强版Obsidian Web Clipper，它不仅具有原版插件的所有功能，还支持B站视频和飞书文档的处理。文章还介绍了如何使用obsidian-clipper-cn插件来获取B站视频和飞书文档的内容。</p>
-<p>文章最后声明，该插件已开源，仅用于学习，勿作他用。作者蔡蔡啊表示将持续分享AI编程、AI Agent以及AI学习思考等内容。</p>
+            <h1 id="如何把obsidian-web-clipper价值最大化">如何把Obsidian Web Clipper价值最大化？</h1>
+<p>哈喽各位精神股东们，我是蔡蔡！</p>
+<p>之前分享了 <a href="https://mp.weixin.qq.com/s?__biz=MzIyMzk3MTEwNQ==&amp;mid=2247487993&amp;idx=1&amp;sn=1554f77b3ba2d13d38686efff7ec3296&amp;scene=21#wechat_redirect">Karpathy 搭建 AI 知识库</a>的方法，其中简单带过了 Obsidian Web Clipper 这个剪存插件。</p>
+<p>🔗：https://github.com/obsidianmd/obsidian-clipper</p>
+<p>它本身非常好用，很多网页内容甚至 YouTube 视频字幕都能一键剪存到 Obsidian 中，我在知识星球里就多次分享过。不过它对一些中文内容还不支持，于是我就给它做个中文增强，现在支持B站视频字幕+飞书文档。</p>
+<p>🔗：https://github.com/nextcaicai/obsidian-clipper-cn</p>
+<p>这篇文章就是分享我是怎么玩转 Obsidian Web Clipper 的，分为两部分：</p>
+<ul>
+<li>
+<p>如何“榨干”原版 Obsidian Web Clipper ？</p>
+</li>
+<li>
+<p>如何使用中文增强版 Obsidian Web Clipper ？</p>
+</li>
+</ul>
+<p>一、如何“榨干”原版 Obsidian Web Clipper ？</p>
+<p>Obsidian Web Clipper 是 Obsidian 官方推出的浏览器插件，可以让你一键将网页内容保存到 Obsidian 中。</p>
+<p>比如我想保存 Anthropic 这篇干货博客，直接唤起 Obsidian Web Clipper 插件，就会看到博客的全部内容都已经在插件面板里了，点击“添加到 Obdsidian”，就可以一键添加到 Obsidian 知识库中。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>不只文本形态的网页内容，它还可以一键获取 YouTube 视频里的文字稿。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>所有的内容，最终都会以 Markdown 格式保存下来。</p>
+<p>Markdown 格式的文本内容，在 AI 时代几乎就是硬通货的存在，因为 AI 能无损理解，而且还能跨平台、保存还久。</p>
+<p>而这些，还都只是这个插件的基操。</p>
+<p>想要把 Obsidian Web Clipper 插件的价值最大化，那么下面这几个小技巧你们一定要试试。</p>
+<p>技巧一：配置“解释器”</p>
+<p>目前大多数人都是用 Obsidian Web Clipper 的默认模板，也就是下图，默认的属性、笔记内容、笔记位置等，但它们其实都可以根据自己的剪藏和阅读需求做自定义；</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>在这些自定义选项中，“解释器”最值得用起来。简单来说，它可以给 Obsidian Web Clipper 引入 AI 能力，然后通过自然语言和网页交互。</p>
+<p>这么说可能还是有点抽象，举个例子，我们可以直接在笔记内容中添加这么一个变量：</p>
+<p>{{"用简体中文总结和提炼这篇文章的核心内容。请用 Why How What 结构告诉读者这篇文章为什么值得读，风格类似作家 Paul Graham"}}</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这样我们就可以先获取文章或视频的 AI 总结，再根据 AI 总结的内容决定是否要剪存到 Obsidian 中。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这里简单介绍下“变量”这个编程概念。</p>
+<p>大家平时应该都会填一些申请表时，比如表上面写着：</p>
+<ul>
+<li>
+<p><strong>姓名：</strong><code>__________</code></p>
+</li>
+<li>
+<p><strong>电话：</strong><code>__________</code></p>
+</li>
+</ul>
+<p>这里的“姓名”和“电话”就是变量。</p>
+<ul>
+<li>
+<p>我填的时候，“姓名”变量的值就是“Next蔡蔡”。</p>
+</li>
+<li>
+<p>马斯克填的时候，“姓名”变量的值就是“马斯克”。</p>
+</li>
+</ul>
+<p>变量定义了<strong>数据的类型</strong>（这里该填名字），而具体填什么取决于<strong>使用者</strong>。</p>
+<p>回到 Obsidian Web Clipper 的语境，当你写下 <code>{{ "用简体中文总结和提炼这篇文章的核心内容" }}</code> 时，你就创建了一个解释器变量。它和普通变量的区别是这样的：</p>
+<ul>
+<li>
+<p><strong>普通变量：</strong> 比如 <code>{{title}}</code>，插件直接从网页代码里“抠”出标题给你，不带脑子。</p>
+</li>
+<li>
+<p><strong>解释器变量：</strong> 插件把网页内容发给 AI，AI 读懂后，把<strong>计算/思考后的结果</strong>填回这个位置。</p>
+</li>
+</ul>
+<p>有了解释器后， Obsidian Web Clipper 就不只是剪存网页内容，还可以用在翻译、提取特定文本片段、格式转换等场景，只要我们能用自然语言描述清楚就可以实现。</p>
+<p>那它具体该怎么配置呢？也不复杂</p>
+<ol>
+<li>
+<p>点击 Obsidian Web Clipper 插件面板右上角的“设置”icon，在打开的“设置”页面中选择“解释器”；</p>
+</li>
+<li>
+<p>点击“启用解释器”；</p>
+</li>
+<li>
+<p>点击“+添加提供商”，可以在内置的模型提供商中选择，也支持自定义；</p>
+</li>
+<li>
+<p>确定模型提供商后，就可以选择模型了。我在实测对比国内外多个模型后，最终选择了Gemini-3-Flash，因为快且准。要是选大模型的话，处理时间会拉长不少</p>
+</li>
+</ol>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>技巧二：设置模板触发条件</p>
+<p>如果你设置了不同的自定模板，那这个技巧一定要用上。</p>
+<p>在“编辑模板”配置页面顶部，有个“模板触发器”让你配置 URL。怎么用呢？</p>
+<p>举个例子，你有视频、公众号文章两个模板。</p>
+<p>就可以给视频模板配置上这两条 URL：</p>
+<pre><code>https://www.youtube.com/watchhttps://www.bilibili.com/video
+</code></pre>
+<p>给公众号文章配置上这条 URL：</p>
+<pre><code>https://mp.weixin.qq.com/s
+</code></pre>
+<p>这样当你在 YouTube 视频或 B 站视频页面打开插件时，插件面板默认打开的就是视频模板，公众号页面同理。省去来回切换的麻烦。</p>
+<p>技巧三：高亮文本</p>
+<p>当你在阅读博客或者视频文字稿的过程中，看到一些让自己很惊喜或受启发的内容，可以点击插件的“高亮”功能，这样你就可以直接划重点，而不用跳出当前网页。</p>
+<p>所有高亮的文本，最后都会同步到 Obsidian 文档中，你就不用二次整理了。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>技巧四：沉浸式翻译 + Obsidian Web Clipper</p>
+<p>如果你平常很习惯用沉浸式翻译做页面翻译，那么月可以不用在 Obsidian Web Clipper 中单独配置一个翻译解释器，而是在沉浸式翻译的页面直接打开 Obsidian Web Clipper。</p>
+<p>然后你就会发现，Obsidian Web Clipper 是可以将同时获取原文和翻译的。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>二、如何使用中文增强版 Obsidian Web Clipper ？</p>
+<p>用好前面几个技巧，基本能把原版 Obsidian Web Clipper 的价值挖掘到 70-80%。</p>
+<p>但如果你平常还需要经常和 B 站视频、飞书文档打交道，那么原版就不够用了，因为它不支持 B 站视频文字稿和飞书文档的处理。</p>
+<p>那么大家可以使用这个中文内容增强的插件：obsidian-clipper-cn，它既有原版插件的所有能力，还额外支持 B 站视频和飞书文档：</p>
+<p>🔗：https://github.com/nextcaicai/obsidian-clipper-cn</p>
+<p>B 站视频支持</p>
+<p>obsidian-clipper-cn 对 B 站视频的支持体验，和官方的 YouTube 集成基本保持一致，包括：</p>
+<ul>
+<li>
+<p>内容提取 — 从视频页面提取视频简介、章节和字幕</p>
+</li>
+<li>
+<p>视频嵌入 — 在 Reader Mode 中嵌入 Bilibili 播放器，支持置顶固定</p>
+</li>
+<li>
+<p>时间戳点击跳转 — 点击任意字幕或章节的时间戳，视频跳转到对应时间</p>
+</li>
+<li>
+<p>自动滚动 — 播放过程中自动滚动字幕，跟随播放进度</p>
+</li>
+<li>
+<p>高亮当前行 — 播放时高亮显示当前字幕行</p>
+</li>
+</ul>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>可以搭配前面提到的解释器技巧一起用，效果更佳。</p>
+<p>飞书文档支持</p>
+<p>原版 Obsidian Web Clipper 插件是通过通用 DOM 解析提取飞书文档内容，但会因为飞书的动态渲染机制导致内容不完整。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>obsidian-clipper-cn 通过接入飞书开放平台 API，通过结构化接口完整获取文档内容。</p>
+<p>不过目前有个不足，无法获取文档图片，后续我再看看这个问题能否解决。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>使用 obsidian-clipper-cn 插件获取飞书文档的方法也不难：</p>
+<ol>
+<li>
+<p>前往飞书开放平台（https://open.feishu.cn/app）创建一个自建应用，如果你们之前有把龙虾接入过飞书，那应该会很熟悉下面整个流程；</p>
+</li>
+<li>
+<p>接着给应用开通以下权限：<code>docx:document:readonly</code>、<code>wiki:node:read</code>，开通完记得要启用应用才能推进后续步骤；</p>
+</li>
+</ol>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<ol>
+<li>接着你就可以在“凭证与基础信息”这里获取应用的 App ID 和 App Secret（官方文档有非常详细的介绍&gt;&gt;&gt;https://open.feishu.cn/document/server-docs/api-call-guide/calling-process/get-access-token#63c75bdc，这里就不赘述了）</li>
+</ol>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<ol>
+<li>最后，打开 obsidian-clipper-cn 插件，点击右上角“设置” ，在打开的“设置-常规”页面底部找到“飞书 / Lark”模块，填入前面获取到的 App ID 和 App Secret</li>
+</ol>
+<blockquote>
+<p>隐私说明：App ID 和 App Secret 仅保存在你本地浏览器的存储中（<code>browser.storage.local</code>），不会上传到任何服务器。</p>
+</blockquote>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>大家可能会有疑问，我为什么不把这两个渠道支持合并到原项目中。</p>
+<p>其实我一开始有试过在官方项目中提了 PR 合并，不过没通过。Obsidian CEO 驳回的理由是：Obisidian Web Clipper 只处理从 Defuddle 处理后的内容。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>后来我就想着在 Defuddle 项目上提 PR，但由于没法在本地验证自己的 PR 在 Defuddle 的真实服务器中是否成功，所以最后没提交，而是基于 Obisidian Web Clipper 做了个中文内容增强的插件，也就是大家现在看到的 obsidian-clipper-cn。</p>
+<p>🔗：https://github.com/nextcaicai/obsidian-clipper-cn</p>
+<p>欢迎大家体验，中间如果遇到一些体验上或功能上的不足，可以提 Issues，或者直接在这里留言反馈。</p>
+<p>**声明：该插件已开源，仅用于学习，勿作他用。</p>
+<p>以上就是今天的全部内容，谢谢你看到了这里。</p>
+<p>我是蔡蔡，持续分享 AI 编程、AI Agent，以及我的 AI 学习思考。我们下期见 ~</p>
         </div>
     </article>
 

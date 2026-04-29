@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">人工智能</span>
             
             
-            <span class="topic-chip">Skill</span>
+            <span class="topic-chip">Claude Code</span>
             
-            <span class="topic-chip">联网搜索</span>
+            <span class="topic-chip">Agent Skill</span>
             
-            <span class="topic-chip">浏览器</span>
+            <span class="topic-chip">联网能力</span>
             
-            <span class="topic-chip">Agent</span>
+            <span class="topic-chip">浏览器自动化</span>
             
-            <span class="detail-reading-time">约 5 分钟阅读</span>
+            <span class="topic-chip">多Agent并发</span>
+            
+            <span class="topic-chip">操作经验沉淀</span>
+            
+            <span class="detail-reading-time">约 86 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Web Access Skill 通过复用登录态、自动沉淀站点操作经验及构想在线经验共享池，显著提升 Agent 的跨平台联网与浏览器操作能力。</p>
+                <p>10 个子 Agent 同时操作小红书、微博、B站、Boss、虎嗅等 10 个不同平台，一次性打开 100 个网页，并行操作各平台界面，查阅内容、汇总报告。 理想的 Agent 联网方案，应该能看清楚自己手里有几张牌：灵活分配搜索、静态读取、浏览器策略，遇到障碍能自己换工具，而不是在一条死路上反复撞。 激发模型能力上限的 Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>一个Skill，拉满Agent联网和浏览器能力》的核心提炼（198字）： 核心创新 针对现有Agent联网工具（如Claude Code易钻牛角尖、OpenClaw需重复登录）的缺陷，Web Access Skill通过三大突破提升Agent能力： 1. 智能策略组合 动态选择搜索/静态读取/浏览器操作，复用登录态解决动态网站访问难题，支持小红书、微博等平台自动化操作。 2. 高并发分治架构 基于Sub-Agent机制并行处理多网页任务（如同时操作B站和BOSS直聘），不干扰用户浏览器。 3. 自进化经验库 自动沉淀站点操作经验（如点击路径、验证策略），后续任务直接复用，效率提升50%+（实测对比）。 设计哲学 以&#34;策略哲学+最小工具集+事实说明&#34;闭环设计激发模型潜力，未来计划构建A2A在线经验共享池实现社区共建。该Skill为Agent提供了泛用性极强的网页操作基座能力。</p>
+                <p>本文介绍了一个名为Web Access的Agent Skill，它能显著提升AI Agent的联网和浏览器操作能力。该Skill支持多Agent并行操作多个网页平台，自动沉淀操作经验，并兼容Claude Code、OpenClaw等主流Agent框架，解决了现有联网工具在并发、登录态复用和经验积累方面的不足。</p>
             </div>
             
             
@@ -134,71 +138,326 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章详细剖析了当前AI Agent联网能力的痛点，并提出了一个系统性的解决方案——Web Access Skill。其核心价值在于将人类式的联网策略哲学（如任务规划、工具选择、过程校验）注入Agent，而非简单堆砌工具。通过支持高并发、复用登录态和自动沉淀经验，它有效提升了Agent处理复杂、动态网页任务的泛化能力和效率，是Agent能力进化的一个实用且具有启发性的案例。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#web-access一个skill拉满agent联网和浏览器能力" class="toc-link">Web Access：一个Skill，拉满Agent联网和浏览器能力</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#起因agent-不是能联网吗为什么要加这个" class="toc-link">起因：Agent 不是能联网吗，为什么要加这个？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#web-access-安装方法解锁-agent-完全联网能力" class="toc-link">👉 Web Access 安装方法：解锁 Agent 完全联网能力</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#这个-skill-是如何做到的" class="toc-link">这个 Skill 是如何做到的？</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#1skill-的哲学式设计" class="toc-link">1）Skill 的哲学式设计</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#2提供工具的最小完备集" class="toc-link">2）提供工具的最小完备集</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#3补充必要的事实说明" class="toc-link">3）补充必要的事实说明</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#子-agent-分治写目标不写步骤" class="toc-link">子 Agent 分治：写目标，不写步骤</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#极其有用的设计skill-内自动经验沉淀" class="toc-link">极其有用的设计：Skill 内自动经验沉淀</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#架构探讨设计一个在线经验共享池" class="toc-link">架构探讨：设计一个在线经验共享池？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#写在最后" class="toc-link">🎐 写在最后</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据您提供的参考内容，以下是文章《Web Access：一个Skill，拉满Agent联网和浏览器能力》的主要内容：</p>
-<p><strong>文章概述</strong></p>
-<p>这篇文章介绍了作者开发的一个名为 Web Access 的 Agent Skill，旨在提升 Agent 的联网和浏览器操作能力。该 Skill 能够帮助 Agent 在多个平台上进行操作，如小红书、微博、B站、Boss直聘等，并能自动化地进行网页搜索、内容汇总、发布内容等任务。</p>
-<p><strong>文章主要内容</strong></p>
-<ol>
-<li>
-<p><strong>现有 Agent 联网方案的不足</strong></p>
-</li>
-<li>
-<p>Claude Code 和 OpenClaw 等 Agent 虽然具备联网工具，但存在一些问题：</p>
+            <h1 id="web-access一个skill拉满agent联网和浏览器能力">Web Access：一个Skill，拉满Agent联网和浏览器能力</h1>
+<p>这个 Skill，能让你的 Agent 联网能力提升到最离谱的一集。</p>
+<p>这是我用这个 Skill 跑的 Agent 任务：</p>
+<p>10 个子 Agent 同时操作小红书、微博、B站、Boss、虎嗅等 10 个不同平台，</p>
+<p>一次性打开 100 个网页，并行操作各平台界面，查阅内容、汇总报告。</p>
+<p><img alt="飞书文档 - 图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/DGyz1tk4xb7U3Jo2ibevwDqbVutXt4S6ia24B5s0k32IdVGzic3ElV4yV5uicibncRIbZv4cZILbu2co7IqnYkt69lE56HRKnhlfZKkbNuQPD5w8/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>不抢用户电脑控制权，Agent 后台自行站内搜索、连续操作网页。</p>
+<p>还能帮你自动在各大社交平台发布内容。包括打开社媒平台、填文案、传图片、自动发布，无需人为介入。</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/DGyz1tk4xb4ImicldMegEMibxNdjpBOoTxPpzD3AA09ibRSg7M59ECsCWTp9VBhJxv8q7qPVHeo9O8dT7d4PKEXiaKwFkibRn22Us8ybJSiaBnslY/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" /></p>
+<p>更日常、真实的各类联网需求，都能处理：比如替你找剧集播放、查询美签预约系统（甚至可以直接帮你完成预约）</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>还能自动化 Web 测试；遇到部分人机验证，也能自动过。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>而且 Skill 内部设计了自动沉淀站点操作经验的机制，Agent 联网操作越用越顺。</p>
+<p>这些能力，都是 Agent 在这套 Skill 加持后的泛化表现，无需针对任何站点特化调优。</p>
+<p>Claude Code、Openclaw 等所有支持 skill 的 Agent 都可使用。</p>
+<p>请允许我向你介绍 ⬇️</p>
+<p>Web Access，我开发的 Agent SKill，自测最好用 Agent 通用联网方案。</p>
+<p>本文将向你分享 Skill 获取方法，顺便讲讲我的Skill 设计哲学 ➡️ 兼顾「只想上手即用」、「了解 Skill 设计方法」的朋友阅读。</p>
+<hr />
+<h2 id="起因agent-不是能联网吗为什么要加这个">起因：Agent 不是能联网吗，为什么要加这个？</h2>
+<p>想上手即用的可直接跳到下一节～</p>
+<p>我在做这套 Skill 之前，完整调研过 Claude Code、OpenClaw 的联网实现。</p>
+<p>Agent 们都有自己的联网工具，但着实不够好用：</p>
 <ul>
-<li>Claude Code 的模型容易钻牛角尖，无法灵活应对需要登录或动态加载的网站。</li>
-<li>OpenClaw 虽然支持 CDP 模式，但需要为每个网站单独登录，且并发操作多个网页的能力有限。</li>
+<li>Claude Code：默认 Web Search 做搜索、 Web Fetch 读页面；装 Playwright、Chrome Devtool MCP 后也能控制浏览器。</li>
+<li>OpenClaw：同样提供 Search、fetch 的轻量 web 工具，遇到需登录/动态网站，能用 CDP 模式创建 Agent 专用浏览器。</li>
 </ul>
-</li>
-<li>
-<p><strong>Web Access Skill 的特点</strong></p>
-</li>
-<li>
-<p><strong>灵活的联网策略</strong>：能够根据任务需求选择合适的联网方式，如搜索、静态读取或浏览器操作。</p>
-</li>
-<li><strong>复用登录态</strong>：无需为每个网站单独维护登录状态。</li>
-<li><strong>强大的泛化能力</strong>：适应不同网站的联网任务和操作要求。</li>
-<li><strong>支持 Sub-Agent 分治和高并发</strong>：能够并行操作多个网页，且不干扰用户浏览器。</li>
-<li>
-<p><strong>自动沉淀站点操作经验</strong>：Agent 在操作网站时，会自动记录操作经验，提高后续任务的执行效率。</p>
-</li>
-<li>
-<p><strong>Web Access Skill 的设计哲学</strong></p>
-</li>
-<li>
-<p><strong>激发模型能力上限的 Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</strong></p>
-</li>
-<li><strong>Skill 的哲学式设计</strong>：提供闭合、高度抽象的思考策略哲学，帮助模型更好地理解任务。</li>
-<li><strong>提供工具的最小完备集</strong>：整合了搜索、静态读取、浏览器操作等工具，满足 Agent 的基本需求。</li>
-<li>
-<p><strong>补充必要的事实说明</strong>：强调任务涉及到的惰性知识，提高任务执行的效率。</p>
-</li>
-<li>
-<p><strong>Web Access Skill 的具体实现</strong></p>
-</li>
-<li>
-<p><strong>浏览器选择</strong>：使用 Chrome 浏览器及其原生 remote debugging 功能。</p>
-</li>
-<li><strong>子 Agent 分治</strong>：通过 Skill Prompt 设计，鼓励分治，将独立的子任务分配给子 Agent 并行执行。</li>
-<li>
-<p><strong>经验沉淀机制</strong>：每次操作完一个站点，Agent 会自动将该站点的访问策略沉淀下来，下次访问时直接复用。</p>
-</li>
-<li>
-<p><strong>未来展望</strong></p>
-</li>
-<li>
-<p><strong>在线经验共享池</strong>：构想了一个在线经验共享池，让所有用户的 Agent 经验汇聚在一起，形成一个 A2A 社区共建的资产。</p>
-</li>
-<li><strong>Skill 设计经验分享</strong>：作者计划在后续的“见知录”系列中分享更完善的 Skill 设计经验。</li>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>前者 Claude Code 只提供工具，访问策略全靠模型判断。</p>
+<p>想法美好，现实骨感：模型太容易钻牛角尖了，一个“调研小红书中关于 XX 的风评”问题：</p>
+<ul>
+<li>要么拿着 Search 工具，换各种关键词在搜索引擎里请求非公开网页的信息</li>
+</ul>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<ul>
+<li>要么用 fetch 无能地请求需要登录、JS 密集的网站（根本加载不出来）</li>
+<li>要么得自行安装 Playwright、Agent Browser Cli，还免不了多次踩坑</li>
+</ul>
+<p>后者 OpenClaw，则依靠降级策略兜底：</p>
+<ul>
+<li>要么提供 CDP 模式，支持为 Agent 单独维持一个登录态 Profile，每个网站都需要重新为其登录，部分网站组件在 CDP 模式下也有无法加载的环境限制。</li>
+<li>要么多下载一个浏览器插件，使其能够直接操作用户浏览器。</li>
+</ul>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>而且，它们对 Agent 并发操作多个网页的支持都不算很好，还可能和你抢浏览器控制权（表现为刚开新浏览器的时候，弹出网页抢走屏幕焦点等）。</p>
+<p>我们也总希望 Agent 能在任务过程中，积累各站点的操作试错经验。</p>
+<p>可惜经验也无法高效地聚类积累：CC 跨会话记忆不积极，踩过的坑下次照踩；OpenClaw 的 Memory 理论上能记，但上下文占用太重，总结也不够精准。</p>
+<p>⬇️</p>
+<p>理想的 Agent 联网方案，应该能看清楚自己手里有几张牌：</p>
+<ol>
+<li>1.灵活分配搜索、静态读取、浏览器策略，遇到障碍能自己换工具，而不是在一条死路上反复撞。</li>
+<li>2.复用你已有的登录态，不为每个站点单独维护一套身份。</li>
+<li>3.强大的泛化能力，适应不同联网任务与目标站的操作、反爬要求。</li>
+<li>4.支持 Sub-Agent 分治、高并发跑海量网页。后台执行，互不干扰，不抢你的浏览器控制权。</li>
+<li>5.沉淀联网操作经验，下次访问同一个站点不用从头试错。</li>
 </ol>
-<p><strong>总结</strong></p>
-<p>Web Access Skill 是一个功能强大的 Agent Skill，能够显著提升 Agent 的联网和浏览器操作能力。该 Skill 的设计理念和方法对于其他 Agent Skill 的开发也具有一定的参考价值。</p>
+<p>Web Access Skill 完全解决了以上问题，正是我给这些问题的当前答案 ⬇️</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h2 id="web-access-安装方法解锁-agent-完全联网能力">👉 Web Access 安装方法：解锁 Agent 完全联网能力</h2>
+<p>Web-access Skill，兼容 Claude Code、OpenClaw，以及任何支持 skill 的 Agent。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>把下面这段话发给你的 Agent，就能完成安装：</p>
+<p>帮我安装 web-access skill，仓库地址是 https://github.com/eze-is/web-access。这个 skill 原为 Claude Code 设计，安装前请先理解其核心原理和工作逻辑，再结合你的 Agent 架构与电脑环境进行适配，使其真正融入当前环境，而非生硬移植。</p>
+<p>Agent 会自动下载、配置环境，完成安装。不需要你手动操作。</p>
+<p>为了确保浏览器操作的顺利，除了鼓励使用 Claude、Kimi K2.5 等大参数多模态 Agent 模型外，你还需要确认：</p>
+<ol>
+<li>1.【必须】安装 Chrome 浏览器并更新到最新版本</li>
+<li>2. Chrome 浏览器地址栏输入chrome://inspect/#remote-debugging，勾选Allow remote debugging for this browser instance</li>
+</ol>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>配置完成后，你只需要在 Agent 聊天窗口（CC、🦐 等都可以），</p>
+<p>输入“遵循 web-access skill”手动要求 Agent 参考；或直接输入你想做的联网相关的事情：</p>
+<ul>
+<li>搜索信息、查看网页内容：“帮我查 xx”</li>
+<li>操作网页界面（填表、点击、上传）：“打开 xx”</li>
+<li>抓取、发布某博、某 X 等社交平台内容：“帮我在xx 平台写 xx”</li>
+<li>以及读取动态渲染页面、任何需要浏览器的网络任务</li>
+</ul>
+<p>当 Agent 接到指令后，会在 Chrome 上弹出一个提示，同意的话，点击允许就好：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>比如「调研小红书上 qwen、minimax、glm的风评」：</p>
+<p>Agent 自动加载 Skill，多开 Agent，免登进入小红书，并行调研数十个网页内容（支持文字直接阅读与截图多模态识别）</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>并且，在执行任务时，可自动沉淀常用网站的操作经验，可以显著提升后续执行效率（约节省 90% 的时间）</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>对了，如需最佳体验，强烈建议关闭多余的浏览器 MCP 服务，如 Chrome Devtools、Playwright MCP，避免模型在工具中左右互搏。</p>
+<hr />
+<h2 id="这个-skill-是如何做到的">这个 Skill 是如何做到的？</h2>
+<p>不需要看 Skill 设计原理的，可以直接滑到文末，有件很好玩的事分享给你。</p>
+<p>此为简介版，完整 Agent Skill 进阶设计经验，将会在后续「见知录」系列中重新整理解析，欢迎关注。</p>
+<p>不要小看 Skill 与 Prompt 的设计。Skill 的底层实现原理导致：</p>
+<ul>
+<li>针对固定任务，它可以是很具体的工作流经验「收集 XX 信息，汇总为 XX 报告」 </li>
+<li>面向通用场景，也可以视作 Agent 框架 system prompt 一部分，统筹某个原子化能力（虽然不如 agent 框架改造彻底）。 </li>
+</ul>
+<p>联网，是一种典型的通用场景：</p>
+<p>你让人类同事去查信息，不会告诉他「用搜索引擎还是打开浏览器」—— 你只说「上网帮我查一查 XX」。</p>
+<p>人类会自然地根据联网任务的刻板印象，盘点自己有的联网方法（搜索引擎、站内搜索、阅读网页、点击交互、而且能并行开多个 tab 操作网页），初步计划自己的第一步操作：</p>
+<ul>
+<li>阿里云某云服务定价：搜索引擎关键词“阿里云 某某云服务”，找到官网对应页面（因为比直接上官网顺手）</li>
+<li>小红书博主的更新情况：直接打开小红书，搜索该博主名称</li>
+<li>发布社媒帖子：打开站点，登录账号，直接创建帖子并发布</li>
+</ul>
+<p>我们在行动反馈中，实时调整自己的查询方法。不同的方法往往联用在一起，你很难说哪个行为可以完全孤立。</p>
+<p>而第一步计划离不开刻板印象的作用，虽不准确，但足以作为执行验证的第一步。再结合后续「验证-校准计划」的 Action Loop，在不断「尝试」中结束任务。</p>
+<p>BTW：此前 CC 和 🦐 在联网任务中，表现「一条道走到黑」、「并行能力差」等行为，往往源自没有像人类一样思考规划任务，或没有充足好用的基础工具。</p>
+<p>接下来正式分享 Web Access Skill 中精妙之处：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h3 id="1skill-的哲学式设计">1）Skill 的哲学式设计</h3>
+<p>我尝试提出一个 Skill 设计理念：</p>
+<p>激发模型能力上限的 Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>具体点解释：通用场景的 Agent Skill 或 Prompt，需避免过度指定 Agent「该怎么做」。</p>
+<p>更侧重重新校准模型在对应场景的「策略哲学」、补充 Agent 缺少的「基础工具」、提前强调模型显然未必记得的「事实说明」。</p>
+<p>Web-access 正是按这个思路，精细雕琢了联网场景的浏览哲学。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>模型的思考是上下文的惯性衔接。而模型容易陷入「刻板印象」，在复杂任务中做「惯性不思考」：</p>
+<ul>
+<li>联网查数据？那必然用 Web Search 工具啊</li>
+<li>网上搜到这么多个站点都这么写？那肯定就是事实啊</li>
+<li>网站用 fetch 加载不出来？肯定是网站挂了啊</li>
+</ul>
+<p>⬇️</p>
+<p>我们苦模型惯性久矣。</p>
+<p>为了对抗模型的显式惯性，我自己的方法是：在 Skill 中，为模型提供闭合、高度抽象的思考策略哲学。</p>
+<p>Web Access Skill 里定义了一个四步循环：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>① 拿到任务，先定义成功标准：什么算完成了？拿到什么信息、执行什么操作、达到什么结果？这是后续所有判断的锚点。</p>
+<p>② 选一个最可能直达的方式作为起点去验证，比如已知涉及需要登录态、反爬的平台，直接进浏览器，不在静态工具（Search、Fetch、Curl）上浪费时间。</p>
+<p>③ 过程校验：每一步的结果都是证据，不只是「成功 / 失败」的二元信号。搜索没命中，不一定是关键词不对，也可能是目标本身不存在。页面缺少预期元素、重试无改善，都是在告诉你该换方向了。遇到弹窗和登录墙，先判断它是否真的挡住了目标内容——内容可能已经在 DOM 里，交互只是展示手段。</p>
+<p>④ 对照成功标准，确认任务完成后停止。不过度操作与纠结。</p>
+<p>这部分浏览哲学，没有写任何具体操作路径，只是把「怎么思考联网任务」描述清楚了。Agent 理解了这个框架，遇到没见过的网页、任务也能给出更好的策略。</p>
+<hr />
+<h3 id="2提供工具的最小完备集">2）提供工具的最小完备集</h3>
+<p>通用场景的灵活处理能力，建立在给 Agent 提供工具的最小完备集之上。</p>
+<p>大部分 Agent 框架都有一些联网工具，但整合得不够全面，可能缺少某些原子化能力。Skill 做的事，是把联网场景需要的工具整合到位，并清晰描述每个工具的能力边界。</p>
+<p>人类上网其实就三种行为：搜（找到信息在哪）、看（看到内容）、做（在页面上执行操作）。覆盖这三种行为，就构成了联网工具的最小完备集。</p>
+<p>对应到 Agent，则需要这些具体工具：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<ul>
+<li>搜 → Search，搜索摘要、发现信息来源</li>
+<li>看 → Fetch / curl（公开页面 AI 提取 / 全文读取）或 浏览器打开（需登录、动态渲染的页面）</li>
+<li>做 → 浏览器自动化，点击、填表、上传等交互操作</li>
+</ul>
+<p>Skill 里用一张工具能力说明表，把这些工具的基础差异说清楚，为模型在不同任务中规划使用，提供参考基础：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>出于节省 token 考虑，还选择了 Jina 作为一个可选中间层，可以和 WebFetch、Curl 组合使用，能把网页正文预先转成干净的 Markdown 再读，大幅节省 token 消耗。</p>
+<p>适合文章、博客、文档类页面，鼓励模型在合适时积极使用。</p>
+<p>关于浏览器为什么选 Chrome 自带 CDP：早期测试了 web-access 基于 Agent Browser 多开不同 CDP 端口方案，并行效果不错，需要多开浏览器窗口，而非单窗口多 Tab，体验不佳。</p>
+<p>刚好 Chrome 发布了原生 remote debugging 能力，测试发现原生 WebSocket 交互方式能更好地规避大部分网站的反爬识别，而且天然支持单个浏览器内多 tab 并行后台操作，直连用户日常 Chrome，天然携带登录态。——于是迁移到了 CDP。</p>
+<p>当然，完整的 skill 里面不止这些，还会包含如何检测 CDP 模式的连接状态、通过 WS 协议操作浏览器等说明（因为这些在原先 Agent 框架中未被提及）。</p>
+<p>建议尽可能只向模型交代基础说明，不做过多策略引导。</p>
+<p>附：为什么不走 Agent Reach 的路线？</p>
+<p>Agent Reach 这类方案是为每个网站单独写一套抓取方法。对支持的站点快且稳，但覆盖有限，对于有特定需求的用户效果也不错。</p>
+<p>Web-Access 选的是更加通用的联网方案：任何你能打开的网站 Agent 都能用，不依赖预设方法，更侧重激发 Agent Native 能力，覆盖面几乎没有上限。这是有意为之的取舍。</p>
+<hr />
+<h3 id="3补充必要的事实说明">3）补充必要的事实说明</h3>
+<p>诚然，模型近乎知道所有知识，但并非所有知识都能在任务中，第一时间被调用。导致任务执行不及预期效率，或带来不希望的风险。</p>
+<p>所以需要强调任务涉及到的「惰性知识」。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>篇幅有限，我挑选了部分设计，向你阐明在 Skill Prompt 中的差异：</p>
+<p>1）验证惰性知识边界，补充事实说明：</p>
+<p>模型在任务中，有很多未必快速记得的「事实、方法（惰性知识）」。</p>
+<p>在 Skill 设计中，需要找到容易重复遗忘的边界，针对必要的信息，在 Skill 中直接补充。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>以及一些特定的边界事实情况：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>2）对于某些有最优路径的事情，直接指定：</p>
+<p>哪怕是再通用的任务，也会有一些唯一的、可直接执行的最优方式。</p>
+<p>最小化的必要提示：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>巧用 Script/脚本文件：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>都可减少模型思考、试错步骤。</p>
+<p>3）强调安全风险边界：</p>
+<p>由于浏览器 CDP 模式直接涉及到操纵用户自用浏览器，Agent 极有可能会交叉使用 or 关闭用户原有标签。</p>
+<p>如果你不希望模型做什么高危的事情，请明确强调。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h3 id="子-agent-分治写目标不写步骤">子 Agent 分治：写目标，不写步骤</h3>
+<p>联网任务经常涉及多个独立目标，如同时查 5 个竞品、调研 50 个网页。</p>
+<p>如果主 Agent 串行处理，不仅慢，所有抓取到的中间内容，还会涌入主 Agent 的上下文，token 膨胀严重，后续推理质量也会下降。</p>
+<p>我们可以利用 Claude Code 等 Agent 框架的 Sub-agent 机制，通过 Skill Prompt 设计，鼓励分治</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>——把独立的子任务分配给子 Agent 并行执行，主 Agent 只接收汇总后的结果。开场那个 10 个 Agent 同时调研 10 个平台，开 100 个网页的案例，就是这个机制在工作。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>架构上，所有子 Agent 共享同一个 Chrome、同一个 CDP Proxy，各自创建自己的后台 tab，通过不同的 targetId 操作，互不干扰，无竞态风险。不需要为每个子 Agent 单独启动浏览器实例。</p>
+<p>特别强调，这里有一个容易忽略但很重要的机制陷阱：</p>
+<p>主 Agent 给子 Agent 写 prompt 时，默认会使用干扰子 Agent 行为的用词，影响子 Agent 内模型的判断。</p>
+<p>比如，你写「调研小红书上关于 XX 的风评」，主 Agent 极有可能这么自动分配子 Agent 的 Prompt：</p>
+<pre><code>在小红书上「搜索」 XX 相关信息，总结近期风评
+</code></pre>
+<p>注意到了吗？</p>
+<p>即使你非常小心的在主 Prompt 里写了「调研」，但在主 Agent 自动任务分治时，会像不讲究用词细节的人类，随意地给出不精确的、带有偏见的 Prompt——「搜索」。</p>
+<p>在此 Prompt 引导下，子 Agent 会更大概率会被锚定到 WebSearch。</p>
+<p>这导致了一个错误的起点：小红书是反爬平台，我们无法通过搜索、fetch 找站内内容，正确的方法应该用浏览器工具直接进小红书，操作站内搜索。</p>
+<p>这跟第一节讲的模型惯性是同一个问题：用词本身就是一种隐性规则，会限制 Agent 的判断空间。</p>
+<p>所以我在 Skill 中也补充了对于的关于「Sub Agent」的事实说明：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h3 id="极其有用的设计skill-内自动经验沉淀">极其有用的设计：Skill 内自动经验沉淀</h3>
+<p>Agent 第一次访问一个从没见过的网站时，只能靠通用思路去试，测试站点结构……</p>
+<p>这个过程往往步骤多、耗时长，因为它不知道这个站点的脾气：哪些页面需要登录、哪些内容可以直接构造 URL 跳转而不用模拟点击。</p>
+<p>但这些东西试过一次就知道了。而且有经验和无经验模式下，效率差异显著：</p>
+<p>以在小红书内找到某个博主个人主页的任务为例：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>所以我在 Skill 设计了一个经验沉淀机制，非常好用：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>每次操作完一个站点，Agent 会自动把该站点的访问策略沉淀下来：平台特征、有效的 URL 模式、已知的陷阱，按域名存储。下次访问同一个站点，直接复用先验知识，跳过试错环节。</p>
+<p>这是一个 learning loop：Agent 的每一次操作都在积累经验，让下一次变得更快更准。</p>
+<p>并且在经验文件中标注了发现日期，当作「可能有效的提示」而非「保证正确的事实」。网站会改版，反爬策略会更新。如果按经验操作失败，Agent 会自动回退通用模式并更新经验文件。</p>
+<hr />
+<h3 id="架构探讨设计一个在线经验共享池">架构探讨：设计一个在线经验共享池？</h3>
+<p>这件事还在构想阶段，让经验成为一个 A2A 社区共建的资产。</p>
+<p>——实时共享、汇聚每个人 Agent 试错经验的经验池。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>理论上完全可行，极具吸引力。</p>
+<p>光是我自己常用的站点（小红书、推特等）已经积累了不少经验，用起来越来越顺。</p>
+<p>当所有用户积累的站点经验汇入同一个池子，经过自动合并后，每个人的每一次操作，都在让这个池子变得更好。</p>
+<p>而由于 Skill 的渐进式披露设计，没用到的经验也不会占据上下文。</p>
+<p>在有了这个在线经验池后，当 Agent 需要访问某个站点时，可以从一个在线的经验清单中按需拉取对应的站点经验。大幅提升常用站点的 Agent 效率（比如某红、X、微博……）</p>
+<p>但……在 Web Access 这个 Skill 场景下，关键问题在于法律风险。</p>
+<p>主 Skill 尚且可以解释为，指导 Agent 如何通用联网；但当 Skill 内置针对特定站点的结构分析经验呢？</p>
+<p>会不会被一些尚未做好迎接 Agent 时代的公司法务关照？（说实话，Agent 代查代发是必然趋势，一切软件都需要做好与 Agent 的接轨）（如果你有相关处理经验，也欢迎和我讨论）</p>
+<p>所以当前版本，未启用在线经验池设计与共享我的 Agent 积累的经验。</p>
+<p>不过也没关系，一旦你装上 Skill 之后，用多了自然也会攒出自己的站点经验。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h2 id="写在最后">🎐 写在最后</h2>
+<p>这个 Skill 真的迭代了很多版本，也越改越兴奋。</p>
+<p>当看到 Agent 能够自发调动大量 sub-agent，在同一个浏览器窗口内开出上百个窗口并行，自主摸索各个网站结构，积累操作经验时，你很难不暗暗开心这么一件事：</p>
+<p>只靠一个人设计的 Skill，就用通用模型与 Agent 框架，做出了体验过的 AI 产品们中，最丝滑的 Browser Use 效果。</p>
+<p>（虽然是 MIT 协议，不会有人偷偷拿去商用+吹自己开发得好吧😑）</p>
+<p>而本文也是第一次公开了我近期对 Agent 工程的设计思考：</p>
+<p>如何在 Agent 框架中有效雕花，以激发 Agent 的自主智力？我的答案是：</p>
+<p>Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>也可以期待后续「见知录」整理出的更完善的 Skill 设计经验分享，值得关注。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<p>BTW：对了，装好 Skill 了吗？</p>
+<p>一起来玩：把这个任务发给你的 Agent：</p>
+<pre><code>开10个 sub agent，分别调研小红书、微博、B站、Boss直聘、github、知乎、即刻、豆瓣、36kr、虎嗅的首页，每个sub agent分别开10个tab，并行调研今天内容、趋势、值得找的工作情况，汇总为更新报告。
+</code></pre>
+<p>考验你的电脑配不配得上 Agent 的时候来了 ⬇️（因为大概率会卡死，所以运行前请确保电脑文件均保存完毕…不然不建议玩这个）</p>
+<p>欢迎社媒分享你电脑的内存占用图：你跑了多少并发？我的纪录是 Chrome 38.6GB，Claude Code 14 GB，然后就卡…死了</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/DGyz1tk4xb5fKLrTBVibbOfWWpPmpmQO20BLy7YIdO7k24RNeldKaOFQ5I5oFRtSl6Sgm4NCiaSnia3WjHqm6lu6iaKofKCGw4UGs4a2JHARKic0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=36" /></p>
+<p>——对不起，我的 Agent，是我的电脑配不上你了 🙂‍↕️</p>
+<p>更新快乐，也感谢你的 Star 与分享：)</p>
+<p>Agent Skill 安装地址：https://github.com/eze-is/web-access</p>
         </div>
     </article>
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
     <meta name="theme-color" content="#f4f7f2">
-    <title>阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析 — 拾读库</title>
+    <title>Qwen3.6 真好玩，使我的大脑旋转 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
@@ -91,22 +91,26 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">人工智能</span>
             
             
-            <span class="topic-chip">Qwen</span>
-            
-            <span class="topic-chip">模型评测</span>
-            
-            <span class="topic-chip">前端 Coding</span>
+            <span class="topic-chip">多模态</span>
             
             <span class="topic-chip">Agent</span>
             
-            <span class="detail-reading-time">约 9 分钟阅读</span>
+            <span class="topic-chip">Qwen3.6-Plus</span>
+            
+            <span class="topic-chip">代码生成</span>
+            
+            <span class="topic-chip">视觉推理</span>
+            
+            <span class="topic-chip">阿里云</span>
+            
+            <span class="detail-reading-time">约 33 分钟阅读</span>
         </div>
 
         <!-- Title -->
-        <h1 class="detail-title">阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析</h1>
+        <h1 class="detail-title">Qwen3.6 真好玩，使我的大脑旋转</h1>
 
         <!-- Digest -->
         
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Qwen3.6-Plus在视觉推理和代码生成方面表现卓越。</p>
+                <p>Qwen3.6-Plus 主打三个维度：原生多模态、Agentic Coding、100万上下文窗口 Qwen3.6 的视觉推理一流，测了很多好玩 Case，使我的大脑旋转 在视觉识别推理场景，体现出了明显的高可用度，延续了 Qwen 家族在多模态识别场景的一流水准</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>根据提供的文章内容，提炼核心如下（约180字）： 阿里发布Qwen3.6-Plus模型，主打三大维度：原生多模态（延续Qwen3.5-Plus优势）、Agentic Coding能力提升（前端/复杂代码开发效率优化），以及100万上下文窗口。关键性能数据： 代码生成：在复杂网页文字特效Demo中，Qwen完成度在线（文字链表现优于Gemini 3.1 Pro和Claude Opus 4.6），但3D样板房任务仍有挑战（布局错位）。 多模态推理：识别图像不符合现实处胜出；地铁换乘路线推测耗时&lt;50秒，正确率100%。 Agent任务：并行调研知乎、微博、B站热榜并整合热点；Mac桌宠开发可一次性完成（但行为策略需微调）。 总结：前端代码能力突出，Agent长程任务进步，视觉识别维持一流水平，已上架阿里云百炼（定价以256k上下文阶梯计价）。</p>
+                <p>阿里发布新模型Qwen3.6-Plus，主打原生多模态、Agentic Coding和100万上下文窗口。文章通过代码生成、视觉推理和Agent任务等Demo，展示了其在前端开发、复杂图像理解和长程规划执行方面的能力，整体表现优异，尤其在多模态推理上延续了高水准。</p>
             </div>
             
             
@@ -134,17 +138,156 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文以生动有趣的Demo形式，全面测评了阿里最新大模型Qwen3.6-Plus。从代码生成到视觉推理，再到复杂的Agent任务，文章展示了模型在多个维度的强劲实力，尤其在多模态理解和前端开发上表现突出。测评方式直观，案例贴近实际应用，为开发者提供了有价值的参考，也体现了国产大模型的快速进步。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#qwen36-真好玩使我的大脑旋转" class="toc-link">Qwen3.6 真好玩，使我的大脑旋转</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#代码生成-demo" class="toc-link">💻 代码生成 Demo</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-1复杂网页文字特效" class="toc-link">Case 1：复杂网页文字特效</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-23d-样板房" class="toc-link">Case 2：3D 样板房</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#依旧顶级的多模态推理" class="toc-link">👀 依旧顶级的多模态推理</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-1找出图中全部不符合现实的地方" class="toc-link">Case 1：找出图中全部不符合现实的地方</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-2地铁换乘路线推测" class="toc-link">Case 2：地铁换乘路线推测</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#agent-长程规划与执行" class="toc-link">🦐 Agent 长程规划与执行</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-1通用联网任务" class="toc-link">Case 1：通用联网任务</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#case-2mac-桌宠开发" class="toc-link">Case 2：Mac 桌宠开发</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#定价与总结" class="toc-link">💰 定价与总结</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据您提供的参考内容，以下是文章的全文内容：</p>
-<hr />
-<p>本周，阿里千问又发新模型 Qwen3.6-Plus。先看前端 Coding 效果 Demo——流动文字特效，由该新模型一次指令内跑出。另外，参考最近的 A 社的终端桌宠潮流，开发了一只在你电脑上不断拉💩的螃蟹：Qwen3.6-Plus 主打三个维度：原生多模态：沿袭上代 Qwen3.5-Plus 优秀多模态能力，可胜任复杂多模态推理任务，如看地铁图规划换乘路线。Agentic Coding：前端网页开发、复杂代码开发、终端操作与自动化任务能力提升100 万上下文窗口，以及提供了新的 API 参数 preserve_thinking，可在多轮对话中保留中间推理过程摘自千问提供的 Benchmark 结果目前新模型已上架阿里云百炼。可直接接入 Claude Code、OpenClaw、Qwen Code 等编程助手使用。chat.qwen.ai 也可直接体验。Qwen3.6 的视觉推理一流，测了很多好玩 Case，使我的大脑旋转。💻 代码生成 Demo依旧从代码生成 Demo 效果看起，侧重观察单轮 Coding 生成质量，初步锚定模型水平。Case 1：复杂网页文字特效Prompt 相同，分别用 Qwen3.6-Plus、Gemini 3.1 Pro、Claude Opus 4.6，一次指令跑出结果。为增加复杂度，要求模型在一次生成中，完成多项特效模式开发。Qwen3.6-Plus：Gemini 3.1 Pro：Claude Opus 4.6：Qwen 各项完成度均在线，文字链表现更佳；Opus 则在动画精细度上略占优势；Gemini表现较平。测试 Prompt 如下：创建一个交互式网页项目：「TextPlayground - 文字特效实验场」页面顶部有 Tab 栏切换不同文字交互模式。页面展示一段英文文本，每个字母独立渲染为粒子。五个模式：1. 磁力场 — 按住鼠标，附近文字被排斥推开形成空洞，松开后缓慢回归原位2. 文字链 — 点击一个字母粘在鼠标上，拖动时相邻字母像锁链一样依次跟随3. 漩涡 — 按住鼠标，附近文字围绕鼠标旋转形成螺旋4. 追光 — 鼠标划过的文字发光放大，形成渐隐的亮带轨迹，不改变文字位置5. 拆字成灰 — 按住鼠标，附近的字母溶解为细小粒子飘散，松开后粒子重新聚合回字形视觉要求：- 背景浅色纸张质感- 动画流畅 60fps- 切换模式时文字平滑过渡回原位不使用任何第三方库，纯原生实现。项目结构和技术方案自主决定。Case 2：3D 样板房这个任务打算给模型上一下强度。若要完整完成，需要模型对 3D 开发、材质把控、真实样板房布局均有深入理解。Qwen3.6-Plus：Claude Opus 4.6：Gemini 3.1 Pro：该任务下，Claude 表现突出，但整体来说，对于当前模型来说均有较大挑战。各家在房间布局上均存在错位、假过道、错门现象。👀 依旧顶级的多模态推理上代模型 Qwen3.5-Plus 在春节期间的多模态识别与推理能力，实测表现非常抢眼。持续观察多模态表现水平。Case 1：找出图中全部不符合现实的地方仔细找全图中全部不符合现实的地方Qwen3.6-PlusGemini 3.1 Pro相较而言，Qwen 总体胜出。从画面细致度观察来讲，Qwen 找出了更多直观的问题，保持 1 个数量的总正确数领先。而 Gemini 表现出略好的空间规律理解，能找出画面看起来正常但不符合规律的问题。Case 2：地铁换乘路线推测此题主要考察模型对复杂细节图片内容的识别与信息推理。问题 Prompt 如下：从许村到南湖站最近的换乘路线是什么？不准联网，只能从我提供的图片进行推理Qwen 作答耗时不到 50s，答案正确无误，成功胜任视觉推理任务场景 ✅ 对于复杂多细节图像的识别与理解能力突出。🦐 Agent 长程规划与执行Qwen3.6-Plus 长程 Agentic 任务能力，较前代有一定提升。相较复杂长程任务，更擅长前端与指令明确的代码任务生成。Case 1：通用联网任务使用近日爆火的通用联网 Agent Skill 「Web-Access」（我做的），测试 Qwen3.6-Plus 在复杂网络环境的 Agent Loop 表现。直接给出并行调研指令：帮我并行调研知乎、微博、B站的今日热榜内容，返回今日日报给我抓取三平台今日内容如下，并展现出模型自发对跨平台共性热点进行整合的智能行为。在任务过程中，可胜任指令遵循表现良好，最终其抓取内容经核实，内容数据均与实际情况一致。Case 2：Mac 桌宠开发测试 Qwen3.6-Plus 在长程 Agentic Coding 能力，要求其根据已有角色资源，制作一只能在电脑桌面底部疯狂吃饭、拉 💩 的螃蟹桌宠（Btw，这只桌宠的角色资产也是用 Qwen3.6-Plus 画的）使用像素桌宠资产：/Documents/pixel-assets/assets/crab.js                                             制作Mac桌宠，要求：点击角色可爱抚，有表情反应；点击桌面屏幕底部边缘，可喂食；角色在桌面底部无规则游荡，经常拉💩；点击💩 可清理。仅桌宠游戏可见交互部分可点击，其余透明区域鼠标可穿透。接受任务后，首先对任务进行了合理的拆分：并在 1 轮 Prompt 下，一次性完成游戏主体开发，在 Mac 上可直接运行。在自动进食、拉💩的实际行为策略、鼠标穿透实现需要调整，即模型长程 Agent 任务执行深度有待提升。（如果对 DIY 能在你桌面上到处拉💩的桌宠感兴趣，Maybe 后面可以更新一期文章 ⬇️）💰 定价与总结Qwen3.6-Plus 已上架阿里云百炼，以 256k 上下文为界限，阶梯计价：总结一下：Qwen3.6-Plus 在前端代码 or 单轮 Coding 能力上，有较好表现。Agent 长程任务较上代有所进步，复杂度上限还有提升空间。另外，在视觉识别推理场景，体现出了明显的高可用度，延续了 Qwen 家族在多模态识别场景的一流水准。希望本文能对你有所启发，感谢点赞、关注、分享</p>
-<hr />
+            <h1 id="qwen36-真好玩使我的大脑旋转">Qwen3.6 真好玩，使我的大脑旋转</h1>
+<p>本周，阿里千问又发新模型 Qwen3.6-Plus。</p>
+<p>先看前端 Coding 效果 Demo——流动文字特效，由该新模型一次指令内跑出。</p>
+<p>另外，参考最近的 A 社的终端桌宠潮流，开发了一只在你电脑上不断拉💩的螃蟹：</p>
+<p>Qwen3.6-Plus 主打三个维度：</p>
+<ul>
+<li>原生多模态：沿袭上代 Qwen3.5-Plus 优秀多模态能力，可胜任复杂多模态推理任务，如看地铁图规划换乘路线。</li>
+<li>Agentic Coding： 前端网页开发、复杂代码开发、终端操作与自动化任务能力提升</li>
+<li>100 万上下文窗口，以及提供了新的 API 参数 preserve_thinking，可在多轮对话中保留中间推理过程</li>
+</ul>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>摘自千问提供的 Benchmark 结果</p>
+<p>目前新模型已上架阿里云百炼。可直接接入 Claude Code、OpenClaw、Qwen Code 等编程助手使用。chat.qwen.ai 也可直接体验。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>Qwen3.6 的视觉推理一流，测了很多好玩 Case，使我的大脑旋转。</p>
+<h2 id="代码生成-demo">💻 代码生成 Demo</h2>
+<p>依旧从代码生成 Demo 效果看起，侧重观察单轮 Coding 生成质量，初步锚定模型水平。</p>
+<h3 id="case-1复杂网页文字特效">Case 1：复杂网页文字特效</h3>
+<p>Prompt 相同，分别用 Qwen3.6-Plus、Gemini 3.1 Pro、Claude Opus 4.6，一次指令跑出结果。</p>
+<p>为增加复杂度，要求模型在一次生成中，完成多项特效模式开发。</p>
+<p>Qwen3.6-Plus：</p>
+<p>Gemini 3.1 Pro：</p>
+<p>Claude Opus 4.6：</p>
+<p>Qwen 各项完成度均在线，文字链表现更佳；Opus 则在动画精细度上略占优势；Gemini表现较平。</p>
+<p>测试 Prompt 如下：</p>
+<pre><code>创建一个交互式网页项目：「TextPlayground - 文字特效实验场」页面顶部有 Tab 栏切换不同文字交互模式。页面展示一段英文文本，每个字母独立渲染为粒子。五个模式：1. 磁力场 — 按住鼠标，附近文字被排斥推开形成空洞，松开后缓慢回归原位2. 文字链 — 点击一个字母粘在鼠标上，拖动时相邻字母像锁链一样依次跟随3. 漩涡 — 按住鼠标，附近文字围绕鼠标旋转形成螺旋4. 追光 — 鼠标划过的文字发光放大，形成渐隐的亮带轨迹，不改变文字位置5. 拆字成灰 — 按住鼠标，附近的字母溶解为细小粒子飘散，松开后粒子重新聚合回字形视觉要求：- 背景浅色纸张质感- 动画流畅 60fps- 切换模式时文字平滑过渡回原位不使用任何第三方库，纯原生实现。项目结构和技术方案自主决定。
+</code></pre>
+<h3 id="case-23d-样板房">Case 2：3D 样板房</h3>
+<p>这个任务打算给模型上一下强度。若要完整完成，需要模型对 3D 开发、材质把控、真实样板房布局均有深入理解。</p>
+<p>Qwen3.6-Plus：</p>
+<p>Claude Opus 4.6：</p>
+<p>Gemini 3.1 Pro：</p>
+<p>该任务下，Claude 表现突出，但整体来说，对于当前模型来说均有较大挑战。各家在房间布局上均存在错位、假过道、错门现象。</p>
+<h2 id="依旧顶级的多模态推理">👀 依旧顶级的多模态推理</h2>
+<p>上代模型 Qwen3.5-Plus 在春节期间的多模态识别与推理能力，实测表现非常抢眼。持续观察多模态表现水平。</p>
+<h3 id="case-1找出图中全部不符合现实的地方">Case 1：找出图中全部不符合现实的地方</h3>
+<pre><code>仔细找全图中全部不符合现实的地方
+</code></pre>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>Qwen3.6-Plus</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>Gemini 3.1 Pro</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>相较而言，Qwen 总体胜出。</p>
+<p>从画面细致度观察来讲，Qwen 找出了更多直观的问题，保持 1 个数量的总正确数领先。而 Gemini 表现出略好的空间规律理解，能找出画面看起来正常但不符合规律的问题。</p>
+<h3 id="case-2地铁换乘路线推测">Case 2：地铁换乘路线推测</h3>
+<p>此题主要考察模型对复杂细节图片内容的识别与信息推理。</p>
+<p>问题 Prompt 如下：</p>
+<pre><code>从许村到南湖站最近的换乘路线是什么？不准联网，只能从我提供的图片进行推理
+</code></pre>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>Qwen 作答耗时不到 50s，答案正确无误，成功胜任视觉推理任务场景 ✅</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>对于复杂多细节图像的识别与理解能力突出。</p>
+<h2 id="agent-长程规划与执行">🦐 Agent 长程规划与执行</h2>
+<p>Qwen3.6-Plus 长程 Agentic 任务能力，较前代有一定提升。相较复杂长程任务，更擅长前端与指令明确的代码任务生成。</p>
+<h3 id="case-1通用联网任务">Case 1：通用联网任务</h3>
+<p>使用近日爆火的通用联网 Agent Skill 「Web-Access」（我做的），测试 Qwen3.6-Plus 在复杂网络环境的 Agent Loop 表现。</p>
+<p>直接给出并行调研指令：</p>
+<pre><code>帮我并行调研知乎、微博、B站的今日热榜内容，返回今日日报给我
+</code></pre>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>抓取三平台今日内容如下，并展现出模型自发对跨平台共性热点进行整合的智能行为。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>在任务过程中，可胜任指令遵循表现良好，最终其抓取内容经核实，内容数据均与实际情况一致。</p>
+<h3 id="case-2mac-桌宠开发">Case 2：Mac 桌宠开发</h3>
+<p>测试 Qwen3.6-Plus 在长程 Agentic Coding 能力，要求其根据已有角色资源，制作一只能在电脑桌面底部疯狂吃饭、拉 💩 的螃蟹桌宠（Btw，这只桌宠的角色资产也是用 Qwen3.6-Plus 画的）</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<pre><code>使用像素桌宠资产：/Documents/pixel-assets/assets/crab.js                                             制作Mac桌宠，要求：点击角色可爱抚，有表情反应；点击桌面屏幕底部边缘，可喂食；角色在桌面底部无规则游荡，经常拉💩；点击💩 可清理。仅桌宠游戏可见交互部分可点击，其余透明区域鼠标可穿透。
+</code></pre>
+<p>接受任务后，首先对任务进行了合理的拆分：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>并在 1 轮 Prompt 下，一次性完成游戏主体开发，在 Mac 上可直接运行。在自动进食、拉💩的实际行为策略、鼠标穿透实现需要调整，即模型长程 Agent 任务执行深度有待提升。</p>
+<p>（如果对 DIY 能在你桌面上到处拉💩的桌宠感兴趣，Maybe 后面可以更新一期文章 ⬇️）</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="定价与总结">💰 定价与总结</h2>
+<p>Qwen3.6-Plus 已上架阿里云百炼，以 256k 上下文为界限，阶梯计价：</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/mmbiz_png/DGyz1tk4xb4gDicrMLQu9Hibxg0HKAvSTViaibPoSK7QYwX9TQrdzXFrEBV9jOWEx0cWicnPquXHfQZuawjfiabetib6wM5WHYNYUf3ja4WZdFpVyc/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=14" /></p>
+<p>总结一下：</p>
+<p>Qwen3.6-Plus 在前端代码 or 单轮 Coding 能力上，有较好表现。Agent 长程任务较上代有所进步，复杂度上限还有提升空间。</p>
+<p>另外，在视觉识别推理场景，体现出了明显的高可用度，延续了 Qwen 家族在多模态识别场景的一流水准。</p>
+<p>希望本文能对你有所启发，感谢点赞、关注、分享</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/DGyz1tk4xb5YKQCibSzc9icsjR93OBYZuNmDYOrnQfooee9XUspyz5qh0cnRFCDlZHFqneC7DsApkGMsUicNLlsHS41vfySWJmMq1hXxGbnZKA/640?wx_fmt=png&amp;from=appmsg&amp;wxfrom=5&amp;wx_lazy=1&amp;tp=webp#imgIndex=22" /></p>
         </div>
     </article>
 

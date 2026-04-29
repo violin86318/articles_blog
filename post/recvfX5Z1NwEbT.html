@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">设计与视觉</span>
+            <span class="card-tag card-tag-primary">技术开发</span>
             
-            
-            <span class="topic-chip">PDF</span>
-            
-            <span class="topic-chip">排版</span>
-            
-            <span class="topic-chip">Skill</span>
             
             <span class="topic-chip">Claude Code</span>
             
-            <span class="detail-reading-time">约 5 分钟阅读</span>
+            <span class="topic-chip">PDF排版</span>
+            
+            <span class="topic-chip">CJK支持</span>
+            
+            <span class="topic-chip">reportlab</span>
+            
+            <span class="topic-chip">Markdown</span>
+            
+            <span class="topic-chip">Skill开发</span>
+            
+            <span class="detail-reading-time">约 26 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>可在Claude Code中直接使用的lovstudio/md2pdf Skill，是目前唯一同时具备Markdown原生全功能排版、CJK中文专项支持、全链路文档结构、零重依赖的Markdown转出版级专业PDF方案。</p>
+                <p>我需要一个纯 Python、零重依赖、接受标准 Markdown、对中文友好、能在 Claude Code sandbox 里直接跑的排版引擎。 一个好的 Skill 应该让 Agent 用起来像呼吸一样自然。 12 个竞品里，没有一个同时具备：Markdown 原生全功能排版 + CJK 专项支持 + 全链路文档结构 + 零重依赖。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>因Claude Code源码泄露，作者计划制作100+页深度技术报告，面临Markdown转出版级PDF的需求，尝试Pandoc+LaTeX等多款现有方案均碰壁后，基于reportlab开发了Claude Code专属Skill lovstudio/md2pdf。该工具支持标准Markdown，对中文友好，可直接在Claude Code sandbox运行，能生成带封面、目录、书签、水印的专业PDF，经对比12款竞品，它是唯一同时具备Markdown原生全功能排版、CJK专项支持、全链路文档结构、零重依赖的方案，仅需一行命令即可安装使用。</p>
+                <p>作者因Claude Code源码泄露想生成一份出版级PDF研究报告，尝试Pandoc、WeasyPrint、Puppeteer、MiniMax等方案均遇阻，最终基于reportlab开发了md2pdf Skill。该工具支持CJK字符级精确混排、代码块保真、全链路文档结构及10种主题风格，能在Claude Code沙箱中一行命令生成专业PDF。</p>
             </div>
             
             
@@ -134,52 +138,363 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文详细记录了作者为解决中文技术报告PDF排版难题，从踩坑现有方案到自主开发md2pdf Skill的全过程。文章不仅展示了具体的技术解决方案，如CJK双层混排和代码块保真，还体现了“解决实际问题”的工程思维。通过对比12个竞品，凸显了该工具在特定场景下的独特价值，为AI Agent生成专业文档提供了实用参考。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#我做了一个精美-pdf-排版-skill以生成-100-页-claude-code-系统报告为例" class="toc-link">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#一起因claude-code-源码泄露我想做一份像样的研究报告" class="toc-link">一、起因：Claude Code 源码泄露，我想做一份像样的研究报告</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#二这能有多难一个下午的崩溃之旅" class="toc-link">二、&#34;这能有多难？&#34;——一个下午的崩溃之旅</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第一站pandoc-latex" class="toc-link">第一站：Pandoc + LaTeX</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第二站weasyprint" class="toc-link">第二站：WeasyPrint</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第三站md-to-pdf-puppeteer-方案" class="toc-link">第三站：md-to-pdf / Puppeteer 方案</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第四站看看-minimax-的方案" class="toc-link">第四站：看看 MiniMax 的方案？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#三既然没有那就自己做一个" class="toc-link">三、既然没有，那就自己做一个</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#四解决了哪些别人没解决的问题" class="toc-link">四、解决了哪些&#34;别人没解决&#34;的问题</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#41-cjk-双层方案字符级精确混排" class="toc-link">4.1 CJK 双层方案——字符级精确混排</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#42-代码块保真esc_code-黑魔法" class="toc-link">4.2 代码块保真——esc_code() 黑魔法</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#43-全链路文档结构从封面到封底" class="toc-link">4.3 全链路文档结构——从封面到封底</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#44-智能表格列宽" class="toc-link">4.4 智能表格列宽</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#45-主题系统10-种设计风格" class="toc-link">4.5 主题系统——10 种设计风格</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#五对比12-个竞品逐一过招" class="toc-link">五、对比：12 个竞品，逐一过招</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#六为什么不用-minimax-的-skill" class="toc-link">六、为什么不用 MiniMax 的 Skill？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#七一个设计哲学的选择" class="toc-link">七、一个设计哲学的选择</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#八安装与使用" class="toc-link">八、安装与使用</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#九后记" class="toc-link">九、后记</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题：我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</p>
-<p>文章摘要：<br />
-本文介绍了如何使用 Claude Code Skill 生成专业的 PDF 报告。作者在 Claude Code 源码泄露后，决定制作一份深度技术报告，并面临将 Markdown 文件转换为出版级 PDF 的挑战。通过尝试多种方案，包括 Pandoc + LaTeX、WeasyPrint、md-to-pdf / Puppeteer 和 MiniMax 的方案，作者最终选择了 reportlab 库来创建自己的 Skill，名为 lovstudio/md2pdf。这个 Skill 能够接受标准 Markdown，对中文友好，并在 Claude Code sandbox 中直接运行，生成包含封面、目录、书签、水印、页眉页脚的专业 PDF。文章还介绍了 md2pdf Skill 的特点和优势，以及与其他竞品的对比。</p>
-<p>文章目录：<br />
-一、起因：Claude Code 源码泄露，我想做一份像样的研究报告<br />
-二、"这能有多难？"——一个下午的崩溃之旅<br />
-三、既然没有，那就自己做一个<br />
-四、解决了哪些"别人没解决"的问题<br />
-五、对比：12 个竞品，逐一过招<br />
-六、为什么不用 MiniMax 的 Skill？<br />
-七、一个设计哲学的选择<br />
-八、安装与使用<br />
-九、后记</p>
-<p>文章内容：<br />
-一、起因：Claude Code 源码泄露，我想做一份像样的研究报告<br />
-作者在 Claude Code 源码泄露后，决定制作一份深度技术报告，并面临将 Markdown 文件转换为出版级 PDF 的挑战。</p>
-<p>二、"这能有多难？"——一个下午的崩溃之旅<br />
-作者尝试了多种方案，包括 Pandoc + LaTeX、WeasyPrint、md-to-pdf / Puppeteer 和 MiniMax 的方案，但都遇到了各种问题。</p>
-<p>三、既然没有，那就自己做一个<br />
-作者最终选择了 reportlab 库来创建自己的 Skill，名为 lovstudio/md2pdf。</p>
-<p>四、解决了哪些"别人没解决"的问题<br />
-md2pdf Skill 具有以下特点：<br />
-1. CJK 双层方案——字符级精确混排<br />
-2. 代码块保真——esc_code() 黑魔法<br />
-3. 全链路文档结构——从封面到封底<br />
-4. 智能表格列宽<br />
-5. 主题系统——10 种设计风格</p>
-<p>五、对比：12 个竞品，逐一过招<br />
-作者对 12 个 MD→PDF 相关的竞品进行了对比，发现 md2pdf Skill 是唯一同时具备 Markdown 原生全功能排版 + CJK 专项支持 + 全链路文档结构 + 零重依赖的方案。</p>
-<p>六、为什么不用 MiniMax 的 Skill？<br />
-作者认为 MiniMax 的 Office Skills 侧重通用文档平台，而 md2pdf Skill 侧重中文技术报告的全链路排版。</p>
-<p>七、一个设计哲学的选择<br />
-作者认为一个好的 Skill 应该让 Agent 用起来像呼吸一样自然，不需要装浏览器，不需要学新格式，不需要配字体。</p>
-<p>八、安装与使用<br />
-md2pdf Skill 可以通过 npx skills add lovstudio/md2pdf 一行命令安装，并在 Claude Code 里直接使用。</p>
-<p>九、后记<br />
-作者认为 md2pdf Skill 的诞生是为了满足自己当时的需求，现在也可以被其他人使用。</p>
-<p>文章总结：<br />
-本文介绍了如何使用 Claude Code Skill 生成专业的 PDF 报告，并介绍了 lovstudio/md2pdf Skill 的特点和优势。这个 Skill 能够接受标准 Markdown，对中文友好，并在 Claude Code sandbox 中直接运行，生成包含封面、目录、书签、水印、页眉页脚的专业 PDF。</p>
+            <h1 id="我做了一个精美-pdf-排版-skill以生成-100-页-claude-code-系统报告为例">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</h1>
+<blockquote>
+<p>一天时间，从"源码泄露要做深度研究"到"136页精美PDF自动生成"——一个 Claude Code Skill 的诞生记。</p>
+</blockquote>
+<p>本文目录：</p>
+<ul>
+<li>
+<p>一、起因：Claude Code 源码泄露，我想做一份像样的研究报告</p>
+</li>
+<li>
+<p>二、"这能有多难？"——一个下午的崩溃之旅</p>
+</li>
+<li>
+<p>第一站：Pandoc + LaTeX</p>
+</li>
+<li>
+<p>第二站：WeasyPrint</p>
+</li>
+<li>
+<p>第三站：md-to-pdf / Puppeteer 方案</p>
+</li>
+<li>
+<p>第四站：看看 MiniMax 的方案？</p>
+</li>
+<li>
+<p>三、既然没有，那就自己做一个</p>
+</li>
+<li>
+<p>四、解决了哪些"别人没解决"的问题</p>
+</li>
+<li>
+<p>4.1 CJK 双层方案——字符级精确混排</p>
+</li>
+<li>
+<p>4.2 代码块保真——<code>esc_code()</code> 黑魔法</p>
+</li>
+<li>
+<p>4.3 全链路文档结构——从封面到封底</p>
+</li>
+<li>
+<p>4.4 智能表格列宽</p>
+</li>
+<li>
+<p>4.5 主题系统——10 种设计风格</p>
+</li>
+<li>
+<p>五、对比：12 个竞品，逐一过招</p>
+</li>
+<li>
+<p>六、为什么不用 MiniMax 的 Skill？</p>
+</li>
+<li>
+<p>七、一个设计哲学的选择</p>
+</li>
+<li>
+<p>八、安装与使用</p>
+</li>
+<li>
+<p>九、后记</p>
+</li>
+</ul>
+<p><img alt="目前支持十种设计风格，可自由扩展" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/uw5djxcva2JxBCGWnj5UJjlzzvl4YVAGl81D9BfBXsWKOp2VZQLSib6EqSwlWzibHvMH91acNcHtAckYhXrSGhwEbJAXIicqhlNDIMibrRGP07w/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>目前支持十种设计风格，可自由扩展</p>
+<p><img alt="手动安装：npx skills add lovstudio/md2pdf" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/uw5djxcva2LqJkAVUXv5Qtume4seNp07xnJcUEdFeiby7j9Y2HoUyuH0CP87LDvotWETz8Z4ZRYQNxWokEibcBliayBdQPmIH7Nmbb7Ojic8A5A/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" /></p>
+<p>手动安装：npx skills add lovstudio/md2pdf</p>
+<p><img alt="md2pdf skill 的问卷交互" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/uw5djxcva2JzhpQb7uKKFx0mHCsf3fDNg9WRbN8qRWk8yvnDAOmQRtss5KF4OPBE6EfmPSfSzge9DbicuiaScPyfIv4h63YTQgEmLnDtIIX90/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=2" /></p>
+<p>md2pdf skill 的问卷交互</p>
+<p><img alt="claude code 深度报告 - 封面" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/uw5djxcva2JoCpCDj5Uop92iaf0LLABCR4MfQjiaQ0eVCovnQTiahG0LvQ2bY402oIg16Kicm3CtXGHIuMdYcnb8KVxMdbdBgJGzAEfn0ls9IIg/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=3" /></p>
+<p>claude code 深度报告 - 封面</p>
+<hr />
+<h2 id="一起因claude-code-源码泄露我想做一份像样的研究报告">一、起因：Claude Code 源码泄露，我想做一份像样的研究报告</h2>
+<p>3 月 31 日，Claude Code 的完整源码被意外泄露到了 npm。</p>
+<p>消息在圈子里炸开。我的第一反应不是围观，而是——<strong>这是一次千载难逢的深度研究机会</strong>。Claude Code 的架构、工具系统、多 Agent 协调、Bridge 远程控制……这些平时只能靠猜的东西，现在全摊开在面前了。</p>
+<p>我让 Claude 自己读自己的源码，做了一次彻底的"自我解剖"。最终产出了一份超过 10 万字、覆盖 30+ 章节的深度技术报告。</p>
+<p><strong>然后问题来了：这份报告怎么分发？</strong></p>
+<p>Markdown 文件直接丢群里？没人看。GitHub 上挂 .md？阅读体验差。我需要的是一份<strong>出版级的 PDF</strong>——有封面、有目录、有页眉页脚、有书签导航、代码块排版正确、中英文混排不乱码。</p>
+<p>听起来不难对吧？我也是这么以为的。</p>
+<p>从源码泄露到出版级PDF报告的诞生</p>
+<h2 id="二这能有多难一个下午的崩溃之旅">二、"这能有多难？"——一个下午的崩溃之旅</h2>
+<h3 id="第一站pandoc-latex">第一站：Pandoc + LaTeX</h3>
+<p>经典方案，理论上最强大。</p>
+<p>现实：装完 TeX Live，4 个 GB 没了。然后开始配 <code>xeCJK</code>……中文引号被 LaTeX 劫持了（pandoc#7509[1]），中文加粗语法失效了（pandoc#4887[2]）。光是让一个中英混排的代码块不报错，就折腾了半小时。</p>
+<p><strong>判决：太重了。为了生成一个 PDF，我不想维护一个 LaTeX 发行版。</strong></p>
+<h3 id="第二站weasyprint">第二站：WeasyPrint</h3>
+<p>Python 生态，HTML/CSS 转 PDF，听起来现代优雅。</p>
+<p>现实：先编译 cairo 和 pango 的 C 依赖（在 macOS 上又是一番折腾）。生成出来一看——代码块缩进错乱（weasyprint#9292[3]），中文字体一上，渲染速度暴跌（weasyprint#2120[4]）。最要命的是：没有目录页，没有 PDF 书签，没有封面。这些全得自己用 HTML/CSS 从零搭。</p>
+<p><strong>判决：坑太多，CJK 是重灾区。</strong></p>
+<h3 id="第三站md-to-pdf-puppeteer-方案">第三站：md-to-pdf / Puppeteer 方案</h3>
+<p>Node.js 启一个 headless Chromium，把 Markdown 渲染成网页再"打印"成 PDF。</p>
+<p>现实：效果其实还不错——毕竟是完整的浏览器引擎在渲染。但 Chromium 本体 300MB，每次生成要启动一个浏览器进程，内存占用 300MB 起步。而且：<strong>在 Claude Code 的 sandbox 里根本跑不起来。</strong></p>
+<p>我做这个 Skill 的初衷就是让 Claude 自己能用，在对话中直接把 Markdown 变成 PDF。一个需要 Chromium 的方案从根本上就不适合。</p>
+<p><strong>判决：太重，sandbox 不友好。</strong></p>
+<h3 id="第四站看看-minimax-的方案">第四站：看看 MiniMax 的方案？</h3>
+<p>正好 3 月 25 日 MiniMax 开源了 Office Skills 套件，GitHub 8.5k 星，PDF 模块做得相当专业——15 种封面模板、设计令牌系统、LaTeX 数学公式、自进化质量循环。</p>
+<p>但仔细一看：</p>
+<ol>
+<li>
+<p><strong>Markdown 只是"二等公民"</strong>。它的核心 CREATE 路线吃的是 JSON content 数组（19 种 block 类型），Markdown 只在 REFORMAT 路线里作为输入——先解析再重排，排版精细度远不如原生 JSON 路线。而我需要的是 Markdown <strong>原生驱动</strong>的全功能排版。</p>
+</li>
+<li>
+<p><strong>没有 CJK 专项支持</strong>。README 原话："CJK support depends on system font availability—not guaranteed across platforms"。中文报告直接用，大概率出□。</p>
+</li>
+<li>
+<p><strong>没有 TOC、没有 PDF 书签、没有水印</strong>。对一份 30 章节的长报告来说，没有目录和侧边栏书签是致命的。</p>
+</li>
+<li>
+<p><strong>封面渲染依赖 Playwright + Chromium</strong>。又是 300MB 的浏览器依赖。</p>
+</li>
+</ol>
+<p>MiniMax 的定位是"通用 PDF 文档生成平台"，做得宽，但在"中文技术报告"这个垂直场景下，它确实不好用。</p>
+<p><strong>判决：好东西，但不是我要的东西。</strong></p>
+<p>四条路全是坑——从Pandoc到MiniMax的踩坑之旅</p>
+<h2 id="三既然没有那就自己做一个">三、既然没有，那就自己做一个</h2>
+<p>一个下午踩完所有坑之后，需求反而变得极其清晰：</p>
+<blockquote>
+<p>我需要一个 <strong>纯 Python、零重依赖、接受标准 Markdown、对中文友好、能在 Claude Code sandbox 里直接跑</strong> 的排版引擎。</p>
+</blockquote>
+<p>技术选型几乎只剩一个：<strong>reportlab</strong>。</p>
+<p><code>pip install reportlab</code>，5MB，纯 Python，无 C 编译依赖，无浏览器引擎，无 TeX 发行版。直接构建 PDF 字节流，不经过任何中间格式。</p>
+<p><strong>于是 lovstudio/md2pdf 诞生了。</strong></p>
+<p>整个 Skill 的核心是一个 817 行的 Python 脚本 <code>md2pdf.py</code>，从 Markdown 源文件直接生成出版级 PDF。一天之内完成了从零到 136 页实战验证的全过程。</p>
+<h2 id="四解决了哪些别人没解决的问题">四、解决了哪些"别人没解决"的问题</h2>
+<h3 id="41-cjk-双层方案字符级精确混排">4.1 CJK 双层方案——字符级精确混排</h3>
+<p>这是整个 Skill 最硬核的部分，也是和所有竞品拉开差距最大的地方。</p>
+<p>中英文混排看似简单，但在 reportlab 里是个深坑：reportlab 的 <code>Paragraph</code> 不支持 fallback 字体——你注册一个 CJK 字体，英文就丑了；注册一个 Latin 字体，中文就□了。</p>
+<p>我们的解决方案是 <strong>两层拦截</strong>：</p>
+<p><strong>第一层 <code>_font_wrap()</code></strong>：在 Paragraph 层面逐字符扫描文本，检测每个字符是否落在 CJK Unicode 范围内（U+4E00–U+9FFF、U+3400–U+4DBF 等），然后动态插入 <code>&lt;font face="CJK"&gt;</code> 标签。一段文字里中文用思源宋体、英文用 Carlito，切换精确到单个字符。</p>
+<p><strong>第二层 <code>_draw_mixed()</code></strong>：在 Canvas 层面（封面标题、页眉页脚等直接画在画布上的文本），实现 CJK/Latin 逐段切换绘制，每段用各自的字体和精确的 x 偏移。</p>
+<p>这是<strong>唯一同时解决 Paragraph 和 Canvas 两个渲染层 CJK 问题的方案</strong>。我扫遍了 6 个 Skill 平台、13,000+ 个 skills，没有找到第二家。</p>
+<p>CJK双层架构：Paragraph层与Canvas层的字符级精确混排</p>
+<h3 id="42-代码块保真esc_code-黑魔法">4.2 代码块保真——<code>esc_code()</code> 黑魔法</h3>
+<p>reportlab 的 Paragraph 有个臭名昭著的行为：<strong>它会吞掉连续空白和换行符</strong>。对正文段落来说无所谓，对代码块来说是灾难——缩进全没了，换行也没了。</p>
+<p><code>esc_code()</code> 做了两件事：</p>
+<ul>
+<li>
+<p><code>\n</code> → <code>&lt;br/&gt;</code>（保留每一个换行）</p>
+</li>
+<li>
+<p>行首空格 → <code>&amp;nbsp;</code>（保留每一级缩进）</p>
+</li>
+</ul>
+<p>此外，<strong>30 行自动截断</strong>——超过 30 行的代码块自动截断并标注 <code>... (truncated)</code>。技术报告里经常有几百行的配置文件或日志输出，不截断会直接撑爆后面好几页。</p>
+<h3 id="43-全链路文档结构从封面到封底">4.3 全链路文档结构——从封面到封底</h3>
+<p>这是和其他 MD→PDF 工具差距最大的维度。一张表说清楚：</p>
+<p>市面上没有任何一个 MD→PDF 工具同时提供这些。Pandoc 通过 LaTeX 模板可以实现部分功能——但你得会写 LaTeX 模板。我们用 <strong>20+ 个 CLI 参数</strong>把这些全部暴露为零代码配置：</p>
+<p>一行命令，136 页，7.9 MB，出版级 PDF。</p>
+<p>全链路文档结构与10种主题风格</p>
+<h3 id="44-智能表格列宽">4.4 智能表格列宽</h3>
+<p>Markdown 表格到 PDF 的列宽分配是个经典难题。等宽分配浪费空间，浏览器引擎的自动布局在 reportlab 里不存在。</p>
+<p>我们的算法：</p>
+<ol>
+<li>
+<p>计算每列最长内容的字符数</p>
+</li>
+<li>
+<p>按比例分配可用宽度</p>
+</li>
+<li>
+<p>每列保障 18mm 最低宽度</p>
+</li>
+<li>
+<p>如果总宽度超限，从最宽的列开始扣减</p>
+</li>
+</ol>
+<p>效果：窄列不会被挤成一条线，宽列不会独占整页。</p>
+<h3 id="45-主题系统10-种设计风格">4.5 主题系统——10 种设计风格</h3>
+<p>不是简单换配色。每个主题都有独立的<strong>版式语言</strong>：</p>
+<p>从学术论文到期刊风格，从中式正式到极简水墨，一个 <code>--theme</code> 参数切换。还支持 <code>--theme-file mytheme.json</code> 完全自定义。</p>
+<h2 id="五对比12-个竞品逐一过招">五、对比：12 个竞品，逐一过招</h2>
+<p>我在 Anthropic Skills、SkillsMP.com、LobeHub、OpenClaw（13,729 skills）、Microsoft Skills（132 skills）、FastMCP.me 六大平台做了全面扫描。找到了 12 个 MD→PDF 相关的竞品。</p>
+<p>核心结论放一张表：</p>
+<p><strong>12 个竞品里，没有一个同时具备：Markdown 原生全功能排版 + CJK 专项支持 + 全链路文档结构 + 零重依赖。</strong></p>
+<p>我们是这个交叉点上唯一的方案。</p>
+<p>竞品全景：12个方案中唯一的四维交叉点</p>
+<h2 id="六为什么不用-minimax-的-skill">六、为什么不用 MiniMax 的 Skill？</h2>
+<p>同期 MiniMax 开源的 Office Skills（8.5k stars）也有 PDF 模块，做得很好。两个项目的设计侧重不同：</p>
+<p>MiniMax 侧重<strong>通用文档平台</strong>——HTML/CSS 渲染的封面模板（15+ 种，视觉表现力很强）、LaTeX 数学公式、chart/flowchart 图表内建、表单填充和文档重排三条路线。适合需要丰富视觉效果和多种文档操作的场景。</p>
+<p>我们侧重<strong>中文技术报告的全链路排版</strong>——CJK 字符级混排、Markdown 原生驱动、封面→扉页→目录→书签→水印→封底的完整链路、10 种正文版式风格、纯 Python 零重依赖。适合在 Claude Code 对话中一行命令生成长篇中文报告的场景。</p>
+<p>此外我们还有一些自己的特色：</p>
+<ul>
+<li>
+<p><strong>AI 生图集成</strong>：支持调用 <code>lovstudio:image-gen</code>（基于 nano-banana-pro 等模型）根据文档内容自动生成扉页插图，不只是预设模板</p>
+</li>
+<li>
+<p><strong>品牌标识全链路植入</strong>：通过 <code>--banner</code>、<code>--header-title</code>、<code>--footer-left</code> 等参数，把用户自己的品牌元素贯穿封面、页眉、页脚、封底</p>
+</li>
+</ul>
+<p>MiniMax 的 HTML 封面渲染和 LaTeX 数学公式支持是很好的设计，我们后续也会吸收。至于他们提到的"自进化机制"（Execute→Evaluate→Fix 循环），这其实是一种通用的使用范式——在手工川社区我们也非常推荐这种"生成→检查→修正"的迭代工作流，任何 Skill 都可以这样用。</p>
+<p><strong>总之，大家都在探索 AI Agent 生成专业文档的最佳实践，方向不同，互相借鉴。</strong></p>
+<h2 id="七一个设计哲学的选择">七、一个设计哲学的选择</h2>
+<p>一泽（@eze_is）在他的 Web Access Skill 文章里提出了一个公式：</p>
+<blockquote>
+<p><strong>激发模型能力上限的 Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</strong></p>
+</blockquote>
+<p>md2pdf 的设计暗合了这个思路：</p>
+<ul>
+<li>
+<p><strong>策略哲学</strong>：Markdown 是最自然的中间格式，AI Agent 天然就在输出 Markdown。让 Markdown 成为一等输入——直接 .md → .pdf，全功能，一步到位。</p>
+</li>
+<li>
+<p><strong>最小完备工具集</strong>：一个 Python 脚本，一个 <code>pip install reportlab</code>，20+ 个 CLI 参数覆盖所有排版需求。没有多余的依赖，没有多余的配置文件。</p>
+</li>
+<li>
+<p><strong>必要的事实说明</strong>：SKILL.md 里详细记录了每个参数的用途、Hard-Won Lessons（那些踩过的坑）、主题配色参考。Claude 读完就知道怎么用。</p>
+</li>
+</ul>
+<p><strong>一个好的 Skill 应该让 Agent 用起来像呼吸一样自然。</strong> 不需要装浏览器，不需要学新格式，不需要配字体——告诉它"把这个 .md 转成 PDF"，它就能做到。</p>
+<h2 id="八安装与使用">八、安装与使用</h2>
+<pre><code>npx skills add lovstudio/md2pdf
+</code></pre>
+<p>一行命令安装。装完之后在 Claude Code 里说：</p>
+<blockquote>
+<p>"把这个 report.md 转成 PDF，用 Nord 主题，加上水印'内部资料'"</p>
+</blockquote>
+<p>它就会自动调用 md2pdf.py，生成一份带封面、目录、书签、水印、页眉页脚的专业 PDF。</p>
+<p><strong>GitHub</strong>：lovstudio/md2pdf[5]</p>
+<h2 id="九后记">九、后记</h2>
+<p>这个 Skill 从需求产生到第一个可用版本，只用了一天。但这一天浓缩了：</p>
+<ul>
+<li>
+<p>4 种方案的踩坑（Pandoc、WeasyPrint、Puppeteer、MiniMax）</p>
+</li>
+<li>
+<p>6 大平台 13,000+ skills 的竞品调研</p>
+</li>
+<li>
+<p>12 个竞品的逐项对比</p>
+</li>
+<li>
+<p>817 行代码的反复迭代</p>
+</li>
+<li>
+<p>136 页 / 7.9 MB 的实战验证</p>
+</li>
+</ul>
+<p>有人可能会说：为什么不直接用 Pandoc？为什么不等 MiniMax 补上 CJK？</p>
+<p>因为<strong>我现在就需要一份漂亮的中文 PDF</strong>，而市面上没有一个方案能在 Claude Code 的 sandbox 里、不装任何额外依赖、一行命令就搞定这件事。</p>
+<p>所以我做了一个。</p>
+<p>现在你也可以用了。</p>
+<hr />
+<ul>
+<li>
+<p><em>作者：Mark / LovStudio</em></p>
+</li>
+<li>
+<p><em>GitHub：https://github.com/lovstudio/md2pdf</em></p>
+</li>
+<li>
+<p><em>安装：<code>npx skills add lovstudio/md2pdf</code></em></p>
+</li>
+<li>
+<p>claude code深度报告pdf文件地址（7天有效）：https://lovstudio.ai/paste/f9cniihz</p>
+</li>
+</ul>
+<hr />
+<p>[1] pandoc#7509, https://github.com/jgm/pandoc/issues/7509</p>
+<p>[2] pandoc#4887, https://github.com/jgm/pandoc/issues/4887</p>
+<p>[3] weasyprint#9292, https://github.com/Kozea/WeasyPrint/issues/9292</p>
+<p>[4] weasyprint#2120, https://github.com/Kozea/WeasyPrint/issues/2120</p>
+<p>[5] lovstudio/md2pdf, https://github.com/lovstudio/md2pdf</p>
         </div>
     </article>
 

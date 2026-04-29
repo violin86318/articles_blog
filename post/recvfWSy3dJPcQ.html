@@ -91,14 +91,20 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI应用</span>
             
             
-            <span class="topic-chip">Agent</span>
+            <span class="topic-chip">Agent Skill</span>
             
-            <span class="topic-chip">Skill</span>
+            <span class="topic-chip">AI开发</span>
             
-            <span class="topic-chip">方法论</span>
+            <span class="topic-chip">策略设计</span>
+            
+            <span class="topic-chip">工具边界</span>
+            
+            <span class="topic-chip">知识边界</span>
+            
+            <span class="topic-chip">开放式任务</span>
             
             <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>通过让AI基于明确目标行动方式、工具边界和知识边界三大前提自行生成技能，可显著提升其在开放式任务中的泛用性和可维护性。</p>
+                <p>清楚完成目标的第一性行动方式 清楚工具的边界 清楚 AI 的知识边界</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>-- 核心前提： 成功构建 AI Agent Skill 需满足 3 个基础条件： 1. 明确目标的第一性行动方式 避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。 2. 厘清工具的边界 工具集决定执行上限，需严格界定可用工具及其局限性。 3. 掌握 AI 的知识边界 需识别 AI 的惰性知识盲区，及时补充关键事实说明。 工具风险： 当前主流工具（如 skill-creator）存在显著缺陷： 生成技能倾向于固定行动路径，类似“混乱代码”，难以维护； 用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。 优化方向： 将上述原则及工具框架输入 AI，使其自主生成技能，可提升泛用性与可维护性。 -- 关键数据引用： 原文指出 skill-creator 类工具的固化路径设计是导致 Agent 泛化性不足（原文称“泛用性不足”）和维护困难的主因，尤其对开放式任务影响显著。 未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。以下是针对《用/做好 Agent Skill 的 3 个前提》全文的核心提炼（约 180 字）： 核心前提： 成功构建 AI Agent Skill 需满足 3 个基础条件： 明确目标的第一性行动方式 避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。 厘清工具的边界 工具集决定执行上限，需严格界定可用工具及其局限性。 掌握 AI 的知识边界 需识别 AI 的惰性知识盲区，及时补充关键事实说明。 工具风险： 当前主流工具（如 skill-creator）存在显著缺陷： 生成技能倾向于固定行动路径，类似“混乱代码”，难以维护； 用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。 优化方向： 将上述原则及工具框架输入 AI，使其自主生成技能，可提升泛用性与可维护性。 关键数据引用： 原文指出 skill-creator 类工具的固化路径设计是导致 Agent 泛化性不足（原文称“泛用性不足”）和维护困难的主因，尤其对开放式任务影响显著。 未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。</p>
+                <p>本文探讨了做好Agent Skill的三个前提：明确目标的第一性行动方式、清楚工具边界、了解AI知识边界。作者指出，将策略误写为路径会限制模型思考，降低泛用性，尤其在开放式任务中会限制Agent上限并难以维护。</p>
             </div>
             
             
@@ -132,27 +138,50 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章从实践角度提出了设计AI Agent Skill的关键前提，强调避免将策略固化为路径，以保持灵活性和泛用性。观点切中当前AI应用开发中的常见误区，对开发者有较好的警示和启发作用，尤其提醒了在开放式任务中过度依赖固定路径的弊端。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#用做好-agent-skill-的-3-个前提" class="toc-link">用/做好 Agent Skill 的 3 个前提</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#skill哲学式设计" class="toc-link">Skill哲学式设计</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《用/做好 Agent Skill 的 3 个前提》，内容主要讨论了使用人工智能（AI）时需要遵循的三个基本前提：</p>
-<ol>
-<li>
-<p><strong>清楚完成目标的第一性行动方式</strong>：这一前提能为行动规划提供恰到好处的策略。然而，在实际操作中，人们很容易将策略写成具体的路径，这样做往往会限制模型的思考和根据反馈进行行动调整的能力，最终导致AI的泛用性不足，容易钻牛角尖。</p>
-</li>
-<li>
-<p><strong>清楚工具的边界</strong>：这一前提决定了最小工具集的搭配，并且工具也限定了AI执行的上限。这意味着在使用AI时，需要明确哪些工具是可用的，以及这些工具的局限性。</p>
-</li>
-<li>
-<p><strong>清楚 AI 的知识边界</strong>：这一前提要求了解AI的惰性知识，并补充缺漏的事实说明。AI的知识边界是指AI能够处理和生成的信息的范围，超出这个范围的信息AI可能无法处理。</p>
-</li>
-</ol>
-<p>文章还提到了使用skill-creator工具创建的技能可能会存在的问题，特别是当这些技能用于开放式任务时。由于skill-creator倾向于生成固定行动路径的技能，这些技能在修改时可能会更倾向于打补丁，类似于人类编写混乱的代码。如果将这些技能用于开放式任务，可能会极大限制AI的上限，并且难以维护和改进。</p>
-<p>最后，文章建议可以尝试将上述图示和skill-creator工具提供给AI，让AI根据这些信息生成技能，以提高AI的泛用性和可维护性。</p>
+            <h1 id="用做好-agent-skill-的-3-个前提">用/做好 Agent Skill 的 3 个前提</h1>
+<p>先从用/做好 AI 的三个前提聊起：<br />
+1. 清楚完成目标的第一性行动方式<br />
+2. 清楚工具的边界<br />
+3. 清楚 AI 的知识边界</p>
+<p>1 能为行动规划提供恰到好处的策略<br />
+2 决定最小工具集的搭配，而且工具限定了AI 执行上限<br />
+3 要求了解 AI 的惰性知识，补充缺漏事实说明</p>
+<p>也就是上图提到的 Skill 的设计哲学的基本前提。</p>
+<p>而且 1 其实挺容易被忽视的，因为我们很有可能会把策略写成路径，而路径往往会限制模型的思考和根据反馈的行动调整。最终导致泛用性不足、钻牛角尖。</p>
+<p>如果你或你的产品依赖 skill-creator写出来的 skill，还是要注意点，特别是用于开放式任务。</p>
+<p>因为恰好用 skill-creator 做的 skill 特别喜欢写路径，在修改时也更倾向于打补丁（类似人类写💩山代码）</p>
+<p>如果是固定行动路径的 workflow 式 skill 还好。放在开放式任务 skill 中，就会极大限 Ag nt 的上限，而且很难维护改进</p>
+<p>（不妨可以试试把我这张图喂给 AI，让它按照这个图和 skill-creator，替你生成 skill</p>
+<h1 id="skill哲学式设计">Skill哲学式设计</h1>
         </div>
     </article>
 

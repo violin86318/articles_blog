@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
     <meta name="theme-color" content="#f4f7f2">
-    <title>MCP 已死，CLI 当立？David Soria Parra 讲述 MCP 的不一样叙事 — 拾读库</title>
+    <title>MCP 死透了吗？ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
@@ -91,22 +91,26 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">人工智能</span>
             
             
             <span class="topic-chip">MCP</span>
             
-            <span class="topic-chip">CLI</span>
+            <span class="topic-chip">AI Agent</span>
             
-            <span class="topic-chip">Agent</span>
+            <span class="topic-chip">连接层</span>
             
-            <span class="topic-chip">工具思考</span>
+            <span class="topic-chip">企业应用</span>
             
-            <span class="detail-reading-time">约 12 分钟阅读</span>
+            <span class="topic-chip">技术栈</span>
+            
+            <span class="topic-chip">工具调用</span>
+            
+            <span class="detail-reading-time">约 21 分钟阅读</span>
         </div>
 
         <!-- Title -->
-        <h1 class="detail-title">MCP 已死，CLI 当立？David Soria Parra 讲述 MCP 的不一样叙事</h1>
+        <h1 class="detail-title">MCP 死透了吗？</h1>
 
         <!-- Digest -->
         
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>文章讨论 MCP 与 CLI 在 AI 工具链中的分工与演变，重点不在谁取代谁，而在什么交互形态更适合真实开发工作流。</p>
+                <p>MCP 的价值并不只是“让模型调用工具”。更大的价值是：它试图给 agent 一个可扩展的连接层，让工具、资源、权限、界面和任务状态都能被清楚表达。 如果有人告诉你，有一个方案可以解决你所有的连接问题……那他们大概率是错的。 2026 年的主题是连接能力，而最好的 agent 会使用所有可用的方法。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>MCP 已死，CLI 当立。 前段时间，你是不是被这个观点刷屏了？ 但就在 4 月，MCP 的 co-creater David Soria Parra 在 AI Engineer 上的一场演讲，却在讲着不一样的叙事。 MCP 目前每月已经达到了 1.1 亿次下载，当然，这不仅包括 Anthropic 自己的客户端和服务器，还包括 OpenAI 的 Agents SDK、Google 的 ADK、LangChain，以及成千上万个你可能...</p>
+                <p>文章反驳了“MCP已死”的观点，引用MCP联合创始人的演讲指出MCP月下载量达1.1亿次，其核心价值在于为Agent提供可扩展的连接层，解决企业级应用中的权限、治理和跨平台一致性问题。未来Agent将融合Skills、MCP、CLI等多种连接方式，而非单一依赖某种技术。</p>
             </div>
             
             
@@ -134,67 +138,129 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章通过权威演讲数据与深入分析，有力反驳了“MCP已死”的论调，清晰阐述了MCP在企业级Agent连接中的独特价值。它强调未来是多种连接技术协同的生态，而非单一技术的替代，为开发者提供了务实的技术选型视角。观点平衡，论证扎实，对理解Agent技术栈演进很有启发。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#mcp-死透了吗" class="toc-link">MCP 死透了吗？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#2026-年的-agent-不会只靠一种连接方式" class="toc-link">2026 年的 agent 不会只靠一种连接方式</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#上下文膨胀不是协议的锅" class="toc-link">上下文膨胀不是协议的锅</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#真正的工具调用不该让模型一下一下手动编排" class="toc-link">真正的工具调用，不该让模型一下一下手动编排</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#mcp-即将到来的改进" class="toc-link">MCP 即将到来的改进</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#skills-over-mcp-可能是最值得关注的扩展" class="toc-link">Skills over MCP 可能是最值得关注的扩展</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#2026-年的关键词是连接" class="toc-link">2026 年的关键词是连接</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>MCP 已死，CLI 当立。</p>
+            <h1 id="mcp-死透了吗">MCP 死透了吗？</h1>
+<p>MCP 已死，CLI 当立。</p>
 <p>前段时间，你是不是被这个观点刷屏了？</p>
 <p>但就在 4 月，MCP 的 co-creater David Soria Parra 在 AI Engineer 上的一场演讲，却在讲着不一样的叙事。</p>
 <p>MCP 目前每月已经达到了 1.1 亿次下载，当然，这不仅包括 Anthropic 自己的客户端和服务器，还包括 OpenAI 的 Agents SDK、Google 的 ADK、LangChain，以及成千上万个你可能从没听说过的框架和工具，它们把 MCP 作为依赖拉进来。</p>
 <p>熟悉了 CLI 叙事的你，觉得这很反直觉。</p>
 <p>2025 年，大家最熟悉的 agent 是 coding agent。这个场景天然适合模型：代码在本地，结果可验证，有编译器、测试、版本控制和开发者兜底。模型写错了，开发者能看见，也能修。</p>
 <p>但金融分析师、市场人员、运营人员、研究员要的不是一个会调用编译器的本地 agent。他们要的是一个能进入真实工作现场的 agent：能读公司云盘，能查 CRM，能拉 Slack，能开 Notion，能跑内部系统，还要知道权限、身份、流程和任务状态。</p>
+<blockquote>
 <p>“它们不需要一个会在本地调用编译器的 agent。它们需要的是能连接五个 SaaS 应用和一个共享云盘的东西。”</p>
+</blockquote>
 <p>这就是 MCP 的用武之地了。</p>
 <p>MCP 的价值并不只是“让模型调用工具”。更大的价值是：它试图给 agent 一个可扩展的连接层，让工具、资源、权限、界面和任务状态都能被清楚表达。</p>
-<p>2026 年的 agent 不会只靠一种连接方式</p>
+<h2 id="2026-年的-agent-不会只靠一种连接方式">2026 年的 agent 不会只靠一种连接方式</h2>
 <p>David 对“连接能力”的判断很克制。他没有说 MCP 会取代一切。相反，他明确反对任何单一答案。</p>
+<blockquote>
 <p>“如果有人告诉你，有一个方案可以解决你所有的连接问题……那他们大概率是错的。”</p>
+</blockquote>
 <p>他的判断是，2026 年构建 agent 时，真正需要的是一整套连接栈：skills、MCP、CLI，以及 computer use。它们不是互斥关系，而是各自解决不同问题。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>Skills 适合承载领域知识。它把“这个系统该怎么用”“这个任务应该怎么做”“这个团队偏好什么”写成可复用的文件。对 agent 来说，skills 像是可携带的工作手册。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>CLI 适合本地、可组合、已被大量训练数据覆盖的任务。Git、GitHub、bash 这类工具，本来就已经存在于开发者工作流和模型训练语料里。对 coding agent 来说，CLI 是非常自然的连接方式。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>Computer use 适合那些没有标准接口、但人类已经能用界面完成的任务。它不优雅，但覆盖面广。</p>
 <p>MCP 则适合需要更强语义、更好权限、更稳定平台独立性、更长任务状态、更清晰资源模型的场景。尤其是当 agent 要进入企业工作流时，MCP 解决的是那些“无聊但重要”的问题：授权、治理、身份、任务、资源、界面和跨平台一致性。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>David 的结论是：</p>
+<blockquote>
 <p>“2026 年我们会开始构建同时使用所有这些能力的 agent。它们不会只用一种东西，而是会全部使用，并且相当无缝地组合在一起。”</p>
+</blockquote>
 <p>他认为我们现在还处于 agent 构建的早期，不是某个工具赢者通吃，而是一个更复杂的工作系统：该用 CLI 时用 CLI，该用 MCP 时用 MCP，该用 skills 时用 skills，该点屏幕时也别假装屏幕不存在。</p>
-<p>上下文膨胀不是协议的锅</p>
+<h2 id="上下文膨胀不是协议的锅">上下文膨胀不是协议的锅</h2>
 <p>MCP 经常被批评的一点，是它会让上下文变大。工具太多，描述太长，模型还没开始干活，上下文窗口就被塞满。</p>
 <p>David 对这个问题的回应很明确：协议只是把信息传过去，真正负责处理信息的是客户端。问题不是 MCP 天然造成上下文膨胀，而是早期客户端太粗暴，把所有工具一次性塞给模型。</p>
+<blockquote>
 <p>“到目前为止，大家一直在做的事……就是简单地把所有工具都塞进上下文窗口里，然后再惊讶地发现上下文窗口变大了。”</p>
+</blockquote>
 <p>他的解法叫 progressive discovery，渐进式发现。模型一开始不需要知道所有工具。它只需要有一个发现工具的入口。当模型意识到自己需要某类能力时，再去搜索、加载、调用。</p>
 <p>有没有感觉眼熟？</p>
 <p>这也是 Skills 的核心机制、agent 系统设计的核心原则：不要把所有知识、所有工具、所有规则一开始都塞给模型。让模型在正确时间拿到正确东西。</p>
 <p>优秀的 agent 不是靠一个巨型提示词启动，而是靠一个会逐步暴露信息的环境运转。</p>
-<p>真正的工具调用，不该让模型一下一下手动编排</p>
+<h2 id="真正的工具调用不该让模型一下一下手动编排">真正的工具调用，不该让模型一下一下手动编排</h2>
 <p>David 提到的第二个关键技术，是 programmatic tool calling，也就是程序化工具调用。</p>
 <p>很多 agent 现在的工具调用方式很笨：模型调用一个工具，拿到结果，再调用第二个工具，再拿结果，再调用第三个工具。每一步都要模型重新推理，延迟高，成本高，也容易出错。</p>
 <p>David 认为，很多时候更好的方式是让模型写一小段程序，把多个工具组合起来一次执行。就像 Claude Code 写 bash 命令一样，MCP 工具也应该可以被组合、过滤、循环、抽取。</p>
+<blockquote>
 <p>“你不希望模型先调用一个工具，拿到结果，再调用另一个工具……因为你实际上是在让模型负责把这些东西编排起来。而这种编排用的是推理。”</p>
+</blockquote>
 <p>推理很贵，也慢。脚本便宜，也稳定。</p>
 <p>所以他建议给模型一个执行环境，比如类似 REPL 的工具、受限运行时或解释器，让模型写代码来组合 MCP 工具。这里结构化输出很重要，因为模型知道每个工具会返回什么类型，就能更可靠地拼接结果。</p>
 <p>这也是 agent 从“会调用工具”走向“会组织工具”的关键一步。前者像是在遥控器上一个按钮一个按钮地按，后者更像是在写一个临时工作流。</p>
-<p>MCP 即将到来的改进</p>
+<h2 id="mcp-即将到来的改进">MCP 即将到来的改进</h2>
 <p>David 在活动上也展望了 MCP 在 2026 年的一些改进和计划。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>比如更容易扩展的无状态传输协议。比如更好的异步任务能力。比如新的 TypeScript 和 Python SDK。比如跨应用访问，让员工只用公司身份登录一次，就能在不同 MCP 服务器之间顺滑使用。比如 server discovery，让 agent 到一个网站时可以自动发现这里有没有 MCP 服务器，而不只是盲目解析网页。</p>
 <p>这些不是 demo 里最吸引人的部分，却是企业真正会在意的部分。</p>
 <p>因为一旦 agent 进入公司系统，问题就不再是“能不能调一个工具”。问题会变成：谁授权的？能访问什么？任务跑多久？中途断了怎么办？日志在哪里？不同客户端行为一致吗？员工离职后权限怎么收回？审计怎么做？</p>
 <p>这正是 David 所说的“无聊但重要”的企业级东西。</p>
 <p>MCP 如果只是开发者玩具，酷功能就够了。MCP 如果要成为 agent 的连接层，就必须把这些无聊问题处理好。</p>
-<p>Skills over MCP 可能是最值得关注的扩展</p>
+<h2 id="skills-over-mcp-可能是最值得关注的扩展">Skills over MCP 可能是最值得关注的扩展</h2>
 <p>在所有未来扩展里，David 最兴奋的是 skills over MCP。</p>
 <p>原因很简单：一个大型 MCP 服务器如果有很多工具，就不能只把工具列表丢给模型。它还应该告诉模型这些工具该怎么用，什么顺序更合理，哪些组合是常见模式，哪些坑要避开。</p>
 <p>也就是说，服务器不只发布能力，还要发布使用知识。</p>
+<blockquote>
 <p>“如果你有一个大型 MCP 服务器，里面有很多很多工具，你就会希望把领域知识一起发布出去，告诉模型：这个东西应该这样用，那个东西应该那样用。”</p>
+</blockquote>
 <p>这会让 skills 从本地文件、插件机制、手动配置，走向服务端持续发布。服务器作者可以随着产品变化更新 skills，客户端和 agent 则能在使用工具时拿到最新的使用说明。</p>
 <p>今天你已经可以用一个 load skills 工具模拟这件事。但一旦 MCP 正式定义语义，它就会从技巧变成协议能力。</p>
 <p>这件事的意义不小。未来一个好 MCP 服务器，不只是“有很多工具”，而是“知道怎样教 agent 使用这些工具”。</p>
-<p>2026 年的关键词是连接</p>
+<h2 id="2026-年的关键词是连接">2026 年的关键词是连接</h2>
+<blockquote>
 <p>“2026 年的主题是连接能力，而最好的 agent 会使用所有可用的方法。”</p>
+</blockquote>
 <p>过去我们评价 agent，常常看它是否更聪明，是否推理更强，是否能写更复杂的代码。但如果 agent 要进入真实工作，聪明只是入场券。它还必须连接正确的数据、正确的工具、正确的身份、正确的界面、正确的任务状态，以及正确的领域知识。</p>
 <p>这也是 MCP 在这场演讲里的定位。它不是所有问题的答案，也不是唯一的连接方式。它更像 agent 工作系统里的一层公共语义：当 CLI 太本地，computer use 太脆弱，skills 只承载知识，而企业又需要权限、任务、资源和界面时，MCP 补上了中间那层。</p>
 <p>最好的 agent 不会洁癖式地只选一种方式。它会像真正的工作者一样：该读文档时读文档，该用工具时用工具，该打开界面时打开界面，该调用协议时调用协议，该遵守权限时遵守权限。</p>
@@ -208,13 +274,13 @@
         
         <a href="recvhxO5CEhgK1.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">Image 2 + 这套提示词 = 可交付的商业级 PPT</span>
+            <span class="article-nav-title">image-2 + 这套提示词 = 可交付的商业级 PPT</span>
         </a>
         
         
         <a href="recvh2iPpwoWEZ.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
-            <span class="article-nav-title">bili2txt-agent：开源智能机器人，一键将B站视频转为飞书云文档</span>
+            <span class="article-nav-title">B站视频一键转飞书文档：开源项目bili2txt</span>
         </a>
         
     </nav>

@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">教程实操</span>
+            <span class="card-tag card-tag-primary">AI工具</span>
             
             
             <span class="topic-chip">OpenClaw</span>
             
-            <span class="topic-chip">Skill</span>
+            <span class="topic-chip">龙虾技校</span>
             
-            <span class="topic-chip">教程实操</span>
+            <span class="topic-chip">Skill选课</span>
             
-            <span class="detail-reading-time">约 3 分钟阅读</span>
+            <span class="topic-chip">AI助手</span>
+            
+            <span class="topic-chip">技能配置</span>
+            
+            <span class="topic-chip">课程指南</span>
+            
+            <span class="detail-reading-time">约 52 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>按龙虾类型匹配专业课程组合是最大亮点。</p>
+                <p>课选少了，龙虾像白板干不了活；课选多了，龙虾的‘课业负担’又太重——启动更慢、上下文更厚、费用更高，skill之间还可能互相冲突，导致龙虾闹情绪不上学。 基础课看起来不性感，但它决定龙虾后面学什么都不至于变形。 不要先问哪个 Skill 最火，先问你想把这只龙虾培养成什么工种。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>根据《OpenClaw龙虾技校Skill选课指南》，核心内容提炼如下： 1. 查课表与选课起点 优先引导龙虾学习公开Skill页（ClawHub/GitHub资源库），部分课程已内置为必修。 2. 基础能力优先 必修正底层能力课：find-skills（搜索）、summarize（总结）、github（协作）、agent-browser（浏览）等，并推荐&#34;元能力&#34;课如 skill-creator（开发技能）。 3. 综合素质课决定长期表现 如 openclaw-logfire（日志）、self-improving-agent（自我优化）、task-resume（断点续作）等，保障龙虾持续稳定工作。 4. 按专业方向分流 细分9大学院（如文书办公、编程研发、财经情报、电商运营等），不同工种需匹配对应课程。 5. 按龙虾类型定制 针对6类龙虾（尝鲜型/文职型/工程型等）设计课程组合，避免盲目堆砌Skill。 6. 核心原则：精准选课＞数量 校训强调“先定专业再选课”，Skill需适配工种需求，非越多越好。 关键资源： 课表平台：ClawHub（https://clawhub.com）、GitHub课程库（含大量个人开发Skill，需注意风险） 附录索引超过50项具体Skill，覆盖各专业场景。 （字数：198）</p>
+                <p>本文是OpenClaw龙虾技校的Skill选课指南，指导用户如何为AI助手（龙虾）选择合适的技能课程。文章强调选课需结构化、避免过载，先打好基础课，再根据龙虾类型（如文职、内容、工程等）选择专业方向，并提供了九大专业学院的课程推荐。</p>
             </div>
             
             
@@ -132,35 +138,358 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>这篇选课指南非常实用，将AI助手的技能配置比作学校选课，生动形象。文章不仅提供了具体的课程推荐和分类，更重要的是提出了‘先定专业，再选课程’的核心理念，避免了盲目堆砌技能。九大专业学院的划分清晰，针对不同使用场景给出了结构化方案，对OpenClaw用户有很强的指导意义。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#openclaw龙虾技校skill选课指南" class="toc-link">OpenClaw龙虾技校Skill选课指南</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#一课表先去哪里查" class="toc-link">一、课表先去哪里查</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#二先别急着报热门课先把基础课修对" class="toc-link">二、先别急着报热门课，先把基础课修对</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#三综合素质课不直接发毕业证但决定龙虾会不会长期工作" class="toc-link">三、综合素质课不直接发毕业证，但决定龙虾会不会长期工作</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#四专业分流学院同一只龙虾分院以后才开始像不同工种" class="toc-link">四、专业分流学院：同一只龙虾，分院以后才开始像不同工种</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#1文书与办公室学院" class="toc-link">1）文书与办公室学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#2行政与总助学院" class="toc-link">2）行政与总助学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#3内容与传播学院" class="toc-link">3）内容与传播学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#4编程与研发学院" class="toc-link">4）编程与研发学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#5设计与多媒体学院" class="toc-link">5）设计与多媒体学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#6财经与情报学院" class="toc-link">6）财经与情报学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#7电商运营学院" class="toc-link">7）电商运营学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#8项目管理学院" class="toc-link">8）项目管理学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#9研究与信息学院" class="toc-link">9）研究与信息学院</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#五按龙虾类型排课别一锅炖" class="toc-link">五、按龙虾类型排课，别一锅炖</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#尝鲜型龙虾" class="toc-link">尝鲜型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#文职型龙虾" class="toc-link">文职型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#内容型龙虾" class="toc-link">内容型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#值班型龙虾" class="toc-link">值班型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#工程型龙虾" class="toc-link">工程型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#折腾型龙虾" class="toc-link">折腾型龙虾</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#六最后的校训先定专业再选课程" class="toc-link">六、最后的校训：先定专业，再选课程</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#附录一课表去哪里查" class="toc-link">附录一：课表去哪里查</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#附录二文中提到的-skill-网址索引" class="toc-link">附录二：文中提到的 Skill 网址索引</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#基础与通识" class="toc-link">基础与通识</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#综合素质" class="toc-link">综合素质</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#文书与办公室学院" class="toc-link">文书与办公室学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#行政与总助学院" class="toc-link">行政与总助学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#内容与传播学院" class="toc-link">内容与传播学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#编程与研发学院" class="toc-link">编程与研发学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#设计与多媒体学院" class="toc-link">设计与多媒体学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#财经与情报学院" class="toc-link">财经与情报学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#电商运营学院" class="toc-link">电商运营学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#项目管理学院" class="toc-link">项目管理学院</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#研究与信息学院" class="toc-link">研究与信息学院</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据您提供的参考信息，以下是文章《OpenClaw龙虾技校Skill选课指南》的主要内容：</p>
-<p>一、课表先去哪里查<br />
-- 建议直接将公开Skill页的网址发给龙虾，让它去学习。<br />
-- 很多版本的🦞已经将一些课程作为必修课内置，无需再选。<br />
-- 部分Skill由个人开发，使用时需注意风险。</p>
-<p>二、先别急着报热门课，先把基础课修对<br />
-- 基础课如find-skills、tavily-search、summarize、github、agent-browser等，是补搜索、查找、浏览、协作等底层能力。<br />
-- 推荐的“元能力”课程有skill-creator和skill-vetter。</p>
-<p>三、综合素质课不直接发毕业证，但决定龙虾会不会长期工作<br />
-- 如openclaw-logfire、self-improving-agent、proactive-agent、task-resume、nblm等课程，帮助龙虾持续工作、复盘、纠错。</p>
-<p>四、专业分流学院：同一只龙虾，分院以后才开始像不同工种<br />
-- 文章详细介绍了文书与办公室学院、行政与总助学院、内容与传播学院、编程与研发学院、设计与多媒体学院、财经与情报学院、电商运营学院、项目管理学院、研究与信息学院等不同学院的方向和课程。</p>
-<p>五、按龙虾类型排课，别一锅炖<br />
-- 根据龙虾的类型（如尝鲜型、文职型、内容型、值班型、工程型、折腾型）推荐不同的课程组合。</p>
-<p>六、最后的校训：先定专业，再选课程<br />
-- 强调Skill的重要性，但不是越多越好，应根据龙虾的工种选择合适的课程。</p>
-<p>附录一：课表去哪里查<br />
-- ClawHub：https://clawhub.com<br />
-- GitHub（Awesome OpenClaw Skills）：https://github.com/VoltAgent/awesome-openclaw-skills</p>
-<p>附录二：文中提到的Skill网址索引<br />
-- 文章中提到了大量的Skill，并提供了相应的网址索引。</p>
-<p>请注意，以上内容是根据您提供的参考信息整理的，如需获取完整内容，请访问文章链接：https://mp.weixin.qq.com/s/9rT5CLV-Vf7LvQEsKJqhiw。</p>
+            <h1 id="openclaw龙虾技校skill选课指南">OpenClaw龙虾技校Skill选课指南</h1>
+<p>上一篇《<a href="https://mp.weixin.qq.com/s?__biz=MzI5NTkxNTc1Mw==&amp;mid=2247491814&amp;idx=1&amp;sn=01db30920ca666397c45ac5e5cc857f4&amp;scene=21#wechat_redirect">Openclaw 龙虾选种及产后护理手册》</a>解决的是“先把虾养活”。这一篇解决的是下一步：<strong>龙虾该上学了，课（skill） 怎么选，志愿怎么填🥹。</strong></p>
+<p>课选少了，龙虾像白板干不了活；课选多了，龙虾的“课业负担”又太重——启动更慢、上下文更厚、费用更高，skill之间还可能互相冲突，导致龙虾闹情绪不上学😂。所以，问题往往不在单个 skill，而在于课程之间怎么互相搭配、不冲突。所以这篇核心是教大家做一套<strong>结构化、负担合理、能真正落地干活的选课方案</strong>。</p>
+<p><img alt="龙虾选课别过载" src="https://mmbiz.qpic.cn/sz_mmbiz_png/v6WjItCGdtxOBFqXFIKIryrv0TBla4FBBC53ZJiakdEiaQ7ddFhyRqDHbnaoT2PJLy83h4uHjgicku9YA9d6Eu5bQn9kNs3ITAz7Otm1gMfsPQ/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p><em>图 1｜课太少像白板，课太多像压垮书包；真正重要的是结构化排课。</em></p>
+<h2 id="一课表先去哪里查">一、课表先去哪里查</h2>
+<p>先说一个最实用的动作：<strong>如果你想让龙虾学某个 Skill，找到那个公开 Skill 页，直接把网址发给它，让它去学就行。</strong></p>
+<p>另外，文中提到的很多课一些版本的🦞已经作为必修课内置了，不需要再选。此外，很多skill都是个人开发，有一定的使用风险，大家选的时候要注意甄别哦🧐。</p>
+<p>关于skil找课，一般有两个主要入口 <strong>（本文提到的所有入口和skill都会在文末给出网址）</strong>：</p>
+<ul>
+<li><strong>ClawHub</strong>：适合按用途、名字、场景快速找课，比较像选课系统。</li>
+<li><strong>Awesome OpenClaw Skills</strong>：适合系统浏览、批量看分类、找灵感，也更像课程总目录。</li>
+</ul>
+<p><img alt="龙虾去哪里找课" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><em>图 2｜找课这件事，既可以走“选课系统”路线，也可以走“总目录”路线。</em></p>
+<h2 id="二先别急着报热门课先把基础课修对">二、先别急着报热门课，先把基础课修对</h2>
+<p>基础课看起来不性感，但它决定龙虾后面学什么都不至于变形。像 <code>find-skills</code>、 <code>tavily-search</code>、 <code>summarize</code>、 <code>github</code>、 <code>agent-browser</code> 这类课，本质上是在补搜索、查找、浏览、协作这些底层能力。没有这些，后面的专业课很容易学成花架子。</p>
+<p>这里我再推荐两门“元能力”课程： <code>skill-creator</code> 和 <code>skill-vetter</code>。前者代表的是“自己长新能力的能力”，后者更像装课前的教务处：帮你少踩坑、少装重复课、少装互相打架的课。基础课修得稳，后面才不会乱。</p>
+<p><img alt="龙虾先打基础课地基" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><em>图 3｜基础课看起来不性感，但它们像地基，决定后面专业课会不会塌。</em></p>
+<h2 id="三综合素质课不直接发毕业证但决定龙虾会不会长期工作">三、综合素质课不直接发毕业证，但决定龙虾会不会长期工作</h2>
+<p>有些课看起来不像“具体工种课”，但长期看非常重要。 <code>openclaw-logfire</code> 这种课，解决的是可观测性和排障； <code>self-improving-agent</code>、 <code>proactive-agent</code>、 <code>task-resume</code> 这类课，解决的是自驱、续跑和任务断点恢复； <code>nblm</code> 则很像给龙虾补一门“查过资料再开口”的训练课。</p>
+<p>这类课的价值，在于让龙虾不只是会回答，而是会持续工作、会复盘、会纠错。等龙虾真的开始值班，才发现真正稀缺的是稳定性。</p>
+<h2 id="四专业分流学院同一只龙虾分院以后才开始像不同工种">四、专业分流学院：同一只龙虾，分院以后才开始像不同工种</h2>
+<p><img alt="龙虾技校九大学院总览" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><em>图 4｜同一只龙虾，一旦分院，走向的就是完全不同的工种路径。</em></p>
+<h3 id="1文书与办公室学院">1）文书与办公室学院</h3>
+<p>如果你希望龙虾先进入最常见的办公室场景，那最该修的是 ： <code>office</code>、 <code>excel-workflow</code>、 <code>docx</code>、 <code>ppt-ooxml-tool</code>、 <code>powerpoint-pptx</code>、 <code>briefing</code>、 <code>feishu-doc</code>、 <code>boof</code>。</p>
+<p>这组课的共同点很朴素：会碰表格、会改文档、会读 PDF、会做 PPT、会把零散信息收成简报。 <code>office</code> 和 <code>powerpoint-pptx</code> 更偏常见办公场景， <code>excel-workflow</code>、 <code>docx</code>、 <code>ppt-ooxml-tool</code> 更偏针对性操作， <code>feishu-doc</code> 适合国内协作环境， <code>briefing</code> 则像把零散材料压成一页纸输出的训练课， <code>boof</code> 可以看作处理文档与文件流的补充课。</p>
+<h3 id="2行政与总助学院">2）行政与总助学院</h3>
+<p>行政和总助岗最值钱的能力，不是“回复得像人”，而是“把碎事收成闭环”。所以这一院我保留 <code>email-autoreply</code>、 <code>coordinate-meeting</code>、 <code>meeting-notes</code>、 <code>meeting-to-action</code>、 <code>feishu-wiki</code>。</p>
+<p>邮件、会议、纪要、行动项，这些东西单看都不高级，但它们串起来就是一个真实工位。 <code>email-autoreply</code> 管高频往返， <code>coordinate-meeting</code> 管会务调度， <code>meeting-notes</code> 管记录， <code>meeting-to-action</code> 管收口， <code>feishu-wiki</code> 管长期沉淀。</p>
+<p>很多龙虾在聊天时很聪明，一进入行政场景就开始掉链子，问题通常不在理解力，而在没有形成闭环能力。</p>
+<h3 id="3内容与传播学院">3）内容与传播学院</h3>
+<p>内容岗最容易被误解成“会写就行”。其实内容工作的难点从来不是单篇写作，而是持续找题、持续生产、持续分发、持续复用。所以这一院我保留 <code>content-research</code>、 <code>blog-writer</code>、 <code>writing-assistant</code>、 <code>ghost-cms</code>、 <code>blogburst</code>、 <code>blogwatcher</code>、 <code>nblm</code>、 <code>nano-banana-pro</code>。</p>
+<p>这套课比较像一条完整链路： <code>blogwatcher</code> 负责盯题源， <code>content-research</code> 负责做资料准备， <code>nblm</code> 负责知识底座， <code>writing-assistant</code> 和 <code>blog-writer</code> 负责成稿， <code>ghost-cms</code>、 <code>blogburst</code> 负责发布与复用， <code>nano-banana-pro</code> 则补足视觉成品能力。</p>
+<p>会写一篇不难，能稳定找题、稳定写、稳定发、稳定复用，才算真的进班。</p>
+<h3 id="4编程与研发学院">4）编程与研发学院</h3>
+<p>工程向龙虾最怕的不是不会说，而是只会说。这个方向更重要的是把龙虾放回真实研发现场，而不是让它在群里高谈阔论。所以我保留 <code>github</code>、 <code>openclaw-cursor-codex-connect</code>、 <code>clawd-docs-v2</code>、 <code>subagent-driven-development</code>、 <code>playwright-skill</code>、 <code>mcporter</code>、 <code>tmux</code>。</p>
+<p>这一组课里， <code>github</code> 是仓库入口， <code>openclaw-cursor-codex-connect</code> 更偏编辑器/开发链路连接， <code>clawd-docs-v2</code> 管文档查找， <code>subagent-driven-development</code> 负责多人分工式开发， <code>playwright-skill</code> 负责验， <code>mcporter</code> 负责接外部 MCP 工具， <code>tmux</code> 负责交互式 CLI 与远程值班。</p>
+<p>真正值钱的工程龙虾，不是解释得多漂亮，而是能不能在正确项目里持续出活。</p>
+<h3 id="5设计与多媒体学院">5）设计与多媒体学院</h3>
+<p>关于这一院系，我要先说一句实话：<strong>设计是贵族专业🥹</strong>。 因为图像、音频、视频、3D 这类生成，大多要调外部 API，长期用下来成本不会太低。</p>
+<p>如果你确实需要这个方向，可以看 <code>nano-banana-pro</code>、 <code>ComfyUI_Skills_OpenClaw</code>、 <code>agent-media</code>、 <code>ace-music</code>、 <code>3d-model-generation</code>。</p>
+<p>这里我做了一个克制处理：不追求全修，而是建议先选一门主修、两门选修。比如多数人先从 <code>nano-banana-pro</code> 开始就够了；如果你更强调流程可控，再加 <code>ComfyUI_Skills_OpenClaw</code>；如果你有音频需求，再补 <code>ace-music</code>；如果你要做更完整的多媒体交付，再看 <code>agent-media</code>；只有确实要碰 3D，再加 <code>3d-model-generation</code>。</p>
+<p>这几门课适合把龙虾从“会写字”推进到“会做设计成品”。但如果你只是想尝鲜，别一上来就把视觉、音频、视频、3D 全修满，不然作品没做几个，账单先毕业了。</p>
+<h3 id="6财经与情报学院">6）财经与情报学院</h3>
+<p>如果你养的是值班型、盯盘型、信息流型龙虾，那方向会完全不同。这一院适合 <code>finance-news</code>、 <code>fund-news-summary</code>、 <code>allstock-data</code>、 <code>tradingview-screener</code>、 <code>portfolio-watcher</code>、 <code>nblm</code>。</p>
+<p>这一组课更像研究链和跟踪链，不是替你下注，而是帮你把信息收集、筛选、监控、组合观察接起来。 <code>finance-news</code> 和 <code>fund-news-summary</code> 管资讯入口， <code>allstock-data</code> 和 <code>tradingview-screener</code> 管数据与筛选， <code>portfolio-watcher</code> 管长期观察， <code>nblm</code> 则让结论更像“查过资料后的判断”，而不是拍脑袋。</p>
+<p>很多人对“投资类 AI”的误解，是它应该直接给买卖答案；但真正有价值的，通常是先把研究和监控做扎实。</p>
+<h3 id="7电商运营学院">7）电商运营学院</h3>
+<p>电商场景也是一个很实在的方向，核心不在于“说得多会营销”，而在于长期盯竞品、盯价格、盯用户。所以这个方向我保留 <code>competitor-analysis-report</code>、 <code>amazon-competitor-analyzer</code>、 <code>ecommerce-price-watcher</code>、 <code>jtbd-analyzer</code>。</p>
+<p>它们解决的事情很具体：看竞品、看价格、看需求、看产品机会。 <code>competitor-analysis-report</code> 更偏通用竞品分析， <code>amazon-competitor-analyzer</code> 更偏平台化场景， <code>ecommerce-price-watcher</code> 负责持续追踪， <code>jtbd-analyzer</code> 则补上“用户到底为什么买”的结构化理解。</p>
+<h3 id="8项目管理学院">8）项目管理学院</h3>
+<p>项目管理最怕的不是不会想，而是想了很多，事情没往前走。所以这个方向我保留 <code>natural-language-planner</code>、 <code>task-orchestra</code>、 <code>cairn-cli</code>、 <code>task-resume</code>、 <code>meeting-to-action</code>。</p>
+<p><code>natural-language-planner</code> 负责把自然语言需求拆成步骤， <code>task-orchestra</code> 负责多任务编排， <code>cairn-cli</code> 更像项目推进工具课， <code>task-resume</code> 负责断点续跑， <code>meeting-to-action</code> 则补上会议到行动项的收口能力。</p>
+<p>这类课不一定让龙虾“看起来最聪明”，但能让它把任务拆开、排开、推进、收口。对很多团队来说，这比多一个会聊天的龙虾重要得多。</p>
+<h3 id="9研究与信息学院">9）研究与信息学院</h3>
+<p>如果你想要的是研究型龙虾，那重点不是多会搜，而是能不能把资料变成判断。所以我保留 <code>nblm</code>、 <code>agent-deep-research</code>、 <code>autonomous-research</code>、 <code>research-report</code>、 <code>truthcheck</code>、 <code>feishu-wiki</code>。</p>
+<p>这里的逻辑很清楚：先查，后整，再核，再写。 <code>agent-deep-research</code> 和 <code>autonomous-research</code> 更偏长链研究任务， <code>research-report</code> 负责结构化输出， <code>truthcheck</code> 负责核验， <code>nblm</code> 与 <code>feishu-wiki</code> 则补上知识底座和沉淀结构。会搜索不算本事，能把资料压成结构，最后形成判断，才算研究能力。</p>
+<h2 id="五按龙虾类型排课别一锅炖">五、按龙虾类型排课，别一锅炖</h2>
+<p><img alt="不同类型的龙虾同学" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><em>图 5｜尝鲜型、文职型、内容型、值班型、工程型、折腾型，气质和课表都不该一样。</em></p>
+<h3 id="尝鲜型龙虾">尝鲜型龙虾</h3>
+<p>只配最小课表。基础课里选 2–3 门，再加 1 门轻量工作课就够了。比如 <code>github</code> + <code>blogwatcher</code> + <code>feishu-doc</code>，或者 <code>find-skills</code> + <code>tavily-search</code> + <code>briefing</code>。目标不是毕业，而是先让它动起来。</p>
+<h3 id="文职型龙虾">文职型龙虾</h3>
+<p>走文书与办公室学院 + 行政与总助学院。重点配 <code>office</code>、 <code>docx</code>、 <code>excel-workflow</code>、 <code>powerpoint-pptx</code>、 <code>meeting-notes</code>、 <code>meeting-to-action</code>。这种龙虾最应该先学会接住真实工位上的碎活。</p>
+<h3 id="内容型龙虾">内容型龙虾</h3>
+<p>走内容与传播学院，再按预算决定要不要加设计课。核心组合可以是 <code>blogwatcher</code>、 <code>content-research</code>、 <code>writing-assistant</code>、 <code>blog-writer</code>、 <code>nblm</code>、 <code>ghost-cms</code>。如果要往视觉方向走，再加 <code>nano-banana-pro</code> 或 <code>ComfyUI_Skills_OpenClaw</code>。</p>
+<h3 id="值班型龙虾">值班型龙虾</h3>
+<p>适合财经、研究、项目管理三个方向。重点配 <code>finance-news</code>、 <code>portfolio-watcher</code>、 <code>task-orchestra</code>、 <code>research-report</code>、 <code>truthcheck</code> 这类课。它不一定最会表达，但应该最稳定。</p>
+<h3 id="工程型龙虾">工程型龙虾</h3>
+<p>走编程与研发学院，重点放在 <code>github</code>、 <code>openclaw-cursor-codex-connect</code>、 <code>playwright-skill</code>、 <code>mcporter</code>、 <code>subagent-driven-development</code>。这类龙虾不缺聪明，缺的是进入真实开发链路的能力。</p>
+<h3 id="折腾型龙虾">折腾型龙虾</h3>
+<p>这种龙虾最容易把自己修废。我的建议是：先定主修，再谈跨院混修。先跑通一条主链，再叠别的课。否则最后就会出现一种很典型的情况：Skill 装了一堆，样样都懂一点，真正交付时谁也不像。</p>
+<h2 id="六最后的校训先定专业再选课程">六、最后的校训：先定专业，再选课程</h2>
+<p>这篇真正想说的，其实很简单。Skill 当然重要，但 Skill 从来不是越多越好。课表臃肿，会让龙虾更慢、更贵，也更混乱。真正成熟的养殖户，不会盯着榜单一门门报热门课，而会先想清楚：我到底想让这只龙虾去做什么。</p>
+<p>你想让它当办公室骨干，就修文档、表格、PPT、会议；你想让它做内容，就修选题、写作、发布、复用；你想让它做研究，就修检索、核查、报告；你想让它进研发现场，就把它拉回仓库、文档和协作流里。</p>
+<p><img alt="龙虾毕业后该走哪条路" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><em>图 6｜毕业时最重要的，不是所有热门课都修过，而是知道自己要往哪条路走。</em></p>
+<p>所以，课表管理的核心是：<strong>不要先问哪个 Skill 最火，先问你想把这只龙虾培养成什么工种。</strong></p>
+<hr />
+<h2 id="附录一课表去哪里查">附录一：课表去哪里查</h2>
+<ul>
+<li><strong>ClawHub</strong>：https://clawhub.com</li>
+<li><strong>GitHub（Awesome OpenClaw Skills）</strong>：https://github.com/VoltAgent/awesome-openclaw-skills</li>
+</ul>
+<h2 id="附录二文中提到的-skill-网址索引">附录二：文中提到的 Skill 网址索引</h2>
+<h3 id="基础与通识">基础与通识</h3>
+<ul>
+<li><code>find-skills</code> — https://clawhub.ai/skills/find-skills</li>
+<li><code>tavily-search</code> — https://clawhub.ai/skills/tavily-search</li>
+<li><code>summarize</code> — https://clawhub.ai/skills/summarize</li>
+<li><code>github</code> — https://clawhub.com/skills/github</li>
+<li><code>agent-browser</code> — https://github.com/openclaw/skills/tree/main/skills/murphykobe/agent-browser-2/SKILL.md</li>
+<li><code>skill-creator</code> — https://clawhub.com/skills/skill-creator</li>
+<li><code>skill-vetter</code> — https://clawhub.ai/skills/skill-vetter</li>
+</ul>
+<h3 id="综合素质">综合素质</h3>
+<ul>
+<li><code>openclaw-logfire</code> — https://github.com/chenbaiyujason/openclaw-logfire</li>
+<li><code>self-improving-agent</code> — https://clawhub.ai/skills/self-improving-agent</li>
+<li><code>proactive-agent</code> — https://clawhub.ai/skills/proactive-agent</li>
+<li><code>task-resume</code> — https://github.com/openclaw/skills/tree/main/skills/richardsun700/task-resume/SKILL.md</li>
+<li><code>nblm</code> — https://clawhub.com/skills/nblm</li>
+</ul>
+<h3 id="文书与办公室学院">文书与办公室学院</h3>
+<ul>
+<li><code>office</code> — https://clawhub.com/skills/office</li>
+<li><code>excel-workflow</code> — https://github.com/openclaw/skills/tree/main/skills/amaialex/excel-workflow/SKILL.md</li>
+<li><code>docx</code> — https://github.com/openclaw/skills/tree/main/skills/seanphan/docx/SKILL.md</li>
+<li><code>ppt-ooxml-tool</code> — https://github.com/openclaw/skills/tree/main/skills/jason2be/ppt-ooxml-tool/SKILL.md</li>
+<li><code>powerpoint-pptx</code> — https://clawhub.com/skills/powerpoint-pptx</li>
+<li><code>briefing</code> — https://github.com/openclaw/skills/tree/main/skills/lstpsche/briefing/SKILL.md</li>
+<li><code>feishu-doc</code> — https://clawhub.com/skills/feishu-doc</li>
+<li><code>boof</code> — https://github.com/openclaw/skills/tree/main/skills/chiefsegundo/boof/SKILL.md</li>
+</ul>
+<h3 id="行政与总助学院">行政与总助学院</h3>
+<ul>
+<li><code>email-autoreply</code> — https://github.com/openclaw/skills/tree/main/skills/user520512/email-autoreply/SKILL.md</li>
+<li><code>coordinate-meeting</code> — https://github.com/openclaw/skills/tree/main/skills/mkelk/coordinate-meeting/SKILL.md</li>
+<li><code>meeting-notes</code> — https://github.com/openclaw/skills/tree/main/skills/user520512/meeting-notes/SKILL.md</li>
+<li><code>meeting-to-action</code> — https://clawhub.com/skills/meeting-to-action</li>
+<li><code>feishu-wiki</code> — https://clawhub.com/skills/feishu-wiki</li>
+</ul>
+<h3 id="内容与传播学院">内容与传播学院</h3>
+<ul>
+<li><code>content-research</code> — https://github.com/openclaw/skills/tree/main/skills/hazy2go/content-research/SKILL.md</li>
+<li><code>blog-writer</code> — https://github.com/openclaw/skills/tree/main/skills/tomstools11/blog-writer/SKILL.md</li>
+<li><code>writing-assistant</code> — https://github.com/openclaw/skills/tree/main/skills/urrrich/writing-assistant/SKILL.md</li>
+<li><code>ghost-cms</code> — https://github.com/openclaw/skills/tree/main/skills/chrisagiddings/ghost-cms/SKILL.md</li>
+<li><code>blogburst</code> — https://github.com/openclaw/skills/tree/main/skills/shensi8312/blogburst/SKILL.md</li>
+<li><code>blogwatcher</code> — https://clawhub.com/skills/blogwatcher</li>
+<li><code>nblm</code> — https://clawhub.com/skills/nblm</li>
+<li><code>nano-banana-pro</code> — https://clawhub.com/skills/nano-banana-pro</li>
+</ul>
+<h3 id="编程与研发学院">编程与研发学院</h3>
+<ul>
+<li><code>github</code> — https://clawhub.com/skills/github</li>
+<li><code>openclaw-cursor-codex-connect</code> — https://github.com/chenbaiyujason/openclaw-cursor-codex-connect</li>
+<li><code>clawd-docs-v2</code> — https://github.com/openclaw/skills/tree/main/skills/aranej/clawd-docs-v2/SKILL.md</li>
+<li><code>subagent-driven-development</code> — https://github.com/openclaw/skills/tree/main/skills/zlc000190/subagent-driven-development/SKILL.md</li>
+<li><code>playwright-skill</code> — https://clawhub.com/skills/playwright-skill</li>
+<li><code>mcporter</code> — https://clawhub.com/skills/mcporter</li>
+<li><code>tmux</code> — https://clawhub.com/skills/tmux</li>
+</ul>
+<h3 id="设计与多媒体学院">设计与多媒体学院</h3>
+<ul>
+<li><code>nano-banana-pro</code> — https://clawhub.com/skills/nano-banana-pro</li>
+<li><code>ComfyUI_Skills_OpenClaw</code> — https://github.com/HuangYuChuh/ComfyUI_Skills_OpenClaw</li>
+<li><code>agent-media</code> — https://github.com/openclaw/skills/tree/main/skills/nevo-david/agent-media/SKILL.md</li>
+<li><code>ace-music</code> — https://github.com/openclaw/skills/tree/main/skills/fspecii/ace-music/SKILL.md</li>
+<li><code>3d-model-generation</code> — https://github.com/openclaw/skills/tree/main/skills/eftalyurtseven/3d-model-generation/SKILL.md</li>
+</ul>
+<h3 id="财经与情报学院">财经与情报学院</h3>
+<ul>
+<li><code>finance-news</code> — https://github.com/openclaw/skills/tree/main/skills/kesslerio/finance-news/SKILL.md</li>
+<li><code>fund-news-summary</code> — https://github.com/openclaw/skills/tree/main/skills/yonghaozhao722/fund-news-summary/SKILL.md</li>
+<li><code>allstock-data</code> — https://github.com/openclaw/skills/tree/main/skills/hacksing/allstock-data/SKILL.md</li>
+<li><code>tradingview-screener</code> — https://github.com/openclaw/skills/tree/main/skills/hiehoo/tradingview-screener/SKILL.md</li>
+<li><code>portfolio-watcher</code> — https://github.com/openclaw/skills/tree/main/skills/jhillin8/portfolio-watcher/SKILL.md</li>
+<li><code>nblm</code> — https://clawhub.com/skills/nblm</li>
+</ul>
+<h3 id="电商运营学院">电商运营学院</h3>
+<ul>
+<li><code>competitor-analysis-report</code> — https://github.com/openclaw/skills/tree/main/skills/seanwyngaard/competitor-analysis-report/SKILL.md</li>
+<li><code>amazon-competitor-analyzer</code> — https://github.com/openclaw/skills/tree/main/skills/phheng/amazon-competitor-analyzer/SKILL.md</li>
+<li><code>ecommerce-price-watcher</code> — https://github.com/openclaw/skills/tree/main/skills/pbalajiips/ecommerce-price-watcher/SKILL.md</li>
+<li><code>jtbd-analyzer</code> — https://github.com/openclaw/skills/tree/main/skills/artyomx33/jtbd-analyzer/SKILL.md</li>
+</ul>
+<h3 id="项目管理学院">项目管理学院</h3>
+<ul>
+<li><code>natural-language-planner</code> — https://github.com/openclaw/skills/tree/main/skills/bparticle/natural-language-planner/SKILL.md</li>
+<li><code>task-orchestra</code> — https://github.com/openclaw/skills/tree/main/skills/tobisamaa/task-orchestra/SKILL.md</li>
+<li><code>cairn-cli</code> — https://github.com/openclaw/skills/tree/main/skills/gregoryehill/cairn-cli/SKILL.md</li>
+<li><code>task-resume</code> — https://github.com/openclaw/skills/tree/main/skills/richardsun700/task-resume/SKILL.md</li>
+<li><code>meeting-to-action</code> — https://clawhub.com/skills/meeting-to-action</li>
+</ul>
+<h3 id="研究与信息学院">研究与信息学院</h3>
+<ul>
+<li><code>nblm</code> — https://clawhub.com/skills/nblm</li>
+<li><code>agent-deep-research</code> — https://github.com/openclaw/skills/tree/main/skills/24601/agent-deep-research/SKILL.md</li>
+<li><code>autonomous-research</code> — https://github.com/openclaw/skills/tree/main/skills/tobisamaa/autonomous-research/SKILL.md</li>
+<li><code>research-report</code> — https://github.com/openclaw/skills/tree/main/skills/huaruoji/research-report/SKILL.md</li>
+<li><code>truthcheck</code> — https://github.com/openclaw/skills/tree/main/skills/baiyishr/truthcheck/SKILL.md</li>
+<li><code>feishu-wiki</code> — https://clawhub.com/skills/feishu-wiki</li>
+</ul>
+<hr />
+<p>▶关注更多和 AIGC 有关的文章请关注↓</p>
+<p><strong>▶需要加群的扫下边码请小助手邀请 ↓ （备注职业及加群目的）</strong> （本群大部分时候做心灵按摩，少部分时候聊 AI😂：<a href="http://mp.weixin.qq.com/s?__biz=MzI5NTkxNTc1Mw==&amp;mid=2247490307&amp;idx=1&amp;sn=0647ce8a1eab7dd08a2fb6734df44aa1&amp;chksm=ec4d0285db3a8b936feb86316d3dbc2b9c56b45d9abdaf495db3a685d032c5f034df22bfb209&amp;scene=21#wechat_redirect">AI时代抗焦虑指北 —— 被AI包围之后，人类“完蛋”了吗？</a></p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/mmbiz_jpg/WyEDnzRIsOia9OZvCib6BX5picS9vIuLJQ0rXSmSUGRUu5RUTpwZWiaCOHU0KZbELlMsZBe31ISQXaOJyXEN9uARuA/640?wx_fmt=jpeg&amp;from=appmsg&amp;wxfrom=5&amp;wx_lazy=1&amp;tp=webp#imgIndex=1" /></p>
         </div>
     </article>
 
@@ -170,7 +499,7 @@
         
         <a href="recvdIrpJNPs4q.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill</span>
+            <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill。</span>
         </a>
         
         

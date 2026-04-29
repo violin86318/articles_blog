@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>一个用影视板驱动生成视频的技巧 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI视频生成</span>
+            
+            
+            <span class="topic-chip">Seedance2.0</span>
+            
+            <span class="topic-chip">分镜</span>
+            
+            <span class="topic-chip">提示词工程</span>
+            
+            <span class="topic-chip">AI绘画</span>
+            
+            <span class="topic-chip">GPT-Image-2</span>
+            
+            <span class="topic-chip">视觉开发板</span>
+            
+            <span class="detail-reading-time">约 7 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">一个用影视板驱动生成视频的技巧</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>如果直接用文本来生成写实风格的人物视频，人脸的妆容总是很固定。 想要通过 GPT-Image-2 直接生成可用的分镜图，还是不容易的。 这个提示词的稳定性很好，只需要更换主题词就可以了，其它都能复用，而且也没有卡人脸审核的问题。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍了利用GPT-Image-2生成专业视觉开发板，再输入Seedance2.0生成视频的技巧。通过提供包含角色设定、分镜、灯光色彩等综合信息的提示词，可以生成信息量大且稳定的开发板，有效降低视频生成的抽卡率，避免人脸审核问题。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/0A11jV3u44zuL0KAOiJNFQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文分享了一个实用的AI视频生成工作流，即利用GPT-Image-2生成结构化的视觉开发板作为Seedance2.0的输入。这种方法解决了直接生成视频时人脸风格单一、分镜不连贯等问题，通过提供更丰富的视觉信息，显著提升了生成质量和稳定性。提示词设计专业且可复用，对AI视频创作者具有很高的参考价值。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#一个用影视板驱动生成视频的技巧" class="toc-link">一个用影视板驱动生成视频的技巧</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="一个用影视板驱动生成视频的技巧">一个用影视板驱动生成视频的技巧</h1>
+<p>经常用 Seedance2.0 的人一定会发现，如果直接用文本来生成写实风格的人物视频，人脸的妆容总是很固定。</p>
+<p><img alt="由Seedance2.0生成" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBPqmIQ1swD4vgMC8UurE5ZBMYwW17H8cazZVO5MziaUSstOaJzBe4Ef6jkoyClDMuODVjRDHxDvZrh3Z8T9Sniag4tnQRKmYQ7A0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" />由Seedance2.0生成</p>
+<p>如图所示，所有的人物几乎都是清一色这个风格，有一种略带“恐怖谷效应”的假人感。</p>
+<p>因此，做写实类视频时，人物垫图是必须的。</p>
+<p>Seedance2.0 现在的分镜能力下降，废卡率提升。</p>
+<p>正好看到 GPT-Image-2 的分镜能力不错，于是一个想法自然产生：如果用 GPT-Image-2 提前生成好分镜，是否能降低 Seedance2.0 生成视频的抽卡率。</p>
+<p>下面做了一个简单测试：拍摄一个中国大学生打开购物网站，伸手从屏幕中取出一把雨伞的镜头。</p>
+<p>这个设定比较考验模型的泛化能力，因为训练数据中，这样具有想象力的“反物理”镜头并不占多数。</p>
+<p>我直接让 GPT-Image-2 根据这个主题，生成 3x3 宫格的分镜图，出来的效果如下：</p>
+<p><img alt="GPT-Image-2生成效果" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBMgkGKP2BWh3ibp1MrSfH7x1XIU9KMIDqor3Cz5Sc1A21B4My6e7mFZINiccnSEib9TDBEibqT53bRBWiakoSCkpgKl6TnPoPIcocJg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" />GPT-Image-2生成效果</p>
+<p>整体还行，但中间第五幅图存在明显异常，让它再调整了一下：</p>
+<p><img alt="GPT-Image-2生成效果" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBOlaR8Ua7AuTjZllMFpMGv3vYDj3Ks4W0KzG7EOFlCPwnicyUdH8Ee6UmCkgpVzkUhibLlLwRIqF5KbnH0ACFQNh9Q346j0D652g/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=2" />GPT-Image-2生成效果</p>
+<p>现在分镜图对了，把它喂到 Seedance2.0 里面，出来的效果如下。</p>
+<p>Seedance2.0 能够读懂分镜图，但由于 图5 和 图6 之间的运动关系有偏差，导致视频中也出现了不连贯的情况。</p>
+<p>因此，想要通过 GPT-Image-2 直接生成可用的分镜图，还是不容易的。</p>
+<p>换个思路，GPT-Image-2 生成综合信息图的能力很强，是否能够一次性把构图、运镜、细节信息一次性生成呢？</p>
+<p>当然可以，在我和AI激情迭代后，有了这样一段提示词：</p>
+<blockquote>
+<p>绘制一个“中国大学生从电脑屏幕中直接取雨伞的故事”，一张完整的专业视觉开发板，横向大版面，浅色纸面背景，影视前期提案风格，杂志级排版设计。整张画面由多个模块组成，包含顶部标题与项目信息区、角色设定三视图区、中心场景主视觉区、道具与细节参考区、多组分镜缩略图区、灯光氛围参考区、色彩设计色卡区、镜头参数表区、运镜示意图区、底部概念说明与参考影像区。要求图文混排自然，信息密集但整洁，分栏明确，细线分隔，标题层级清晰，带小字注释、编号、表格、色卡和示意图，整体统一高级，像真实可用于汇报的项目展示板，而不是单张插画，精致、克制、专业、电影美术方案质感。</p>
+</blockquote>
+<p>GPT-Image-2生成效果</p>
+<p>生成的效果挺不错，相比于9宫格的分镜图，这张图的信息量更大。</p>
+<p>把这张图喂给 Seedance2.0 生成视频，出来的效果好多了。</p>
+<p>这个提示词的稳定性很好，只需要更换主题词就可以了，其它都能复用，而且也没有卡人脸审核的问题。</p>
+<p><img alt="更换主题“寻找星星的你”" src="https://mmbiz.qpic.cn/mmbiz_png/4ibe5DocEFBNovemWeOOU05Libt2gibFFicWRkA9lMkZ3KhnBTR211CQzHFb4tx7LdxiaPx08ibicicf6gFaDHtxHCqm4ujQHDGNF4NafibFKJnl9tG0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=4" />更换主题“寻找星星的你”</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvi1Jeegn4lB.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">开源一个我写小说的skill，顺便说下我的搭建思路和使用方法</span>
+        </a>
+        
+        
+        <a href="recvi1IR7KnFcn.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">Prompt 大神李继刚的 Skills 为什么值钱？我用一个月才想明白这件事</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>开源一个我写小说的skill，顺便说下我的搭建思路和使用方法 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI应用</span>
+            
+            
+            <span class="topic-chip">AI写作</span>
+            
+            <span class="topic-chip">Claude</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="topic-chip">小说创作</span>
+            
+            <span class="topic-chip">Skill工具</span>
+            
+            <span class="topic-chip">Cursor</span>
+            
+            <span class="detail-reading-time">约 14 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">开源一个我写小说的skill，顺便说下我的搭建思路和使用方法</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>感谢AI的到来，让我能够圆了我的写作梦。 它只是节约了你码字的时间，让你把更多的时间投入到思考上。 尽信书不如无书，大家使用的时候可以根据自己的喜好修改skill，让其更好地为您服务。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>作者开源了一组用于AI辅助小说写作的skill工具包，包括大纲调研、写作、问题检查、风格制作和个人风格五个工具。文章详细介绍了每个工具的功能、搭建思路以及分三步走的使用方法，强调人工干预和反复修改的重要性，旨在帮助文笔不佳但热爱写作的人实现创作梦想。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/O2xK-NpPXl6OUBEspD7VbQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文分享了一套实用的AI辅助小说创作工具链，思路清晰，从构思到成稿的流程设计合理。作者坦诚地指出了工具的局限性，如大纲后期质量下降、需要人工干预等，体现了务实态度。这为有写作兴趣但苦于文笔的爱好者提供了可行的技术路径，核心价值在于将创作重心从“码字”转向“思考”。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#开源一个我写小说的skill顺便说下我的搭建思路和使用方法" class="toc-link">开源一个我写小说的skill，顺便说下我的搭建思路和使用方法</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#建设背景" class="toc-link">建设背景</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#建设思路" class="toc-link">建设思路</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#使用方法" class="toc-link">使用方法</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#最后" class="toc-link">最后</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="开源一个我写小说的skill顺便说下我的搭建思路和使用方法">开源一个我写小说的skill，顺便说下我的搭建思路和使用方法</h1>
+<p>不是一个skill，应该说是一组skill。</p>
+<p>我已经用这一组skill写了两篇长篇小说和三部短篇小说。平台审核是肯定能过的，关键是你自己读完就能感受到，确实已经算不错的小说了。</p>
+<p>只是我自己感觉写小说有点浪费时间，坚持不住，所以就不写了。本着开源的精神，今天把这个分享给大家。</p>
+<h2 id="建设背景">建设背景</h2>
+<p>本人喜欢写作，但是文笔不是很好。脑子里面天花乱坠，但是下笔空空如也，半天憋不住一个字来。</p>
+<p>感谢AI的到来，让我能够圆了我的写作梦。我开始着手炼化我的skill。</p>
+<h2 id="建设思路">建设思路</h2>
+<p>小说skill组一共五个，分别是小说大纲调研工具</p>
+<p>（novel-outline-researcher）、小说写作工具（</p>
+<p>novel-studio）、小说问题检查工具（novel-qa）、小说风格制作工具（novel-style-reference）和个人风格工具（yunhui-style-writer）。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/tsSmGjxQJnzro0IyiaqlH9wjdAibn8QbSYVKUfyVgmibpf9B8HicFYfk465XceOicRVobicJ77bBNoaqroaXENl2dGDiawgER0G1Px1dXNBZ1G1Sr0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>小说大纲调研工具（novel-outline-researcher）主要是帮助我开题，不断提问问题完善我的思路。也可以卡文或者要对大纲重构的时候用。</p>
+<p>小说写作工具（novel-studio）是核心工具，它可以按照我的思路写大纲、写人物小传、写时间线、甚至规定空间布置。然后再根据这些内容开始完成每一章节的小说，而且写小说过程我也给他定了很多规矩，并且要求自我学习。可以说，这个skill在我的不断优化下基本可以独立使用了。</p>
+<p>小说问题检查工具（novel-qa）是专门用来检查小说前后矛盾的地方、场景描述是否一致、时间线是否有问题、人设是否一致、AI味等内容。并生成相应的检查报告。</p>
+<p>小说风格制作工具（novel-style-reference）是通过给他读一些小说，让他总结这个作者的小说风格，然后在你写小说的时候可以让他按照这种风格进行写作。我总结了村上春树和川端康成的写作风格，还总结了王家卫的写作风格。也可以按照小说来进行总结。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>个人风格（yunhui-style-writer）也就是自己的风格，就是按照自己的写法总结的。</p>
+<p>以上五个skill分工合作，加上我自己的总体把控，就能产出一部一部完整的小说来。</p>
+<p>再多说几句这个核心工具novel-studio，我给他在文风自然度上面设计了很多内容，也制定了铁律。但是有些大纲内容它确实还是很难驾驭，写着写着还是会飘，所以小伙伴们如果实在调整不过来，那别试了，直接手写吧。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="使用方法">使用方法</h2>
+<p>写小说分三步走，第一步：构思小说，第二步：制定大纲，第三步，写各章节。</p>
+<p>构思小说是在你脑子里面完成的，你思考你大概要写什么类型、什么题材、长篇还是短篇，男女主人设等等。</p>
+<p>有个雏形后就开始用novel-outline-researcher来给你完善你的想法，然后形成报告。</p>
+<p>这一步完成后你再用novel-studio，将上面的报告给到这个skill，它就会按照报告开始创建小说的介绍（meta）、大纲（outline）、时间线（timeline）、人设（characters）以及重要场景（spaces）。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>其中大纲不是一蹴而就的，它会先分有几幕，每一幕讲什么。然后先出前五章的大纲。这个时候你通过反复检查和确认，用自然语言让AI按照你的意思调整，最终直到你满意为止。</p>
+<p>PS：如果大纲一直调整不满意，你可以直接写，写进去复制进去就行。我到了小说后期都是手写大纲，然后让AI去生成文章的。不然AI写的大纲确实不咋地，越往后越不行。</p>
+<p>最后一步就是开始写小说了。在大纲里面可以要求每一章字数，这个看个人喜好。如果大纲内容撑不起你的字数，那可能就要凑字数了。。。这是本人亲历的教训。</p>
+<p>写完后你要读一遍，自己出的小说自己都懒得读，就不要指望别人读了。而且不止读一遍，要反复和AI商量怎么改，改到满意。这才是你产出的作品，而不是AI出的了。</p>
+<p>novel-studio这个skill会结合上下文学习你不满意的地方，那些字不要用，然后去写下一章内容。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>novel-studio写完也会自检，你也可以调用novel-qa这个检查。我一般用的少，因为我自己读过了，如果你不读，都是AI完成，那这几个skill可以配合完成。</p>
+<h2 id="最后">最后</h2>
+<p>以上就是我这一组小说写作skill的建设思路和使用方法。skill我已经上传到Github，地址是：https://github.com/zhengyunhui123-dev/cursor-claude.git  也可以后台回复“小说”直接获取。</p>
+<p>然后我还想说点的是“尽信书不如无书”，大家使用的时候可以根据自己的喜好修改skill，让其更好地为您服务。</p>
+<p>另外还有一个误区是不要觉得用这个可以自动化产出一部完整的小说，每个环节还是需要人工干预的。</p>
+<p>它只是节约了你码字的时间，让你把更多的时间投入到思考上。也给了一些像我这样有“写小说梦”但是文笔很差的人一个机会，仅此而已。</p>
+<p>最后，祝愿大家都能写出爆款小说来。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvi1J4mOvqHD.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">一个用影视板驱动生成视频的技巧</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

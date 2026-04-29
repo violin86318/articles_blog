@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">编程开发</span>
+            <span class="card-tag card-tag-primary">开发工具</span>
             
             
             <span class="topic-chip">GitHub Copilot</span>
             
-            <span class="topic-chip">编程开发</span>
+            <span class="topic-chip">Coxy代理</span>
             
-            <span class="topic-chip">效率工具</span>
+            <span class="topic-chip">CLI工具</span>
             
-            <span class="detail-reading-time">约 3 分钟阅读</span>
+            <span class="topic-chip">并行任务</span>
+            
+            <span class="topic-chip">配额管理</span>
+            
+            <span class="topic-chip">OpenAI API</span>
+            
+            <span class="detail-reading-time">约 12 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Coxy通过本地代理将GitHub Copilot协议翻译为OpenAI兼容API，解锁其全部潜力并支持多账号管理。</p>
+                <p>Coxy 是一个本地代理服务，它把 GitHub Copilot 的请求协议翻译成标准的OpenAI 兼容 API。 /fleet 命令是 Copilot CLI 里最有意思的设计。它会把一个大任务拆解成独立子任务，同时派出多个 subagent 并行执行。 如果你的工作流已经在 GitHub 上，值得装一个试试。免费计划也能用，只是 premium request 配额更少。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>核心工具：Coxy本地代理 功能：将GitHub Copilot私有协议转为标准OpenAI API（localhost:3000/api），兼容Open WebUI等第三方工具。 部署：一行Docker命令启动（docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest），免Node.js依赖。 机制：复用Copilot官方语言服务器包（@github/copilot-language-server），外部封装API接口。 关键特性： 1. 多模型支持：直接调用gpt-4.1、gpt-4o及需手动开启的GPT-5 mini模型； 2. 多账号管理：支持绑定多个GitHub账号独立使用免费额度，数据本地SQLite存储（Docker需挂载防丢失）； 3. 免鉴权简化：设置默认token后无需Authorization头。 延伸工具：Copilot CLI提供命令行代码编写/部署能力。两者结合可最大化释放Copilot潜力，尤其适合多账号用户避免额度浪费。</p>
+                <p>本文介绍了如何利用Coxy代理工具将GitHub Copilot的免费额度转化为标准OpenAI API，供其他AI工具使用，并详细说明了Copilot CLI的安装、使用模式、并行任务处理及配额节省方法。</p>
             </div>
             
             
@@ -132,20 +138,85 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章实用性强，详细介绍了如何通过Coxy代理充分利用GitHub Copilot的免费额度，并扩展了Copilot CLI的高级用法，如并行任务和模型切换。内容技术细节清晰，适合开发者优化AI工具链，但部分操作需要一定技术基础。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#量大管饱-用-coxy-解锁github-copilot的全部潜力" class="toc-link">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力》，作者为字节笔记本。文章主要介绍了如何使用Coxy这个本地代理服务来解锁GitHub Copilot的全部潜力。</p>
-<p>Coxy是一个本地代理服务，它将GitHub Copilot的请求协议翻译成标准的OpenAI兼容API。使用Coxy后，你本地会多出一个http://localhost:3000/api的接口，任何支持OpenAI API的工具都可以接进来，包括Open WebUI、LLM CLI，或者你自己写的脚本。</p>
-<p>使用Coxy的步骤很简单。如果你不想安装Node.js，可以使用一行Docker命令搞定：docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest。然后，在浏览器中打开localhost:3000，使用GitHub账号登录，生成一个token，并将其设置为默认。之后，所有请求都不需要带Authorization头，直接发送即可。</p>
-<p>Coxy背后的机制很有意思。GitHub Copilot的VS Code插件通过@github/copilot-language-server这个包与GitHub服务器通信。Coxy使用的是同一个包，相当于在VS Code之外启动了一个相同的语言服务器，然后在外面包了一层OpenAI兼容的接口。目前支持的模型包括gpt-4.1、gpt-4o，以及GPT-5 mini（需要在GitHub账号设置里手动开启）。</p>
-<p>如果你有多个GitHub账号，每个账号都有独立的免费额度，Coxy支持多token管理，可以手动切换。这对于有多账号习惯的人来说非常实用，不然那些额度就真的是纯浪费。数据存储在本地SQLite中，如果你使用Docker挂载，记得把db文件mount出来，否则重启后数据会丢失。</p>
-<p>此外，文章还介绍了Copilot CLI的使用。Copilot CLI是Copilot早自己的CLI工具，安装非常简单。安装完成后，你可以使用它来进行代码编写、部署和运维等工作。</p>
-<p>总的来说，Coxy和Copilot CLI都是非常实用的工具，可以帮助你更好地使用GitHub Copilot，解锁其全部潜力。如果你已经在GitHub上工作，值得尝试一下这两个工具。</p>
+            <h1 id="量大管饱-用-coxy-解锁github-copilot的全部潜力">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</h1>
+<p>每个月GitHub发给你一堆 Copilot 额度，大部分人用掉的比例少得可怜。</p>
+<p>而作为10刀及以上订阅用户，官方更是提供了几乎无限的GPT-4o等免费使用。</p>
+<p><img alt="e61acf34-c984-4a96-a680-258b63c21a64.png" src="https://mmbiz.qpic.cn/sz_mmbiz_png/iacaCWlP1x1wS9jgA2dFVia4FFmUFxTDibS7qicwXuK2ObzVHea9Ckz6lEZzSn6ic7xmBLl5uOfFOyBia2QDoyfe9QudQmX3ziaxL1ImWLsesr5O0c/640?wx_fmt=png&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>只是用来Copilot估计怎么也不完，我们可以将这个服务代理出来给其它的Chat或者OpenClaw来使用。</p>
+<p>我使用的是Coxy 是一个本地代理服务，它把 GitHub Copilot 的请求协议翻译成标准的OpenAI 兼容 API。</p>
+<p>启动之后，你本地会多出一个 <code>http://localhost:3000/api</code> 的接口，任何支持 OpenAI API 的工具都可以接进来，包括 Open WebUI、LLM CLI，或者你自己写的脚本。</p>
+<p>用法极简。不想装 Node.js 的话，一行 Docker 命令搞定：</p>
+<pre><code>docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest
+</code></pre>
+<p>然后浏览器打开 <code>localhost:3000</code>，用 GitHub 账号登录，生成一个 token，设为默认。</p>
+<p>之后所有请求不需要带 Authorization 头，直接打就行。</p>
+<p>它背后的机制其实挺有意思。</p>
+<p>Copilot 的 VS Code 插件本身就是通过 <code>@github/copilot-language-server</code> 这个包跟 GitHub 服务器通信的。</p>
+<p>Coxy 用的是同一个包，相当于在 VS Code 之外起了一个相同的语言服务器，然后在外面包了一层 OpenAI 兼容的接口。</p>
+<p>目前支持的模型包括 gpt-4.1、gpt-4o，以及 GPT-5 mini（需要在 GitHub 账号设置里手动开启，路径是 <code>github.com/settings/copilot/features</code>）。</p>
+<p>如果你有多个 GitHub 账号，每个账号都有独立的免费额度，Coxy 支持多 token 管理，可以手动切换。</p>
+<p>这对于有多账号习惯的人来说相当实用，不然那些额度就真的是纯浪费。</p>
+<p>数据存在本地 SQLite 里，用 Docker 挂载的话记得把 db 文件 mount 出来，不然重启就没了。</p>
+<p>有人可能想问能不能用于Claude Code，基于Copilot早有自己的CLI。</p>
+<p><img alt="aa82ab4e-baee-41e9-a535-e90d0a8432f1.png" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>安装一行搞定</strong></p>
+<pre><code>npm install -g @github/copilot
+# 或者
+curl -fsSL https://gh.io/copilot-install | bash
+</code></pre>
+<p>装完 cd 进项目，运行 copilot，然后 /login 认证 GitHub 账号。</p>
+<p>第一件事建议跑 /init，会根据你的项目生成专属指令文件。</p>
+<p>大部分用法和Claude Code一样。</p>
+<p>常用的操作</p>
+<p>Shift+Tab 在三个模式间切换。</p>
+<p>Chat 模式是普通问答，不执行操作。</p>
+<p>Agent 模式是默认的，规划任务、改文件、跑命令，每一步让你确认。</p>
+<p>Autopilot 模式是放手跑到完成，适合任务边界清晰的场景。</p>
+<p><strong>Subagent 并行</strong></p>
+<p>/fleet 命令是 Copilot CLI 里最有意思的设计。</p>
+<p>它会把一个大任务拆解成独立子任务，同时派出多个 subagent 并行执行，每个 subagent 有独立的 context window，底层用 SQLite 维护任务依赖图。</p>
+<pre><code>/fleet 给 src/services/ 下每个 service 加单元测试
+</code></pre>
+<p>还可以在 prompt 里指定特定 subagent 用哪个模型：</p>
+<pre><code>Use Claude Opus 4.5, to analyze the security issues
+Use @test-writer to create unit tests
+</code></pre>
+<p>效果是跳过所有工具调用的逐条确认，信任 agent 自由执行。加 --max-autopilot-continues 30 设上限防止死循环。</p>
+<p><strong>省配额的方式</strong></p>
+<p>Copilot CLI 的计费单位是 premium request，不同模型倍率差很多。</p>
+<p>GPT-4.1 和 GPT-5 mini 是免费的，不消耗配额，日常任务够用。</p>
+<p>Claude Haiku 4.5 倍率 0.33x，Sonnet 居中，Opus 是 3x。用 /fleet 要注意，每个 subagent 独立计费，5 个 subagent 跑一个任务，消耗可能是单 agent 的好几倍。</p>
+<p>Skills、Hooks、MCP、Autopilot、自定义 agent，概念几乎一一对应。核心差异是 Copilot CLI 原生打通了 GitHub 的 issues、PR、repo 上下文，对本来就在 GitHub 上工作的团队几乎零迁移成本。</p>
+<p>模型选择上比 Claude Code 更灵活，可以在 Claude 和 GPT 系列之间切换。</p>
+<p>如果你的工作流已经在 GitHub 上，值得装一个试试。免费计划也能用，只是 premium request 配额更少。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIzMzQyMzUzNw==&amp;mid=2247515311&amp;idx=1&amp;sn=a9025eb1fb55741ff77cfc7f7f4f2e15&amp;payreadticket=HAjx_gFpprwIk_wN7CDbfaoO1_CMkYiHuBIyqRfHlsxCqwmrLOsRxBJTQQCw7dorxUiyeqE&amp;scene=21#wechat_redirect">Codex CLI 的使用指南和一些最佳实践</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIzMzQyMzUzNw==&amp;mid=2247515294&amp;idx=1&amp;sn=8c9b4cc7db7ac9a1883a3f1aea36723d&amp;payreadticket=HHlPFvWWqHebv5UO0qrWHfL7_mWOfTbHjonswYdNS0XLY4wPbhLEqLqdAWh_DubG2Evcvq8&amp;scene=21#wechat_redirect">你只负责用AI写代码，部署运维全部的交给它就行！</a></p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_jpg/iacaCWlP1x1zPsap8oPlPkuVEumOZOcIHpc3oWZsJpEbhbLTjpIrf7Wd8WRB0ldAfaPdLhycJOekcRongoG6e8UqSJnyOsOuy1ichBcqJkgRU/640?wx_fmt=jpeg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=2" /></p>
         </div>
     </article>
 

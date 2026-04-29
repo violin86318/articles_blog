@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">教程实操</span>
+            <span class="card-tag card-tag-primary">技术教程</span>
             
             
             <span class="topic-chip">OpenClaw</span>
             
-            <span class="topic-chip">Claude Code</span>
+            <span class="topic-chip">AI Agent</span>
             
-            <span class="topic-chip">防封策略</span>
+            <span class="topic-chip">Claude订阅</span>
             
-            <span class="topic-chip">教程实操</span>
+            <span class="topic-chip">API中转</span>
             
-            <span class="detail-reading-time">约 11 分钟阅读</span>
+            <span class="topic-chip">防封方案</span>
+            
+            <span class="topic-chip">CLI子进程</span>
+            
+            <span class="detail-reading-time">约 51 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>方案D（CLI子进程）提供指纹最干净的Claude订阅中转，确保安全稳定运行，避免双重付费。</p>
+                <p>中转就是：把你的 Claude 订阅能力，转换成一个标准接口，让程序能调用。 指纹不同 = 有被检测的风险。所以选中转方案时，指纹是否「正常」就成了最关键的考量。 指纹最干净，长期运行最稳。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>核心方案 翔宇通过「CLI子进程中转」将Claude订阅转化为标准API，使10个Agent零成本调用（月省80刀API费）。核心解决指纹风控问题： 1. 方案选择：对比4条路线后采用最安全的D方案（启动真实claude命令行进程），指纹与人工终端操作完全一致，远优于高危的Token方案（A）和易失效的Cookie方案（B）。 2. 关键设计： 沙箱隔离：每个请求独立进程，防数据污染 双模式指纹：普通请求无痕，工具调用通过系统指令注入 流式模拟：中文标点处分块输出 3. 实战验证： 7天处理2,431次请求，成功率99.2% 日均消耗18万Token，零额外费用 运行两周无Anthropic风控警报 结论：牺牲部分功能精度（如工具解析），换取绝对指纹安全。实测证明“最笨方法”即最稳策略。</p>
+                <p>本文介绍了将Claude订阅能力转换为标准API供AI Agent调用的四种中转方案，包括OAuth Token、Web Cookie、SDK封装和CLI子进程。作者通过对比分析，最终选择指纹最干净的CLI子进程方案，实现了订阅复用和防封目的。</p>
             </div>
             
             
@@ -134,104 +138,613 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文是一篇硬核技术实战教程，详细对比了四种Claude订阅中转方案的优劣。作者从API指纹、部署难度、维护成本等维度进行深入分析，最终选择CLI子进程方案，体现了对技术细节的严谨考量。文章结构清晰，既有全景对比，又有具体实现，为开发者提供了实用的参考。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#openclaw-接入-claude-订阅防封中转方案实战教程" class="toc-link">OpenClaw 接入 Claude 订阅：防封中转方案实战教程</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#1-什么是中转" class="toc-link">1. 什么是中转</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#但中转有个核心风险api-指纹" class="toc-link">但中转有个核心风险：API 指纹</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#2-四条路该走哪条" class="toc-link">2. 四条路，该走哪条</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#方案-aoauth-token-developer-api" class="toc-link">方案 A：OAuth Token → Developer API</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#方案-bweb-cookie-网页聊天接口" class="toc-link">方案 B：Web Cookie → 网页聊天接口</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#方案-csdk-封装" class="toc-link">方案 C：SDK 封装</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#方案-dcli-子进程本文方案" class="toc-link">方案 D：CLI 子进程（本文方案）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#翔宇的选择" class="toc-link">翔宇的选择</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#3-cli-方案设计与实现" class="toc-link">3. CLI 方案：设计与实现</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#4-实战验证从启动到-openclaw-跑通" class="toc-link">4. 实战验证：从启动到 OpenClaw 跑通</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#5-一键复刻" class="toc-link">5. 一键复刻</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>OpenClaw 接入 Claude 订阅：防封中转方案实战教程<br />
-翔宇工作流第27期：Claude 订阅<br />
-翔宇打开 OpenClaw 后台看了一眼：10 个 Agent 昨晚总共调了 347 次 Claude，情报部采集完热点、微信部写好了初稿、研发部审查完了代码。额外 API 费用：0 刀。<br />
-不是白嫖，是翔宇订了 Claude 的 200 刀月付套餐——本来只能在终端里一问一答地用。但翔宇在本机跑了一个中转服务，把订阅的能力变成了标准 API，10 个 Agent 随便调。Anthropic 后台看到的？就是一个正常用户在终端里用 Claude Code。没有任何可疑之处。<br />
-翔宇花了一个月研究怎么做到这件事。GitHub 上能找到的中转方案全翻了一遍，四条路线，三条都有坑。最后选了一条最笨但指纹最干净的路：直接让 Claude Code 的命令行帮你发请求。<br />
-读完这篇，你将获得：<br />
-一张中转方案全景图：四条路线的能力与风险对比<br />
-一套设计拆解：三个核心设计决策的「为什么」<br />
-一份文末提示词：复制给 Claude Code，从零搭建你自己的中转服务<br />
-1. 什么是中转<br />
-你买了 Claude 订阅，每个月 200 刀，可以在 Claude Code 终端里随便用。但这个「随便用」有个前提——你得亲自在终端里一问一答地用。<br />
-翔宇的 OpenClaw 有 10 个 AI Agent 需要调 Claude。它们不是人，不会打开终端敲键盘。它们需要的是一个标准接口——发一个请求过去，拿一个响应回来。<br />
-中转就是：把你的 Claude 订阅能力，转换成一个标准接口，让程序能调用。<br />
-翔宇踩过一个坑：最早没做中转，直接花钱买 Anthropic 的 API 额度。200 刀订阅之外又花了 80 刀 API 费——等于交了两次钱。中转的意义就是把订阅复用到程序调用场景，避免双重付费。<br />
-但中转有个核心风险：API 指纹<br />
-Anthropic 的后台不只看你发了什么请求——它还能看到你用的是什么工具发的、请求头长什么样、调用频率是什么模式。这些「行为特征」加起来，就是你的 API 指纹。<br />
-不同方式发出的请求，指纹全不一样。用 Claude Code 命令行发的、用开发包发的、用第三方工具发的——Anthropic 一眼就能分辨。<br />
-指纹不同 = 有被检测的风险。 所以选中转方案时，指纹是否「正常」就成了最关键的考量。<br />
-2. 四条路，该走哪条<br />
-翔宇把 GitHub 上的方案全翻了一遍，逐个拆解。每个方案用同一套标准评估：10 个维度，从功能覆盖到指纹风险，逐项对比。<br />
-方案 A：OAuth Token → Developer API<br />
-原理：你用 Claude Code 登录的时候，Anthropic 会给你的终端颁发一个 OAuth Token（格式为 sk-ant-oat-...）。这个方案就是通过 PKCE 流程获取这串 Token，然后绕过 Claude Code，自己写代码直接 POST 到 Anthropic 的开发者接口 api.anthropic.com/v1/messages。<br />
-GitHub 代表项目：CLIProxyAPI（15,900+ stars，Go 实现）<br />
-核心问题：请求头说自己是 Node.js，TLS 握手却是 Chrome 的指纹。就像穿着西装但脚上踩着拖鞋，Anthropic 低头一看就露馅。<br />
-功能最全，但底裤漏了。<br />
-方案 B：Web Cookie → 网页聊天接口<br />
-原理：你在浏览器里登录 claude.ai 网页版时，浏览器会存一个 Cookie。这个方案就是把这个 Cookie 复制出来，用代码模拟浏览器直接访问网页版的聊天接口。<br />
-GitHub 代表项目：clewdr（989 stars，Rust 实现）、clove（626 stars，Python 实现）<br />
-核心问题：Cookie 三天两头过期，每次都得打开浏览器手动复制一遍——跑了一个月翔宇就受不了了。<br />
-能调的模型最多，但 Cookie 过期太频繁，维护成本劝退。<br />
-方案 C：SDK 封装<br />
-原理：Anthropic 官方提供了一个开发工具包（Agent SDK），开发者可以用它在自己的程序里调用 Claude。<br />
-GitHub 代表项目：claude-code-openai-wrapper（441 stars，Python 实现）<br />
-核心问题：SDK 的 query() 调用时内部会传递空参数组合，相当于告诉 Anthropic「我不是正常用户」。<br />
-功能最完整，但指纹有暗伤。<br />
-方案 D：CLI 子进程（本文方案）<br />
-原理：你在终端里敲 claude -p "你好"，Claude Code 就会帮你发请求并返回结果。这个方案就是让程序自动帮你敲这个命令——每来一个请求，就在本机启动一个真实的 Claude Code 命令行进程。<br />
-核心优势：<br />
-指纹最干净：每个请求都是启动一个真实的 claude 命令行进程，发出去的请求带着完整的 CLI 版本号、终端类型、设备信息等元数据，和手动在终端里用 Claude Code 完全一样<br />
-零维护：每个子进程启动时自动使用本机 Claude Code 的登录状态，Claude Code 自身会自动处理 Token 刷新<br />
-部署难度最低：本机装了 Claude Code 且已登录，再装个 Node.js 就行<br />
-代价：<br />
-Tool Calling 靠正则提取文本，偶尔会解析失败<br />
-流式输出是模拟的，不如方案 C 精确<br />
-翔宇的选择<br />
-翔宇选方案 D 的理由就一个：指纹最干净。OpenClaw 需要的 System Prompt、Tool Calling、流式、多模态全部能覆盖，虽然不是原生实现，但够用。<br />
-风险排序：D（指纹最干净）&gt; C（中危）&gt; B（中高危）&gt; A（高危）<br />
-3. CLI 方案：设计与实现<br />
-整个系统拆成五层，每层只干一件事：<br />
-层级<br />
-职责<br />
-具体做什么<br />
-CLI 层<br />
-启动命令行进程<br />
-每收到一个请求，执行 claude -p，在临时沙箱目录中运行，超时 5 分钟自动强杀进程<br />
-Bridge 层<br />
-格式互相翻译<br />
-把 OpenAI 的 messages 数组拼成一段 prompt 文本传给命令行，再把命令行返回的 NDJSON 文本解析成 OpenAI 的 choices 响应格式<br />
-Server 层<br />
-对外暴露接口<br />
-Express 服务器，提供 /v1/chat/completions、/health、/metrics 三个地址<br />
-Infra 层<br />
-运维保障<br />
-p-queue 并发队列（默认 4 路）、JSONL 格式按日轮转日志、请求计数和成功率统计<br />
-Types 层<br />
-类型定义<br />
-TypeScript 类型文件<br />
-三个关键设计决策：<br />
-沙箱隔离——每个请求创建一个临时目录，结束立刻删除。防止并发请求文件互相串了。<br />
-双模式指纹——普通聊天不加任何自定义参数，指纹和正常用户完全一致。带工具的请求把工具定义注入到系统指令里，同时禁用命令行自带工具。<br />
-文本分块——命令行一次性吐出一大段文字，分块模块在中文标点和换行处自然断开，模拟流式效果。<br />
-4. 实战验证<br />
-实际运行数据（翔宇最近 7 天的统计）：<br />
-指标<br />
-数据<br />
-总请求数<br />
-2,431 次<br />
-成功率<br />
-99.2%<br />
-平均响应时间<br />
-8.3 秒<br />
-日均 Token 消耗<br />
-~180K<br />
-额外 API 费用<br />
-0 刀<br />
-服务崩溃次数<br />
-3 次（Watchdog 全部自动恢复）<br />
-翔宇在本地跑了两周多，目前没有收到 Anthropic 的警告或封号通知。<br />
-5. 一键复刻<br />
-准备两样东西：一台装了 Claude Code 的电脑（已登录订阅账号）、Node.js 20 以上。然后把提示词复制给 Claude Code，它会自动生成全部代码。<br />
-翔宇花了一个月趟完四条路，最后选了最笨的那条——但两周多跑下来，它也是最稳的那条。有时候最笨的办法，就是最好的办法。</p>
+            <h1 id="openclaw-接入-claude-订阅防封中转方案实战教程">OpenClaw 接入 Claude 订阅：防封中转方案实战教程</h1>
+<p><strong>翔宇工作流第27期：Claude 订阅</strong></p>
+<p><img alt="OpenClaw 接入 Claude 订阅：防封中转方案实战教程" src="https://mmbiz.qpic.cn/sz_mmbiz_png/eg85sMlxE7wxa2cjjOS6ubk4qkZtxQcDBWJPyOKRcUJgRVrWAkRRLIyBHJOScia1ruMjnPs0fIsbSwafibFlppzr9WZnZF4MCvuDUvnPJibOuw/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>翔宇打开 OpenClaw 后台看了一眼：10 个 Agent 昨晚总共调了 347 次 Claude，情报部采集完热点、微信部写好了初稿、研发部审查完了代码。额外 API 费用：0 刀。</p>
+<p>不是白嫖，是翔宇订了 Claude 的 200 刀月付套餐——本来只能在终端里一问一答地用。但翔宇在本机跑了一个中转服务，把订阅的能力变成了标准 API，10 个 Agent 随便调。Anthropic 后台看到的？就是一个正常用户在终端里用 Claude Code。没有任何可疑之处。</p>
+<p>翔宇花了一个月研究怎么做到这件事。GitHub 上能找到的中转方案全翻了一遍，四条路线，三条都有坑。最后选了一条最笨但指纹最干净的路：<strong>直接让 Claude Code 的命令行帮你发请求</strong>。</p>
+<p>读完这篇，你将获得：</p>
+<ol>
+<li>
+<p><strong>一张中转方案全景图</strong>：四条路线的能力与风险对比</p>
+</li>
+<li>
+<p><strong>一套设计拆解</strong>：三个核心设计决策的「为什么」</p>
+</li>
+<li>
+<p><strong>一份文末提示词</strong>：复制给 Claude Code，从零搭建你自己的中转服务</p>
+</li>
+</ol>
+<blockquote>
+<p>★</p>
+<p>⚠️ <strong>阅读提示</strong>：这是一篇硬核技术文章，涉及 API 指纹、TLS 握手、子进程调度等底层概念。如果你不是开发者，可以直接跳到第 5 节「一键复刻」——把提示词复制给 Claude Code，它会帮你搞定一切。</p>
+</blockquote>
+<hr />
+<p><strong>目录</strong></p>
+<ul>
+<li>
+<p><strong>一、什么是中转</strong></p>
+</li>
+<li>
+<p>1.1 但中转有个核心风险：API 指纹</p>
+</li>
+<li>
+<p><strong>二、四条路，该走哪条</strong></p>
+</li>
+<li>
+<p>2.1 方案 A：OAuth Token → Developer API</p>
+</li>
+<li>
+<p>2.2 方案 B：Web Cookie → 网页聊天接口</p>
+</li>
+<li>
+<p>2.3 方案 C：SDK 封装</p>
+</li>
+<li>
+<p>2.4 方案 D：CLI 子进程（本文方案）</p>
+</li>
+<li>
+<p>2.5 翔宇的选择</p>
+</li>
+<li>
+<p><strong>三、CLI 方案：设计与实现</strong></p>
+</li>
+<li>
+<p><strong>四、实战验证：从启动到 OpenClaw 跑通</strong></p>
+</li>
+<li>
+<p><strong>五、一键复刻</strong></p>
+</li>
+</ul>
+<hr />
+<h2 id="1-什么是中转">1. 什么是中转</h2>
+<p>你买了 Claude 订阅，每个月 200 刀，可以在 Claude Code 终端里随便用。但这个「随便用」有个前提——<strong>你得亲自在终端里一问一答地用</strong>。</p>
+<p>翔宇的 OpenClaw 有 10 个 AI Agent 需要调 Claude。它们不是人，不会打开终端敲键盘。它们需要的是一个标准接口——发一个请求过去，拿一个响应回来。</p>
+<p><strong>中转就是：把你的 Claude 订阅能力，转换成一个标准接口，让程序能调用。</strong></p>
+<p>翔宇踩过一个坑：最早没做中转，直接花钱买 Anthropic 的 API 额度。200 刀订阅之外又花了 80 刀 API 费——等于交了两次钱。中转的意义就是<strong>把订阅复用到程序调用场景，避免双重付费</strong>。</p>
+<h3 id="但中转有个核心风险api-指纹">但中转有个核心风险：API 指纹</h3>
+<p>Anthropic 的后台不只看你发了什么请求——它还能看到你用的是什么工具发的、请求头长什么样、调用频率是什么模式。这些「行为特征」加起来，就是你的 API 指纹。</p>
+<p>不同方式发出的请求，指纹全不一样。用 Claude Code 命令行发的、用开发包发的、用第三方工具发的——Anthropic 一眼就能分辨。</p>
+<p><strong>指纹不同 = 有被检测的风险。</strong> 所以选中转方案时，指纹是否「正常」就成了最关键的考量。</p>
+<p><img alt="中转的本质：订阅复用" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>中转的本质：订阅复用</p>
+<hr />
+<h2 id="2-四条路该走哪条">2. 四条路，该走哪条</h2>
+<p>翔宇把 GitHub 上的方案全翻了一遍，逐个拆解。每个方案用同一套标准评估：10 个维度，从功能覆盖到指纹风险，逐项对比。</p>
+<h3 id="方案-aoauth-token-developer-api">方案 A：OAuth Token → Developer API</h3>
+<p><strong>原理</strong>：你用 Claude Code 登录的时候，Anthropic 会给你的终端颁发一个 OAuth Token（格式为 sk-ant-oat-...）。这个方案就是通过 PKCE 流程（一种安全的登录验证协议）获取这串 Token，然后绕过 Claude Code，自己写代码直接 POST 到 Anthropic 的开发者接口 <strong>api.anthropic.com/v1/messages</strong>。</p>
+<p><strong>GitHub 代表项目</strong>：CLIProxyAPI（15,900+ stars，Go 实现）——名字带 CLI 但实际是 OAuth 方案，通过浏览器完成 PKCE 登录后把 Token 存到本地文件，每次请求用这个 Token 直接调开发者 API，伪装请求头为 <strong>claude-cli/2.1.63</strong>，支持多账号轮换。</p>
+<p>|<br />
+维度</p>
+<p>|</p>
+<p>含义</p>
+<p>|</p>
+<p>表现</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>System Prompt</p>
+<p>|</p>
+<p>给 AI 设定角色和规则的预设指令</p>
+<p>|</p>
+<p>直接通过 API 的 <strong>system</strong> 参数传入，和官方 API 用法完全一致。CLIProxyAPI 还会额外注入假用户 ID，进一步伪装身份</p>
+<p>|<br />
+|</p>
+<p>Tool Calling</p>
+<p>|</p>
+<p>让 AI 调用外部工具（搜索、查数据库等）</p>
+<p>|</p>
+<p>直接把 <strong>tools</strong> 数组透传给 Anthropic API，AI 返回结构化的 <strong>tool_use</strong> 调用指令，和官方 API 用法完全一致</p>
+<p>|<br />
+|</p>
+<p>流式输出</p>
+<p>|</p>
+<p>回答逐段显示，而不是等全部生成完再一次性返回</p>
+<p>|</p>
+<p>SSE（Server-Sent Events）直接转发——Anthropic 返回的 SSE 流原样透传给客户端，不需要额外处理</p>
+<p>|<br />
+|</p>
+<p>多模态</p>
+<p>|</p>
+<p>发送图片、PDF 等非文字内容给 AI 分析</p>
+<p>|</p>
+<p>直接支持，因为走的就是 Anthropic 的开发者 API 端点</p>
+<p>|<br />
+|</p>
+<p>并发</p>
+<p>|</p>
+<p>同时处理多少个请求</p>
+<p>|</p>
+<p>单 Token 串行，但 CLIProxyAPI 支持多账号轮换——配置多个 Claude 账号，请求自动分配到空闲账号</p>
+<p>|<br />
+|</p>
+<p>部署难度</p>
+<p>|</p>
+<p>从零搭建需要多少步骤和前置知识</p>
+<p>| <strong>中等</strong></p>
+<p>——需要理解 PKCE 登录流程，首次部署要在浏览器里完成 OAuth 授权。CLIProxyAPI 提供了 Docker 一键部署，但配置多账号轮换需要手动编辑配置文件</p>
+<p>|<br />
+|</p>
+<p>模型覆盖</p>
+<p>|</p>
+<p>能调用哪些 Claude 模型</p>
+<p>|</p>
+<p>Sonnet、Haiku 完整支持。Opus 取决于 Anthropic 是否对该 Token 类型开放——部分 Pro 订阅用户反馈 OAuth Token 调 Opus 会返回 403</p>
+<p>|<br />
+|</p>
+<p>凭证维护</p>
+<p>|</p>
+<p>登录凭证的有效期和续期方式</p>
+<p>|</p>
+<p>OAuth Token 有过期时间（通常几小时到几天），CLIProxyAPI 内置了自动刷新机制（用 Refresh Token 换新 Token），但刷新失败时需要重新在浏览器里走一遍 PKCE 登录</p>
+<p>|<br />
+|</p>
+<p>社区成熟度</p>
+<p>|</p>
+<p>开源项目的活跃度和可参考性</p>
+<p>| <strong>最成熟</strong></p>
+<p>——CLIProxyAPI 15,900+ stars，Go 实现，文档完善，Issue 响应快，多账号轮换、Docker 部署等功能齐全，遇到问题大概率能搜到解决方案</p>
+<p>|<br />
+|</p>
+<p>API 指纹</p>
+<p>|</p>
+<p>Anthropic 后台看到的请求特征</p>
+<p>| <strong>高危</strong></p>
+<p>——CLIProxyAPI 伪装了完整的请求头（<strong>User-Agent: claude-cli/2.1.63</strong> + <strong>X-Stainless-Runtime: node</strong> + SDK 版本号等十几个字段），但请求头声称 Node.js 运行时，TLS 指纹却用 uTLS 库伪装成 Chrome 浏览器（<strong>tls.HelloChrome_Auto</strong>），两者矛盾，Anthropic 可以通过这种不一致识别</p>
+<p>|</p>
+<p>翔宇第一个试的就是这个——15000+ stars，看着最靠谱。跑了两天，总觉得哪里不对。后来一抓包，发现请求头说自己是 Node.js，TLS 握手却是 Chrome 的指纹。就像你穿着西装但脚上踩着拖鞋，Anthropic 低头一看就露馅。</p>
+<p><strong>功能最全，但底裤漏了。</strong> 请求头可以伪造，TLS 指纹、TCP 行为这些底层特征很难完美模拟。</p>
+<h3 id="方案-bweb-cookie-网页聊天接口">方案 B：Web Cookie → 网页聊天接口</h3>
+<p><strong>原理</strong>：你在浏览器里登录 claude.ai 网页版时，浏览器会存一个 Cookie。这个方案就是把这个 Cookie 复制出来，用代码模拟浏览器直接访问网页版的聊天接口——和你在浏览器里打字聊天走的是同一条路。</p>
+<p><strong>GitHub 代表项目</strong>：clewdr（989 stars，Rust 实现）——同时支持 Web Cookie 模式和 OAuth API 模式，Web 模式下伪装 Chrome136 浏览器指纹发请求。clove（626 stars，Python 实现）——通过 Cookie 登录后先尝试开发者 API，失败后自动降级到 Web 接口。</p>
+<p>|<br />
+维度</p>
+<p>|</p>
+<p>含义</p>
+<p>|</p>
+<p>表现</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>System Prompt</p>
+<p>|</p>
+<p>给 AI 设定角色和规则的预设指令</p>
+<p>|</p>
+<p>需要合并到消息内容中发送（Web 接口的 <strong>prompt</strong> 字段），不像开发者 API 有独立的 <strong>system</strong> 参数。clove 会在前面强制注入 <strong>"You are Claude Code"</strong> 伪装身份</p>
+<p>|<br />
+|</p>
+<p>Tool Calling</p>
+<p>|</p>
+<p>让 AI 调用外部工具</p>
+<p>|</p>
+<p>支持，但实现更复杂——发送工具定义后，Claude 返回工具调用时需要暂停流、等客户端发回工具结果、再继续对话。clewdr 会自动添加 <strong>web_search</strong> 工具</p>
+<p>|<br />
+|</p>
+<p>流式输出</p>
+<p>|</p>
+<p>回答逐段显示</p>
+<p>|</p>
+<p>SSE 转发，和开发者 API 类似，但事件格式不同，需要额外解析和转换</p>
+<p>|<br />
+|</p>
+<p>多模态</p>
+<p>|</p>
+<p>发送图片等非文字内容</p>
+<p>|</p>
+<p>支持图片附件（通过 <strong>attachments</strong> 字段），和你在网页版拖拽上传图片一样</p>
+<p>|<br />
+|</p>
+<p>并发</p>
+<p>|</p>
+<p>同时处理多少个请求</p>
+<p>|</p>
+<p>需要维护对话状态（创建对话 → 发消息 → 删对话），并发受限。clove 默认每个 Cookie 最多 3 个并发会话</p>
+<p>|<br />
+|</p>
+<p>部署难度</p>
+<p>|</p>
+<p>从零搭建需要多少步骤和前置知识</p>
+<p>| <strong>较高</strong></p>
+<p>——需要手动从浏览器开发者工具里复制 Cookie（F12 → Application → Cookies），Cookie 格式因浏览器版本而异。clewdr 提供 Web 管理界面简化配置，但首次提取 Cookie 仍需手动操作</p>
+<p>|<br />
+|</p>
+<p>模型覆盖</p>
+<p>|</p>
+<p>能调用哪些 Claude 模型</p>
+<p>| <strong>最全</strong></p>
+<p>——Web 接口能访问所有订阅可用模型，包括 Pro 账户的 Opus。clove 采用顺序尝试机制，先尝试开发者 API，失败后自动降级到 Web 接口</p>
+<p>|<br />
+|</p>
+<p>凭证维护</p>
+<p>|</p>
+<p>登录凭证的有效期和续期方式</p>
+<p>| <strong>高维护成本</strong></p>
+<p>——浏览器 Cookie 有效期不固定（通常几天到几周），过期后需要重新登录 claude.ai 并手动复制新 Cookie。无法自动续期，是所有方案中维护最频繁的</p>
+<p>|<br />
+|</p>
+<p>社区成熟度</p>
+<p>|</p>
+<p>开源项目的活跃度和可参考性</p>
+<p>| <strong>中等</strong></p>
+<p>——clewdr 989 stars，Rust 实现，更新活跃但文档偏少。clove 626 stars，Python 实现，代码可读性好。两个项目的 Issue 区都有不少使用经验可参考</p>
+<p>|<br />
+|</p>
+<p>API 指纹</p>
+<p>|</p>
+<p>Anthropic 后台看到的请求特征</p>
+<p>| <strong>中高危</strong></p>
+<p>——clewdr 用 <strong>wreq</strong> 库模拟 Chrome136 的 TLS 指纹和 HTTP/2 行为，clove 用 <strong>rnet</strong>/<strong>curl_cffi</strong> 模拟 Chrome 浏览器。比方案 A 稍好（因为 Web 接口本身就是给浏览器用的），但仍非真实浏览器</p>
+<p>|</p>
+<p>翔宇也试过这条路。能用的模型确实最多，Opus 也能跑。但 Cookie 三天两头过期，每次都得打开浏览器手动复制一遍——跑了一个月翔宇就受不了了。</p>
+<p><strong>能调的模型最多，但 Cookie 过期太频繁，维护成本劝退。</strong></p>
+<h3 id="方案-csdk-封装">方案 C：SDK 封装</h3>
+<p><strong>原理</strong>：Anthropic 官方提供了一个开发工具包（Agent SDK），开发者可以用它在自己的程序里调用 Claude。这个方案就是用这个工具包接收 OpenAI 格式的请求，在内部转成 Claude 格式调用，再把结果转回 OpenAI 格式返回。</p>
+<p><strong>GitHub 代表项目</strong>：claude-code-openai-wrapper（441 stars，Python 实现）——用 <strong>claude_agent_sdk</strong> 的 <strong>query()</strong> 函数直接调用 Claude，FastAPI 对外暴露 OpenAI 兼容端点，默认禁用 Claude Code 的内置工具以兼容 OpenAI 客户端。ccproxy-api（195 stars，Python 实现）——混合架构，同时支持 OAuth API 直连和 Agent SDK 调用两条路径，SDK 路径自动复用本地 CLI 的登录凭证。</p>
+<p>|<br />
+维度</p>
+<p>|</p>
+<p>含义</p>
+<p>|</p>
+<p>表现</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>System Prompt</p>
+<p>|</p>
+<p>给 AI 设定角色和规则的预设指令</p>
+<p>|</p>
+<p>SDK 直接传入 <strong>systemPrompt</strong> 参数。claude-code-openai-wrapper 默认使用 <strong>claude_code</strong> 预设，也可切换为自定义文本</p>
+<p>|<br />
+|</p>
+<p>Tool Calling</p>
+<p>|</p>
+<p>让 AI 调用外部工具</p>
+<p>|</p>
+<p>SDK 通过 <strong>query()</strong> 函数内部处理工具调用，AI 直接返回结构化的工具调用结果。claude-code-openai-wrapper 默认禁用工具（<strong>disallowed_tools</strong> 列表屏蔽 15 个内置工具如 Bash、Read、Edit 等），需手动开启</p>
+<p>|<br />
+|</p>
+<p>流式输出</p>
+<p>|</p>
+<p>回答逐段显示</p>
+<p>|</p>
+<p>SDK 内置异步生成器，通过 <strong>async for message in query(prompt, options)</strong> 逐段拿到回答，代理将每段转成 OpenAI 的 <strong>delta</strong> 格式通过 SSE 推送</p>
+<p>|<br />
+|</p>
+<p>多模态</p>
+<p>|</p>
+<p>发送图片等非文字内容</p>
+<p>|</p>
+<p>SDK 本身只支持文本。翔宇的实现额外加了多模态路由：遇到图片/音频/视频自动切换到 Gemini API 处理，开源项目普遍不具备这个能力</p>
+<p>|<br />
+|</p>
+<p>并发</p>
+<p>|</p>
+<p>同时处理多少个请求</p>
+<p>|</p>
+<p>claude-code-openai-wrapper 用 IP 级别速率限制（默认每分钟 10 次请求）。ccproxy-api 用 Session Pool + 异步信号量（默认最大 1000 个并发 Session）</p>
+<p>|<br />
+|</p>
+<p>部署难度</p>
+<p>|</p>
+<p>从零搭建需要多少步骤和前置知识</p>
+<p>| <strong>最低</strong></p>
+<p>——本机已装 Claude Code 且已登录即可，SDK 自动复用本地登录凭证。claude-code-openai-wrapper 只需 <strong>pip install</strong> 然后 <strong>python main.py</strong>，几分钟就能跑起来</p>
+<p>|<br />
+|</p>
+<p>模型覆盖</p>
+<p>|</p>
+<p>能调用哪些 Claude 模型</p>
+<p>|</p>
+<p>取决于 CLI 登录账户的权限。SDK 走的是和 Claude Code 相同的通道，能用哪些模型和你在终端里用 Claude Code 一致</p>
+<p>|<br />
+|</p>
+<p>凭证维护</p>
+<p>|</p>
+<p>登录凭证的有效期和续期方式</p>
+<p>| <strong>零维护</strong></p>
+<p>——SDK 直接读取本机 Claude Code 的登录状态，只要你的 Claude Code 没退出登录，凭证就一直有效。Claude Code 自身会自动处理 Token 刷新</p>
+<p>|<br />
+|</p>
+<p>社区成熟度</p>
+<p>|</p>
+<p>开源项目的活跃度和可参考性</p>
+<p>| <strong>中等</strong></p>
+<p>——claude-code-openai-wrapper 441 stars，代码简洁易读。ccproxy-api 195 stars，功能更丰富但复杂度更高。两个项目都在活跃维护中</p>
+<p>|<br />
+|</p>
+<p>API 指纹</p>
+<p>|</p>
+<p>Anthropic 后台看到的请求特征</p>
+<p>| <strong>中危</strong></p>
+<p>——SDK 的 <strong>query()</strong> 调用时内部会传递 settingSources: []<strong>（不加载任何配置）、</strong>tools: []<strong>（禁用内置工具）、</strong>mcpServers: {}（不连外部工具）等参数，这是 SDK 内部行为而非开源项目显式设置，但这组参数的组合在正常 Claude Code 用户中几乎不会出现，相当于告诉 Anthropic「我不是正常用户」</p>
+<p>|</p>
+<p>翔宇纠结最久的就是 C 和 D 之间的选择。SDK 方案功能确实更完整，Tool Calling 是结构化的，不存在解析失败。但那组空参数像在 Anthropic 后台举了个牌子：「我不是正常用户」。翔宇最终还是选了更笨但更隐蔽的 D。</p>
+<p><strong>功能最完整，但指纹有暗伤。</strong> 目前没有封禁案例，但指纹差异客观存在——翔宇把它留作备用方案。</p>
+<h3 id="方案-dcli-子进程本文方案">方案 D：CLI 子进程（本文方案）</h3>
+<p><strong>原理</strong>：你在终端里敲 claude -p "你好"，Claude Code 就会帮你发请求并返回结果。这个方案就是让程序自动帮你敲这个命令——每来一个请求，就在本机启动一个真实的 Claude Code 命令行进程，让它去和 Anthropic 通信。Anthropic 后台看到的，就是一个正常用户在终端里用 Claude Code。</p>
+<p><strong>GitHub 同类项目</strong>：claudex（Go 实现）和 claude-max-api-proxy-rs（Rust 实现）——都是通过 <strong>claude -p</strong> 启动子进程的方案，但 star 数均为个位数。CLI 子进程方案在开源社区中几乎没有成熟项目，翔宇的实现在 Tool Calling 文本提取、双模式指纹策略、多模态路由等方面做了大量工程优化，这些是开源项目不具备的。</p>
+<p>|<br />
+维度</p>
+<p>|</p>
+<p>含义</p>
+<p>|</p>
+<p>表现</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>System Prompt</p>
+<p>|</p>
+<p>给 AI 设定角色和规则的预设指令</p>
+<p>|</p>
+<p>两种注入方式自动切换：普通聊天用 <strong>--append-system-prompt</strong>（在 Claude Code 原有指令后面追加，不破坏原生行为），带工具的请求用 <strong>--system-prompt</strong>（完全替换为自定义指令）</p>
+<p>|<br />
+|</p>
+<p>Tool Calling</p>
+<p>|</p>
+<p>让 AI 调用外部工具</p>
+<p>|</p>
+<p>非原生实现——把工具定义写进 System Prompt 告诉 Claude「你有这些工具可用，需要时按这个文本格式输出调用」，Claude 回复后用正则表达式从文本中提取 <strong>tool_call</strong> 代码块，解析成标准格式返回给客户端</p>
+<p>|<br />
+|</p>
+<p>流式输出</p>
+<p>|</p>
+<p>回答逐段显示</p>
+<p>|</p>
+<p>非原生实现——<strong>claude -p</strong> 命令行会一次性返回完整回答，代理收到后在中文标点（。？！，）和换行符处把文本切成小段，通过 SSE 逐段推送给客户端，模拟打字效果</p>
+<p>|<br />
+|</p>
+<p>多模态</p>
+<p>|</p>
+<p>发送图片等非文字内容</p>
+<p>|</p>
+<p>自动检测请求中是否包含 <strong>image_url</strong> / <strong>input_audio</strong> / <strong>video_url</strong>，有的话整条请求不走命令行，改走 Gemini API</p>
+<p>|<br />
+|</p>
+<p>并发</p>
+<p>|</p>
+<p>同时处理多少个请求</p>
+<p>|</p>
+<p>用 p-queue 队列管理，默认 4 路并发，排满了先等，等候队列超 12 个返回 429（「太忙了，稍后再试」）</p>
+<p>|<br />
+|</p>
+<p>部署难度</p>
+<p>|</p>
+<p>从零搭建需要多少步骤和前置知识</p>
+<p>| <strong>最低</strong></p>
+<p>——本机装了 Claude Code 且已登录，再装个 Node.js 就行。把提示词复制给 Claude Code，它自动生成全部代码，执行启动脚本即可运行</p>
+<p>|<br />
+|</p>
+<p>模型覆盖</p>
+<p>|</p>
+<p>能调用哪些 Claude 模型</p>
+<p>|</p>
+<p>取决于 CLI 登录账户的权限，通过 <strong>--model</strong> 参数指定。和你在终端里用 Claude Code 能选的模型完全一致</p>
+<p>|<br />
+|</p>
+<p>凭证维护</p>
+<p>|</p>
+<p>登录凭证的有效期和续期方式</p>
+<p>| <strong>零维护</strong></p>
+<p>——每个子进程启动时自动使用本机 Claude Code 的登录状态，Token 刷新由 Claude Code 自身处理，不需要任何额外操作</p>
+<p>|<br />
+|</p>
+<p>社区成熟度</p>
+<p>|</p>
+<p>开源项目的活跃度和可参考性</p>
+<p>| <strong>最低</strong></p>
+<p>——claudex 和 claude-max-api-proxy-rs 均为个位数 star，CLI 子进程方案在开源社区几乎没有成熟实现。遇到问题基本靠自己排查</p>
+<p>|<br />
+|</p>
+<p>API 指纹</p>
+<p>|</p>
+<p>Anthropic 后台看到的请求特征</p>
+<p>| <strong>指纹最干净</strong></p>
+<p>——每个请求都是启动一个真实的 <strong>claude</strong> 命令行进程，发出去的请求带着完整的 CLI 版本号、终端类型、设备信息等元数据，和你手动在终端里用 Claude Code 完全一样</p>
+<p>|</p>
+<p><strong>指纹最干净，长期运行最稳。</strong> 代价也明确：Tool Calling 靠正则提取文本，偶尔会解析失败；流式输出是模拟的，不如方案 C 精确。风险不是零——调用频率远超正常人类使用，还是可能触发异常检测。</p>
+<h3 id="翔宇的选择">翔宇的选择</h3>
+<p>翔宇选方案 D 的理由就一个：<strong>指纹最干净</strong>。OpenClaw 需要的 System Prompt、Tool Calling、流式、多模态全部能覆盖，虽然不是原生实现，但够用。风险排序：D（指纹最干净）&gt; C（中危）&gt; B（中高危）&gt; A（高危）。</p>
+<p><strong>重要提醒</strong>：方案 A/B/C/D 都不在 Anthropic 官方授权范围内。Anthropic 的服务条款、速率策略、检测机制随时可能调整，任何中转方案都存在账号被限制或封禁的风险。翔宇在本地跑了两周没出问题，但这不代表方案本身没有风险——只是目前还没触发而已。账号风险自担，翔宇自己也做好了随时被封的心理准备。</p>
+<p><img alt="四条中转路线对比" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>四条中转路线对比</p>
+<hr />
+<h2 id="3-cli-方案设计与实现">3. CLI 方案：设计与实现</h2>
+<p><strong>核心思路</strong>：每个请求进来，在本机启动一个真实的 Claude Code 命令行进程，让它去和 Anthropic 通信。进程拿到回答后，翻译成 OpenAI 标准格式返回。OpenClaw 的 10 个 Agent 只需要像调 OpenAI 一样发请求，完全不用关心背后是 Claude。</p>
+<p>整个系统拆成五层，每层只干一件事：</p>
+<p>|<br />
+层级</p>
+<p>|</p>
+<p>职责</p>
+<p>|</p>
+<p>具体做什么</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>CLI 层</p>
+<p>|</p>
+<p>启动命令行进程</p>
+<p>|</p>
+<p>每收到一个请求，执行 <strong>claude -p "问题内容" --model sonnet --output-format stream-json</strong>，在临时沙箱目录中运行，超时 5 分钟自动强杀进程</p>
+<p>|<br />
+|</p>
+<p>Bridge 层</p>
+<p>|</p>
+<p>格式互相翻译</p>
+<p>|</p>
+<p>把 OpenAI 的 <strong>messages</strong> 数组拼成一段 prompt 文本传给命令行，再把命令行返回的 NDJSON（逐行分隔的 JSON）文本解析成 OpenAI 的 <strong>choices</strong> 响应格式</p>
+<p>|<br />
+|</p>
+<p>Server 层</p>
+<p>|</p>
+<p>对外暴露接口</p>
+<p>|</p>
+<p>Express 服务器，提供三个地址：/v1/chat/completions<strong>（主接口）、</strong>/health<strong>（健康检查）、</strong>/metrics（运行统计）</p>
+<p>|<br />
+|</p>
+<p>Infra 层</p>
+<p>|</p>
+<p>运维保障</p>
+<p>|</p>
+<p>p-queue 并发队列（默认 4 路）、JSONL 格式按日轮转日志、请求计数和成功率统计、统一错误码映射</p>
+<p>|<br />
+|</p>
+<p>Types 层</p>
+<p>|</p>
+<p>类型定义</p>
+<p>|</p>
+<p>TypeScript 类型文件，规定请求和响应的数据结构，保证代码有类型检查</p>
+<p>|</p>
+<p>数据流：客户端发请求 → Server 接收 → Bridge 转换 → CLI 启动命令行 → 拿到回答 → Bridge 转回 → 返回客户端。遇到图片？整条请求不走命令行，改走 Gemini。纯文本保指纹，图片保功能。</p>
+<p>三个关键设计决策：</p>
+<p><strong>沙箱隔离</strong>——每个请求创建一个临时目录，结束立刻删除。翔宇最早没做隔离。有天晚上情报部在采集热点，研发部同时在审代码，两个请求撞在一起——情报部的 Agent 突然开始审查代码，研发部的 Agent 突然开始分析新闻。排查了半小时才发现：两个进程共用了同一个临时目录，文件互相串了。加了沙箱之后，每个请求完全隔离，用完即删。</p>
+<p><strong>双模式指纹</strong>——普通聊天不加任何自定义参数，指纹和正常用户完全一致。带工具的请求把工具定义注入到系统指令里，同时禁用命令行自带工具，两种模式自动切换。</p>
+<p><strong>文本分块</strong>——命令行一次性吐出一大段文字，但客户端期望逐段蹦出来。分块模块在标点和换行处自然断开，模拟流式效果。翔宇最早按固定长度切，经常把中文句子从中间切断，加了标点感知才自然。</p>
+<blockquote>
+<p>★</p>
+<p><strong>💡 划重点</strong></p>
+<p>沙箱保隔离、双模式保指纹、分块保体验——理解了「为什么」，换任何语言都能重写。</p>
+</blockquote>
+<p><strong>运维保障</strong>：Watchdog（看门狗）守护进程——服务异常崩溃自动重启，5 分钟内连续崩 5 次就停下排查，日志超 10MB 自动截断。翔宇的 Mac Mini 24 小时开机，配了 macOS 自带的开机自启，中转服务开机就跑。</p>
+<p><img alt="五层架构：每层只干一件事" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>五层架构：每层只干一件事</p>
+<hr />
+<h2 id="4-实战验证从启动到-openclaw-跑通">4. 实战验证：从启动到 OpenClaw 跑通</h2>
+<p>理论讲完，上数据。</p>
+<p><strong>启动服务</strong>：执行启动脚本，Watchdog 拉起服务，健康检查确认端口 3457 就绪。</p>
+<p><strong>OpenClaw 配置</strong>：在 OpenClaw 的 Provider 设置里填上本机地址和端口，模型选 Claude Sonnet。10 个 Agent 的请求全部走这个中转服务。</p>
+<p><strong>实际运行数据</strong>（翔宇最近 7 天的统计）：</p>
+<p>|<br />
+指标</p>
+<p>|</p>
+<p>数据</p>
+<p>|<br />
+| --- | --- |<br />
+|</p>
+<p>总请求数</p>
+<p>|</p>
+<p>2,431 次</p>
+<p>|<br />
+|</p>
+<p>成功率</p>
+<p>|</p>
+<p>99.2%</p>
+<p>|<br />
+|</p>
+<p>平均响应时间</p>
+<p>|</p>
+<p>8.3 秒</p>
+<p>|<br />
+|</p>
+<p>日均 Token 消耗</p>
+<p>|</p>
+<p>~180K</p>
+<p>|<br />
+|</p>
+<p>额外 API 费用</p>
+<p>|</p>
+<p>0 刀</p>
+<p>|<br />
+|</p>
+<p>服务崩溃次数</p>
+<p>|</p>
+<p>3 次（Watchdog 全部自动恢复）</p>
+<p>|</p>
+<p>翔宇在本地跑了两周多，目前没有收到 Anthropic 的警告或封号通知。但这不代表方案没有风险——Anthropic 的检测策略随时可能更新，翔宇的经验仅供参考，不构成任何安全承诺。</p>
+<blockquote>
+<p>★</p>
+<p><strong>🔧 实操技巧</strong></p>
+<p>翔宇把并发数设成 4，不是不能更高，而是故意控制节奏。同时跑 10 个命令行进程，调用频率太密集反而容易触发异常检测。4 路并发 + 排队等待，既保证了 10 个 Agent 的基本需求，又不会在调用频率上太显眼。</p>
+</blockquote>
+<hr />
+<h2 id="5-一键复刻">5. 一键复刻</h2>
+<p>准备两样东西：一台装了 Claude Code 的电脑（已登录订阅账号）、Node.js 20 以上。然后把下面这段提示词复制给 Claude Code：</p>
+<p>「帮我搭建一个 Claude CLI Proxy 中转服务，通过 <strong>claude -p</strong> 命令行子进程中转请求，对外暴露 OpenAI 兼容 API。TypeScript + Express，ES Modules，端口 3457。</p>
+<p>五层架构，每层只干一件事：</p>
+<p>CLI 层——启动 <strong>claude -p</strong> 子进程，真正跟 Claude 通信。每个请求创建临时沙箱目录，结束立刻删除，防止并发请求互相干扰。进程超时强杀（默认 5 分钟）。环境变量清理，防止子进程套娃启动新的代理。双模式指纹策略：普通聊天不加任何自定义参数，指纹和正常用户一致；带工具的请求把工具定义注入到系统指令里，同时用 <strong>--allowedTools ""</strong> 禁用命令行自带工具。</p>
+<p>Bridge 层——OpenAI 格式和 Claude 格式互相翻译。消息转换：把 OpenAI 的 messages 数组转成 Claude 能理解的格式。工具注入：如果请求带了 tools 参数，把工具定义写进 System Prompt，指示 Claude 用特定文本格式输出工具调用。工具解析：从 Claude 的文本回复中提取工具调用，解析成 OpenAI 标准的 tool_calls 格式返回。</p>
+<p>Server 层——Express 服务器，暴露三个端点：/v1/chat/completions<strong>（主接口，接收 OpenAI 格式请求）、</strong>/health<strong>（健康检查）、</strong>/metrics（运行统计）。</p>
+<p>Infra 层——并发队列管理（p-queue，默认 4 路并发，满载排队，超载返回 429）。JSONL 格式日志，按日期轮转。请求计数、成功率、平均响应时间等运行指标统计。统一错误处理。</p>
+<p>Types 层——定义 OpenAI 请求/响应格式和内部数据格式的 TypeScript 类型。</p>
+<p>多模态路由：自动检测请求中的图片、音频、视频内容，整条请求不走命令行，改走 Gemini API（环境变量 GEMINI_API_KEY 配置密钥，GEMINI_MODEL 配置模型）。纯文本保指纹，多媒体保功能。</p>
+<p>流式输出：命令行一次性返回完整回答，用文本分块模块模拟逐段输出——在中文标点（句号、问号、感叹号、逗号）和换行处自然断开，发送 SSE 格式的 Server-Sent Events。</p>
+<p>启动脚本 <strong>start.sh</strong> 内置 Watchdog 守护：服务异常崩溃自动重启，5 分钟内连续崩 5 次停止重启并报警（防抖动），日志超 10MB 自动截断。支持 start/stop/restart/status 四个命令。</p>
+<p>macOS 开机自启：生成 LaunchAgents plist 文件，开机自动拉起服务。</p>
+<p>环境变量（均有默认值）：PROXY_PORT（端口，默认 3457）、PROXY_CONCURRENCY（并发数，默认 4）、PROXY_TIMEOUT_MS（超时，默认 300000）、GEMINI_API_KEY（多模态密钥）、GEMINI_MODEL（多模态模型）。」</p>
+<p>Claude Code 会自动生成全部代码。搭建完成后验证：访问 127.0.0.1:3457/health 确认服务就绪，然后在 OpenClaw 或任何 OpenAI 兼容客户端填入 Base URL 127.0.0.1:3457/v1，Model 填 claude，即可使用。</p>
+<hr />
+<p>翔宇花了一个月趟完四条路，最后选了最笨的那条——但两周多跑下来，它也是最稳的那条。有时候最笨的办法，就是最好的办法。</p>
+<p>这篇讲的是 CLI 版中转方案。翔宇同时也写了一套 SDK 版（方案 C），功能更完整、Tool Calling 原生支持——后续会单独发一篇拆解。两套方案互为备份，CLI 版主力运行，SDK 版随时可切。</p>
+<p>CLI Proxy 和 SDK Proxy 都是「AI 编程实操课」中 Claude 订阅系列的实战项目。在课程中，你还会学到：OpenClaw 多 Agent 组织架构设计、OpenClaw Bridge 让 Agent 自动调 Skill、Claude Code 安装与 Skill 入门、Syncthing 四机配置同步、以及从零搭建 10 Agent 自动化军团的完整流程。如果你想获取完整源码、系统学习 AI Agent 自动化工作流，欢迎加入<strong>翔宇工作流：AI 编程实操课</strong>。</p>
         </div>
     </article>
 
@@ -241,13 +754,13 @@ TypeScript 类型文件<br />
         
         <a href="recvdLdS75qbKA.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">ListenHub ASR 语音识别 API 全新上线，无限免费</span>
+            <span class="article-nav-title">ListenHub ASR 龙虾专用语音识别 API 全新上线，无限免费</span>
         </a>
         
         
         <a href="recvdIrpJNPs4q.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
-            <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill</span>
+            <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill。</span>
         </a>
         
     </nav>

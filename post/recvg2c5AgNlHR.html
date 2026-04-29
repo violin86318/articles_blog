@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">教程实操</span>
+            <span class="card-tag card-tag-primary">技术教程</span>
             
             
-            <span class="topic-chip">飞书</span>
+            <span class="topic-chip">AI编程</span>
             
-            <span class="topic-chip">GitHub</span>
+            <span class="topic-chip">飞书多维表格</span>
             
-            <span class="topic-chip">无代码</span>
+            <span class="topic-chip">GitHub Pages</span>
             
-            <span class="topic-chip">教程实操</span>
+            <span class="topic-chip">零代码建站</span>
             
-            <span class="detail-reading-time">约 16 分钟阅读</span>
+            <span class="topic-chip">作品集网站</span>
+            
+            <span class="topic-chip">自动刷新</span>
+            
+            <span class="detail-reading-time">约 33 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>这是一套面向非程序员的作品集上线流程：飞书管内容，AI 写页面，GitHub Pages 托管，自动刷新飞书视频链接。</p>
+                <p>用现有工具的免费额度，组合出一个自己控制的系统。 你只需要负责内容本身，其他的交给工具和 AI。 filetoken 是你视频的&#39;永久身份证&#39;，不会变。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>适合人群：完全不懂代码的创作者 最终效果：作品放飞书，网站自动展示，链接永不失效 所需费用：域名约 ¥10/年，其余全部免费 先看最终效果 做完这个教程，你会得到这样一个网站： 先说清楚我们要做什么 你有一堆视频作品，想在网上展示给客户或者合作方看。 这篇教程要搭的系统是这样的： 你 → 把视频传到飞书多维表格 ↓ Claude Code 帮你写 HTML 网页 ↓ 代码上传到 GitHub（免费代码托管） ↓ GitHub Pages...</p>
+                <p>本文提供了一套面向零代码创作者的完整教程，指导如何利用飞书多维表格存储作品、借助AI工具生成网页代码、通过GitHub Pages免费托管网站，并绑定自定义域名，最终实现作品集的自动展示与链接永不失效。</p>
             </div>
             
             
@@ -134,279 +138,441 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>这篇教程极具实用价值，它巧妙地将飞书、GitHub、AI编程等免费工具组合起来，为不懂代码的创作者提供了一条低门槛、低成本的建站路径。文章步骤清晰，从数据整理到自动刷新链接的闭环设计考虑周全，真正体现了&#39;让工具为人服务&#39;的理念，是数字时代个人作品展示的优秀解决方案。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#不写代码用-ai-上线你的作品集飞书-github-自动刷新完整教程" class="toc-link">不写代码，用 AI 上线你的作品集——飞书 + GitHub + 自动刷新完整教程</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#先看最终效果" class="toc-link">先看最终效果</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#先说清楚我们要做什么" class="toc-link">先说清楚我们要做什么</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#你需要准备什么" class="toc-link">你需要准备什么</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第一步把作品整理到飞书多维表格" class="toc-link">第一步：把作品整理到飞书多维表格</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第二步安装飞书命令行工具-lark-cli" class="toc-link">第二步：安装飞书命令行工具 lark-cli</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第三步用-ai-写-html-网页" class="toc-link">第三步：用 AI 写 HTML 网页</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第四步把代码上传到-github" class="toc-link">第四步：把代码上传到 GitHub</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第五步开启-github-pages" class="toc-link">第五步：开启 GitHub Pages</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第六步绑定自己的域名" class="toc-link">第六步：绑定自己的域名</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第七步解决视频链接过期问题" class="toc-link">第七步：解决视频链接过期问题</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#最终效果" class="toc-link">最终效果</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#以后怎么更新内容" class="toc-link">以后怎么更新内容</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#整个系统的角色总结" class="toc-link">整个系统的角色总结</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#常见问题" class="toc-link">常见问题</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#总结" class="toc-link">总结</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>适合人群：完全不懂代码的创作者</p>
+            <h1 id="不写代码用-ai-上线你的作品集飞书-github-自动刷新完整教程">不写代码，用 AI 上线你的作品集——飞书 + GitHub + 自动刷新完整教程</h1>
+<p>适合人群：完全不懂代码的创作者</p>
 <p>最终效果：作品放飞书，网站自动展示，链接永不失效</p>
 <p>所需费用：域名约 ¥10/年，其余全部免费</p>
-<p>先看最终效果</p>
+<hr />
+<h2 id="先看最终效果">先看最终效果</h2>
 <p>做完这个教程，你会得到这样一个网站：</p>
-<p>先说清楚我们要做什么</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/7sJ3tx6734WDGrFhlBr5IWvpuf4UBVtbNGJTSxOKAoWAV9qPTQ6IJ5nbyTVNQTazY1Lla7UkDg16XsPmQOFxsDDJ5PicyklLDbsLpTia0H21o/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<hr />
+<h2 id="先说清楚我们要做什么">先说清楚我们要做什么</h2>
 <p>你有一堆视频作品，想在网上展示给客户或者合作方看。</p>
 <p>这篇教程要搭的系统是这样的：</p>
-<p>你 → 把视频传到飞书多维表格</p>
-<p>↓ Claude Code 帮你写 HTML 网页</p>
-<p>↓ 代码上传到 GitHub（免费代码托管）</p>
-<p>↓ GitHub Pages 自动变成网站</p>
-<p>↓ 绑定你自己买的域名</p>
-<p>↓ 访客打开你的域名，看到你的作品</p>
-<p>你需要准备什么</p>
+<p>你 → 把视频传到飞书多维表格            </p>
+<p>↓    Claude Code 帮你写 HTML 网页            </p>
+<p>↓    代码上传到 GitHub（免费代码托管）            </p>
+<p>↓    GitHub Pages 自动变成网站            </p>
+<p>↓    绑定你自己买的域名            </p>
+<p>↓    访客打开你的域名，看到你的作品</p>
+<hr />
+<h2 id="你需要准备什么">你需要准备什么</h2>
 <p>开始之前，注册好这几个账号：</p>
-<p>•</p>
-<p>飞书多维表格</p>
-<p>（feishu.cn）—— 存你的视频</p>
-<p>•</p>
-<p>GitHub</p>
-<p>（github.com）—— 存你的网页代码</p>
-<p>•</p>
-<p>NameSilo</p>
-<p>（namesilo.com）—— 买域名</p>
+<ul>
+<li>
+<p>• <strong>飞书多维表格</strong>（feishu.cn）—— 存你的视频</p>
+</li>
+<li>
+<p>• <strong>GitHub</strong>（github.com）—— 存你的网页代码</p>
+</li>
+<li>
+<p>• <strong>NameSilo</strong>（namesilo.com）—— 买域名</p>
+</li>
+</ul>
 <p>准备好你的AI工具：</p>
-<p>•</p>
-<p>Claude Code</p>
-<p>（或Codex，Antigravity）—— 帮你写 HTML 代码</p>
-<p>•</p>
-<p>lark-cli</p>
-<p>（飞书命令行工具）—— 让脚本能访问飞书</p>
-<p>第一步：把作品整理到飞书多维表格</p>
+<ul>
+<li>
+<p>• <strong>Claude Code</strong>（或Codex，Antigravity）—— 帮你写 HTML 代码</p>
+</li>
+<li>
+<p>• <strong>lark-cli</strong>（飞书命令行工具）—— 让脚本能访问飞书</p>
+</li>
+</ul>
+<hr />
+<h2 id="第一步把作品整理到飞书多维表格">第一步：把作品整理到飞书多维表格</h2>
 <p>飞书多维表格就是你的"内容数据库"。你所有的作品信息都存在这里，以后更新也在这里改。</p>
-<p>1.1 创建多维表格</p>
+<p><strong>1.1 创建多维表格</strong></p>
 <p>打开飞书，新建一个"多维表格"。</p>
-<p>1.2 设计字段并整理内容</p>
+<p><strong>1.2 设计字段并整理内容</strong></p>
 <p>建议设置以下字段，把每一个作品填进去：</p>
-<p>字段名</p>
+<p>|<br />
+字段名</p>
+<p>|</p>
 <p>类型</p>
+<p>|</p>
 <p>说明</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
 <p>序号</p>
+<p>|</p>
 <p>数字</p>
+<p>|</p>
 <p>控制展示顺序</p>
+<p>|<br />
+|</p>
 <p>内容</p>
+<p>|</p>
 <p>文本</p>
+<p>|</p>
 <p>显示在网站上的标题</p>
+<p>|<br />
+|</p>
 <p>样片</p>
+<p>|</p>
 <p>附件</p>
+<p>|</p>
 <p>上传视频本体</p>
+<p>|<br />
+|</p>
 <p>类型</p>
+<p>|</p>
 <p>单选</p>
+<p>|</p>
 <p>广告 / 艺术片 / 故事 / 创意动画 等</p>
+<p>|<br />
+|</p>
 <p>时长</p>
+<p>|</p>
 <p>文本</p>
+<p>|</p>
 <p>例如：30秒 / 1分51秒</p>
+<p>|<br />
+|</p>
 <p>AI工具</p>
+<p>|</p>
 <p>文本</p>
+<p>|</p>
 <p>例如：即梦、剪映</p>
+<p>|</p>
 <p>填好之后大概是这样的：</p>
 <p>📷 飞书多维表格</p>
-<p>1.3 理解 file_token 的概念</p>
-<p>视频上传到飞书的"附件"字段后，每个视频在飞书系统里有一个唯一的永久 ID，叫</p>
-<p>file_token</p>
-<p>，类似这样：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>1.3 理解 file_token 的概念</strong></p>
+<p>视频上传到飞书的"附件"字段后，每个视频在飞书系统里有一个唯一的永久 ID，叫 <strong>file_token</strong>，类似这样：</p>
 <p>Al0Xbi5PioKbckxy6NscTgR0n2g</p>
-<p>重要：</p>
+<p><strong>重要：</strong></p>
 <p>file_token 是你视频的"永久身份证"，不会变。</p>
 <p>但视频的"播放链接（URL）"是临时的，24小时后失效。</p>
 <p>我们后面用脚本自动解决这个问题，你不用担心。</p>
-<p>第二步：安装飞书命令行工具 lark-cli</p>
+<hr />
+<h2 id="第二步安装飞书命令行工具-lark-cli">第二步：安装飞书命令行工具 lark-cli</h2>
 <p>lark-cli 是飞书提供的命令行工具，装好之后，脚本就能自动去飞书拿数据，不需要你手动操作。</p>
-<p>这一步直接丢给 Claude Code / Cursor / Windsurf 等 AI 编程工具来做。</p>
+<p><strong>这一步直接丢给 Claude Code / Cursor / Windsurf 等 AI 编程工具来做。</strong></p>
 <p>把下面这段话发给你的 AI 工具：</p>
 <p>“帮我在这台 Mac 上安装飞书命令行工具 lark-cli，然后帮我登录飞书账号完成授权。需要的话先安装 Node.js。”</p>
 <p>AI 会自动打开终端、执行安装命令、引导你完成飞书账号授权。你只需要在弹出的浏览器窗口里点"授权"就行。</p>
-<p>第三步：用 AI 写 HTML 网页</p>
+<hr />
+<h2 id="第三步用-ai-写-html-网页">第三步：用 AI 写 HTML 网页</h2>
 <p>这一步你不需要懂代码。把数据交给 Claude Code，让 AI 帮你写。</p>
-<p>3.1 导出你的素材数据</p>
+<p><strong>3.1 导出你的素材数据</strong></p>
 <p>把下面这段话发给你的 AI 工具，同时把你的飞书多维表格链接发给它：</p>
 <p>“用 lark-cli 把我飞书多维表格里的所有记录导出成 feishu_data.json 文件。表格地址是：[粘贴你的飞书表格链接]”</p>
 <p>AI 会帮你执行命令，生成包含所有作品信息和 file_token 的数据文件。</p>
-<p>3.2 告诉 AI 你要什么</p>
+<p><strong>3.2 告诉 AI 你要什么</strong></p>
 <p>把 feishu_data.json 文件和下面这段需求一起发给 AI：</p>
 <p>我有一个 AI 视频作品集，数据在附件的 feishu_data.json 里。 帮我写一个单页 HTML 文件，要求： - Pinterest 瀑布流布局（4列，手机上变2列） - 每个作品显示：视频封面、标题、分类标签、时长、使用工具 - 点击视频可以播放，同时只播一个 - 顶部有分类筛选按钮 - 视频用 data-token 属性存 file_token，不直接放 src - 页面加载时 fetch /api/videos.json，把 URL 填入对应视频 - 风格：暖色调，Aesop 品牌感，衬线字体</p>
-<p>AI 会生成一个完整的</p>
-<p>index.html</p>
-<p>文件。</p>
+<p>AI 会生成一个完整的 <code>index.html</code> 文件。</p>
 <p>小耳：这里我更粗暴，就是把飞书多维表格的链接给了cc说我要做个网页～</p>
-<p>3.3 在本地预览，调整到满意</p>
-<p>双击</p>
-<p>index.html</p>
-<p>用浏览器打开，如果不满意，继续告诉 AI 调整：</p>
+<p><strong>3.3 在本地预览，调整到满意</strong></p>
+<p>双击 <code>index.html</code> 用浏览器打开，如果不满意，继续告诉 AI 调整：</p>
+<ul>
+<li>
 <p>• "背景色改成更暖的米白"</p>
+</li>
+<li>
 <p>• "卡片圆角再大一点"</p>
+</li>
+<li>
 <p>• "分类标签用胶囊形状"</p>
+</li>
+</ul>
 <p>调到满意为止，这一步不着急。</p>
-<p>第四步：把代码上传到 GitHub</p>
+<hr />
+<h2 id="第四步把代码上传到-github">第四步：把代码上传到 GitHub</h2>
 <p>GitHub 是免费的代码托管平台。你的网页代码存在这里，GitHub Pages 可以直接把它变成网站。</p>
-<p>4.1 注册并创建仓库</p>
-<p>登录 GitHub，点右上角的</p>
-<p>+</p>
-<p>，选</p>
-<p>New repository</p>
-<p>。</p>
-<p>• Repository name：填任意名称，比如</p>
-<p>my-portfolio</p>
-<p>• 选</p>
-<p>Public</p>
-<p>（必须公开，GitHub Pages 才能用）</p>
-<p>• 点</p>
-<p>Create repository</p>
-<p>4.2 上传文件</p>
+<p><strong>4.1 注册并创建仓库</strong></p>
+<p>登录 GitHub，点右上角的 <code>+</code>，选 <code>New repository</code>。</p>
+<ul>
+<li>
+<p>• Repository name：填任意名称，比如 <code>my-portfolio</code></p>
+</li>
+<li>
+<p>• 选 <code>Public</code>（必须公开，GitHub Pages 才能用）</p>
+</li>
+<li>
+<p>• 点 <code>Create repository</code></p>
+</li>
+</ul>
+<p><strong>4.2 上传文件</strong></p>
 <p>这一步直接丢给 Claude code做（叫它帮你推送上去）：</p>
 <p>帮我在 GitHub 上创建一个名为 my-portfolio 的公开仓库，把当前目录下的 index.html 和 CNAME 文件推送上去。</p>
 <p>AI 会帮你处理 git 初始化、关联仓库、提交、推送的全部操作。</p>
-<p>你也可以在 GitHub 网页上手动拖文件上传：在仓库页面把</p>
-<p>index.html</p>
-<p>拖进去，写提交说明，点</p>
-<p>Commit changes</p>
-<p>。</p>
-<p>第五步：开启 GitHub Pages</p>
-<p>5.1 进入 Pages 设置</p>
-<p>在仓库页面，点上方的</p>
-<p>Settings</p>
-<p>→ 左侧找</p>
-<p>Pages</p>
-<p>。</p>
-<p>5.2 选择来源并保存</p>
-<p>• Source 选</p>
-<p>Deploy from a branch</p>
-<p>• Branch 选</p>
-<p>main</p>
-<p>，文件夹选</p>
-<p>/ (root)</p>
-<p>• 点</p>
-<p>Save</p>
+<p>你也可以在 GitHub 网页上手动拖文件上传：在仓库页面把 <code>index.html</code> 拖进去，写提交说明，点 <code>Commit changes</code>。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h2 id="第五步开启-github-pages">第五步：开启 GitHub Pages</h2>
+<p><strong>5.1 进入 Pages 设置</strong></p>
+<p>在仓库页面，点上方的 <code>Settings</code> → 左侧找 <code>Pages</code>。</p>
+<p><strong>5.2 选择来源并保存</strong></p>
+<ul>
+<li>
+<p>• Source 选 <code>Deploy from a branch</code></p>
+</li>
+<li>
+<p>• Branch 选 <code>main</code>，文件夹选 <code>/ (root)</code></p>
+</li>
+<li>
+<p>• 点 <code>Save</code></p>
+</li>
+</ul>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>等几分钟后，页面会显示：</p>
-<p>Your site is live at http://你的用户名.github.io/仓库名</p>
+<p><strong>Your site is live at http://你的用户名.github.io/仓库名</strong></p>
 <p>点进去就能看到你的作品集了。</p>
-<p>第六步：绑定自己的域名</p>
+<hr />
+<h2 id="第六步绑定自己的域名">第六步：绑定自己的域名</h2>
 <p>现在的地址是 github.io 的，不够专业。我们来绑一个自己的域名。</p>
-<p>6.1 购买域名</p>
-<p>去 NameSilo（namesilo.com）搜索你想要的域名。</p>
-<p>.xyz</p>
-<p>后缀大约 ¥10/年，</p>
-<p>.com</p>
-<p>大约 ¥60-80/年。</p>
-<p>这里买域名坑多，</p>
-<p>你要看我之前这篇文章</p>
+<p><strong>6.1 购买域名</strong></p>
+<p>去 NameSilo（namesilo.com）搜索你想要的域名。<code>.xyz</code> 后缀大约 ¥10/年，<code>.com</code> 大约 ¥60-80/年。</p>
+<p>这里买域名坑多，<a href="https://mp.weixin.qq.com/s?__biz=MzA5Nzk3MDQ4OQ==&amp;mid=2649734660&amp;idx=1&amp;sn=6514cc692f08ff3fae5f15738d84407c&amp;scene=21#wechat_redirect">你要看我之前这篇文章</a></p>
 <p>购买后，在域名管理页可以看到域名概览：</p>
 <p>📷 NameSilo 域名管理</p>
-<p>6.2 添加 DNS 记录</p>
-<p>点上方的</p>
-<p>DNS</p>
-<p>标签，进入 DNS 管理页。点右上角</p>
-<p>Add DNS Record</p>
-<p>，添加以下记录：</p>
-<p>类型</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>6.2 添加 DNS 记录</strong></p>
+<p>点上方的 <code>DNS</code> 标签，进入 DNS 管理页。点右上角 <code>Add DNS Record</code>，添加以下记录：</p>
+<p>|<br />
+类型</p>
+<p>|</p>
 <p>Host</p>
+<p>|</p>
 <p>Address/Value</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
 <p>A</p>
+<p>|</p>
 <p>@</p>
+<p>|</p>
 <p>185.199.108.153</p>
+<p>|<br />
+|</p>
 <p>A</p>
+<p>|</p>
 <p>@</p>
+<p>|</p>
 <p>185.199.109.153</p>
+<p>|<br />
+|</p>
 <p>A</p>
+<p>|</p>
 <p>@</p>
+<p>|</p>
 <p>185.199.110.153</p>
+<p>|<br />
+|</p>
 <p>A</p>
+<p>|</p>
 <p>@</p>
+<p>|</p>
 <p>185.199.111.153</p>
+<p>|<br />
+|</p>
 <p>CNAME</p>
+<p>|</p>
 <p>www</p>
+<p>|</p>
 <p>你的GitHub用户名.github.io</p>
+<p>|</p>
 <p>添加完大概是这样的效果：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
 <p>NameSilo 自带的 DNS 服务叫 dnsowl，不需要修改 Nameserver，直接在这里加记录就好。</p>
-<p>6.3 在 GitHub 填入域名</p>
-<p>回到 GitHub Pages 设置页，在</p>
-<p>Custom domain</p>
-<p>框里填你的域名（比如</p>
+<p><strong>6.3 在 GitHub 填入域名</strong></p>
+<p>回到 GitHub Pages 设置页，在 <code>Custom domain</code> 框里填你的域名（比如 <code>xiaoerai.xyz</code>），点 Save。</p>
+<p>在仓库根目录新建一个叫 <code>CNAME</code> 的文件（注意没有后缀名），内容只有一行，就是你的域名：</p>
 <p>xiaoerai.xyz</p>
-<p>），点 Save。</p>
-<p>在仓库根目录新建一个叫</p>
-<p>CNAME</p>
-<p>的文件（注意没有后缀名），内容只有一行，就是你的域名：</p>
-<p>xiaoerai.xyz</p>
-<p>6.4 等待生效</p>
+<p><strong>6.4 等待生效</strong></p>
 <p>DNS 生效需要 10 分钟到几小时。生效后，打开你的域名就能看到网站了。</p>
 <p>GitHub Pages 会自动申请 HTTPS 证书，申请完成后域名前面会出现锁的图标，表示安全连接生效。</p>
-<p>第七步：解决视频链接过期问题</p>
+<hr />
+<h2 id="第七步解决视频链接过期问题">第七步：解决视频链接过期问题</h2>
 <p>上线之后你会发现，24小时后视频播不了了。这是飞书的安全机制——视频播放链接24小时过期。</p>
-<p>解决思路</p>
+<p><strong>解决思路</strong></p>
 <p>每20小时，让你的电脑自动去飞书换一批新链接，存成一个文件推到 GitHub。网页每次打开时读这个文件，拿到的永远是新链接。</p>
-<p>7.1 让 AI 帮你搭好整套刷新机制</p>
+<p><strong>7.1 让 AI 帮你搭好整套刷新机制</strong></p>
 <p>这一步把所有技术细节都交给 AI。把下面这段话发给你的 Claude Code（或 Cursor / Codex 等）：</p>
 <p>“我的飞书视频链接24小时过期。帮我搭一套自动刷新机制：</p>
-<ol>
-<li>写一个 Python 脚本，用 lark-cli 分批（每批5个）获取这些 file_token 的飞书临时下载 URL，把 token→URL 的映射存成</li>
-</ol>
-<p>api/videos.json</p>
-<p>，然后自动 git commit 并 push 到 GitHub</p>
-<ol>
-<li>
-<p>设置 macOS launchd，让这个脚本每20小时自动运行一次</p>
-</li>
-<li>
-<p>运行一次测试，确认能拿到 URL 并成功推送</p>
-</li>
-</ol>
+<p>1. 写一个 Python 脚本，用 lark-cli 分批（每批5个）获取这些 file_token 的飞书临时下载 URL，把 token→URL 的映射存成 <code>api/videos.json</code>，然后自动 git commit 并 push 到 GitHub</p>
+<p>2. 设置 macOS launchd，让这个脚本每20小时自动运行一次</p>
+<p>3. 运行一次测试，确认能拿到 URL 并成功推送</p>
 <p>我的 file_token 列表是：[把你的所有 token 粘贴进来]or你的飞书链接🔗”</p>
 <p>AI 会完成脚本编写、launchd 配置、测试运行的全部工作。你只需要看着它跑，最后确认推送成功就行。</p>
-<p>获取你的 file_token 列表的方法：</p>
+<p><strong>获取你的 file_token 列表的方法：</strong></p>
 <p>告诉 AI："用 lark-cli 帮我列出飞书多维表格里所有视频附件的 file_token"，AI 会帮你提取。</p>
-<p>最终效果</p>
+<hr />
+<h2 id="最终效果">最终效果</h2>
 <p>整个系统搭好之后，网站长这样：</p>
-<p>作品网格：</p>
-<p>联系页：</p>
-<p>以后怎么更新内容</p>
-<p>加新作品：</p>
-<ol>
-<li>在飞书多维表格新增一行，上传视频 2. 把地址发给让</li>
-</ol>
-<p>Claude Code</p>
-<p>帮你更新，让他帮你加什么token，推送到你的GitHub里，网站自动更新</p>
-<p>改排版风格：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>作品网格：</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><strong>联系页：</strong></p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<hr />
+<h2 id="以后怎么更新内容">以后怎么更新内容</h2>
+<p><strong>加新作品：</strong></p>
+<p>1. 在飞书多维表格新增一行，上传视频 2. 把地址发给让 Claude Code 帮你更新，让他帮你加什么token，推送到你的GitHub里，网站自动更新</p>
+<p><strong>改排版风格：</strong></p>
 <p>直接告诉 Claude Code 想改什么，改完 Push。</p>
-<p>整个系统的角色总结</p>
-<p>角色</p>
+<hr />
+<h2 id="整个系统的角色总结">整个系统的角色总结</h2>
+<p>|<br />
+角色</p>
+<p>|</p>
 <p>由谁扮演</p>
+<p>|</p>
 <p>费用</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
 <p>视频存储</p>
+<p>|</p>
 <p>飞书多维表格</p>
+<p>|</p>
 <p>免费</p>
+<p>|<br />
+|</p>
 <p>代码托管</p>
+<p>|</p>
 <p>GitHub</p>
+<p>|</p>
 <p>免费</p>
+<p>|<br />
+|</p>
 <p>网站服务器</p>
+<p>|</p>
 <p>GitHub Pages</p>
+<p>|</p>
 <p>免费</p>
+<p>|<br />
+|</p>
 <p>域名</p>
+<p>|</p>
 <p>NameSilo</p>
+<p>|</p>
 <p>~¥10/年</p>
+<p>|<br />
+|</p>
 <p>写代码</p>
+<p>|</p>
 <p>Claude Code / AI</p>
+<p>|</p>
 <p>免费或极低</p>
+<p>|<br />
+|</p>
 <p>定时刷新链接</p>
+<p>|</p>
 <p>你的 Mac + Python 脚本</p>
+<p>|</p>
 <p>免费（10秒/次，不费电）</p>
-<p>常见问题</p>
-<p>Q：Mac 关机了怎么办？</p>
-<p>关机期间不刷新。开机后在下一个20小时周期自动补。如果 Mac 经常关机超过24小时，可以让 AI 帮你把脚本改成"开机时也立刻跑一次"。</p>
-<p>Q：以后换电脑了怎么办？</p>
-<p>在新电脑上重新安装 lark-cli，登录飞书，把 launchd 配置文件复制过去重新注册。代码存在 GitHub，不会丢。</p>
-<p>Q：能放图片作品吗？</p>
-<p>可以。飞书图片同样有 file_token，机制完全一样。图片链接有效期更长（通常72小时），可以适当减少刷新频率。</p>
-<p>Q：视频能被别人下载吗？</p>
-<p>飞书的临时链接有防盗限制，普通访客无法直接下载。</p>
-<p>总结</p>
-<p>这套方案的核心思路是：</p>
-<p>用现有工具的免费额度，组合出一个自己控制的系统。</p>
+<p>|</p>
+<hr />
+<h2 id="常见问题">常见问题</h2>
+<p><strong>Q：Mac 关机了怎么办？</strong> 关机期间不刷新。开机后在下一个20小时周期自动补。如果 Mac 经常关机超过24小时，可以让 AI 帮你把脚本改成"开机时也立刻跑一次"。</p>
+<p><strong>Q：以后换电脑了怎么办？</strong> 在新电脑上重新安装 lark-cli，登录飞书，把 launchd 配置文件复制过去重新注册。代码存在 GitHub，不会丢。</p>
+<p><strong>Q：能放图片作品吗？</strong> 可以。飞书图片同样有 file_token，机制完全一样。图片链接有效期更长（通常72小时），可以适当减少刷新频率。</p>
+<p><strong>Q：视频能被别人下载吗？</strong> 飞书的临时链接有防盗限制，普通访客无法直接下载。</p>
+<hr />
+<h2 id="总结">总结</h2>
+<p>这套方案的核心思路是：<strong>用现有工具的免费额度，组合出一个自己控制的系统。</strong></p>
+<ul>
+<li>
 <p>• 飞书的多维表格可以当数据库用</p>
+</li>
+<li>
 <p>• GitHub 的 Pages 功能可以免费托管网站</p>
+</li>
+<li>
 <p>• AI 直接帮你写代码，不需要自己学编程</p>
+</li>
+</ul>
 <p>你只需要负责内容本身，其他的交给工具和 AI。</p>
+<hr />
 <p>有问题欢迎留言。</p>
         </div>
     </article>

@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI工具</span>
             
-            
-            <span class="topic-chip">ListenHub</span>
             
             <span class="topic-chip">CLI</span>
             
-            <span class="topic-chip">音乐生成</span>
+            <span class="topic-chip">AI音乐</span>
             
-            <span class="topic-chip">开源项目</span>
+            <span class="topic-chip">内容创作</span>
             
-            <span class="detail-reading-time">约 5 分钟阅读</span>
+            <span class="topic-chip">PPT生成</span>
+            
+            <span class="topic-chip">开源SDK</span>
+            
+            <span class="topic-chip">命令行工具</span>
+            
+            <span class="detail-reading-time">约 9 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>ListenHub CLI 开源发布并首次支持 AI 音乐生成功能。</p>
+                <p>ListenHub CLI 发布并开源了。npm install -g 装完就能用，各种 Agent 里直接跑。 给一段文字描述，直接出一首曲子 所有创作命令都支持 --json 输出和 --no-wait 异步模式，方便写脚本串联</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>ListenHub CLI 正式开源发布，支持通过 npm install -g @marswave/listenhub-cli 全局安装。本次升级新增两大AI功能： 1. AI音乐生成：输入文字描述即可创作音乐（例：listenhub music generate --prompt &#34;动感电子舞曲&#34;），支持 --instrumental 纯音乐参数。翻唱功能可处理本地音频（mp3/wav/flac/m4a/ogg/aac，≤20MB）。 2. PPT幻灯片制作：根据主题自动生成带配音幻灯片（例：listenhub slides create --query &#34;TypeScript入门指南&#34;），可定制模板/语言/尺寸/页数。 原有功能保留： 播客（quick/deep/debate模式） TTS文本转语音（--lang &#34;zh&#34;支持多语言） 解说视频 图片生成（支持多张本地参考图） 技术特性： 所有命令支持 --json 输出和 --no-wait 异步模式 底层开源 TypeScript SDK（@marswave/listenhub-sdk），含OAuth登录/自动刷新token/429重试 MIT协议开源，安装后需 listenhub auth login 授权登录 GitHub链接详见原文。</p>
+                <p>ListenHub CLI 发布并开源，新增 AI 音乐生成和 PPT 幻灯片功能。用户可通过命令行生成音乐、翻唱歌曲、创建带配音的幻灯片，并支持播客、TTS、图片生成等能力。底层 TypeScript SDK 同步开源，方便开发者集成。</p>
             </div>
             
             
@@ -134,23 +138,141 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>ListenHub CLI 的发布标志着 AI 内容创作工具向命令行和开发者生态的进一步渗透。它将音乐生成、PPT 制作等复杂能力封装为简洁的 CLI 命令和 SDK，极大降低了使用门槛。开源策略和 MIT 协议有助于社区共建，其异步模式和 JSON 输出设计体现了对自动化工作流的深度支持，是 AI 工具链实用化的重要一步。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#listenhub-cli-发布并开源ai-音乐首次支持" class="toc-link">ListenHub CLI 发布并开源，AI 音乐首次支持</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#音乐生成" class="toc-link">音乐生成</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#ppt-幻灯片" class="toc-link">PPT 幻灯片</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#其他能力" class="toc-link">其他能力</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#sdk" class="toc-link">SDK</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#安装和更新" class="toc-link">安装和更新</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#链接" class="toc-link">链接</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为“ListenHub CLI 发布并开源，AI 音乐首次支持”。</p>
-<p>文章内容主要介绍了 ListenHub CLI 的发布和开源情况。该工具可以通过 npm install -g 安装，并在各种 Agent 环境中直接运行。除了之前已有的播客、TTS（文本转语音）、解说视频功能外，这次还新增了 AI 音乐生成和 PPT 幻灯片制作能力。</p>
-<p>在 AI 音乐生成方面，用户可以通过输入一段文字描述来生成相应的音乐作品。例如，使用命令 <code>listenhub music generate --prompt "动感电子舞曲" --style "EDM" --title "夜间飞驰"</code> 可以生成一首具有动感电子舞曲风格的曲子。如果需要纯音乐，可以添加 <code>--instrumental</code> 参数。此外，还提供了 cover 翻唱功能，用户可以上传本地音频文件进行翻唱，支持的音频格式包括 mp3、wav、flac、m4a、ogg、aac，最大支持 20MB 的文件大小。</p>
-<p>在 PPT 幻灯片制作方面，用户只需提供主题，即可生成一套带配音的幻灯片。例如，使用命令 <code>listenhub slides create --query "TypeScript 入门指南"</code> 可以生成关于 TypeScript 入门指南的幻灯片。SDK 中还提供了更多细节，可以指定模板类型、语言、尺寸、页数等参数。</p>
-<p>除了新增功能外，播客、TTS、解说视频等原有功能也都在。播客支持 quick、deep、debate 三种模式，用户可以输入参考链接来进行创作。TTS 功能可以通过一行命令完成，例如 <code>listenhub tts create --text "你好世界" --lang "zh"</code>。</p>
-<p>此外，图片生成功能也支持传入本地参考图，最多可以传入多张图片。例如，使用命令 <code>listenhub image create --prompt "水彩风格的小龙" --reference ./sketch.jpg --reference ./palette.png --aspect-ratio 16:9 --size 4K</code> 可以生成一张水彩风格的小龙图片。</p>
-<p>所有创作命令都支持 <code>--json</code> 输出和 <code>--no-wait</code> 异步模式，方便用户编写脚本进行串联。SDK 底层也一起开源了，使用 TypeScript 编写，包名为 <code>@marswave/listenhub-sdk</code>。SDK 提供了 OAuth 登录、自动刷 token、429 重试等功能，方便用户在自己的项目中集成 ListenHub 功能。</p>
-<p>安装和更新 ListenHub CLI 的命令为 <code>npm install -g @marswave/listenhub-cli</code>。安装完成后，需要先登录，可以使用命令 <code>listenhub auth login</code> 进行登录，浏览器会弹出授权页面，授权后 token 会存储在 <code>~/.config/listenhub/credentials.json</code> 文件中，过期会自动刷新。更新时，只需重新安装最新版本的 CLI 即可。</p>
-<p>CLI 和 SDK 都遵循 MIT 协议，用户可以自由使用。</p>
-<p>文章最后提供了 CLI 和 SDK 的 GitHub 链接，方便用户获取更多信息。</p>
+            <h1 id="listenhub-cli-发布并开源ai-音乐首次支持">ListenHub CLI 发布并开源，AI 音乐首次支持</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/iaRO6UqGzhbbBibSHDIZtM1zKyBVuRZ6AcZDYudgOuUa7DdoNVWNU1vuMNTpR2ecAYxr4X9SCPMrzAs42erX3nTh92dcaP5BpOBoKYlFWx50M/640?wx_fmt=webp&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>ListenHub CLI 发布并开源了。<code>npm install -g</code> 装完就能用，各种 Agent 里直接跑。</p>
+<p>这次除了之前就有的播客、TTS、解说视频，新加了两个能力：</p>
+<p>AI 音乐生成和 PPT 幻灯片。</p>
+<p>先说音乐。</p>
+<h2 id="音乐生成">音乐生成</h2>
+<p>给一段文字描述，直接出一首曲子：</p>
+<p>listenhub music generate \<br />
+  --prompt"动感电子舞曲" \<br />
+  --style"EDM" \<br />
+  --title"夜间飞驰"</p>
+<p>想要纯音乐、没人声的，加个 <code>--instrumental</code>：</p>
+<p>listenhub music generate --prompt"宁静的钢琴旋律"--instrumental</p>
+<p>还有个 cover 翻唱功能，丢一段本地音频进去就行。支持 mp3、wav、flac、m4a、ogg、aac，最大 20MB。CLI 会自动上传到云端再调接口，不用你操心：</p>
+<p>listenhub music cover --audio ./original.mp3 --title"我的混音"</p>
+<p>URL 也行，直接透传：</p>
+<p>listenhub music cover --audio https://example.com/song.mp3</p>
+<h2 id="ppt-幻灯片">PPT 幻灯片</h2>
+<p>给个主题就能生成一套幻灯片，带配音的那种：</p>
+<p>listenhub slides create --query"TypeScript 入门指南"</p>
+<p>SDK 里能看到更多细节，可以指定模板类型、语言、尺寸、页数这些：</p>
+<p>const { episodeId } \=awaitclient.createSlides({<br />
+  query: 'Introduction to TypeScript for JavaScript developers',<br />
+  imageConfig: { size: '2K', aspectRatio: '16:9' },<br />
+  template: {<br />
+    type: 'storybook',<br />
+    mode: 'slides',<br />
+    speakers: [narrator.speakerInnerId],<br />
+    language: 'en',<br />
+    size: '2K',<br />
+    aspectRatio: '16:9',<br />
+    pageCount: 2,<br />
+  },<br />
+});</p>
+<h2 id="其他能力">其他能力</h2>
+<p>播客、TTS、解说视频这些老能力都在。</p>
+<p>播客支持 quick、deep、debate 三种模式，可以丢参考链接进去：</p>
+<p>listenhub podcast create \<br />
+  --query"2026年AI趋势" \<br />
+  --mode deep \<br />
+  --source-url https://example.com/article \<br />
+  --lang zh</p>
+<p>TTS 一行命令搞定：</p>
+<p>listenhub tts create --text"你好世界"--lang zh</p>
+<p>图片生成支持传本地参考图，最多可以传多张：</p>
+<p>listenhub image create \<br />
+  --prompt "水彩风格的小龙" \<br />
+  --reference ./sketch.jpg \<br />
+  --reference ./palette.png \<br />
+  --aspect-ratio 16:9 --size 4K</p>
+<p>所有创作命令都支持 <code>--json</code> 输出和 <code>--no-wait</code> 异步模式，方便写脚本串联：</p>
+<p>ID=$(listenhub music generate --prompt "测试" --no-wait --json | jq -r '.taskId')<br />
+listenhub music get "$ID" --json</p>
+<h2 id="sdk">SDK</h2>
+<p>底层 SDK 也一起开源了，TypeScript 写的，包名 <code>@marswave/listenhub-sdk</code>。</p>
+<p>OAuth 登录、自动刷 token、429 重试这些都处理好了。装上就能在自己的项目里集成：</p>
+<p>npm i @marswave/listenhub-sdk</p>
+<p>用起来很直白：</p>
+<p>const client = new ListenHubClient({<br />
+  accessToken: 'your-token',<br />
+  maxRetries: 2,<br />
+});</p>
+<p>// 生成音乐<br />
+const task = await client.createMusicGenerate({<br />
+  prompt: 'Upbeat lo-fi hip hop beat with jazzy piano chords',<br />
+  style: 'lo-fi',<br />
+  title: 'Late Night Study',<br />
+});</p>
+<p>// 创建播客<br />
+const { episodeId } = await client.createPodcast({ ... });</p>
+<p>// 生成图片<br />
+await client.createAIImage({ ... });</p>
+<p>SDK 的 repo 里有完整的示例代码，播客、TTS、解说视频、幻灯片、音乐、图片每个都有。</p>
+<h2 id="安装和更新">安装和更新</h2>
+<p>Node.js &gt;= 20，然后：</p>
+<p>npm install -g @marswave/listenhub-cli</p>
+<p>装完先登录：</p>
+<p>listenhub auth login</p>
+<p>会弹浏览器授权，token 存在 <code>~/.config/listenhub/credentials.json</code>，过期自动刷新。</p>
+<p>更新的话重新装一遍就行：</p>
+<p>npm install -g @marswave/listenhub-cli@latest</p>
+<h2 id="链接">链接</h2>
+<p>CLI: https://github.com/marswaveai/listenhub-cli</p>
+<p>SDK: https://github.com/marswaveai/listenhub-sdk</p>
+<p>都是 MIT 协议，随便用。</p>
         </div>
     </article>
 

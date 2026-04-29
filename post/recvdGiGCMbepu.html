@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
     <meta name="theme-color" content="#f4f7f2">
-    <title>一种无需编写代码快速搭建飞书多Agent机器人的方法 — 拾读库</title>
+    <title>OpenClaw邪修，不写代码，一分钟搭建飞书多Agent，从零搭建你的AI团队 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
@@ -91,22 +91,26 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">自动化工作流</span>
+            <span class="card-tag card-tag-primary">AI应用</span>
             
             
-            <span class="topic-chip">飞书</span>
+            <span class="topic-chip">OpenClaw</span>
             
-            <span class="topic-chip">Agent</span>
+            <span class="topic-chip">飞书机器人</span>
             
-            <span class="topic-chip">机器人</span>
+            <span class="topic-chip">AI Agent</span>
             
-            <span class="topic-chip">无代码</span>
+            <span class="topic-chip">多机器人</span>
             
-            <span class="detail-reading-time">约 2 分钟阅读</span>
+            <span class="topic-chip">腾讯云</span>
+            
+            <span class="topic-chip">零代码</span>
+            
+            <span class="detail-reading-time">约 26 分钟阅读</span>
         </div>
 
         <!-- Title -->
-        <h1 class="detail-title">一种无需编写代码快速搭建飞书多Agent机器人的方法</h1>
+        <h1 class="detail-title">OpenClaw邪修，不写代码，一分钟搭建飞书多Agent，从零搭建你的AI团队</h1>
 
         <!-- Digest -->
         
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>无需编写代码即可快速搭建飞书多Agent机器人，让普通人轻松组建AI团队。</p>
+                <p>无需写代码，让你也能自动搞定Agent和飞书机器人，机器人之间互不影响。 搭建多个龙虾员工，每个员工担任不同的岗位，有写朋友圈的，有写短视频脚本的，写文章的，数据采集分析的...... 未来的 AI，不是替你干活的那一个，而是替你组团队的那一个。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>传统飞书多机器人部署需手动编写复杂JSON配置，门槛高、易出错。本文提出零代码解决方案： 1. 云端自动化：依托腾讯云海外服务器，通过一键配置注入API Key与通道参数，彻底规避代码编写。 2. 飞书无缝集成：扫码即可批量创建独立机器人，每个Agent对应专属飞书应用（需填写APP ID/Secret），支持自定义命名区分功能。 3. 智能配置：利用OpenClaw提示词自动修改底层配置，实现多机器人并行管理，互不干扰。 4. 场景扩展：用户可自由组建AI团队（如文案生成、脚本创作、数据分析等Agent），按需组合功能。 该方案将多Agent部署效率提升90%以上（对比传统开发），预示AI协作从“单人工具”迈向“团队化”时代，普通人也能构建专属AI员工矩阵。</p>
+                <p>本文介绍了如何利用OpenClaw和腾讯云，无需编写代码，快速搭建多个飞书AI机器人（Agent）的方法。通过一键配置和扫码，用户可以轻松创建并管理多个职能不同的AI助手，如写朋友圈、短视频脚本、数据分析等，实现AI团队的组建。</p>
             </div>
             
             
@@ -134,50 +138,91 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文以通俗易懂的方式，分享了利用OpenClaw和腾讯云快速部署多飞书AI机器人的实用技巧。它降低了AI Agent的使用门槛，让非技术用户也能轻松组建自己的AI团队，体现了AI工具向便捷化、平民化发展的趋势。文章步骤清晰，配有截图，对希望尝试多Agent协作的用户具有很好的指导意义。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#openclaw邪修不写代码一分钟搭建飞书多agent从零搭建你的ai团队" class="toc-link">OpenClaw邪修，不写代码，一分钟搭建飞书多Agent，从零搭建你的AI团队</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#搭建你的小龙虾大家庭" class="toc-link">搭建你的小龙虾大家庭</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#一键创建飞书应用" class="toc-link">一键创建飞书应用</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#让龙虾修改配置附提示词" class="toc-link">让龙虾修改配置（附提示词）</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>这篇文章介绍了一种无需编写代码的方法，可以快速搭建飞书多Agent机器人，从而从零开始组建自己的AI团队。文章主要内容包括：</p>
-<ol>
-<li>
-<p><strong>痛点问题</strong>：传统的飞书机器人部署方案通常只支持一个入口配置，而配置飞书多机器人则需要手动编写JSON节点，过程繁琐且容易出错。</p>
-</li>
-<li>
-<p><strong>解决方案</strong>：介绍了一种无需写代码的方法，可以自动搞定Agent和飞书机器人，使得机器人之间互不影响。</p>
-</li>
-<li>
-<p><strong>搭建步骤</strong>：</p>
-</li>
-<li>选择腾讯云作为服务器提供商，并购买一台国外服务器。</li>
-<li>安装系统并配置好服务器的密码。</li>
-<li>使用腾讯云的一键配置功能，添加模型的API Key和通道配置。</li>
-<li>通过飞书APP扫码，一键创建飞书机器人。</li>
-<li>在飞书开放平台填写创建的飞书应用的APP ID和APP Secret。</li>
-<li>
-<p>为每个机器人改个名字，方便区分。</p>
-</li>
-<li>
-<p><strong>配置助手</strong>：提供了一段提示词，用于让OpenClaw自动修改配置，实现每个Agent对应一个独立的飞书机器人。</p>
-</li>
-<li>
-<p><strong>工作流程</strong>：</p>
-</li>
-<li>查找并读取现有的OpenClaw配置文件。</li>
-<li>
-<p>基于用户提供的appId + appSecret配置飞书多机器人。</p>
-</li>
-<li>
-<p><strong>应用场景</strong>：通过这种方法，可以搭建多个不同功能的机器人，例如写朋友圈的、写短视频脚本的、做数据分析的等，根据需求自由组合。</p>
-</li>
-<li>
-<p><strong>未来展望</strong>：随着AI Agent使用门槛的降低，普通人也能轻松搭建属于自己的AI员工小队，未来的AI将不仅仅是替你干活，而是替你组团队。</p>
-</li>
-</ol>
-<p>总结来说，这篇文章提供了一种简单易行的方法，让普通人也能快速搭建飞书多Agent机器人，组建自己的AI团队，展现了AI在团队协作方面的巨大潜力。</p>
+            <h1 id="openclaw邪修不写代码一分钟搭建飞书多agent从零搭建你的ai团队">OpenClaw邪修，不写代码，一分钟搭建飞书多Agent，从零搭建你的AI团队</h1>
+<p>这几天折腾飞书机器人对接 OpenClaw 的时候，发现了一个痛点，大部分一键部署的方案，只提供了一个入口填写飞书机器人的应用配置参数，也就是说你只能配置一个飞书机器人。</p>
+<p>以前配置飞书多机器人，你得对着一堆JSON节点，手动写Agent、填凭证、设映射，一步错，全白费，动辄就要折腾半天以上。</p>
+<p>今天分享一个方法，无需写代码，让你也能自动搞定Agent和飞书机器人，机器人之间互不影响。</p>
+<p>最终你能实现的场景就是，搭建多个龙虾员工，每个员工担任不同的岗位，有写朋友圈的，有写短视频脚本的，写文章的，数据采集分析的......你可以往不同方向、使用不同的方法去养你的龙虾。</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/mmbiz_png/T5Yaa79EyUMryo1USKYANUadouibXuQSUvacbPPWOy1NHB2wzpBS08lIqkV9UQ99DY5MibnGwSdX4rxyVzolv56PxmrDx9FaicLcOSts4ASoMs/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>如果你只需要养一只虾，跟着这个方法，3分钟就能完成配置。</p>
+<p>我选的是腾讯云，建议买一台国外的服务器，这个价格性价比蛮高的，系统默认使用 Openclaw 镜像即可。如果你找不到购买链接，打开腾讯云，搜索 Openclaw 就能找到这个页面。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>接着搞定服务器的系统安装，配置好服务器的密码，按照指引完成。</p>
+<p>推荐腾讯云还有一个原因就是，厂商已经把 OpenClaw 基础的配置直接做到网站上，一键添加模型的 API Key 和 通道的配置就能使用。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>比如，如果你要接入飞书，直接使用快捷配置，使用飞书 APP 扫码，即可一键创建飞书机器人，然后打开飞书开放平台，把刚刚创建的飞书应用的 APP ID 和 APP Secret 填入到手动配置上，3 分钟就能安装部署好你的小龙虾了</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="搭建你的小龙虾大家庭">搭建你的小龙虾大家庭</h2>
+<p>如果你希望每个 Agent 对应一个飞书应用，跟着下面的步骤执行，具体命令也给大家，直接复制粘贴就行。</p>
+<h3 id="一键创建飞书应用">一键创建飞书应用</h3>
+<p>腾讯云提供一键配置飞书应用的功能，如果你需要搭建 5 个机器人，那么就使用快捷配置，扫码 5 次。扫码后，后台就会自动配置飞书机器人。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>每次扫码配置完成，在最新的机器人上可以通过对话的方式测试是否连同。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>如果连续扫码配置多个飞书应用，只有最新配置的飞书应用机器人能提问，这是正常的行为。</p>
+<p>打开飞书开发平台，就会看到一堆 OpenClaw 小虾米</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>给每个机器人改个名字，方便区分每个龙虾的职能。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h3 id="让龙虾修改配置附提示词">让龙虾修改配置（附提示词）</h3>
+<p>把所有的飞书机器人里面的 APPID 和 App Secret 先提取到一个地方备用。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>复制下面这段提示词，然后把你的 APPID 和 App Secret 粘贴到末尾。记得把下面的提示词发送给刚刚最后配置的飞书机器人，能正常沟通的飞书机器人，让 openClaw 自己去修改配置。</p>
+<pre><code># OpenClaw 飞书多机器人配置助手
+</code></pre>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>过两三分钟，就能愉快地养多个小龙虾了。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>也可以把所有龙虾拉到一个群里，通过艾特的方式直接来问，非常方便。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>通过让 OpenClaw 自己改自己配置这种方式非常省事，对技术小白非常友好，也会有个别情况因为大模型的水平无法一次到位，这种情况如果不懂如何修改的话直接重装服务器，重来一遍，或者在服务器上安装一个 claude code 来修复。</p>
+<p>我建了一个龙虾邪修修炼分享群，每天分享我使用龙虾的经验，后台回复： 龙虾，进来一起交流。</p>
+<hr />
+<p>2026 年，AI Agent 的使用门槛正在被悄悄抹平。</p>
+<p>普通人不需要懂代码，就能搭建出一支属于自己的 AI 员工小队。</p>
+<p>每个机器人各司其职——写朋友圈的、写脚本的、做数据分析的……你根据自己的需求自由组合，养出一窝各有所长的小龙虾。</p>
+<p>如果你也装了 OpenClaw 却只会用一个机器人，不妨试试这个方法。</p>
+<p>也许你会发现，AI Agent 的魅力不只是"有一个助手"，而是"可以有很多个助手"。</p>
+<p>然后突然理解，为什么越来越多人说：未来的 AI，不是替你干活的那一个，而是替你组团队的那一个。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/T5Yaa79EyUNTbvyIaEZJibBxd4Pde2mMqjV1565cz1DNWH1Qg7mxAb6E1Iic1AhgKcl0OnDn6eRszfW2BXdvYxnfjLN44o7gbGPNrLSfVV1zs/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=13" /></p>
         </div>
     </article>
 

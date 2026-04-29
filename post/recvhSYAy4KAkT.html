@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">知识管理</span>
+            <span class="card-tag card-tag-primary">AI工具</span>
             
             
             <span class="topic-chip">Karpathy</span>
             
-            <span class="topic-chip">知识库</span>
+            <span class="topic-chip">Obsidian</span>
             
-            <span class="topic-chip">AI 学习</span>
+            <span class="topic-chip">Claude Code</span>
             
-            <span class="detail-reading-time">约 3 分钟阅读</span>
+            <span class="topic-chip">LLM知识库</span>
+            
+            <span class="topic-chip">RAG</span>
+            
+            <span class="topic-chip">知识图谱</span>
+            
+            <span class="detail-reading-time">约 27 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Karpathy的LLM wikiAI知识库方法虽好用，但需分场景适配，学习研究可直接照搬，内容创作要借鉴结构加人工把关，企业仅小规模可用，大规模仍需用RAG，印证了没有最好的工具，只有最适合自身场景的工具。</p>
+                <p>与其每次让 AI 去原始资料里翻答案，不如让 AI 帮你把知识编译成一个持续维护的 wiki。 学习场景：重点是把外部知识内化，wiki 是终点。 创作场景：重点是把个人思考外化，wiki 只是中间站。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>本文作者蔡蔡啊点评Karpathy提出的LLM知识库方法，指出其需分场景适配：学习研究场景可直接用Obsidian+Claude Code搭建，利于关联知识积累；内容创作场景需基于自身输出历史构建并人工把关AI内容准确性；企业仅适用于小规模团队，文档规模大时易超上下文窗口且缺乏权限管理与精确溯源，大规模仍需RAG。结论为没有最好工具，只有适配场景的工具。</p>
+                <p>本文介绍了Andrej Karpathy提出的LLM知识库方法，通过Obsidian和Claude Code构建三层结构（Raw、Wiki、Schema）来管理知识。作者分析了该方法在不同场景下的适用性：学习研究场景可直接使用，内容创作场景需调整结构并人工把关，企业知识库场景则因规模、权限和精确性问题，小团队可用但大组织仍需依赖RAG。</p>
             </div>
             
             
@@ -132,18 +138,149 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>文章清晰剖析了Karpathy LLM知识库方法的优缺点，结合具体工具演示了搭建过程，并针对学习、创作、企业三大场景给出实用建议。作者观点务实，强调工具需适配场景，避免盲目跟风，对AI知识管理实践者有较高参考价值。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#karpathy的ai知识库方法很好用但不一定适合你" class="toc-link">Karpathy的AI知识库方法很好用，但不一定适合你</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《Karpathy的AI知识库方法很好用，但不一定适合你》，作者为蔡蔡啊。文章主要讨论了Andrej Karpathy提出的AI知识库方法，即通过AI将知识编译成一个持续维护的wiki，这种方法在学习研究场景中非常有效，但在内容创作场景和企业知识库场景中不一定适用。</p>
-<p>在学习研究场景中，LLM wiki可以原样复制使用，因为它可以持续积累、反复查阅、强调关联，帮助研究者更好地理解和关联不同的知识。文章详细介绍了如何使用Obsidian和Claude Code搭建LLM-wiki，包括创建知识库结构、摄入原始资料、生成系列Markdown文件等步骤。此外，文章还提到了如何进行查询和整理，以确保知识库的准确性和完整性。</p>
-<p>在内容创作场景中，直接照搬Karpathy的方案可能会出问题，因为内容创作者的知识库结构通常与学习研究场景不同。内容创作者的知识库通常基于个人思考和风格，而不是基于外部原始资料。因此，内容创作者应该基于Output的历史内容，而不是Input的原始资料，来构建自己的wiki。此外，文章还提醒内容创作者要注意AI生成内容的准确性，确保生成的观点与自己的观点一致。</p>
-<p>在企业知识库场景中，LLM wiki可能不适用。虽然wiki听起来比RAG简单多了，不用搞向量数据库，不用做嵌入，每次新增还能自己更新。但简单有简单的代价。首先是它目前支持的规模上限很明显。当wiki膨胀到几百上千个文档时，index.md可能就会超出上下文窗口，你还是得压缩、分片、或者引入检索——这就变成RAG-over-wiki了，不再是纯粹的LLM wiki。其次是权限管理，企业级RAG结合向量数据库通常有更成熟的RBAC（基于角色的权限访问控制）方案，但LLM-wiki没有这东西，所以目前更多只能用在小团队或大组织的小部门中。还有一个致命问题：引用精确性。企业场景对来源追溯要求很高。RAG可以告诉用户“这个结论来自第几页第几段”，但完全由LLM维护的wiki可能会幻觉出一个概念之间的错误关联。当这个错误写进wiki，就会影响后续所有查询。</p>
-<p>文章最后总结说，Karpathy的LLM wiki确实是个好东西，但得分场景。学习研究场景，直接照搬，非常好用。内容输出场景，借鉴结构，人工把关。企业知识库，小规模可用，大规模还是得用RAG。说到底，没有最好的工具，只有最适合你场景的工具。</p>
+            <h1 id="karpathy的ai知识库方法很好用但不一定适合你">Karpathy的AI知识库方法很好用，但不一定适合你</h1>
+<p>哈喽各位精神股东们，我是蔡蔡！</p>
+<p>前段时间，大神 Andrej Karpathy 发了个两条推特，分享他是怎么做 LLM 知识库的。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/rR1tulbWvpHmQOQiaPjoN28dViclLBo1PCmDWvH9ibgTmbHm0iaMUxVClhhdsBdsfOyg96Iz2xaedoY6va6SDJxyPEIqKL9Pe5gkZJf9Z3Uvnbk/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>他的核心思路其实很简单：</p>
+<p><strong>与其每次让 AI 去原始资料里翻答案，不如让 AI 帮你把知识编译成一个持续维护的 wiki。</strong></p>
+<p>这话听起来挺对。</p>
+<p>但我自己试了试，又跟几个朋友聊完，发现一个问题——</p>
+<p><strong>LLM wiki 对学习研究场景是神器，但在内容创作场景和企业知识库场景则不一定。</strong></p>
+<p>今天就是和大家聊聊这事儿。</p>
+<p>01 学习/研究场景：可以直接用</p>
+<p>如果你是在学习、研究某个领域，Karpathy 这套方案<strong>几乎可以原样复制</strong>。因为这就是大神自己最开始的应用场景。</p>
+<p>这套方案本身并不复杂，三层结构：<strong>Raw 层、Wiki 层，以及 Schema 层</strong>。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>硬讲这三层概念太过干巴，我直接从头跑个案例给大家看更直观。</p>
+<p>中间用到两个工具：Obsidian、Claude Code。这里默认大家都已经安装 Claude Code 并且会使用（也可以用你们常用的其它 AI 编程工具，如 Codex、Cursor、Qoder、Trae 等）。</p>
+<p>打开 Obsidian，点击【创建】，在指定文件夹下创建一个新的仓库。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这就是你接下来的知识库大本营了，虽然现在还空空如也。没关系，继续下一步</p>
+<p>用 Claude Code 中打开刚才在 Obsidian 创建的文件夹，然后把 Karpathy 的 llm-wiki.md 链接丢给 Claude Code。</p>
+<pre><code>参考这份LLM-wiki指南,在当前项目创建相应知识库结构，目前知识库还没有raw 资料，后续补充:https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+</code></pre>
+<p>注：对新手来说，最方便的方法是用 IDE 打开然后运行 Claude Code</p>
+<p>接着 Claude Code 就会根据 LLM-wiki 创建相应的知识库结构，首次创建的目录包括：<strong>raw、wiki、schema</strong> ，当然它们现在都还是空的。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>比如我最近要研究 harness engineering，就可以将自己找到的博客、论文等资料，都以 mardown 的格式丢到 raw 这个文件夹下。</p>
+<hr />
+<p>保存资料有个更方便的方法，就是用官方配套的 Obisidian Web Clipper，支持将你看到的好的文章、论文以及 YouTube 视频文稿，一键剪存到 Obisidian 中。</p>
+<p>🔗：https://github.com/obsidianmd/obsidian-clipper</p>
+<p>不过目前 Obisidian Web Clipper 不支持 B 站视频的剪存，我原本在官方项目中提了 PR 合并，不过没通过，Obsidian CEO 驳回的原因是：Obisidian Web Clipper 只处理从 Defuddle 处理后的内容。</p>
+<p>后来我就想着在 Defuddle 项目上提交 PR，但由于没法在本地验证自己的 PR 是否成功，所以最后没提交，而是基于 Obisidian Web Clipper 做了个中文内容增强的插件，大家有需要可以直接使用。</p>
+<p>🔗：https://github.com/nextcaicai/obsidian-clipper-cn</p>
+<hr />
+<p>接着告诉 Claude Code 摄入 raw 文件夹新添加的资料。</p>
+<pre><code>摄入 raw 文件夹新添加的文章
+</code></pre>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>AI 就会根据这些原始资料，自动生成系列 Markdown 文件，所有文件都放 wiki 这个文件夹下。</p>
+<p>文件的内容可能某个概念、人物、产品、专题、摘要、索引、操作历史等等，其中有三个很重要的文件，包括：</p>
+<ul>
+<li>
+<p><strong>index.md</strong>：内容目录，它会按类别组织，每篇 wiki 单行摘要，方便你快速浏览。</p>
+</li>
+<li>
+<p><strong>log.md</strong>：时间线记录，什么时候读了什么、更新了哪些页面。</p>
+</li>
+<li>
+<p><strong>schema</strong>（一般是 CLAUDE.md 或 AGENTS.md）：就是规则文档，告诉 AI 怎么组织 wiki、怎么命名文件、怎么交叉引用等，后续你可以做自定义调整。</p>
+</li>
+</ul>
+<p>所有文件并不是散乱的，彼此之间会用链接关联起来。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这种关联在 IDE 中可能不够直观，</p>
+<p>但在 Obsidian 中，是这么一张知识图谱，你随时可以查看不同知识点、不同资料之间的关联。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>以上就是从 0 到 1 搭建 LLM-wiki ，并且完成初步内容摄取的全过程。</p>
+<p>但你以为 LLM-wiki 这就到头了，还没有。完整的 LLM-wiki 工作流还包括后续的 <strong>Query（查询）</strong>和 <strong>Lint（整理）</strong></p>
+<p><strong>Query</strong> 就是你有问题可以直接问 AI，AI 会去读相关页面，进行综合回答。回答得好，还可以把结论写回 wiki，也就是你的知识是越攒越厚的。</p>
+<p><strong>Lint</strong> 则是定期让 AI 检查一遍，看整个知识库有没有矛盾、有没有孤立页面、链接有没有断，保证你的知识库不会因为资料越多就越乱。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这就是 LLM-wiki 的完整工作流：从摄入到查询再到整理。</p>
+<p>这套方案之所以对学习研究这么好用，是因为它可以 <strong>持续积累、反复查阅、强调关联</strong>。</p>
+<p>你今天读一篇论文，下周读另一篇，两个月后突然发现——这两篇讲的是一个东西的不同侧面。</p>
+<p>如果没有 wiki，你得靠记忆去翻。有了 wiki，LLM 会自动帮你把关联标出来。</p>
+<p>而且 wiki 维护成本低，一次整理，长期受益。</p>
+<p>这套方案还可以用在书籍阅读、个人目标追踪等方面，大家感兴趣的话我在下期分享。</p>
+<p>02 内容创作场景：根据个人知识库调整</p>
+<p>虽然 LLM-wiki 在学习研究场景特别好使，但如果你是做内容创作的，直接照搬 Karpathy 的方案可能会出问题。</p>
+<p>问题出在哪？</p>
+<p><strong>你的知识库结构可能不一样。</strong></p>
+<p>Karpathy 的 wiki 是从 raw 到 wiki，核心是把外部信息进行结构化关联。</p>
+<p>但内容创作者的知识库通常不是这个逻辑。比如我自己的知识库是经典的 <strong>IPO 结构</strong>：Input（输入）→ Processing（加工）→ Output（输出）。</p>
+<ul>
+<li>
+<p><strong>Input</strong>：我看的书、文章、视频、新闻</p>
+</li>
+<li>
+<p><strong>Processing</strong>：我的想法、笔记、草稿</p>
+</li>
+<li>
+<p><strong>Output</strong>：我发布的碎片想法、文章、书籍、视频、专栏</p>
+</li>
+</ul>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>如果我想让 AI 更好地理解我的思想和风格，应该喂给它的<strong>不是 Input，而是 Output</strong>。</p>
+<p>为什么？因为 Input 是别人的东西，Output 才是我的东西。AI 要学的是“我怎么想”，不是“我看了什么”。</p>
+<p>所以内容输出的场景下，我的 wiki 核心应该是<strong>基于 Output 的历史内容</strong>，而不是基于 Input 的原始资料。</p>
+<p>当然，Input 也可以用 LLM-wiki 的方法去学习和消化，最后经过 Processing 再变成我自己的 Output。</p>
+<p>这就是学习场景和内容场景的根本区别：</p>
+<p><strong>学习场景</strong>：重点是把外部知识<strong>内化</strong>，wiki 是终点。</p>
+<p><strong>创作场景</strong>：重点是把个人思考<strong>外化</strong>，wiki 只是中间站。</p>
+<p>创作场景还要注意一个点，就是它可能会自动生成一些“看起来对但实际上和你的观点有所偏差”的内容。所以在 wiki 每次的生成和更新环节，我们还是要做个把关，确保它代表的是“你”的知识，不是“AI 猜的你”。</p>
+<p>03 企业知识库：LLM wiki 可能不适用</p>
+<p>最后，简单聊聊企业场景。</p>
+<p>LLM wiki 爆火后，有不少关于 RAG 已死的论调，还有人认为它可以替代 RAG 做企业知识库。</p>
+<p>我的观点是：<strong>小团队可以，大组织还不行。</strong></p>
+<p>虽然 wiki 听起来比 RAG 简单多了，不用搞向量数据库，不用做嵌入，每次新增还能自己更新。</p>
+<p>但简单有简单的代价。</p>
+<p>首先是它目前支持的规模上限很明显。Karpathy 自己的 wiki 是 100 篇文章、40 万字，这已经是个不小的体量了。当 wiki 膨胀到几百上千个文档时，index.md 可能就会超出上下文窗口，你还是得压缩、分片、或者引入检索——<strong>这就变成 RAG-over-wiki 了，不再是纯粹的 LLM wiki。</strong></p>
+<p>其次是权限管理，企业级 RAG 结合向量数据库通常有更成熟的 RBAC（基于角色的权限访问控制）方案，但 LLM-wiki 没有这东西，所以目前更多只能用在小团队或大组织的小部门中。</p>
+<p>还有一个致命问题：<strong>引用精确性</strong>。</p>
+<p>企业场景对来源追溯要求很高。RAG 可以告诉用户“这个结论来自第几页第几段”，但完全由 LLM 维护的 wiki 可能会幻觉出一个概念之间的错误关联。当这个错误写进 wiki，就会影响后续所有查询。</p>
+<p>写在最后</p>
+<p>Karpathy 的 LLM wiki 确实是个好东西，但得分场景。</p>
+<ul>
+<li>
+<p>学习研究场景，直接照搬，非常好用。</p>
+</li>
+<li>
+<p>内容输出场景，借鉴结构，人工把关。</p>
+</li>
+<li>
+<p>企业知识库，小规模可用，大规模还是得用 RAG。</p>
+</li>
+</ul>
+<p>说到底，<strong>没有最好的工具，只有最适合你场景的工具</strong>。</p>
+<p>以上就是今天的全部内容，谢谢你看到了这里。</p>
+<p>我是蔡蔡，持续分享 AI 编程、AI Agent，以及我的 AI 学习思考。</p>
         </div>
     </article>
 

@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">知识管理</span>
+            <span class="card-tag card-tag-primary">工具推荐</span>
             
             
             <span class="topic-chip">微信公众号</span>
             
             <span class="topic-chip">文章导出</span>
             
-            <span class="topic-chip">开源项目</span>
+            <span class="topic-chip">知识管理</span>
             
-            <span class="topic-chip">排版</span>
+            <span class="topic-chip">开源工具</span>
             
-            <span class="detail-reading-time">约 6 分钟阅读</span>
+            <span class="topic-chip">Docker</span>
+            
+            <span class="topic-chip">排版还原</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>wechat-article-exporter 工具能100%还原微信公众号文章的排版和内容，包括评论和阅读数据，无需复杂配置即可批量下载。</p>
+                <p>它最骚的地方在于，它是一个精简、专业 的批量下载工具。 它不需要你在电脑上配什么乱七八糟的运行环境！ 导出的 HTML 格式能做到 100% 还原排版，就像是把整个网页“急冻”保存了一样。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>wechat-article-exporter 是一款专为微信公众号文章设计的批量下载工具，解决文章收藏后易被删除或404的问题。它能100%还原HTML排版，包括图片本地化存储、代码块和样式完美保留，并抓取阅读量、点赞数及评论。部署简单：支持在线使用、Docker一键拉起（如docker run -d -p 8080:8080 wechat-article-exporter:latest）或Cloudflare Worker部署，无需复杂环境配置。用户可轻松建立本地知识库，避免内容丢失。项目已在GitHub开源，推荐给技术用户提升知识留存效率。</p>
+                <p>本文介绍了一款名为wechat-article-exporter的微信公众号文章批量导出工具，它能100%还原文章排版，并打包下载阅读量、点赞数和评论。该工具支持Docker和Cloudflare Worker部署，无需复杂环境配置，帮助用户轻松建立本地知识库，避免文章失效。</p>
             </div>
             
             
@@ -134,6 +138,10 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>这篇文章生动地介绍了wechat-article-exporter这款实用工具，直击微信公众号文章收藏易失效、排版难保存的痛点。文章用轻松幽默的语言，从使用场景、功能亮点到部署方法都做了清晰说明，对技术爱好者和内容创作者极具吸引力。它不仅是一个工具推荐，更倡导了建立个人知识库的积极理念。
+        </div>
+        
 
         <!-- Table of Contents -->
         
@@ -145,11 +153,11 @@
             <ul class="toc-list">
                 
                 <li class="toc-item level-1">
-                    <a href="#直接拉镜像跑起来简单得就像写个-hello-world" class="toc-link">直接拉镜像跑起来，简单得就像写个 Hello World</a>
+                    <a href="#别再手动复制了这款-wechat-article-exporter-简直是微信公众号文章搬运神技100-还原排版" class="toc-link">别再手动复制了！这款 wechat-article-exporter 简直是微信公众号文章搬运神技，100% 还原排版！</a>
                 </li>
                 
-                <li class="toc-item level-1">
-                    <a href="#剩下的操作就是在网页上点点点粘贴链接就能批量下载了" class="toc-link">剩下的操作就是在网页上点点点，粘贴链接就能批量下载了</a>
+                <li class="toc-item level-2">
+                    <a href="#wechat-articlewechat-article-exporter" class="toc-link">wechat-article/wechat-article-exporter</a>
                 </li>
                 
             </ul>
@@ -159,26 +167,57 @@
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题：别再手动复制了！这款 wechat-article-exporter 简直是微信公众号文章搬运神技，100% 还原排版！</p>
-<p>文章内容：</p>
-<p>wechat-article/wechat-article-exporter😫 以前有多惨咱们做技术的，谁还没在微信公众号上刷到过几篇“保姆级教程”或者“架构深挖”的干货？常规操作是：反手一个“收藏”。但兄弟们，收藏夹这玩意儿就是个“404 预备役”。过两个月你想翻出来复习一下，结果点开一看——“该内容已被发布者删除”或者“此账号已被屏蔽”。那心情，简直比代码跑通了结果没保存还崩。就算你想把它存成 PDF 或 HTML，那排版简直没眼看：图片裂了、代码块乱码、样式全掉，甚至连最精髓的读者评论都带不走。想批量下载？还得配各种 Python 环境、搞什么 Selenium 模拟登录，折腾半天代码还没跑起来，心已经累了。😎</p>
-<p>它能干什么这时候我就得掏出这款 wechat-article-exporter 给你安利一下了。这哥们儿简直是公众号搬运界的“满级号”。它最骚的地方在于，它是一个精简、专业的批量下载工具。它不仅能把文章原封不动地抠下来，还能把阅读量、点赞数和评论全部打包带走。最重要的是：它不需要你在电脑上配什么乱七八糟的运行环境！</p>
-<p>你可以直接在线用，或者丢到 Docker、Cloudflare 上跑。导出的 HTML 格式能做到 100% 还原排版，就像是把整个网页“急冻”保存了一样。✨</p>
-<p>高光时刻</p>
-<p>排版强迫症的救星：导出的 HTML 样式极其完美，图片本地化存储，代码块还是那个熟悉的味道，绝对不是那种乱七八糟的纯文本。</p>
-<p>部署省心到家：支持 Docker 一键拉起，甚至能部署在 Cloudflare Worker 上，连服务器钱都省了。</p>
-<p>细节控最爱：不仅有正文，连文章底部的精彩评论、阅读量数据都能一并抓下来，这才是完整的知识留存。</p>
-<p>多格式任你选：除了 HTML，还支持多种格式导出，想怎么折腾怎么折腾。</p>
-<p>🌰</p>
-<p>上手试试别被“导出工具”这几个字吓跑，觉得肯定很难用。如果你想自己折腾个私有化的工具，用 Docker 也就一行命令的事儿：</p>
-<h1 id="直接拉镜像跑起来简单得就像写个-hello-world">直接拉镜像跑起来，简单得就像写个 Hello World</h1>
-<p>docker run -d -p 8080:8080 wechat-article-exporter:latest</p>
-<h1 id="剩下的操作就是在网页上点点点粘贴链接就能批量下载了">剩下的操作就是在网页上点点点，粘贴链接就能批量下载了</h1>
+            <h1 id="别再手动复制了这款-wechat-article-exporter-简直是微信公众号文章搬运神技100-还原排版">别再手动复制了！这款 wechat-article-exporter 简直是微信公众号文章搬运神技，100% 还原排版！</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/xBEkmndRKFeEDY8BooCicicoG2EGP30zN1ezeEQaG5eTAxTdkFOh9Jce6gKIltcc5qWPX8aTylDxzAwF8rHYWhHw/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<h2 id="wechat-articlewechat-article-exporter">wechat-article/wechat-article-exporter</h2>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/xBEkmndRKFeEDY8BooCicicoG2EGP30zN1kQnby6sz2wSIOjb0cxUibohDgicvAYnjdBUcZjI3JrcPLg2QQUntsXjQ/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" /></p>
+<p>😫 <strong>以前有多惨</strong></p>
+<p>咱们做技术的，谁还没在微信公众号上刷到过几篇“保姆级教程”或者“架构深挖”的干货？</p>
+<p>常规操作是：反手一个“收藏”。但兄弟们，收藏夹这玩意儿就是个“404 预备役”。过两个月你想翻出来复习一下，结果点开一看——“该内容已被发布者删除”或者“此账号已被屏蔽”。那心情，简直比代码跑通了结果没保存还崩。</p>
+<p>就算你想把它存成 PDF 或 HTML，那排版简直没眼看：图片裂了、代码块乱码、样式全掉，甚至连最精髓的读者评论都带不走。想批量下载？还得配各种 Python 环境、搞什么 Selenium 模拟登录，折腾半天代码还没跑起来，心已经累了。</p>
+<p>😎 <strong>它能干什么</strong></p>
+<p>这时候我就得掏出这款 <strong>wechat-article-exporter</strong> 给你安利一下了。</p>
+<p>这哥们儿简直是公众号搬运界的“满级号”。它最骚的地方在于，它是一个<strong>精简、专业</strong>的批量下载工具。它不仅能把文章原封不动地抠下来，还能把<strong>阅读量、点赞数和评论</strong>全部打包带走。</p>
+<p>最重要的是：<strong>它不需要你在电脑上配什么乱七八糟的运行环境！</strong> 你可以直接在线用，或者丢到 Docker、Cloudflare 上跑。导出的 HTML 格式能做到 100% 还原排版，就像是把整个网页“急冻”保存了一样。</p>
+<p>✨ <strong>高光时刻</strong></p>
+<ul>
+<li>
+<p><strong>排版强迫症的救星</strong></p>
+<p>：导出的 HTML 样式极其完美，图片本地化存储，代码块还是那个熟悉的味道，绝对不是那种乱七八糟的纯文本。</p>
+</li>
+<li>
+<p><strong>部署省心到家</strong></p>
+<p>：支持 Docker 一键拉起，甚至能部署在 Cloudflare Worker 上，连服务器钱都省了。</p>
+</li>
+<li>
+<p><strong>细节控最爱</strong></p>
+<p>：不仅有正文，连文章底部的精彩评论、阅读量数据都能一并抓下来，这才是完整的知识留存。</p>
+</li>
+<li>
+<p><strong>多格式任你选</strong></p>
+<p>：除了 HTML，还支持多种格式导出，想怎么折腾怎么折腾。</p>
+</li>
+</ul>
+<p>🌰 <strong>上手试试</strong></p>
+<p>别被“导出工具”这几个字吓跑，觉得肯定很难用。如果你想自己折腾个私有化的工具，用 Docker 也就一行命令的事儿：</p>
+<pre><code># 直接拉镜像跑起来，简单得就像写个 Hello Worlddocker run -d -p 8080:8080 wechat-article-exporter:latest# 剩下的操作就是在网页上点点点，粘贴链接就能批量下载了
+</code></pre>
 <p>如果你连 Docker 都懒得装，直接去找作者提供的在线地址，把公众号文章链接往里一扔，剩下的就是见证奇迹的时刻。</p>
-<p>老司机心里话：咱们搞技术的，知识储备就是生产力。看到好文章别光顾着收藏，利用 wechat-article-exporter 建立自己的本地知识库才是正经事。毕竟，握在自己硬盘里的代码和文档，才真正属于你自己。</p>
-<p>如果你觉得这个项目救你于“404”的水火之中，赶紧去 GitHub 给大佬点个 Star，这种良心工具真的不多了！</p>
-<p>项目地址 wechat-article/wechat-article-exporter</p>
-<p>看开心了，点一下，关注一下微信公众号:开源github甄选精选文章：爆火！解放双手的 AI 剪辑神器 zhouxiaoka/autoclip：一键提取视频高光，二创博主狂喜！告别手写代码？GitHub 爆火的 tukuaiai/vibe-coding-cn 助你开启“意念编程”新时代！重磅！Google 开源 A2UI：Android UI 自动化进入“自动驾驶”时代！重磅开源！Anthropic 官方发布 anthropics/skills：Claude 终于学会像人一样操作电脑了！GitHub 爆火：Claude 官方命令行工具现身！更有 AI 对冲基金与“永不遗忘”的智能体吊打 Devin！开源 AI 软件工程师 All-Hands/OpenHands 震撼发布，GitHub 狂揽 38k+ Star！</p>
+<hr />
+<p><strong>老司机心里话</strong>：</p>
+<p>咱们搞技术的，知识储备就是生产力。看到好文章别光顾着收藏，利用 <strong>wechat-article-exporter</strong> 建立自己的本地知识库才是正经事。毕竟，握在自己硬盘里的代码和文档，才真正属于你自己。</p>
+<p>如果你觉得这个项目救你于“404”的水火之中，赶紧去 GitHub 给大佬点个 <strong>Star</strong>，这种良心工具真的不多了！</p>
+<p>项目地址 wechat-article/wechat-article-exporter </p>
+<p>看开心了，点一下，关注一下微信公众号:开源github甄选</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/xBEkmndRKFfqz1OMCA5d7ic2zPibdxfbONxiblxvHibr2WialOeydEnW1nfYdCFGKCUhlh87icichKDLT7JqXgBkc14KA/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=2" /></p>
+<hr />
+<p>精选文章：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484815&amp;idx=1&amp;sn=6402b845e6345d1a44e1d9b0f64f2cf3&amp;scene=21#wechat_redirect">爆火！解放双手的 AI 剪辑神器 zhouxiaoka/autoclip：一键提取视频高光，二创博主狂喜！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484794&amp;idx=1&amp;sn=e54b0ffc23e12b6fe1e16b0c20e8631c&amp;scene=21#wechat_redirect">告别手写代码？GitHub 爆火的 tukuaiai/vibe-coding-cn 助你开启“意念编程”新时代！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484768&amp;idx=1&amp;sn=38a32c4583688fd374e0ae725b8a4220&amp;scene=21#wechat_redirect">重磅！Google 开源 A2UI：Android UI 自动化进入“自动驾驶”时代！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484762&amp;idx=1&amp;sn=efc6b3201ce3927279c9c64e6cfdbb52&amp;scene=21#wechat_redirect">重磅开源！Anthropic 官方发布 anthropics/skills：Claude 终于学会像人一样操作电脑了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484700&amp;idx=1&amp;sn=338871d4a2a5ea4eb6f2a73f4c39684b&amp;scene=21#wechat_redirect">GitHub 爆火：Claude 官方命令行工具现身！更有 AI 对冲基金与“永不遗忘”的智能体</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzk1NzcyNjUyMg==&amp;mid=2247484752&amp;idx=1&amp;sn=848638649bda195e5c36f900913c7026&amp;scene=21#wechat_redirect">吊打 Devin！开源 AI 软件工程师 All-Hands/OpenHands 震撼发布，GitHub 狂揽 38k+ Star！</a></p>
         </div>
     </article>
 

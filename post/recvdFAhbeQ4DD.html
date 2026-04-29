@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">编程开发</span>
+            <span class="card-tag card-tag-primary">云存储</span>
             
-            
-            <span class="topic-chip">云存储</span>
             
             <span class="topic-chip">S3</span>
             
-            <span class="topic-chip">工具推荐</span>
+            <span class="topic-chip">对象存储</span>
             
-            <span class="detail-reading-time">约 4 分钟阅读</span>
+            <span class="topic-chip">免费空间</span>
+            
+            <span class="topic-chip">Hi168</span>
+            
+            <span class="topic-chip">云服务</span>
+            
+            <span class="topic-chip">数据备份</span>
+            
+            <span class="detail-reading-time">约 18 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Hi168提供1TB免费S3存储空间，注册实名后即可使用。</p>
+                <p>S3 是由亚马逊提供的对象存储服务，全称 Amazon S3 (Simple Storage Service) ，但因为使用太广泛，所以成为了事实标准。 对象存储可以简单的理解为：把每一个文件都包装成对象，保存在服务器上。 免费服务就不要要求太高了。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>根据提供的文本内容，以下是核心信息提炼（198字）： 服务核心： Hi168（上海云服务商）提供 1TB 免费 S3 兼容对象存储空间。 获取方式： 1. 注册即得 500GB：通过官网 [https://www.hi168.com/](https://www.hi168.com/) 注册。 2. 实名认证后升级至 1TB：在用户后台完成实名验证。 使用流程： 1. 登录其云桌面，进入“存储管理”。 2. 创建 S3 存储桶 (Bucket)。 3. 获取 Access key 与 Secret key 用于客户端连接。 性能实测（青小蛙测试）： 白天速度： 上传约 2～4 MB/s，下载约 1 MB/s。 晚高峰速度： 降至几百 KB/s。 用途： 兼容标准 S3 协议，可被支持 S3 的客户端（如 OpenClaw）调用进行文件上传/下载。作为免费服务，性能存在波动。</p>
+                <p>本文介绍了上海云服务商Hi168提供的1TB免费S3对象存储空间。用户注册可获500GB，实名认证后升级至1TB。文章解释了S3对象存储的基本概念，并提供了获取和使用该免费空间的步骤，包括创建存储桶、获取访问密钥等。作者测试了上传下载速度，认为免费服务尚可接受。</p>
             </div>
             
             
@@ -132,44 +138,108 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文是一篇实用的资源分享与科普文章。它不仅为读者提供了一个获取大容量免费云存储的具体方案，还深入浅出地解释了S3对象存储的技术原理，降低了读者的理解门槛。文章结构清晰，从资源发现、概念解释到操作步骤，层层递进，对有云存储需求的用户具有很高的参考价值。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#1tb-免费-s3-存储空间" class="toc-link">1TB 免费 S3 存储空间</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#simple-storage-service" class="toc-link">Simple Storage Service</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#什么是对象存储服务" class="toc-link">什么是对象存储服务？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#hi168-的-1tb-免费-s3-存储空间" class="toc-link">Hi168 的 1TB 免费 S3 存储空间</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#注册就送-500gb实名制后-1tb" class="toc-link">注册就送 500GB，实名制后 1TB</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#有什么用" class="toc-link">有什么用？</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据您提供的链接内容，以下是全文内容的提取：</p>
-<p>标题：1TB 免费 S3 存储空间</p>
-<p>字数：712，阅读大约需 4 分钟</p>
-<p>最近在寻找存储空间，3天前找到了100GB的免费WebDAV空间: https://meta.appinn.net/t/topic/82391</p>
-<p>今天又看到了1TB的免费S3存储空间，试用了一下，还行。</p>
-<p>@Appinn</p>
-<p>Simple Storage Service</p>
-<p>S3是由亚马逊提供的对象存储服务，全称Amazon S3 (Simple Storage Service)，但因为使用太广泛，所以成为了事实标准，有很多开源的软件都可以实现，逐渐流行开来。你甚至可以部署一个S3服务器。</p>
-<p>什么是对象存储服务？</p>
+            <h1 id="1tb-免费-s3-存储空间">1TB 免费 S3 存储空间</h1>
+<blockquote>
+<p>字数 712，阅读大约需 4 分钟</p>
+</blockquote>
+<p>最近在寻找存储空间，3天前找到了 100GB 的免费 WebDAV 空间:</p>
+<p>https://meta.appinn.net/t/topic/82391</p>
+<p>今天又看到了 1TB 的免费 S3 存储空间，试用了一下，还行。@Appinn</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 1" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ts4Edaib9xxfkpNNh7vjKaHalyUPOJic0zWa6peiafibAqicP9umIpEqG62YQydichHeasMPLnK15I61Awh1pibKGotWjtRxg8BVoBVibWrtPSBtf3Q/640?wx_fmt=jpeg&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<h2 id="simple-storage-service">Simple Storage Service</h2>
+<p>S3 是由亚马逊提供的对象存储服务，全称 Amazon S3 (Simple Storage Service) ，但因为使用太广泛，所以成为了事实标准，有很多开源的软件都可以实现，逐渐流行开来。</p>
+<p>你甚至可以可以部署一个 S3 服务器。</p>
+<h2 id="什么是对象存储服务">什么是对象存储服务？</h2>
 <p>经常听到这个词：Object Storage（对象存储），难道是那个对象吗？</p>
-<p>对象存储可以简单的理解为：把每一个文件都包装成对象，保存在服务器上，这个经过包装的对象包括：</p>
+<p><strong>对象存储</strong>可以简单的理解为：把每一个文件都包装成对象，保存在服务器上，这个经过包装的对象包括：</p>
 <ul>
-<li>Key（唯一标识）</li>
-<li>Data（文件本身）</li>
-<li>Metadata（元数据：文件类型、上传人、时间等）</li>
+<li>
+<p>• Key（唯一标识）</p>
+</li>
+<li>
+<p>• Data（文件本身）</p>
+</li>
+<li>
+<p>• Metadata（元数据：文件类型、上传人、时间等）</p>
+</li>
 </ul>
-<p>对象存储没有文件夹的概念，每一个文件在包装后都统一保存在服务器中。你在S3后台看到的目录结构实际上是模拟出来的。比如photos/2026/image.jpg文件，实际上这整个部分就是Key。而且因为每个对象都有一个唯一的Key，所以找文件的时候直接找key就行了，不像以前，需要一层一层的翻文件夹。可以很快、很大量。</p>
-<p>Hi168的1TB免费S3存储空间</p>
-<p>Hi168是一个来自上海的云服务商，青小蛙也是第一次听说。他提供了一个桌面云应用，长得和windows一样 😂</p>
-<p>注册就送500GB，实名制后1TB</p>
-<p>从Hi168官网右上角登录（注册）：https://www.hi168.com/</p>
-<p>会自动获得500GB存储空间，再经过实名制验证，就能得到1TB存储空间了。实名入口在这里（需要先完成注册）：https://www.hi168.com/#/my</p>
-<p>进入云桌面后：https://www.hi168.com/#/desktop</p>
-<p>双击上图中的存储管理（1）图标：</p>
-<p>获得了1TB空间（2）后，先创建S3桶（3），再获取S3验证信息（4），就可以通过客户端链接了：</p>
-<p>使用Access key与Secret key登录：</p>
-<p>青小蛙测试，白天的速度还不错，上传在2～4MB/s左右，下载1MB/s左右，从网络上看晚高峰的速度一般，几百KB级别，但也能用。免费服务就不要要求太高了。</p>
-<p>有什么用？</p>
-<p>因为是S3，所以你都可以拿给OpenClaw用！至于OpenClaw怎么连接的，你可以不用管它😂</p>
-<p>然后，就能让虾帮你把文件上传到S3中，或从里面下载到本地了。</p>
+<p><strong>对象存储</strong>没有文件夹的概念，每一个文件在包装后都统一保存在服务器中。你在 S3 后台看到的目录结构实际上是模拟出来的。</p>
+<p>比如 <code>photos/2026/image.jpg</code> 文件，实际上这整个部分就是 <strong>Key</strong>。</p>
+<p>而且因为每个对象都有一个唯一的 Key，所以找文件的时候直接找 key 就行了，不像以前，需要一层一层的翻文件夹。</p>
+<p>可以很快、很大量。</p>
+<h2 id="hi168-的-1tb-免费-s3-存储空间">Hi168 的 1TB 免费 S3 存储空间</h2>
+<p>Hi168 是一个来自上海的云服务商，青小蛙也是第一次听说。他提供了一个桌面云应用，长得和 windows 一样 😂</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 2" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h3 id="注册就送-500gb实名制后-1tb">注册就送 500GB，实名制后 1TB</h3>
+<p>从 Hi168 官网右上角登录（注册）：</p>
+<p>https://www.hi168.com/</p>
+<p>会自动获得 500GB 存储空间，再经过实名制验证，就能得到 1TB 存储空间了。实名入口在这里（需要先完成注册）：</p>
+<p>https://www.hi168.com/#/my</p>
+<p>进入云桌面后：</p>
+<p>https://www.hi168.com/#/desktop</p>
+<p><strong>双击</strong>上图中的 <strong>存储管理（1）</strong>图标：</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 3" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>获得了 1TB 空间（2）后，先创建 S3 桶（3），再获取S3验证信息（4），就可以通过客户端链接了：</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 4" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>使用 Access key 与 Secret key 登录：</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 5" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>青小蛙测试，白天的速度还不错，上传在2～4MB/s 左右，下载 1MB/s 左右，从网络上看晚高峰的速度一般，几百KB级别，但也能用。</p>
+<p>免费服务就不要要求太高了。</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 6" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="有什么用">有什么用？</h2>
+<p>因为是 S3，所以你都可以拿给 OpenClaw 用！</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 7" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>至于 OpenClaw 怎么连接的，你可以不用管它 😂</p>
+<p><img alt="1TB 免费 S3 存储空间：来自 Hi168 8" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>然后，就能让虾帮你把文件上传到 S3 中，或从里面下载到本地了。</p>
+<hr />
 <p>原文：https://www.appinn.com/1tb-free-s3-hi168/</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4icbjwFqP3MdMicNicG5W6nibpmGVuBdTbFQ1tTbJzviazz2j0s5gB7q7WibV3bibCEMSwyYEIR1k0rTRGMQRcJ9UBr8g/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=8" /></p>
         </div>
     </article>
 
@@ -179,7 +249,7 @@
         
         <a href="recvdGiGCMbepu.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">一种无需编写代码快速搭建飞书多Agent机器人的方法</span>
+            <span class="article-nav-title">OpenClaw邪修，不写代码，一分钟搭建飞书多Agent，从零搭建你的AI团队</span>
         </a>
         
         

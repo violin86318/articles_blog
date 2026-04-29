@@ -91,18 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">编程开发</span>
+            <span class="card-tag card-tag-primary">人工智能</span>
             
             
-            <span class="topic-chip">OpenClaw</span>
+            <span class="topic-chip">AI Agent</span>
             
             <span class="topic-chip">OpenCode</span>
             
-            <span class="topic-chip">Vibe Coding</span>
+            <span class="topic-chip">GitHub</span>
             
-            <span class="topic-chip">编程开发</span>
+            <span class="topic-chip">Openclaw</span>
             
-            <span class="detail-reading-time">约 2 分钟阅读</span>
+            <span class="topic-chip">自动化部署</span>
+            
+            <span class="topic-chip">Vercel</span>
+            
+            <span class="detail-reading-time">约 60 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -114,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Openclaw + OpenCode 实现从代码生成到自动部署的闭环，开创了 Agent Coding 新范式。</p>
+                <p>我真的实现了躺在床上指挥 AI Agent 来 Coding，并自动发布到 GitHub ，然后自动部署到Vercel。 这已经不是 vibe coding 了，我大胆的来造一个新名词吧，姑且就叫 Agent Coding。 Openclaw 的应用仿佛打开了潘多拉魔盒，未来，coding 的范式是不是可以变为 agent coding，每一个人都有一个专属 agent，帮我们 coding，或者做任何我们希望做的事情。</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>核心内容： 作者苍何提出 OpenClaw + OpenCode 是实现自动化编程（Vibe Coding）的最佳工具组合，并详细演示了从代码生成到部署的闭环流程： 1. 工具配置：安装 OpenCode，集成 GitHub CLI 和 Vercel CLI； 2. 自动化流程： 用 OpenCode 生成项目代码（以贪吃蛇游戏为例，含完整逻辑/样式/HTML）； 自动管理代码版本并推送至 GitHub； 通过 Vercel CLI 实现秒级自动部署； 3. 未来展望：提出 Agent Coding 将成为新范式，个人可拥专属 AI Agent 完成编程及其他任务。 关键价值： 首次实现 &#34;生成-托管-部署&#34;全链路自动化； 提供可复现的教程与代码示例，降低实践门槛； 强调 OpenClaw 的无限潜力，预示编程模式向 AI Agent 协作进化。 全文未提及具体数据，核心聚焦于技术路径与范式革新。</p>
+                <p>作者通过Openclaw和OpenCode组合，实现了躺在床上指挥AI Agent自动完成贪吃蛇游戏的开发、代码推送到GitHub以及自动部署到Vercel的全流程，并提出了“Agent Coding”这一新概念。</p>
             </div>
             
             
@@ -134,18 +138,548 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文生动展示了AI Agent在软件开发全流程中的自动化潜力，从代码生成到部署一键完成，极大降低了开发门槛。作者提出的“Agent Coding”概念，预示着未来编程范式可能向更智能、更自动化的方向演进，让每个人都能拥有专属的AI开发助手。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#openclaw-opencode-才是-vibe-coding-的最棒组合" class="toc-link">Openclaw + OpenCode 才是 vibe coding 的最棒组合！</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#贪吃蛇游戏-agent-coding-完整教程" class="toc-link">🐍 贪吃蛇游戏 + Agent Coding 完整教程</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#用-openclaw-opencode-github-vercel-实现-agent-coding" class="toc-link">用 OpenClaw + OpenCode + GitHub + Vercel 实现 Agent Coding</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#概述" class="toc-link">📋 概述</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#完整流程图" class="toc-link">🔄 完整流程图</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#详细步骤" class="toc-link">🛠️ 详细步骤</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第一步环境准备" class="toc-link">第一步：环境准备</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#11-安装-opencodeai-编程助手" class="toc-link">1.1 安装 OpenCode（AI 编程助手）</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#12-安装-github-cli代码管理" class="toc-link">1.2 安装 GitHub CLI（代码管理）</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#13-安装-vercel-cli自动部署" class="toc-link">1.3 安装 Vercel CLI（自动部署）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第二步创建项目目录" class="toc-link">第二步：创建项目目录</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第三步agent-coding核心步骤" class="toc-link">第三步：Agent Coding（核心步骤）</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#方式一使用-opencode-交互模式" class="toc-link">方式一：使用 OpenCode 交互模式</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#方式二使用-opencode-非交互模式" class="toc-link">方式二：使用 OpenCode 非交互模式</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#方式三手动创建备用方案" class="toc-link">方式三：手动创建（备用方案）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第四步推送到-github" class="toc-link">第四步：推送到 GitHub</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#41-提交代码" class="toc-link">4.1 提交代码</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#42-创建-github-仓库并推送" class="toc-link">4.2 创建 GitHub 仓库并推送</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第五步部署到-vercel" class="toc-link">第五步：部署到 Vercel</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#51-使用-vercel-cli-部署" class="toc-link">5.1 使用 Vercel CLI 部署</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#52-关联-github-仓库可选" class="toc-link">5.2 关联 GitHub 仓库（可选）</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#完整命令速查表" class="toc-link">🎯 完整命令速查表</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#核心优势" class="toc-link">💡 核心优势</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#1-全程自动化" class="toc-link">1. 「全程自动化」</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#2-无缝集成" class="toc-link">2. 「无缝集成」</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#3-即时反馈" class="toc-link">3. 「即时反馈」</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#4-可扩展性" class="toc-link">4. 「可扩展性」</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#常见问题" class="toc-link">🔧 常见问题</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#q-1-opencode-卡住不响应" class="toc-link">Q 1: OpenCode 卡住不响应？</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#q-2-github-推送失败" class="toc-link">Q 2: GitHub 推送失败？</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#q-3-vercel-部署失败" class="toc-link">Q 3: Vercel 部署失败？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#进阶玩法" class="toc-link">🚀 进阶玩法</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#自动评论到-pr" class="toc-link">自动评论到 PR</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#定时自动更新" class="toc-link">定时自动更新</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#多-agent-协作" class="toc-link">多 Agent 协作</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#实际案例数据" class="toc-link">📊 实际案例数据</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#总结" class="toc-link">📝 总结</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#相关链接" class="toc-link">🔗 相关链接</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#openclaw-生成过程实录" class="toc-link">🤖 OpenClaw 生成过程实录</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#生成流程" class="toc-link">生成流程</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#真实的开发时间线" class="toc-link">真实的开发时间线</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#核心指令" class="toc-link">核心指令</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《Openclaw + OpenCode 才是 vibe coding 的最棒组合！》，作者为苍何。文章主要介绍了如何使用 Openclaw 和 OpenCode 实现自动化编程，并自动将代码发布到 GitHub 和部署到 Vercel。</p>
-<p>文章详细描述了实现这一过程的具体步骤，包括安装 OpenCode、配置 GitHub CLI 和 Vercel CLI、创建项目目录、使用 OpenCode 生成代码、管理代码版本、自动部署到 Vercel 等等。作者还提供了详细的命令和代码示例，方便读者理解和实践。</p>
-<p>文章最后展望了 Agent Coding 的未来，认为每个人都可以拥有一个专属的 Agent 来帮助编程，或者完成任何他们希望做的事情。作者表示，虽然目前只是实现了闭环，但 Openclaw 的想象空间是无限的，未来 coding 的范式可能会变为 agent coding。</p>
-<p>文章还提供了一个完整的贪吃蛇游戏开发教程，包括游戏逻辑代码、样式表和 HTML 结构，读者可以通过这个教程来学习和实践 Agent Coding 的具体操作。</p>
-<p>总的来说，这篇文章提供了一个全新的编程范式，即通过 AI Agent 来实现自动化编程，对于想要学习和实践 Agent Coding 的读者来说是一个很好的资源。</p>
+            <h1 id="openclaw-opencode-才是-vibe-coding-的最棒组合">Openclaw + OpenCode 才是 vibe coding 的最棒组合！</h1>
+<p>这是苍何的第 485 篇原创！</p>
+<p>大家好，我是苍何。</p>
+<p>兄弟们，真的炸裂。</p>
+<p>我真的实现了躺在床上指挥 AI Agent 来 Coding，并自动发布到 GitHub ，然后自动部署到Vercel。</p>
+<p>用 Openclaw+ OpenCode+GitHub+Vercel 实现了网站的开发，部署上线。</p>
+<p>这个过程全程是由 Openclaw 在我的私人服务器完成的。</p>
+<p>这已经不是 vibe coding 了，我大胆的来造一个新名词吧，姑且就叫 Agent Coding。</p>
+<p>也许后面，人们会有更加炫酷的名字，但这一切都不重要了。</p>
+<p>我很兴奋，为了防止你说我在瞎扯淡，我决定公布所有我和 Openclaw 的聊天记录。</p>
+<p>我全程并没有使用什么高深的技术，也没有操作过服务器，我全程是用最简单的提示词来完成的。</p>
+<p>这个项目是Openclaw全自主完成的：</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/y9icg8hcXLYvphl04YrHDwl9CrZbAq0dVO8IgRALviaiaG2EBrqiatjWapALnYlEmPfBkbSPWq8d81ABiag8AOLQFeA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>游戏完全可用：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>下面是我和 Openclaw 的全部聊天。</p>
+<p>先安装 opencode：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>新建目录用做项目目录：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>切换目录，启动 opencode：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>用 opencode 来开发贪吃蛇游戏：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>提供我的 GitHub 信息，让他连：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>按照它给的提示，创建一个 token，权限就给仓库权限，直接丢给他 token。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<blockquote>
+<p>这里一定记得开启部分权限，防止它瞎搞。</p>
+</blockquote>
+<p>它说已经推送好了：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>我打开 GitHub 看下，果然有了，已经自动将代码推送到 GitHub 了。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>然后让它部署到Vercel，方便得到一个可访问的网页链接：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>同样按照要求，给个 token，就已经完成了自动部署。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>🐂🍺，就已经完成了全链路的自动化，真的麻了，兄弟们，虽然只是跑通了闭环，但Openclaw 想象空间真的无限。</p>
+<p>我甚至直接让但 Openclaw 记录下这个过程，并写一篇文章，推送到刚才这个仓库，这个由 Agent 自主开发部署的仓库。</p>
+<p>提示词；这个过程太棒了，我打算写一篇文章，你帮我直接根据你刚才的步骤，生成一篇文章，标题是：用 Openclaw+ OpenCode+GitHub+Vercel 实现 Agent Coding，最好是有流程图详细解释下这个步骤</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>然后打开 GitHub 看，也已经有了描述：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>下面，我把 Openclaw 生成的教程也贴出来，方便大家看看。Openclaw 的应用仿佛打开了潘多拉魔盒，未来，coding 的范式是不是可以变为 agent coding，每一个人都有一个专属 agent，帮我们 coding，或者做任何我们希望做的事情。</p>
+<hr />
+<h2 id="贪吃蛇游戏-agent-coding-完整教程">🐍 贪吃蛇游戏 + Agent Coding 完整教程</h2>
+<blockquote>
+<p>本文档由 <strong>「OpenClaw AI Agent」</strong> 全程自动生成，记录从需求到上线的完整开发流程。</p>
+</blockquote>
+<p>📱 <strong>「在线试玩」</strong>: https://myopencode.vercel.app<br />
+📝 <strong>「项目源码」</strong>: https://github.com/freestylefly/snake-game<br />
+🤖 <strong>「生成工具」</strong>: OpenClaw + OpenCode + GitHub + Vercel</p>
+<hr />
+<h2 id="用-openclaw-opencode-github-vercel-实现-agent-coding">用 OpenClaw + OpenCode + GitHub + Vercel 实现 Agent Coding</h2>
+<blockquote>
+<p>从零开始，让 AI Agent 帮你写代码、管理版本、自动部署，全程无需离开终端！</p>
+</blockquote>
+<h2 id="概述">📋 概述</h2>
+<p>本文将介绍如何构建一个完整的 <strong>「AI 驱动开发工作流」</strong>：</p>
+<ul>
+<li>
+<p><strong>「OpenClaw」</strong> - AI 助手运行平台，协调所有工具</p>
+</li>
+<li>
+<p><strong>「OpenCode」</strong> - AI 编程助手，自动生成代码</p>
+</li>
+<li>
+<p><strong>「GitHub」</strong> - 代码托管和版本管理</p>
+</li>
+<li>
+<p><strong>「Vercel」</strong> - 自动化部署和托管</p>
+</li>
+</ul>
+<p>通过这个工作流，你只需要告诉 AI 要做什么，剩下的代码编写、提交、部署全部由 Agent 自动完成。</p>
+<hr />
+<h2 id="完整流程图">🔄 完整流程图</h2>
+<p><code>┌─────────────────────────────────────────────────────────────────────────────┐``│  AgentCoding完整工作流 │``└─────────────────────────────────────────────────────────────────────────────┘``</code>     <code>┌──────────────┐</code>     <code>│   用户需求    │  "帮我创建一个贪吃蛇游戏并部署上线"</code>     <code>└──────┬───────┘</code>            <code>│</code>            <code>▼``┌──────────────────────────────────────────────────────────────────┐``│  Step1:环境准备(OpenClaw协调) │``│  ┌─────────────┐┌─────────────┐┌─────────────┐ │``│  │安装OpenCode││安装GitHubCLI││安装VercelCLI│ │``│  │(AI编程)││(代码托管)││(自动部署)│ │``│  └──────┬──────┘└──────┬──────┘└──────┬──────┘ │``└─────────┼────────────────┼────────────────┼──────────────────────┘</code>   <code>││ │</code>   <code>▼▼ ▼``┌──────────────────────────────────────────────────────────────────┐``│  Step2:AgentCoding(OpenCode) │``│  ┌─────────────────────────────────────────────────────────┐     │``│  │用户:"创建一个贪吃蛇游戏"│ │``│  │││ │``│  │▼│ │``│  │  ┌─────────────────────────────────────────────────┐    │     │``│  ││OpenCodeAIAgent││ │``│  ││┌──────────┐┌──────────┐┌──────────┐││ │``│  │││生成HTML││生成CSS││生成JS│││ │``│  │││index.html││style.css││game.js│││ │``│  ││└──────────┘└──────────┘└──────────┘││ │``│  │  └─────────────────────────────────────────────────┘    │     │``│  └─────────────────────────────────────────────────────────┘     │``└──────────────────────────────────────────────────────────────────┘</code>          <code>│</code>          <code>▼``┌──────────────────────────────────────────────────────────────────┐``│  Step3:代码管理(GitHub) │``│  ┌──────────────────────────────────────────────────────────┐    │``│  │1.gitinit初始化仓库│ │``│  │2.gitadd.添加文件│ │``│  │3.gitcommit-m"Initial commit"提交│ │``│  │4.创建GitHub仓库(通过API)│ │``│  │5.gitpush-uoriginmaster推送到远程│ │``│  └──────────────────────────────────────────────────────────┘    │``└──────────────────────────────────────────────────────────────────┘</code>          <code>│</code>          <code>▼``┌──────────────────────────────────────────────────────────────────┐``│  Step4:自动部署(Vercel) │``│  ┌──────────────────────────────────────────────────────────┐    │``│  │1.vercel--token&lt;TOKEN&gt;登录并关联│ │``│  │2.自动检测项目类型(静态网站)│ │``│  │3.构建并上传到VercelCDN│ │``│  │  4. 分配域名: https://myopencode.vercel.app  │ │``│  └──────────────────────────────────────────────────────────┘    │``└──────────────────────────────────────────────────────────────────┘</code>          <code>│</code>          <code>▼</code>     <code>┌──────────────┐</code>     <code>│   网站上线    │  🎉 访问链接，游戏可玩！</code>     <code>└──────────────┘</code></p>
+<hr />
+<h2 id="详细步骤">🛠️ 详细步骤</h2>
+<h3 id="第一步环境准备">第一步：环境准备</h3>
+<h4 id="11-安装-opencodeai-编程助手">1.1 安装 OpenCode（AI 编程助手）</h4>
+<p><code># 安装 OpenCode``npm install -g opencode-ai``   ``# 验证安装``opencode --version</code></p>
+<h4 id="12-安装-github-cli代码管理">1.2 安装 GitHub CLI（代码管理）</h4>
+<p><code># 下载并安装``curl -fsSL https://github.com/cli/cli/releases/download/v2.63.2/gh_2.63.2_linux_amd64.tar.gz | tar -xz -C /tmp``cp /tmp/gh_2.63.2_linux_amd64/bin/gh /usr/local/bin/``   ``# 验证``gh --version</code></p>
+<h4 id="13-安装-vercel-cli自动部署">1.3 安装 Vercel CLI（自动部署）</h4>
+<p><code># 安装 Vercel CLI``npm install -g vercel``   ``# 验证``vercel --version</code></p>
+<hr />
+<h3 id="第二步创建项目目录">第二步：创建项目目录</h3>
+<p><code># 创建项目目录``mkdir -p ~/myopencode``cd ~/myopencode``   ``# 初始化 Git 仓库``git init``   ``# 配置 Git 用户信息``git config --global user.email "your@email.com"``git config --global user.name "yourname"</code></p>
+<hr />
+<h3 id="第三步agent-coding核心步骤">第三步：Agent Coding（核心步骤）</h3>
+<h4 id="方式一使用-opencode-交互模式">方式一：使用 OpenCode 交互模式</h4>
+<p><code># 启动 OpenCode（需要 PTY 模式）``# 在 OpenClaw 中使用：``bash pty:true workdir:~/myopencode command:"opencode"</code></p>
+<p>然后在 OpenCode 中输入：</p>
+<p><code>创建一个贪吃蛇游戏，使用 HTML5 Canvas，包含完整的游戏逻辑、得分系统和响应式设计</code></p>
+<h4 id="方式二使用-opencode-非交互模式">方式二：使用 OpenCode 非交互模式</h4>
+<p><code># 直接运行任务``opencode run "Create a complete Snake game using HTML5 Canvas, CSS, and JavaScript"</code></p>
+<h4 id="方式三手动创建备用方案">方式三：手动创建（备用方案）</h4>
+<p>如果 OpenCode 运行有问题，可以直接创建文件：</p>
+<p><strong>「index. html:」</strong></p>
+<p><code>&lt;!DOCTYPE html&gt;``&lt;html lang="zh-CN"&gt;``&lt;head&gt;</code>    <code>&lt;meta charset="UTF-8"&gt;</code>    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>    <code>&lt;title&gt;贪吃蛇游戏&lt;/title&gt;</code>    <code>&lt;link rel="stylesheet" href="style.css"&gt;``&lt;/head&gt;``&lt;body&gt;</code>    <code>&lt;div class="container"&gt;</code>        <code>&lt;h1&gt;🐍 贪吃蛇游戏&lt;/h1&gt;</code>        <code>&lt;div class="game-info"&gt;</code>            <code>&lt;div class="score"&gt;得分: &lt;span id="score"&gt;0&lt;/span&gt;&lt;/div&gt;</code>            <code>&lt;div class="high-score"&gt;最高分: &lt;span id="highScore"&gt;0&lt;/span&gt;&lt;/div&gt;</code>        <code>&lt;/div&gt;</code>        <code>&lt;canvas id="gameCanvas" width="400" height="400"&gt;&lt;/canvas&gt;</code>        <code>&lt;div class="controls"&gt;</code>            <code>&lt;p&gt;使用方向键 ↑↓←→ 控制蛇的移动&lt;/p&gt;</code>            <code>&lt;button id="startBtn"&gt;开始游戏&lt;/button&gt;</code>            <code>&lt;button id="pauseBtn"&gt;暂停&lt;/button&gt;</code>            <code>&lt;button id="restartBtn"&gt;重新开始&lt;/button&gt;</code>        <code>&lt;/div&gt;</code>        <code>&lt;div id="gameOver" class="game-over hidden"&gt;</code>            <code>&lt;h2&gt;游戏结束!&lt;/h2&gt;</code>            <code>&lt;p&gt;最终得分: &lt;span id="finalScore"&gt;0&lt;/span&gt;&lt;/p&gt;</code>            <code>&lt;button id="playAgainBtn"&gt;再玩一次&lt;/button&gt;</code>        <code>&lt;/div&gt;</code>    <code>&lt;/div&gt;</code>    <code>&lt;script src="game.js"&gt;&lt;/script&gt;``&lt;/body&gt;``&lt;/html&gt;</code></p>
+<p><strong>「style. css:」</strong></p>
+<p><code>* {</code>    <code>margin: 0;</code>    <code>padding: 0;</code>    <code>box-sizing: border-box;``}``   ``body {</code>    <code>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</code>    <code>background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);</code>    <code>min-height: 100vh;</code>    <code>display: flex;</code>    <code>justify-content: center;</code>    <code>align-items: center;</code>    <code>color: #fff;``}``   ``.container {</code>    <code>text-align: center;</code>    <code>padding: 20px;</code>    <code>background: rgba(255, 255, 255, 0.05);</code>    <code>border-radius: 20px;</code>    <code>box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);``}``   ``h1 {</code>    <code>background: linear-gradient(45deg, #00d4aa, #00a8e8);</code>    <code>-webkit-background-clip: text;</code>    <code>-webkit-text-fill-color: transparent;``}``   ``#gameCanvas {</code>    <code>border: 3px solid #00d4aa;</code>    <code>border-radius: 10px;</code>    <code>background: #0a0a0a;``}</code></p>
+<p><strong>「game. js:」</strong> (完整游戏逻辑代码)</p>
+<hr />
+<h3 id="第四步推送到-github">第四步：推送到 GitHub</h3>
+<h4 id="41-提交代码">4.1 提交代码</h4>
+<p><code># 添加所有文件``git add .``   ``# 提交``git commit -m "Initial commit: Snake game with HTML5 Canvas"</code></p>
+<h4 id="42-创建-github-仓库并推送">4.2 创建 GitHub 仓库并推送</h4>
+<p><strong>「方式一：使用 GitHub CLI」</strong></p>
+<p><code># 登录 GitHub``echo "YOUR_GITHUB_TOKEN" | gh auth login --with-token``   ``# 创建仓库``gh repo create snake-game --public --description "A classic Snake game"``   ``# 推送``git push -u origin master</code></p>
+<p><strong>「方式二：使用 API 直接创建」</strong></p>
+<p><code># 通过 API 创建仓库``curl -X POST https://api.github.com/user/repos \</code>  <code>-H "Authorization: token YOUR_GITHUB_TOKEN" \</code>  <code>-H "Accept: application/vnd.github.v3+json" \</code>  <code>-d '{</code>    <code>"name": "snake-game",</code>    <code>"description": "A classic Snake game built with HTML5 Canvas",</code>    <code>"private": false</code>  <code>}'``   ``# 添加远程仓库并推送``git remote add origin https://username:token@github.com/username/snake-game.git``git push -u origin master</code></p>
+<hr />
+<h3 id="第五步部署到-vercel">第五步：部署到 Vercel</h3>
+<h4 id="51-使用-vercel-cli-部署">5.1 使用 Vercel CLI 部署</h4>
+<p><code># 进入项目目录``cd ~/myopencode``   ``# 使用 token 部署``vercel --token YOUR_VERCEL_TOKEN --yes --prod</code></p>
+<p>部署成功后，会输出类似：</p>
+<p><code>Production: https://myopencode-xxx.vercel.app</code></p>
+<h4 id="52-关联-github-仓库可选">5.2 关联 GitHub 仓库（可选）</h4>
+<p>Vercel CLI 会自动检测并关联 GitHub 仓库，实现自动部署：</p>
+<ul>
+<li>
+<p>每次 push 到 GitHub，Vercel 自动重新部署</p>
+</li>
+<li>
+<p>支持预览部署（Pull Request）</p>
+</li>
+</ul>
+<hr />
+<h2 id="完整命令速查表">🎯 完整命令速查表</h2>
+<p>|<br />
+步骤</p>
+<p>|</p>
+<p>命令</p>
+<p>|<br />
+| --- | --- |<br />
+| <strong>「安装工具」</strong> | <code>npm install -g opencode-ai vercel</code> |<br />
+| <strong>「创建目录」</strong> | <code>mkdir myopencode &amp;&amp; cd myopencode &amp;&amp; git init</code> |<br />
+| <strong>「Agent 编程」</strong> | <code>opencode run "创建贪吃蛇游戏"</code> |<br />
+| <strong>「提交代码」</strong> | <code>git add . &amp;&amp; git commit -m "init"</code> |<br />
+| <strong>「创建仓库」</strong> | <code>gh repo create snake-game --public</code> |<br />
+| <strong>「推送代码」</strong> | <code>git push -u origin master</code> |<br />
+| <strong>「部署」</strong> | <code>vercel --token TOKEN --yes</code> |</p>
+<hr />
+<h2 id="核心优势">💡 核心优势</h2>
+<h3 id="1-全程自动化">1. <strong>「全程自动化」</strong></h3>
+<ul>
+<li>
+<p>从需求到上线，无需手动编写代码</p>
+</li>
+<li>
+<p>AI Agent 理解自然语言，自动生成完整项目</p>
+</li>
+</ul>
+<h3 id="2-无缝集成">2. <strong>「无缝集成」</strong></h3>
+<ul>
+<li>
+<p>OpenClaw 作为中控，协调所有工具</p>
+</li>
+<li>
+<p>GitHub 管理版本，Vercel 自动部署</p>
+</li>
+</ul>
+<h3 id="3-即时反馈">3. <strong>「即时反馈」</strong></h3>
+<ul>
+<li>
+<p>几分钟内从想法到可访问的网站</p>
+</li>
+<li>
+<p>每次修改自动重新部署</p>
+</li>
+</ul>
+<h3 id="4-可扩展性">4. <strong>「可扩展性」</strong></h3>
+<ul>
+<li>
+<p>可以轻松扩展到更复杂的项目</p>
+</li>
+<li>
+<p>支持 React、Vue、Next. js 等框架</p>
+</li>
+</ul>
+<hr />
+<h2 id="常见问题">🔧 常见问题</h2>
+<h3 id="q-1-opencode-卡住不响应">Q 1: OpenCode 卡住不响应？</h3>
+<p><strong>「解决」</strong>: 使用非交互模式或直接用 GPT/Claude 生成代码后手动保存</p>
+<h3 id="q-2-github-推送失败">Q 2: GitHub 推送失败？</h3>
+<p><strong>「解决」</strong>: 检查 token 权限，需要 <code>repo</code> 权限</p>
+<h3 id="q-3-vercel-部署失败">Q 3: Vercel 部署失败？</h3>
+<p><strong>「解决」</strong>: 确保项目结构正确，静态网站不需要额外构建配置</p>
+<hr />
+<h2 id="进阶玩法">🚀 进阶玩法</h2>
+<h3 id="自动评论到-pr">自动评论到 PR</h3>
+<p><code># OpenCode 审查代码后自动评论``gh pr comment &lt;PR_NUMBER&gt; --body "$(cat review.md)"</code></p>
+<h3 id="定时自动更新">定时自动更新</h3>
+<p><code># 使用 cron 定时让 AI 更新网站内容``cron action:add job:{</code>  <code>"schedule": {"kind": "cron", "expr": "0 9 * * 1"},</code>  <code>"payload": {"kind": "agentTurn", "message": "更新网站内容"}``}</code></p>
+<h3 id="多-agent-协作">多 Agent 协作</h3>
+<p><code># 同时运行多个 OpenCode 处理不同任务``bash pty:true background:true command:"opencode '设计前端界面'"``bash pty:true background:true command:"opencode '编写后端 API'"</code></p>
+<hr />
+<h2 id="实际案例数据">📊 实际案例数据</h2>
+<p>本次贪吃蛇项目：</p>
+<ul>
+<li>
+<p><strong>「开发时间」</strong>: ~5 分钟（Agent 生成代码）</p>
+</li>
+<li>
+<p><strong>「代码行数」</strong>: ~400 行（HTML/CSS/JS）</p>
+</li>
+<li>
+<p><strong>「部署时间」</strong>: &lt; 10 秒</p>
+</li>
+<li>
+<p><strong>「最终链接」</strong>: https://myopencode.vercel.app</p>
+</li>
+</ul>
+<hr />
+<h2 id="总结">📝 总结</h2>
+<p>通过 <strong>「OpenClaw + OpenCode + GitHub + Vercel」</strong> 的组合，我们实现了一个完整的 AI 驱动开发工作流：</p>
+<ol>
+<li>
+<p><strong>「说」</strong> - 告诉 AI 你要什么</p>
+</li>
+<li>
+<p><strong>「写」</strong> - AI 自动生成代码</p>
+</li>
+<li>
+<p><strong>「存」</strong> - 自动提交到 GitHub</p>
+</li>
+<li>
+<p><strong>「上线」</strong> - 一键部署到 Vercel</p>
+</li>
+</ol>
+<p>这种工作流特别适合：</p>
+<ul>
+<li>
+<p>快速原型开发</p>
+</li>
+<li>
+<p>个人项目</p>
+</li>
+<li>
+<p>学习新技术</p>
+</li>
+<li>
+<p>自动化重复任务</p>
+</li>
+</ul>
+<hr />
+<h2 id="相关链接">🔗 相关链接</h2>
+<ul>
+<li>
+<p>OpenClaw: https://docs.openclaw.ai</p>
+</li>
+<li>
+<p>OpenCode: https://opencode.ai</p>
+</li>
+<li>
+<p>GitHub: https://github.com</p>
+</li>
+<li>
+<p>Vercel: https://vercel.com</p>
+</li>
+<li>
+<p>本案例 GitHub 仓库: https://github.com/freestylefly/snake-game</p>
+</li>
+<li>
+<p>在线演示: https://myopencode.vercel.app</p>
+</li>
+</ul>
+<hr />
+<h2 id="openclaw-生成过程实录">🤖 OpenClaw 生成过程实录</h2>
+<p>本文档并非人工编写，而是由 <strong>「OpenClaw AI Agent」</strong> 在开发过程中自动生成：</p>
+<h3 id="生成流程">生成流程</h3>
+<ol>
+<li>
+<p><strong>「需求提出」</strong> - 用户："帮我把整个过程写成一篇文章"</p>
+</li>
+<li>
+<p><strong>「Agent 分析」</strong> - OpenClaw 分析刚才的操作历史，提取关键步骤</p>
+</li>
+<li>
+<p><strong>「内容生成」</strong> - 自动编写完整教程，包含流程图、代码示例、速查表</p>
+</li>
+<li>
+<p><strong>「自动推送」</strong> - Agent 直接将 README 提交到 GitHub 仓库</p>
+</li>
+</ol>
+<h3 id="真实的开发时间线">真实的开发时间线</h3>
+<p><code>21:49 - 用户："帮我安装 opencode"``21:53 - 创建项目目录 myopencode``21:56 - 启动 opencode（交互模式）``21:57 - OpenCode 卡住，改用直接创建文件``21:58 - 贪吃蛇游戏代码生成完成``22:05 - 用户提供 GitHub 账号 freestylefly``22:10 - 创建 GitHub 仓库并推送代码``22:13 - 用户要求部署到 Vercel``22:20 - Vercel 部署成功，游戏上线``22:28 - 用户："写一篇文章记录这个过程"``22:31 - README 自动生成并推送到 GitHub</code></p>
+<h3 id="核心指令">核心指令</h3>
+<p>整个开发过程只用了几个简单的自然语言指令：</p>
+<p>|<br />
+时间</p>
+<p>|</p>
+<p>用户指令</p>
+<p>|</p>
+<p>Agent 动作</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>21:49</p>
+<p>|</p>
+<p>"帮我安装 opencode"</p>
+<p>|</p>
+<p>安装 OpenCode CLI</p>
+<p>|<br />
+|</p>
+<p>21:53</p>
+<p>|</p>
+<p>"帮我新建一个目录 myopencode"</p>
+<p>|</p>
+<p>创建目录并初始化 git</p>
+<p>|<br />
+|</p>
+<p>21:56</p>
+<p>|</p>
+<p>"启动 opencode"</p>
+<p>|</p>
+<p>运行交互式编程助手</p>
+<p>|<br />
+|</p>
+<p>22:05</p>
+<p>|</p>
+<p>"https://github.com/freestylefly"</p>
+<p>|</p>
+<p>配置 GitHub 连接</p>
+<p>|<br />
+|</p>
+<p>22:13</p>
+<p>|</p>
+<p>"帮我部署到 vercel"</p>
+<p>|</p>
+<p>安装 Vercel CLI 并部署</p>
+<p>|<br />
+|</p>
+<p>22:28</p>
+<p>|</p>
+<p>"帮我写一篇文章..."</p>
+<p>|</p>
+<p>生成完整教程文档</p>
+<p>|<br />
+|</p>
+<p>22:31</p>
+<p>|</p>
+<p>"推送到刚才贪吃蛇仓库作为 readme"</p>
+<p>|</p>
+<p>自动提交 README</p>
+<p>|</p>
+<p><strong>「全程无需编写任何命令，只需用自然语言描述需求！」</strong></p>
+<hr />
+<p><em>本文档由 OpenClaw AI Agent 全程自动生成 | 2026-02-03</em></p>
         </div>
     </article>
 

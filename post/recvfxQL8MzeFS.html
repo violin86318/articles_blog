@@ -91,16 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag card-tag-primary">AI 工具</span>
+            <span class="card-tag card-tag-primary">人工智能</span>
             
             
-            <span class="topic-chip">Qwen</span>
+            <span class="topic-chip">全模态模型</span>
             
-            <span class="topic-chip">模型评测</span>
+            <span class="topic-chip">Qwen3.5-Omni</span>
             
-            <span class="topic-chip">语音多模态</span>
+            <span class="topic-chip">语音交互</span>
             
-            <span class="detail-reading-time">约 2 分钟阅读</span>
+            <span class="topic-chip">端到端</span>
+            
+            <span class="topic-chip">AI产品设计</span>
+            
+            <span class="topic-chip">多模态</span>
+            
+            <span class="detail-reading-time">约 44 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -112,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>Qwen3.5-Omni全模态模型能真正理解语音捕捉情感意图实现端到端多模态交互</p>
+                <p>非全模态方案，声音抵达模型智能前，就损失了大量信息，这就是「模型从来没有听过你说话」。 模型能端到端处理的模态越完善，AI 就越理解人的需求。人与 AI 的交互方式也越接近「让真实人类做事」的方式。 当模型能直接处理语气、画面和环境，不需要先把用</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>核心创新： 阿里千问团队发布的 Qwen3.5-Omni 全模态模型突破传统AI交互限制，首次实现端到端音视频直接理解与输出，无需中间转换（如语音转文字），显著提升交互效率与语义还原度。 关键能力： 1. 真实“听懂”语音：捕捉语气、情感及多说话人场景（旧模型仅能处理文字转录）； 2. 多模态实时处理：支持 128K长音视频输入、多语种语音实时输出、语义打断响应； 3. 产品体验革新：交互更贴近人类自然行为（如带情感语音反馈），降低使用门槛。 行业意义： 全模态技术已进入产品化阶段，Qwen3.5-Omni 的 8K上下文应用场景及开源生态（支持微信端体验）为AI产品设计开启新想象空间，推动人机交互向“类人”体验进化。</p>
+                <p>本文评测了阿里千问团队发布的Qwen3.5-Omni全模态模型，指出传统AI语音交互因管线转换导致信息损耗，而全模态模型能端到端处理音视频，减少中间环节。文章展示了该模型在实时通话、长音频处理、多语种对话等场景的应用潜力，并探讨了其对AI产品设计的启发。</p>
             </div>
             
             
@@ -132,18 +138,198 @@
 
         <!-- Review -->
         
+        <div class="detail-review">
+            <strong>点评</strong>本文深入剖析了全模态模型的技术优势与产品价值，通过对比传统管线方案，清晰揭示了端到端处理在信息保真和交互效率上的突破。结合Qwen3.5-Omni的具体能力与应用案例，文章不仅提供了技术评测，更引发了关于AI产品设计范式的思考，即如何让交互更自然、门槛更低，这为行业提供了有价值的前瞻视角。
+        </div>
+        
 
         <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#ai-从来没有真正听过你说话qwen35-omni-评测" class="toc-link">AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#聊全模态先从-ai-语音通话聊起" class="toc-link">聊全模态，先从 AI 语音通话聊起</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#全模态加速人-ai-交互的效率" class="toc-link">全模态加速人 AI 交互的效率</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#qwen35-omni你所需知道的一切" class="toc-link">Qwen3.5-Omni，你所需知道的一切</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#全模态为什么值得更高的讨论度" class="toc-link">全模态，为什么值得更高的讨论度？</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#音视频实时通话ai-产品的-vibe-交互方式" class="toc-link">音视频实时通话：AI 产品的 Vibe 交互方式</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#长音频处理lifelog-精细化识别情绪场景音" class="toc-link">长音频处理：LifeLog 精细化识别（情绪、场景音）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#多语种端到端语音外语对练多音色" class="toc-link">多语种端到端语音：外语对练（多音色）</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#写在最后" class="toc-link">🎐 写在最后</a>
+                </li>
+                
+            </ul>
+        </div>
         
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章标题为《AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测》，作者为“一泽Eze”，发布平台为“微信公众平台”。</p>
-<p>文章内容主要围绕阿里千问团队发布的 Qwen3.5-Omni 全模态模型展开。作者认为，从 AI 产品设计的角度来看，这个模型值得更高的讨论热度。文章首先回顾了 AI 语音通话的发展历程，从 ChatGPT 的高级语音模式到 OpenAI 发布的 GPT-4o，指出在旧管线中，语音模式并不能直接观察语气、说话者人数，也不能输出情感。文章通过对比非全模态模型与全模态模型在处理语音时的差异，强调了全模态模型在捕捉说话人心情与含义方面的优势。</p>
-<p>文章进一步探讨了全模态模型在加速人 AI 交互效率方面的作用，指出全模态模型可以直接处理音频、图像、视频，并通过端到端输出语音、图像等模态，减少中间转换的损耗。以 Qwen3.5-Omni 为例，作者展示了该模型在处理长音视频、语音输出、多语种、语义打断、实时工具调用等方面的能力。</p>
-<p>文章还讨论了全模态模型在 AI 产品设计中的应用前景，认为全模态模型能够让 AI 产品的交互方式更接近真实人类做事的方式，从而降低 AI 产品的使用门槛，提升用户体验。作者以音视频实时通话、长音频处理、多语种端到端语音等案例，展示了全模态模型在 AI 产品设计中的潜力。</p>
-<p>最后，作者总结了全模态模型的发展现状，认为全模态模型已经到了进入 AI 产品设计考量的阶段，并鼓励产品侧发挥想象力，探索全模态模型在 AI 产品设计中的应用。文章还提供了普通用户和开发者体验 Qwen3.5-Omni 的方法。</p>
+            <h1 id="ai-从来没有真正听过你说话qwen35-omni-评测">AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测</h1>
+<p>阿里千问团队发布了 Qwen3.5-Omni 全模态模型。</p>
+<p>我认为从 AI 产品设计的角度，它确实值得更高的讨论热度。</p>
+<p>近几个月，大模型领域的注意力大多集中在 Vibe Coding 与 Agent 上。但全模态模型线也不断加速，3 月以来，小米发 MiMo-V2-Omni，美团发 LongCat-Next。</p>
+<p>而作为国内 Omni 模型的主要开源贡献者，千问也在前两天发布了最新的 Qwen3.5-Omni。</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/sz_mmbiz_png/DGyz1tk4xb5mcCtJyhvwP55gJztDAOXYAtoXy2dRCqjfibr2fhCqRsllfbtdEhVp8AfTUVSbrKnCI2RUlhW1icMA2duCgibbxia8qNTNcasJSxk/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<h2 id="聊全模态先从-ai-语音通话聊起">聊全模态，先从 AI 语音通话聊起</h2>
+<p>不知道你是否还记得 ChatGPT 高级语音模式？</p>
+<p>彼时，GPT 凭借随时可打断，真人音效的优势——挂着语音，开车聊、走路问，成了很多人日常使用 AI 的自然方式。（国内豆包也把语音通话做成了核心体验）</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/sz_mmbiz_png/DGyz1tk4xb6wP5dxtibib3qdnmv0HOHqwvVFlcPoYaeMtCykcJQeVWDRpJsaD13gJibgYGOcy8wYgcXCRx6q1vDLxgVRQz9U2VUmq879EN9usI/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" /></p>
+<p>但体验不是一开始就如此自然。OpenAI 在发布 GPT-4o 时的原话是：</p>
+<ul>
+<li>在 4o 之前，语音模式需要通过「你说话 → 语音识别转成文字 → 模型理解文字并生成回复 → 文字转语音念给你听」的旧管线</li>
+<li>作为主要智能源的 AI，在旧管线中，并不能直接观察语气、说话者人数，也不能输出情感。</li>
+</ul>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这也是大多数 AI 产品的语音交互的旧方案：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>不难发现，管线的每一层都可能损耗信息：</p>
+<ul>
+<li>语音识别（ASR）：语气、情绪、停顿节奏、声调变化、环境音、说话人特征全部丢失。你阴阳怪气说了一句话，转成文字后意思变得很平和，模型完全感知不到你的语气</li>
+<li>级联错误：ASR 转录错了，后面所有环节跟着错。一个识别失误逐级放大，没有纠错机会</li>
+<li>语音合成（TTS）：模型只能输出文字，不能输出语气。你所听到的语调，只是 TTS 从字面推断出来的语气</li>
+</ul>
+<p>一个测试，用不同的语气、节奏，说「哎，好的，没问题」，拿同系列的 Qwen3.5 的非全模态模型与 Omni-Plus 全模态模型做直观的对比：</p>
+<p>前者无法辨别语气，后者则能捕捉到说话人的心情与含义。</p>
+<p>非全模态方案，声音抵达模型智能前，就损失了大量信息，这就是「模型从来没有听过你说话」。</p>
+<h2 id="全模态加速人-ai-交互的效率">全模态加速人 AI 交互的效率</h2>
+<p>语音通话的信息损耗，只是人 AI 交互的一种问题。</p>
+<p>现实任务中，AI 还要处理图像、视频、音频的理解 or 输出。</p>
+<p>每次中间环节转换，不仅丢失信息，还会大大降低人机交互的效率与准确性。</p>
+<p>（比如部分模型依赖 OCR 识别照片内容后，才能交给 AI 推理，但无法理解照片内的文字笔锋、颜色深浅）</p>
+<p>全模态模型要做的，是让模型直接听音频、看图像、看视频，并通过端到端输出语音、图像等模态，减少中间转换的损耗。（多模态在行业语境下，更侧重多模态理解，尤其指文本、图像理解）</p>
+<p>例如，在 Qwen3.5-Omni 中，任何用户都可以对着 Excel 数据表，口述数据分析要求：</p>
+<p>视频演示：对着数据表口述数据分析要求</p>
+<p>AI 自动理解整个视频内的要求，进行指标计算：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>并将结果保存到了新的 Sheet 中。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>模型能端到端处理的模态越完善，AI 就越理解人的需求。人与 AI 的交互方式也越接近「让真实人类做事」的方式。</p>
+<h2 id="qwen35-omni你所需知道的一切">Qwen3.5-Omni，你所需知道的一切</h2>
+<p>话说回来，还是先速通 Qwen3.5-Omni 的发布信息。</p>
+<p>Qwen3.5-Omni 是千问最新一代的全模态大模型，支持以下模态的端到端处理：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<ul>
+<li>输入：文本、图片、音频、视频理解（视觉能力与 Qwen3.5-Plus 对齐）</li>
+<li>输出：文本、音频</li>
+</ul>
+<p>在模型规格方面：</p>
+<ul>
+<li>三种尺寸：Plus、Flash、Light（线上暂无 light 版）</li>
+<li>API 版本：分为 Offline、Realtime 两个版本。离线版支持长音视频文件处理，实时版可进行实时音视频通话</li>
+<li>架构：Thinker-Talker 架构，均采用 Hybrid-Attention MoE</li>
+<li>上下文：支持 256k 长上下文</li>
+</ul>
+<p>核心能力提升明显，主打：</p>
+<ul>
+<li>长音视频处理：目前在线 API 支持 3 小时音频、1 小时视频处理</li>
+<li>语音输出：支持音色克隆，端到端情绪、音量、语速控制</li>
+<li>多语种：113 种语言和方言语音识别，36 种语音生成</li>
+<li>语义打断：区分「真实插话」与「附和 / 背景噪音」，不会被"嗯"一声或咳嗽误触发</li>
+<li>实时工具调用：实时通话时，支持联网搜索 + Function Call，模型自判断是否触发工具  </li>
+</ul>
+<p>注：语种、部分参数 Plus 与 Flash 有一定差异</p>
+<p>官方也给出了新模型与 Gemini 3.1 Pro 等海外顶级模型在音视频、图像理解、语音生成的榜单情况，得分靠前。</p>
+<p>详情见 👉 <a href="https://mp.weixin.qq.com/s?__biz=Mzk0ODg4NDI5NA==&amp;mid=2247488392&amp;idx=1&amp;sn=81e92408ca7d9b5d44a523088e0229d4&amp;scene=21#wechat_redirect">视听全才，言出码随！全模态Qwen3.5-Omni上线</a></p>
+<h2 id="全模态为什么值得更高的讨论度">全模态，为什么值得更高的讨论度？</h2>
+<p>Omni 类模型，虽然还没大规模应用于 AI 产品，但真的挺好玩的。</p>
+<p>我找了些使用案例与你分享，在这个过程中，可以多多关注对 AI 用法、产品设计的一些启发。</p>
+<h3 id="音视频实时通话ai-产品的-vibe-交互方式">音视频实时通话：AI 产品的 Vibe 交互方式</h3>
+<p>AI时代的产品现在被分为 GUI 和 LUI 的两种模式。</p>
+<p>GUI 依赖人学会使用按钮，框选与点击。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>LUI 需要人用文本，相对准确地描述需求，等待 AI 回应。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>那如果让 Omni 模型全程监控人在 AI 产品内的光标活动、说话声音呢？（当然简单一点，也可以是摄像头同时对着人和电脑屏幕）</p>
+<p>⬇️</p>
+<p>是不是就能更进一步降低 AI 产品的使用门槛，让更多不熟悉电脑操作、未经精准训练语言表达的用户，体验到 AI 时代的 Vibe 操作便利？</p>
+<p>比如，随便写写画画、指指点点， Qwen3.5-omni-plus 更进一步拉低 AI Coding 的难度（左边是对着线框光标指点，右边是最终 Omni 的 Coding 效果。为了测试方便，采用了录屏；实际应用可以直接结合纸笔、手指指点来录像）</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>甚至扩大到更广泛的非技术 APP：比如前文的 Vibe Excel 操作，如果 Excel or 系统通用 Agent 支持观察应用内活动，，自然就能更加流畅（无脑）地调用 Agent 智能。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h3 id="长音频处理lifelog-精细化识别情绪场景音">长音频处理：LifeLog 精细化识别（情绪、场景音）</h3>
+<p>然后是个人全天录音的识别，提取声音内容、建立个人日志。</p>
+<p>前段时间买了大疆 mic3 ，打算用来记录个人的全天录音。早前设计了两套转录分析方案：</p>
+<ul>
+<li>一套偏管线：Qwen3-ASR-Flash  转写 + pyannote 说话人分离 + 后置 LLM 分析</li>
+<li>一套依赖海外全模态模型：Gemini 3 Flash 直接从录音原件总结当天日志</li>
+</ul>
+<p>前者优势在于能够建立当天的文字记录，但无法识别声音情绪、背景信息，只能从语义进行推理。</p>
+<p>后者能自然区分说话人，结合人声音调、环境背景推理更多 lifelog 信息。</p>
+<p>恰好 Qwen3.5-Omni-Plus 模型发布，支持长音频识别，可分析音频内的声音细节与效果。</p>
+<p>我给了一段 50 分钟的音频，是前两天在 GDPS 的 OPC 论坛上的实录：</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>Omni 模型根据录音中的主持人串词与嘉宾的发言，在 5 秒内就流式返回了当时的分享记录 ⬇️</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>特别的，还成功识别了过程中的人物语速、语调特征，更大程度地保留了 lifelog 信息。（实测对比。该任务表现中 Qwen 不弱于 Gemini ）</p>
+<p>如果特化要求，细化语调情绪分析，甚至能做到「识别吐字、重音、音调走向」这种程度：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>若要求 AI 进一步分析环境背景音：比如在这样 GDPS 这样的场子，就能依靠全模态模型，得到以下的结果。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>PS：成功推测了出整体所处的环境空间特征。</p>
+<h3 id="多语种端到端语音外语对练多音色">多语种端到端语音：外语对练（多音色）</h3>
+<p>这个能力真的很好用。</p>
+<p>Qwen3.5-Omni 既支持实时语音通话，又支持大量国外语言，还能端到端音频输出。</p>
+<p>你可以在 Qwen Chat 的语音通话中进行体验：</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>这是我跟Qwen 的语音过程，测试了她在中英日德等多语种会话下的表现，语音切换自如，音色自然真实。</p>
+<p>而且支持切换不同的音色（别的我也听不懂，但这英音是真英啊🤣）：</p>
+<p>每种音色也支持了多国语言，为出海产品提供了更多选择。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<h2 id="写在最后">🎐 写在最后</h2>
+<p>除了以上用法，还有一些能力没有展示，比如实时通话里自动触发的联网检索、音色克隆等。</p>
+<p>总得来说，全模态模型发展至今，也是时候进入 AI 产品设计的考量了：</p>
+<ul>
+<li>论设备，手机、车载、眼镜——这些设备的交互本来就不是纯文字的</li>
+<li>论用户习惯，更多人并不擅长文本准确描述，更习惯口述+简单指点</li>
+</ul>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>当模型能直接处理语气、画面和环境，不需要先把用户的直觉反应“有损翻译”为文本，产品设计的空间就不一样了。</p>
+<p>有了全模态模型的加持，人与 AI 的交互方式能更接近「让真实人类做事」的形式。</p>
+<p>而兼具了全模态与 Agent Coding 能力的 Qwen3.5-Omni 是个开始，往后能做什么，越来越取决于产品侧的想象力。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>👉 如果想上手体验？</p>
+<ul>
+<li>普通用户：请使用 Qwen Chat：https://chat.qwen.ai/</li>
+</ul>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/sz_mmbiz_png/DGyz1tk4xb7upPicqox6WqA0dc8neV1FtOep9gcuTZ19D48sJloiaynd0nmlnEznk6Dflbme36V9a6NYz1ImUgETKibypO4hqvepQlLEBRcOMA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=23" /></p>
+<ul>
+<li>开发者：可通过阿里百炼 API 调用</li>
+</ul>
+<pre><code>【离线】https://help.aliyun.com/zh/model-studio/qwen-omni【实时】https://help.aliyun.com/zh/model-studio/realtime
+</code></pre>
+<p>希望本文能对你有所启发，记得关注～</p>
+<p>也感谢你的点赞与分享：)</p>
         </div>
     </article>
 
@@ -153,7 +339,7 @@
         
         <a href="recvfPovYBe5hq.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
-            <span class="article-nav-title">阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析</span>
+            <span class="article-nav-title">Qwen3.6 真好玩，使我的大脑旋转</span>
         </a>
         
         

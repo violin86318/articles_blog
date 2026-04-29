@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Prompt 大神李继刚的 Skills 为什么值钱？我用一个月才想明白这件事 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">人工智能</span>
+            
+            
+            <span class="topic-chip">Skills</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="topic-chip">Prompt工程</span>
+            
+            <span class="topic-chip">李继刚</span>
+            
+            <span class="topic-chip">AI写作</span>
+            
+            <span class="topic-chip">Lisp</span>
+            
+            <span class="detail-reading-time">约 19 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">Prompt 大神李继刚的 Skills 为什么值钱？我用一个月才想明白这件事</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>他的每一个 Skill，本质上不是一段提示词模板，而是一套认知压缩工具。把复杂的东西压进去，把精准的东西吐出来。 普通工具是在‘替你写’，而 ljg-writes 是在‘逼你想’。 工具再好，它也只是工具。真正决定你输出的质量的，是你自己脑子里有多少东西。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文深入解析了李继刚Skills仓库的核心价值，指出其底层逻辑是“精准压缩”——通过Lisp语法将复杂思考高度浓缩，使AI能生成更精准的内容。文章重点介绍了三个实用Skill：ljg-plain（将复杂内容通俗化）、ljg-writes（通过写作逼出深度思考）、ljg-card（将认知转化为可视化卡片），并分享了如何将它们串联融入日常工作流，强调工具只是放大器，真正的价值源于使用者自身的深度思考与积累。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/6yxINDMMSqXUVNaDC_dNXw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>这篇文章不仅介绍了李继刚Skills的具体用法，更深刻地揭示了其背后“精准压缩”的思维哲学，将Prompt工程提升到了认知工具的高度。作者通过亲身实践，提炼出“理解-判断-传播”的知识生产流水线，极具启发性。文章强调工具与使用者自身思考深度的辩证关系，避免了盲目技术崇拜，为AI时代的知识工作者提供了务实且深刻的协作指南。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#prompt-大神李继刚的-skills-为什么值钱我用一个月才想明白这件事" class="toc-link">Prompt 大神李继刚的 Skills 为什么值钱？我用一个月才想明白这件事</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#先把他的底层逻辑搞清楚" class="toc-link">先把他的底层逻辑搞清楚</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#三个值得你立刻上手的-skills" class="toc-link">三个值得你立刻上手的 Skills</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第一个ljg-plain" class="toc-link">第一个，ljg-plain</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第二个ljg-writes" class="toc-link">第二个，ljg-writes</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第三个ljg-card" class="toc-link">第三个，ljg-card</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#怎么把它融进你的工作流" class="toc-link">怎么把它融进你的工作流</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="prompt-大神李继刚的-skills-为什么值钱我用一个月才想明白这件事">Prompt 大神李继刚的 Skills 为什么值钱？我用一个月才想明白这件事</h1>
+<p>事情是这样的。</p>
+<p>前阵子我在研究李继刚的 Skills 仓库，就是那个 GitHub 上拿了快三千星、中文 Prompt 圈人人都在聊的项目。</p>
+<p>也写了篇文章，介绍怎么使用。但大家也私信问了很多问题，想更近一步学习。</p>
+<p>今天，我就带着大家一起探讨学习。</p>
+<p>李继刚的 Skills 仓库项目，不是说实现技术有多复杂，代码层面的东西其实就那样。</p>
+<p>但他这套东西背后的思维方式，真的是，有点东西的。</p>
+<p>所以今天这篇文章，我就想把这件事彻底讲清楚。</p>
+<p>不只是告诉你他写了什么，更重要的是，我自己用下来，最值得上手的三个 Skills 怎么用，以及你该怎么把它融进自己的工作流。</p>
+<p>可能有些想法还不成熟，但我已经毫无保留了。</p>
+<hr />
+<h2 id="先把他的底层逻辑搞清楚">先把他的底层逻辑搞清楚</h2>
+<p>在说 Skill 之前，有件事必须先聊清楚，不然你用他的工具就是在瞎抄。</p>
+<p>很多人看到李继刚的 Prompt，第一反应是，卧槽这人是写代码的吧，满屏括号完全看不懂。</p>
+<p>其实你自己去看一下「汉语新解」那个 Prompt，就是他让 Claude 输出 SVG 卡片解释任意一个词的。网上大量人在传的那个。你去看一下那个 Prompt 源码。</p>
+<p>99% 的人看完之后会懵，因为这不是我们熟悉的自然语言提示词，这是用 Lisp 语法写的。</p>
+<p>那 Lisp 是什么？是一种古老的编程语言，1958 年诞生的，语法特别简单，核心就是括号括号括号。听起来反人类对吧，但它的优势在于，结构极度统一，「代码即数据」，层级嵌套特别清晰。</p>
+<p>李继刚选择用 Lisp 写 Prompt，不是为了炫技，是因为他发现，Lisp 的结构，天然就能把他脑子里那种极度压缩的思考给完整地装进去。</p>
+<p>这就是他最核心的方法论，四个字，「精准压缩」。</p>
+<p>怎么理解这个词呢？</p>
+<p>你有没有过这种感觉，就是你明明知道一件事是怎么回事，但让你说出来，你发现自己要说一大段话，而且说出来的效果还特别平淡。</p>
+<p>比如你想让 AI 帮你写一段文案，表达「孤独」这种感觉。你可能会写「请用富有感染力的语言描写一个人深夜独处的内心感受，要有细节，要有情感深度」。</p>
+<p>这段话没问题，但它是「松散」的。「富有感染力」「内心感受」「情感深度」，这些词都是虚的，都是洞。AI 在接收这段 Prompt 的时候，它的智能会从这些洞里漏出去，最后生成一段听起来好像什么都说了但实际上什么都没说的废话。</p>
+<p>而李继刚的做法是什么。他会想，怎么把「孤独」这两个字本身的信息密度给压到极致。</p>
+<p>他不会说「请描写内心感受」，他会说：「这个人的周围，所有东西都在，唯独没有回应」。</p>
+<p>你看，这个句子，它就是一个高密度的压缩包。AI 接收到这个压缩包之后，它在自己的向量空间里展开，具象化的细节是 AI 自己生成的，而不是你强塞给它的。而这些 AI 自己生成的细节，往往比你想出来的，更精准、更意外、更打动人。</p>
+<p>这个理念，贯穿了李继刚所有 Skills 的设计。</p>
+<p>他的每一个 Skill，本质上不是一段提示词模板，而是一套认知压缩工具。把复杂的东西压进去，把精准的东西吐出来。</p>
+<p>这就是他的底层逻辑。想明白这个，你再去看他的 Skills，才知道每个 Skill 在解决什么问题。</p>
+<hr />
+<h2 id="三个值得你立刻上手的-skills">三个值得你立刻上手的 Skills</h2>
+<p>说了这么多，该上硬菜了。</p>
+<p>李继刚的 Skills 仓库里有 16 个 Skill，我自己用下来，最值得先跑通的，有三个。它们分别对应了他的方法论的三个环节：</p>
+<blockquote>
+<p><strong>理解 → 判断 → 传播</strong></p>
+</blockquote>
+<p><code>ljg-plain</code> 解决的是「说人话」;</p>
+<p><code>ljg-writes</code> 解决的是「带观点写」;</p>
+<p><code>ljg-card</code> 解决的是「做成可交付物」。</p>
+<p>三个串起来，就是一套完整的知识生产流水线。</p>
+<h3 id="第一个ljg-plain">第一个，ljg-plain</h3>
+<p>这个 Skill 的目标特别简单，把任何复杂的内容，改写成「一个聪明的 12 岁小孩也能看懂」的样子。</p>
+<p>听着是不是有点像「翻译成人话」？差不多，但它不是简单地把专业术语换成大白话就算完事了。</p>
+<p>它真正厉害的地方在于，它会把你的表达里那些空洞的、模糊的、绕来绕去的东西，全部给剥掉，逼着你用最少的字把事情说清楚。</p>
+<p>我举个例子。</p>
+<p>我之前让 AI 帮我解释一个概念，叫「涌现」。这是 AI 圈最常见的词之一，但你会发现，真正能把这个概念讲清楚的人极少。大部分人的解释要么太学术，要么太模糊。</p>
+<p>我让 ljg-plain 处理过一段关于涌现的解释，原始版本大概是这样的：</p>
+<blockquote>
+<p>涌现是指在复杂系统中，当系统的组成部分相互作用并达到一定复杂度时，会自发产生全新的、无法预测的系统级特性或行为。这种特性不能简单地还原为单个组分的属性，而是在整体层面才显现出来。</p>
+</blockquote>
+<p>这段话对不对？对的。但你读完了还是不知道涌现到底是什么。</p>
+<p>用 ljg-plain 处理之后，输出的版本大概变成了：</p>
+<blockquote>
+<p>想象你一个人走路，几十个人走路，一千个人走路。一百个人的时候，队伍开始有了节奏感。一千个人的时候，人流开始像水一样流动。一万个人的时候，你根本找不到起点在哪里。没人指挥，但整条街都在动。这就是涌现。单独看每个人，你永远预测不到会发生什么。</p>
+</blockquote>
+<p>你看，压缩之后的版本，它有一个画面。它不是在解释涌现，它是在让你「看见」涌现。</p>
+<p>这种感觉，是你在写 Prompt 的时候，无论怎么堆砌形容词都堆砌不出来的。因为画面感不是描述出来的，是从高密度的核心触发出来的。</p>
+<p>我自己用 ljg-plain 的场景，主要是两个。</p>
+<p>第一个是写东西的时候，写完一段觉得哪里不对但说不清楚，就扔给 ljg-plain 跑一遍，它会帮你把表达里的水分给榨干。</p>
+<p>第二个是读书或者看论文的时候，有些段落你觉得特别重要但就是看不进去，扔给 ljg-plain，让它逼着作者用人话再说一遍。</p>
+<p>一开始可能会觉得输出的版本有点「糙」，不如原文那么「漂亮」。但你仔细想一下，原文那个「漂亮」是不是一种幻觉？是你被文字的形式感给唬住了，而不是你真的理解了。</p>
+<p>ljg-plain 就是来拆穿这个幻觉的。</p>
+<h3 id="第二个ljg-writes">第二个，ljg-writes</h3>
+<p>如果说 ljg-plain 是帮你把话说清楚，那 ljg-writes 就是帮你把话写出灵魂来。</p>
+<p>李继刚给这个 Skill 的定位是「写作引擎」，但它跟你们想的「AI 帮你写文章」完全不是一回事。</p>
+<p>它的核心工作方式，不是给你一个模板让你填空，而是让你在写的过程中把思路想透。</p>
+<p>有点绕对吧，我翻译一下。</p>
+<p>大多数人写文章的习惯是什么。是先想好我要写什么，然后列提纲，然后往里面填内容。逻辑是先有结论再有表达。</p>
+<p>但 ljg-writes 的思路是反过来的。它要求你「带着一个困惑出发，在写的过程里找到答案」。</p>
+<p>具体怎么实现的呢。Skill 里有一层约束，大意是：不要给我一个结论然后去证明它，要给我一个问题然后去探索它。</p>
+<p>我拿我自己最近写的一篇文章举个例子。</p>
+<p>那篇文章我本来想写的核心观点大概是「AI 时代的核心竞争力是提问能力」。这个观点对不对？好像是对的。但我自己总觉得哪里不够有力，不够让自己信服。</p>
+<p>我就用 ljg-writes 的框架重写了这次。开头我没有直接抛出结论，而是把困惑写出来了：我最近一直在用各种 AI 工具，但总觉得用得不够深，问题出在哪里？是我问的问题不够好，还是我对 AI 的期待本身就有问题？</p>
+<p>然后我开始在写的过程中一点点追这个线索。写了大概一千字的时候，我发现了一个自己之前完全没意识到的东西：我之所以用 AI 用得不深，不是因为我不会提问，而是因为我默认了「AI 给的答案就是对的」。我从来不去质疑它给的东西是不是事实、是不是有偏见、是不是在「一本正经地胡说八道」。</p>
+<p>这个发现，才是我那篇文章真正有价值的东西。而它只有在「写的过程里想透」这个工作方式下，才可能冒出来。</p>
+<p>这就是 ljg-writes 跟普通 AI 写作工具最大的区别。普通工具是在「替你写」，而 ljg-writes 是在「逼你想」。你必须先有一个真正想搞清楚的问题，然后 AI 帮你追着这个问题一层一层往里挖，最后那个让你「卧槽」的洞察，往往是你自己先模糊感觉到，但从来没能力清晰表达出来的东西。</p>
+<p>用这个 Skill 写东西，一开始可能会觉得有点别扭。因为它不让你写得太顺，你写着写着就会发现自己的逻辑其实站不住脚，或者你的核心观点其实没有你想象中那么有价值。</p>
+<p>但这恰恰是它最值钱的地方。宁可让你在一篇文章里发现「这个观点其实是错的」，也不要让你写完十篇言之无物的废话。</p>
+<h3 id="第三个ljg-card">第三个，ljg-card</h3>
+<p>前两个 Skill 都是跟文字打交道，而 ljg-card 是把文字变成视觉。</p>
+<p>这个 Skill 可以把任意内容自动生成一张 PNG 图片，支持多种视觉风格，包括长阅读卡片、信息图、漫画风、白板风、大字报风，等等。</p>
+<p>我猜很多人看到这里的第一反应是，这不就是一个配图工具吗？</p>
+<p>真不是。</p>
+<p>李继刚做 ljg-card 这件事，背后的逻辑跟他的整个方法论是一脉相承的。他不是在做一个「给文章配图」的工具，他是在解决一个更本质的问题：</p>
+<p>「你的认知，最终要交付成什么形式？」</p>
+<p>你花了一周读完了一篇论文，理解了一个概念，写了一篇笔记，思考了一些洞察。这些东西现在都在你的脑子里，或者躺在你的笔记软件里。然后呢？然后就没有然后了。</p>
+<p>这是大多数人知识管理的死穴。输入了，消化了，然后就停了。认知停在脑子里，没有被推出去，没有变成可以被传播、被分享、被实际使用的东西。</p>
+<p>ljg-card 的存在，就是为了打破这个死循环。</p>
+<p>你读完一篇论文，把核心洞察扔给 ljg-card，它直接给你生成一张信息图卡片，你可以发朋友圈，可以丢工作群，可以贴在飞书文档里当可视化摘要。这个动作看起来很小，但它完成了一个关键跃迁：把你的理解从「脑子里」推到了「真实世界里」。</p>
+<p>真实世界里被看见的东西，才会反过来塑造你的影响力。</p>
+<p>关于这个 Skill 的使用，有两个点我想特别说一下。</p>
+<p>第一个是它对视觉品质的要求极高。李继刚在他的 Skill 说明里列了一长串禁忌，包括禁用 Inter 字体、禁用纯黑色、禁用 AI 生成感文案腔、禁用居中对齐强迫症。等等。</p>
+<p>他不是在挑剔，他是在表达一个立场：排版是思维的外化。你做出来的东西就是你这个人审美和判断力的体现。你不能脑子里想得很清楚，但做出来的东西看起来像个三无产品。</p>
+<p>第二个是它在设计上有意地在反 AI 生成痕迹。这一点可能很多用过类似工具的人没有注意到。你拿 ChatGPT 或者 Claude 直接生成一张图片，那种「AI 感」是很强的，体现在字体、配色、构图上。而 ljg-card 生成的内容，在视觉上刻意模拟了人类设计师的直觉和「不完美」，结果就是它看起来更像是一个人认真做了这张图，而不是一个机器一键生成的。</p>
+<p>我现在基本上每周都会用 ljg-card 做几张内容卡片。推送文章的精华摘录、读到的有意思的概念、有时候就一个单词的深度解析，都会扔进去生成一张图。这个习惯帮我积累了大量可以随时调用的可视化素材，而且在这个过程里，我对内容的理解也变得更深刻了。</p>
+<p>因为当你要把一个东西做成卡片的时候，你必须先想清楚它最核心的价值是什么，用哪几个字最能传达它。这个「逼自己提炼」的过程本身，就已经是最好的学习了。</p>
+<hr />
+<h2 id="怎么把它融进你的工作流">怎么把它融进你的工作流</h2>
+<p>好了，三个 Skill 都讲完了。最后我想聊几件更私人的事，就是我自己用这套东西的一些感受，以及我的一些不成熟建议。</p>
+<p>第一条，先跑通，别研究透再动手。</p>
+<p>李继刚的 Skills 仓库，你去 GitHub 上能找到完整的源码和说明文档。里面的 Lisp 语法、设计哲学、底层逻辑，你想研究的话可以研究很久。但我的建议是，别研究透，先跑通。</p>
+<p>找三个 Skill，就我上面说的这三个，挑一个，插到你的日常工作流里，用起来。哪怕一开始用得很糙，哪怕不知道背后的原理，都没关系。你用一个月，自然就会有感觉。这种感觉是研究不出来的，只能在动手的过程里慢慢长出来。</p>
+<p>第二条，把三个 Skill 串起来用，比单独用任何一个都强。</p>
+<p>我现在的实际用法是这样。读一篇重要的东西，先用 ljg-learn 做概念解剖，搞清楚它在说什么。然后用 ljg-plain 把最核心的洞察逼成人话。再用 ljg-writes 带着困惑开始写，把自己的思考给逼出来。最后用 ljg-card 把最有价值的部分做成一张卡片，发出去，或者存下来当素材。</p>
+<p>这一套跑下来，一篇东西才算是真正被消化了。</p>
+<p>不是读完就算读完了，不是记了笔记就算记住了。是你能用自己的话把它说出来，还能用一张图让它被看见，这件事才算落地。</p>
+<p>第三条，也是最重要的一条。</p>
+<p>工具再好，它也只是工具。真正决定你输出的质量的，是你自己脑子里有多少东西。</p>
+<p>李继刚自己也说过一句话，叫「Read in, Prompt out」。你脑子里有多少，决定了 AI 能帮你放大多少。你如果脑子里一片空白，AI 写出来的东西就是精致的废话。你如果脑子里有真正的洞察，AI 能帮你把它放大一百倍。</p>
+<p>所以别把时间全花在研究 Prompt 技巧上。花点时间真的去读一些东西，深度思考一些东西，被一些东西打动，被一些东西困惑。这些原始的、混沌的、还没被整理过的体验，才是你跟 AI 协作的真正燃料。</p>
+<hr />
+<p>好了，就聊这么多。</p>
+<p>李继刚这套东西我研究了一阵子，今天分享的只是冰山一角。更深的东西，建议你自己去动手跑一遍。GitHub 上搜「lijigang/ljg-skills」，一行命令就能装。</p>
+<p>你装了之后跑通任何一个 Skill，跟没装之前，你对 AI 协作这件事的理解，是完全不一样的。</p>
+<p>以上，既然看到这里了，如果觉得不错，随手点个赞、在看、转发三连吧，如果想第一时间收到推送，也可以给我个星标。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvi1J4mOvqHD.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">一个用影视板驱动生成视频的技巧</span>
+        </a>
+        
+        
+        <a href="recvhSZx17Mmtp.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">一句话变成62个专业分镜：山音超级导演大师Skill来了</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
