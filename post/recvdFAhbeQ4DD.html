@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>1TB 免费 S3 存储空间 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>1TB 免费 S3 存储空间 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">编程开发</span>
+            <span class="card-tag card-tag-primary">编程开发</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">云存储</span>
+            
+            <span class="topic-chip">S3</span>
+            
+            <span class="topic-chip">工具推荐</span>
+            
+            <span class="detail-reading-time">约 4 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">1TB 免费 S3 存储空间</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Hi168提供1TB免费S3存储空间，注册实名后即可使用。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Hi168提供1TB免费S3存储空间，注册实名后即可使用。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>根据提供的文本内容，以下是核心信息提炼（198字）： 服务核心： Hi168（上海云服务商）提供 1TB 免费 S3 兼容对象存储空间。 获取方式： 1. 注册即得 500GB：通过官网 [https://www.hi168.com/](https://www.hi168.com/) 注册。 2. 实名认证后升级至 1TB：在用户后台完成实名验证。 使用流程： 1. 登录其云桌面，进入“存储管理”。 2. 创建 S3 存储桶 (Bucket)。 3. 获取 Access key 与 Secret key 用于客户端连接。 性能实测（青小蛙测试）： 白天速度： 上传约 2～4 MB/s，下载约 1 MB/s。 晚高峰速度： 降至几百 KB/s。 用途： 兼容标准 S3 协议，可被支持 S3 的客户端（如 OpenClaw）调用进行文件上传/下载。作为免费服务，性能存在波动。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/h7Jc80GkGFt4NsrSE1bE2A&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,20 +137,39 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据提供的文本内容，以下是核心信息提炼（198字）：</p>
-<p><strong>服务核心：</strong> Hi168（上海云服务商）提供 <strong>1TB 免费 S3 兼容对象存储空间</strong>。</p>
-<p><strong>获取方式：</strong><br />
-1.  <strong>注册即得 500GB</strong>：通过官网 <a href="https://www.hi168.com/">https://www.hi168.com/</a> 注册。<br />
-2.  <strong>实名认证后升级至 1TB</strong>：在用户后台完成实名验证。</p>
-<p><strong>使用流程：</strong><br />
-1.  登录其云桌面，进入“存储管理”。<br />
-2.  创建 S3 存储桶 (Bucket)。<br />
-3.  获取 <strong>Access key 与 Secret key</strong> 用于客户端连接。</p>
-<p><strong>性能实测（青小蛙测试）：</strong><br />
-*   <strong>白天速度：</strong> 上传约 2～4 MB/s，下载约 1 MB/s。<br />
-*   <strong>晚高峰速度：</strong> 降至几百 KB/s。</p>
-<p><strong>用途：</strong> 兼容标准 S3 协议，可被支持 S3 的客户端（如 OpenClaw）调用进行文件上传/下载。作为免费服务，性能存在波动。</p>
+            <p>根据您提供的链接内容，以下是全文内容的提取：</p>
+<p>标题：1TB 免费 S3 存储空间</p>
+<p>字数：712，阅读大约需 4 分钟</p>
+<p>最近在寻找存储空间，3天前找到了100GB的免费WebDAV空间: https://meta.appinn.net/t/topic/82391</p>
+<p>今天又看到了1TB的免费S3存储空间，试用了一下，还行。</p>
+<p>@Appinn</p>
+<p>Simple Storage Service</p>
+<p>S3是由亚马逊提供的对象存储服务，全称Amazon S3 (Simple Storage Service)，但因为使用太广泛，所以成为了事实标准，有很多开源的软件都可以实现，逐渐流行开来。你甚至可以部署一个S3服务器。</p>
+<p>什么是对象存储服务？</p>
+<p>经常听到这个词：Object Storage（对象存储），难道是那个对象吗？</p>
+<p>对象存储可以简单的理解为：把每一个文件都包装成对象，保存在服务器上，这个经过包装的对象包括：</p>
+<ul>
+<li>Key（唯一标识）</li>
+<li>Data（文件本身）</li>
+<li>Metadata（元数据：文件类型、上传人、时间等）</li>
+</ul>
+<p>对象存储没有文件夹的概念，每一个文件在包装后都统一保存在服务器中。你在S3后台看到的目录结构实际上是模拟出来的。比如photos/2026/image.jpg文件，实际上这整个部分就是Key。而且因为每个对象都有一个唯一的Key，所以找文件的时候直接找key就行了，不像以前，需要一层一层的翻文件夹。可以很快、很大量。</p>
+<p>Hi168的1TB免费S3存储空间</p>
+<p>Hi168是一个来自上海的云服务商，青小蛙也是第一次听说。他提供了一个桌面云应用，长得和windows一样 😂</p>
+<p>注册就送500GB，实名制后1TB</p>
+<p>从Hi168官网右上角登录（注册）：https://www.hi168.com/</p>
+<p>会自动获得500GB存储空间，再经过实名制验证，就能得到1TB存储空间了。实名入口在这里（需要先完成注册）：https://www.hi168.com/#/my</p>
+<p>进入云桌面后：https://www.hi168.com/#/desktop</p>
+<p>双击上图中的存储管理（1）图标：</p>
+<p>获得了1TB空间（2）后，先创建S3桶（3），再获取S3验证信息（4），就可以通过客户端链接了：</p>
+<p>使用Access key与Secret key登录：</p>
+<p>青小蛙测试，白天的速度还不错，上传在2～4MB/s左右，下载1MB/s左右，从网络上看晚高峰的速度一般，几百KB级别，但也能用。免费服务就不要要求太高了。</p>
+<p>有什么用？</p>
+<p>因为是S3，所以你都可以拿给OpenClaw用！至于OpenClaw怎么连接的，你可以不用管它😂</p>
+<p>然后，就能让虾帮你把文件上传到S3中，或从里面下载到本地了。</p>
+<p>原文：https://www.appinn.com/1tb-free-s3-hi168/</p>
         </div>
     </article>
 
@@ -137,13 +177,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdGiGCMbepu" class="article-nav-link prev">
+        <a href="recvdGiGCMbepu.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">一种无需编写代码快速搭建飞书多Agent机器人的方法</span>
         </a>
         
         
-        <a href="/post/recvdCUJfyupOg" class="article-nav-link next">
+        <a href="recvdCUJfyupOg.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Openclaw与CC的握手，效率翻倍</span>
         </a>
@@ -153,7 +193,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

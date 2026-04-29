@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">公众号</span>
+            
+            <span class="topic-chip">自动化</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">内容创作</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 作者成功开发了一个全自动AI Skill，通过解决微信平台技术挑战实现公众号文章端到端自动化生产。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>作者成功开发了一个全自动AI Skill，通过解决微信平台技术挑战实现公众号文章端到端自动化生产。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>在《我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill》一文中，作者分享了利用AI自动化公众号写作的经历。核心挑战包括：微信编辑器导致HTML样式丢失、微信HTML语法差异（需用section替代div）、封面图需API上传获取mediaid、工具链兼容性问题及AI错误致草稿为空。解决方案为：直接调用微信API写入HTML、遵循微信规则（如table模拟flex）、设计fallback降级策略确保稳定性、使用Pencil模板排版并生成证据台账。最终开发了全自动Skill，通过capability alias解耦工具、phase-based pipeline支持多格式输入输出。作者总结，Skill已从幻想变现实，每个坑转为检查点，并邀请用户反馈及加入AI分享群。（198字）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/gf-e1LEh0cgf6Z3gqi6IoQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,57 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>在《我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill》一文中，作者分享了利用AI自动化公众号写作的经历。核心挑战包括：微信编辑器导致HTML样式丢失、微信HTML语法差异（需用section替代div）、封面图需API上传获取media_id、工具链兼容性问题及AI错误致草稿为空。解决方案为：直接调用微信API写入HTML、遵循微信规则（如table模拟flex）、设计fallback降级策略确保稳定性、使用Pencil模板排版并生成证据台账。最终开发了全自动Skill，通过capability alias解耦工具、phase-based pipeline支持多格式输入输出。作者总结，Skill已从幻想变现实，每个坑转为检查点，并邀请用户反馈及加入AI分享群。（198字）</p>
+            <p>文章标题为《我让 AI 帮我写公众号，踩了无数坑后，做了一个全自动 Skill》。文章主要讲述了作者如何利用 AI 自动撰写公众号文章的经历，以及在此过程中遇到的种种挑战和解决方案。</p>
+<p>文章内容分为以下几个部分：</p>
+<ol>
+<li>
+<p><strong>引言</strong>：作者介绍了自己的背景，以及使用 AI 写公众号的初衷。</p>
+</li>
+<li>
+<p><strong>遇到的挑战</strong>：</p>
+</li>
+<li>微信编辑器对样式进行处理，导致粘贴的 HTML 样式丢失。</li>
+<li>微信的 HTML 语法与标准 HTML 有所不同，需要特别处理。</li>
+<li>微信文章必须有封面图，需要通过 API 上传图片并获取 media_id。</li>
+<li>工具链在关键时刻出现兼容性问题。</li>
+<li>
+<p>AI 操作过程中出现错误，导致草稿内容为空。</p>
+</li>
+<li>
+<p><strong>解决方案</strong>：</p>
+</li>
+<li>使用微信提供的 API 直接写入 HTML，绕过编辑器。</li>
+<li>遵循微信的 HTML 规则，使用 section 替代 div，用 table 模拟 flex，使用 inline style。</li>
+<li>通过 API 上传图片到微信 CDN，获取 media_id 并保存草稿。</li>
+<li>设计 fallback ladder 降级策略，确保流程的稳定性。</li>
+<li>使用 Pencil 设计模板进行排版和配图。</li>
+<li>
+<p>生成证据台账，明确信息来源和可信度。</p>
+</li>
+<li>
+<p><strong>Skill 的设计和实现</strong>：</p>
+</li>
+<li>使用 capability alias 解耦工具，方便更换和升级。</li>
+<li>设计 phase-based pipeline，实现端到端的公众号文章生产。</li>
+<li>
+<p>支持多种输入和输出格式。</p>
+</li>
+<li>
+<p><strong>致谢</strong>：作者感谢了翔宇、宝玉和 md2wechat 等人在此过程中的帮助和支持。</p>
+</li>
+<li>
+<p><strong>总结</strong>：作者表示，尽管 Skill 还不完美，但它已经从幻想变成了现实，每个坑都变成了检查点，每次失败都变成了 fallback ladder 的一级台阶。</p>
+</li>
+<li>
+<p><strong>展望</strong>：作者希望得到用户的反馈，并询问用户希望他开发什么样的 Skill。</p>
+</li>
+<li>
+<p><strong>结尾</strong>：作者邀请读者加入 AI 自动化分享群，分享 AI 使用心得和最新动态。</p>
+</li>
+</ol>
+<p>以上就是文章的主要内容。</p>
         </div>
     </article>
 
@@ -125,13 +197,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdlqTsqwNBx" class="article-nav-link prev">
+        <a href="recvdlqTsqwNBx.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">企业微信正式接入 OpenClaw｜手把手教程</span>
         </a>
         
         
-        <a href="/post/recvdi7pZhiX7C" class="article-nav-link next">
+        <a href="recvdi7pZhiX7C.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">告别飞书和QQ！OpenClaw接入微信才是天选组合！（保姆级教程）</span>
         </a>
@@ -141,7 +213,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

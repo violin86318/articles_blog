@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>用/做好 Agent Skill 的 3 个前提 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>用/做好 Agent Skill 的 3 个前提 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 4 分钟阅读</span>
+            
+            <span class="topic-chip">Agent</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">方法论</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">用/做好 Agent Skill 的 3 个前提</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 通过让AI基于明确目标行动方式、工具边界和知识边界三大前提自行生成技能，可显著提升其在开放式任务中的泛用性和可维护性。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>通过让AI基于明确目标行动方式、工具边界和知识边界三大前提自行生成技能，可显著提升其在开放式任务中的泛用性和可维护性。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>-- 核心前提： 成功构建 AI Agent Skill 需满足 3 个基础条件： 1. 明确目标的第一性行动方式 避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。 2. 厘清工具的边界 工具集决定执行上限，需严格界定可用工具及其局限性。 3. 掌握 AI 的知识边界 需识别 AI 的惰性知识盲区，及时补充关键事实说明。 工具风险： 当前主流工具（如 skill-creator）存在显著缺陷： 生成技能倾向于固定行动路径，类似“混乱代码”，难以维护； 用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。 优化方向： 将上述原则及工具框架输入 AI，使其自主生成技能，可提升泛用性与可维护性。 -- 关键数据引用： 原文指出 skill-creator 类工具的固化路径设计是导致 Agent 泛化性不足（原文称“泛用性不足”）和维护困难的主因，尤其对开放式任务影响显著。 未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。以下是针对《用/做好 Agent Skill 的 3 个前提》全文的核心提炼（约 180 字）： 核心前提： 成功构建 AI Agent Skill 需满足 3 个基础条件： 明确目标的第一性行动方式 避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。 厘清工具的边界 工具集决定执行上限，需严格界定可用工具及其局限性。 掌握 AI 的知识边界 需识别 AI 的惰性知识盲区，及时补充关键事实说明。 工具风险： 当前主流工具（如 skill-creator）存在显著缺陷： 生成技能倾向于固定行动路径，类似“混乱代码”，难以维护； 用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。 优化方向： 将上述原则及工具框架输入 AI，使其自主生成技能，可提升泛用性与可维护性。 关键数据引用： 原文指出 skill-creator 类工具的固化路径设计是导致 Agent 泛化性不足（原文称“泛用性不足”）和维护困难的主因，尤其对开放式任务影响显著。 未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/MTCJutT1yB65uQHi9xhmIA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,44 +137,22 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是针对《用/做好 Agent Skill 的 3 个前提》全文的核心提炼（约 180 字）：</p>
-<hr />
-<p><strong>核心前提：</strong><br />
-成功构建 AI Agent Skill 需满足 3 个基础条件：<br />
-1. <strong>明确目标的第一性行动方式</strong><br />
-   - 避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。<br />
-2. <strong>厘清工具的边界</strong><br />
-   - 工具集决定执行上限，需严格界定可用工具及其局限性。<br />
-3. <strong>掌握 AI 的知识边界</strong><br />
-   - 需识别 AI 的惰性知识盲区，及时补充关键事实说明。  </p>
-<p><strong>工具风险：</strong><br />
-当前主流工具（如 <code>skill-creator</code>）存在显著缺陷：<br />
-- 生成技能倾向于<strong>固定行动路径</strong>，类似“混乱代码”，难以维护；<br />
-- 用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。  </p>
-<p><strong>优化方向：</strong><br />
-将上述原则及工具框架输入 AI，使其自主生成技能，可提升<strong>泛用性与可维护性</strong>。</p>
-<hr />
-<p><strong>关键数据引用：</strong><br />
-- 原文指出 <code>skill-creator</code> 类工具的固化路径设计是导致 Agent <strong>泛化性不足</strong>（原文称“泛用性不足”）和<strong>维护困难</strong>的主因，尤其对开放式任务影响显著。<br />
-- 未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。以下是针对《用/做好 Agent Skill 的 3 个前提》全文的核心提炼（约 180 字）：</p>
-<p>核心前提：<br />
-成功构建 AI Agent Skill 需满足 3 个基础条件：</p>
-<p>明确目标的第一性行动方式</p>
-<p>避免将策略固化为具体路径，否则会限制 AI 的动态调整能力，导致泛化性不足和钻牛角尖。</p>
-<p>厘清工具的边界</p>
-<p>工具集决定执行上限，需严格界定可用工具及其局限性。</p>
-<p>掌握 AI 的知识边界</p>
-<p>需识别 AI 的惰性知识盲区，及时补充关键事实说明。</p>
-<p>工具风险：<br />
-当前主流工具（如 skill-creator）存在显著缺陷：</p>
-<p>生成技能倾向于固定行动路径，类似“混乱代码”，难以维护；<br />
-用于开放任务时会严重限制 AI 潜力，且修改时易陷入“打补丁”循环。</p>
-<p>优化方向：<br />
-将上述原则及工具框架输入 AI，使其自主生成技能，可提升泛用性与可维护性。</p>
-<p>关键数据引用：</p>
-<p>原文指出 skill-creator 类工具的固化路径设计是导致 Agent 泛化性不足（原文称“泛用性不足”）和维护困难的主因，尤其对开放式任务影响显著。<br />
-未提供具体实验数据，但通过类比“人类编写混乱代码”，强调设计缺陷对长期效能的负面影响。</p>
+            <p>文章标题为《用/做好 Agent Skill 的 3 个前提》，内容主要讨论了使用人工智能（AI）时需要遵循的三个基本前提：</p>
+<ol>
+<li>
+<p><strong>清楚完成目标的第一性行动方式</strong>：这一前提能为行动规划提供恰到好处的策略。然而，在实际操作中，人们很容易将策略写成具体的路径，这样做往往会限制模型的思考和根据反馈进行行动调整的能力，最终导致AI的泛用性不足，容易钻牛角尖。</p>
+</li>
+<li>
+<p><strong>清楚工具的边界</strong>：这一前提决定了最小工具集的搭配，并且工具也限定了AI执行的上限。这意味着在使用AI时，需要明确哪些工具是可用的，以及这些工具的局限性。</p>
+</li>
+<li>
+<p><strong>清楚 AI 的知识边界</strong>：这一前提要求了解AI的惰性知识，并补充缺漏的事实说明。AI的知识边界是指AI能够处理和生成的信息的范围，超出这个范围的信息AI可能无法处理。</p>
+</li>
+</ol>
+<p>文章还提到了使用skill-creator工具创建的技能可能会存在的问题，特别是当这些技能用于开放式任务时。由于skill-creator倾向于生成固定行动路径的技能，这些技能在修改时可能会更倾向于打补丁，类似于人类编写混乱的代码。如果将这些技能用于开放式任务，可能会极大限制AI的上限，并且难以维护和改进。</p>
+<p>最后，文章建议可以尝试将上述图示和skill-creator工具提供给AI，让AI根据这些信息生成技能，以提高AI的泛用性和可维护性。</p>
         </div>
     </article>
 
@@ -161,13 +160,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfX5Z1NwEbT" class="article-nav-link prev">
+        <a href="recvfX5Z1NwEbT.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</span>
         </a>
         
         
-        <a href="/post/recvfWcqufCx7r" class="article-nav-link next">
+        <a href="recvfWcqufCx7r.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板）</span>
         </a>
@@ -177,7 +176,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

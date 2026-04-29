@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Karpathy 精选 RSS 日报 | 2026-04-08 | 共 6 个核心主题 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Karpathy 精选 RSS 日报 | 2026-04-08 | 共 6 个核心主题 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">知识管理</span>
+            <span class="card-tag card-tag-primary">知识管理</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Karpathy</span>
+            
+            <span class="topic-chip">RSS</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="detail-reading-time">约 13 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Karpathy 精选 RSS 日报 | 2026-04-08 | 共 6 个核心主题</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 全球AI竞争已升级为包含安全攻防和深空协作的多维战场。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>全球AI竞争已升级为包含安全攻防和深空协作的多维战场。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>根据2026-04-08 AI日报摘要，核心聚焦AI安全、应用与技术升级： 安全攻防：OpenAI、Anthropic、Google罕见联手，通过Frontier Model Forum共享情报，抵御中国AI蒸馏攻击（如DeepSeek、Moonshot等），涉及1600万次欺诈性模型交互，以对抗模型窃取威胁。 太空突破：NASA毅力号火星车首次由AI（Anthropic Claude）规划行驶，成功穿越1500英尺（457米） 复杂地形，验证视觉语言模型在深空任务中的应用。 技术迭代：Claude Sonnet 4.6升级，支持100万token上下文窗口（Beta） 和30万token单次输出上限，增强长文本生成与数据处理能力，并集成Microsoft 365。 整体趋势显示AI竞争升级为地缘安全与能力边界扩展的多维战场。 （字数：148）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://github.com/violin86318/ai-daily-digest/blob/master/2026/04/2026-04-08/2026-04-08_daily_摘要.md&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,13 +137,73 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据2026-04-08 AI日报摘要，核心聚焦AI安全、应用与技术升级：<br />
-- <strong>安全攻防</strong>：OpenAI、Anthropic、Google罕见联手，通过Frontier Model Forum共享情报，抵御中国AI蒸馏攻击（如DeepSeek、Moonshot等），涉及<strong>1600万次欺诈性模型交互</strong>，以对抗模型窃取威胁。<br />
-- <strong>太空突破</strong>：NASA毅力号火星车首次由AI（Anthropic Claude）规划行驶，成功穿越<strong>1500英尺（457米）</strong> 复杂地形，验证视觉语言模型在深空任务中的应用。<br />
-- <strong>技术迭代</strong>：Claude Sonnet 4.6升级，支持<strong>100万token上下文窗口（Beta）</strong> 和<strong>30万token单次输出上限</strong>，增强长文本生成与数据处理能力，并集成Microsoft 365。<br />
-整体趋势显示AI竞争升级为地缘安全与能力边界扩展的多维战场。  </p>
-<p>（字数：148）</p>
+            <p>根据您提供的参考内容，以下是来自页面 <code>https://github.com/violin86318/ai-daily-digest/blob/master/2026/04/2026-04-08/2026-04-08_daily_摘要.md</code> 的全文内容摘要：</p>
+<hr />
+<p><strong>Karpathy 精选 RSS 日报 | 2026-04-08 | 共 6 个核心主题</strong></p>
+<p>🔥 <strong>核心主题：OpenAI、Anthropic、Google 罕见联手对抗中国 AI 蒸馏攻击</strong><br />
+科技巨头放下成见，共同抵御模型窃取威胁。三家美国顶级 AI 公司——OpenAI、Anthropic 和 Google——正通过 Frontier Model Forum 共享攻击情报，联合对抗来自中国的“对抗性蒸馏”攻击。据 Bloomberg 报道，这些攻击主要来自 DeepSeek、Moonshot 和 MiniMax 等中国实验室，他们通过数百万次自动化提示，在没有原始训练投入的情况下克隆美国前沿模型的核心能力和安全研究成果。</p>
+<p><strong>关键要点：</strong><br />
+- 中国实验室生成了高达 1600 万次欺诈性模型交互<br />
+- 攻击者使用自动化提示提取模型核心行为模式<br />
+- 三家公司首次在模型安全层面达成深度合作<br />
+- 该合作反映了美国 AI 产业面对地缘竞争的统一战线</p>
+<p><strong>来源：Bloomberg | Times of India</strong></p>
+<p>🛡️ <strong>安全警报：AI 技术正成为国家级网络攻击的新武器</strong><br />
+纽约时报深度报道：AI 正在重塑网络战格局。据《纽约时报》4月6日报道，Anthropic、OpenAI、Google 等公司的 AI 技术可能被黑客用于比以往更快地发现计算机系统安全漏洞。更令人担忧的是，已有证据显示国家级黑客组织正在利用这些前沿 AI 技术进行网络渗透。这标志着网络攻防战争进入了一个全新的、更具破坏性的阶段。</p>
+<p><strong>关键要点：</strong><br />
+- AI 可大幅加速安全漏洞识别过程<br />
+- 国家支持的黑客组织已开始使用 AI 工具<br />
+- 网络安全攻防的“赌注”被大幅提高<br />
+- 需要新的防御策略来应对 AI 增强的攻击</p>
+<p><strong>来源：The New York Times</strong></p>
+<p>🔬 <strong>太空突破：NASA 毅力号完成首次 AI 规划火星行驶</strong><br />
+Claude 视觉语言模型助力火星探测任务。NASA 喷气推进实验室（JPL）宣布，毅力号火星车完成了历史上首次由 AI 规划的行驶任务。该项目与 Anthropic 合作，使用 Claude 视觉语言模型分析轨道图像和地形数据，自主生成安全航点。Claude 使用 Rover Markup Language（NASA 专有的 XML 编程语言）编写命令，成功操控火星车穿越约 1500 英尺（457米）的复杂火星地形。</p>
+<p><strong>关键要点：</strong><br />
+- 首次将生成式 AI 用于深空探测任务规划<br />
+- Claude 分析人类规划师使用的相同图像和数据<br />
+- AI 生成并自我审查航点，确保安全<br />
+- 验证了视觉语言模型在极端环境中的应用潜力</p>
+<p><strong>来源：NASA JPL | NASA</strong></p>
+<p>🛠️ <strong>产品发布：Claude Sonnet 4.6 全面升级，Microsoft 365 集成在即</strong><br />
+Anthropic 持续高速迭代，模型能力大幅提升。Anthropic 于 2 月发布 Claude Sonnet 4.6，在编码、计算机使用、设计、知识工作任务和数据处理等方面进行了全面升级。该模型现已成为免费和 Pro 用户的默认模型，并提供 100 万 token 的上下文窗口（Beta）。此外，Microsoft 宣布将把最新的 Claude Sonnet 模型引入 Microsoft 365 Copilot，进一步扩大了 Claude 的企业应用范围。</p>
+<p><strong>关键要点：</strong><br />
+- 编码、计算机使用、设计和知识工作能力全面增强<br />
+- 100 万 token 超长上下文窗口（Beta）<br />
+- Message Batches API 的 max_tokens 上限提升至 30 万<br />
+- Microsoft 365 Copilot 将集成 Claude Sonnet</p>
+<p><strong>来源：CNBC | Claude Help Center | Wikipedia</strong></p>
+<p>💼 <strong>企业动态：Anthropic 300K Token 输出能力正式开放</strong><br />
+长文本生成任务迎来突破。Anthropic 宣布提升 Claude Opus 4.6 和 Sonnet 4.6 的 Message Batches API max_tokens 上限至 30 万，为长文本内容生成、结构化数据处理和大型代码生成任务提供了更强大的支持。开发者可通过添加 output-300k-2026-03-24 Beta 标头使用这一功能。这一更新使 Claude 在长文档生成和复杂数据处理场景中的竞争力显著提升。</p>
+<p><strong>关键要点：</strong><br />
+- 单次输出上限从数万提升至 30 万 token<br />
+- 适用于长格式内容、结构化数据和大型代码生成<br />
+- 通过 API Beta 标头启用<br />
+- 已在美国东部区域（us-east-1）上线</p>
+<p><strong>来源：Claude Platform Docs</strong></p>
+<p>📊 <strong>今日数据</strong><br />
+- 6 个核心主题深度解析<br />
+- 3 家科技巨头罕见合作<br />
+- 1600 万 次检测到的不法模型交互<br />
+- 1500 英尺 AI 规划的火星行驶距离<br />
+- 30 万 token 单次输出上限<br />
+- 100 万 token 上下文窗口支持</p>
+<p>💡 <strong>编者观察</strong><br />
+今天的 AI 日报揭示了一个关键转折：全球 AI 竞争已从单纯的技术竞赛升级为包含安全攻防、地缘博弈的多维战场。一方面，OpenAI、Anthropic、Google 三家美国顶级 AI 公司的联手，标志着产业界意识到模型蒸馏攻击对国家 AI 竞争力的威胁程度已超越商业竞争。1600 万次欺诈性交互的数据表明，这不仅是技术问题，更是系统性、组织化的能力提取行动。另一方面，NASA 与 Anthropic 的火星合作展示了 AI 的另一种可能——跨越 2.25 亿公里的深空协作。当 Claude 用 Rover Markup Language 编写命令操控火星车时，我们看到的是 AI 从“聊天工具”向“任务执行者”的质变。这两个看似矛盾的趋势其实指向同一个未来：AI 能力的边界正在快速扩展，而围绕这些能力的竞争与保护也将成为常态。</p>
+<p>🎨 <strong>图像提示词</strong><br />
+A sophisticated vertical infographic card (3:4 ratio) designed in a cyberpunk laboratory manual aesthetic with dark navy blue background and neon cyan accents with warning red highlights. The card contains 6 modular sections arranged vertically:<br />
+1. Header: “AI Daily Digest - April 8, 2026” in glowing cyan typography with circuit board patterns<br />
+2. Top Story Module: Visual metaphor of three corporate logos (OpenAI, Anthropic, Google) forming a shield against shadowy Chinese AI lab silhouettes, with “16M attacks blocked” statistic<br />
+3. Security Alert Module: A hacker figure made of code being scanned by AI vision systems, with warning red hazard stripes<br />
+4. Space Tech Module: Mars rover Perseverance being guided by Claude AI represented as an orb with orbital imagery and waypoints visualization<br />
+5. Product Update Module: Claude Sonnet 4.6 upgrade visualization with “300K tokens” and “1M context” badges in glowing text<br />
+6. Data Footer: Key statistics displayed as holographic data panels showing numbers floating in 3D space</p>
+<p><strong>Style:</strong><br />
+- Ultra-clean information design, tech magazine layout, holographic UI elements, data visualization aesthetic, futuristic but professional.<br />
+- High contrast, neon glow effects, subtle grid patterns, precision technical diagram style.</p>
+<p><strong>本日报由 AI 自动生成 | 数据来源：Web Search | 生成时间：2026-04-08 09:10 CST</strong></p>
+<hr />
         </div>
     </article>
 
@@ -130,13 +211,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvgiJsjrFrpi" class="article-nav-link prev">
+        <a href="recvgiJsjrFrpi.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">ListenHub CLI 发布并开源，AI 音乐首次支持</span>
         </a>
         
         
-        <a href="/post/recvg8OwQVR2jQ" class="article-nav-link next">
+        <a href="recvg8OwQVR2jQ.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">每天一个好用skill分享-用html做精美ppt</span>
         </a>
@@ -146,7 +227,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

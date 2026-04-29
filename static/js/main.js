@@ -35,10 +35,10 @@
     }
 
     function updateThemeButtons(theme) {
-        const icon = theme === 'dark' ? '☀️' : '🌙';
+        const icon = theme === 'dark' ? '☼' : '◐';
         const label = theme === 'dark' ? '浅色模式' : '深色模式';
         if (themeToggle) themeToggle.textContent = icon;
-        if (mobileThemeToggle) mobileThemeToggle.textContent = `${icon} ${label}`;
+        if (mobileThemeToggle) mobileThemeToggle.textContent = label;
     }
 
     function toggleTheme() {
@@ -72,12 +72,14 @@
         document.body.classList.add('menu-open');
         mobileOverlay.classList.add('show');
         mobileSidebar.classList.add('show');
+        mobileSidebar.setAttribute('aria-hidden', 'false');
     }
 
     function closeMenu() {
         document.body.classList.remove('menu-open');
         mobileOverlay.classList.remove('show');
         mobileSidebar.classList.remove('show');
+        mobileSidebar.setAttribute('aria-hidden', 'true');
     }
 
     if (menuToggle) menuToggle.addEventListener('click', openMenu);
@@ -126,9 +128,12 @@
         }
 
         const results = window.__ARTICLES__.filter(a =>
-            a.title.toLowerCase().includes(q) ||
-            a.quote.toLowerCase().includes(q) ||
-            a.preview.toLowerCase().includes(q)
+            (a.title || '').toLowerCase().includes(q) ||
+            (a.quote || '').toLowerCase().includes(q) ||
+            (a.summary || '').toLowerCase().includes(q) ||
+            (a.preview || '').toLowerCase().includes(q) ||
+            (a.categories || []).join(' ').toLowerCase().includes(q) ||
+            (a.tags || []).join(' ').toLowerCase().includes(q)
         );
 
         if (results.length === 0) {
@@ -137,8 +142,9 @@
         }
 
         searchResults.innerHTML = results.map(a => `
-            <a href="/post/${a.id}" target="_blank" class="search-result-item">
+            <a href="${a.url}" target="_blank" rel="noopener" class="search-result-item">
                 <div class="search-result-title">${highlightMatch(a.title, q)}</div>
+                <div class="search-result-tags">${escapeHtml([...(a.categories || []), ...(a.tags || [])].slice(0, 5).join(' · '))}</div>
                 <div class="search-result-preview">${highlightMatch(a.preview, q)}</div>
             </a>
         `).join('');
@@ -148,7 +154,7 @@
         if (!query) return escapeHtml(text);
         const escaped = escapeHtml(text);
         const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
-        return escaped.replace(regex, '<mark style="background:rgba(230,0,18,0.15);color:var(--red);border-radius:2px;padding:0 2px;">$1</mark>');
+        return escaped.replace(regex, '<mark>$1</mark>');
     }
 
     function escapeHtml(str) {
@@ -192,31 +198,54 @@
     // ============================================
     // Category Filter
     // ============================================
-    const filterTags = document.getElementById('filterTags');
+    const categoryFilters = document.getElementById('categoryFilters');
+    const tagFilters = document.getElementById('tagFilters');
+    const filterCount = document.getElementById('filterCount');
     const articleList = document.getElementById('articleList');
+    const activeFilters = {
+        category: 'all',
+        tag: 'all'
+    };
 
-    if (filterTags && articleList) {
-        filterTags.addEventListener('click', (e) => {
+    function initFilterGroup(container) {
+        if (!container || !articleList) return;
+        container.addEventListener('click', (e) => {
             const btn = e.target.closest('.filter-tag');
             if (!btn) return;
 
-            // Update active state
-            filterTags.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            container.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
             btn.classList.add('active');
-
-            const category = btn.dataset.category;
-            const cards = articleList.querySelectorAll('.article-card');
-
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = '';
-                } else {
-                    const cats = (card.dataset.categories || '').split(',');
-                    card.style.display = cats.includes(category) ? '' : 'none';
-                }
-            });
+            activeFilters[btn.dataset.filterType] = btn.dataset.filterValue;
+            applyArticleFilters();
         });
     }
+
+    function applyArticleFilters() {
+        if (!articleList) return;
+        const cards = articleList.querySelectorAll('.article-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const categories = splitDataList(card.dataset.categories);
+            const tags = splitDataList(card.dataset.tags);
+            const categoryMatched = activeFilters.category === 'all' || categories.includes(activeFilters.category);
+            const tagMatched = activeFilters.tag === 'all' || tags.includes(activeFilters.tag);
+            const visible = categoryMatched && tagMatched;
+            card.style.display = visible ? '' : 'none';
+            if (visible) visibleCount += 1;
+        });
+
+        if (filterCount) {
+            filterCount.textContent = `${visibleCount} 篇`;
+        }
+    }
+
+    function splitDataList(value) {
+        return (value || '').split(',').map(item => item.trim()).filter(Boolean);
+    }
+
+    initFilterGroup(categoryFilters);
+    initFilterGroup(tagFilters);
 
     // ============================================
     // Card Entrance Animations
@@ -291,7 +320,7 @@
             const url = window.location.href;
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(url).then(() => {
-                    showToast('🔗 链接已复制到剪贴板');
+                    showToast('链接已复制到剪贴板');
                 }).catch(() => {
                     fallbackCopy(url);
                 });
@@ -310,7 +339,7 @@
         textarea.select();
         try {
             document.execCommand('copy');
-            showToast('🔗 链接已复制到剪贴板');
+            showToast('链接已复制到剪贴板');
         } catch {
             showToast('复制失败，请手动复制链接');
         }

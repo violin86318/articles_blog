@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">信息卡</span>
+            
+            <span class="topic-chip">公众号封面</span>
+            
+            <span class="topic-chip">AI 绘画</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 作者汇总分享了适用于不同AI模型的信息卡和公众号封面多种设计风格提示词合集，包括创新&#34;琉光手稿&#34;风格，已有用户成功复刻。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>作者汇总分享了适用于不同AI模型的信息卡和公众号封面多种设计风格提示词合集，包括创新&#34;琉光手稿&#34;风格，已有用户成功复刻。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心目标 作者邵猛通过分享AI提示词技巧，帮助用户快速生成专业级信息卡/公众号封面，实现&#34;一图看懂内容&#34;的传播效果。 核心方法 1. 六大设计风格 提供Bento Grid、卡片、杂志、PPT、视差、互动故事6种布局的精准提示词模板 支持任意尺寸适配，适配不同AI模型（如Midjourney/DALL·E） 2. 创新风格&#34;琉光手稿&#34; 融合印刷品质感与玻璃拟态特效，打造高辨识度封面设计 3. 可定制提示词 提供参数调整方法论（如主题/色彩/元素替换技巧） 验证成果 • 多用户成功复刻案例佐证有效性 • 强调&#34;信息优先&#34;原则：用视觉层次突出核心内容 行动呼吁 邀请读者共享设计风格及优质提示词，共建AI设计生态。全文突出实用性与创新性，提供即用型解决方案。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/ogK7gAK19tO076fUb6opdg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,23 +139,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是《[最新版提示词合集]》核心内容提炼（198字）：</p>
-<p><strong>核心目标</strong><br />
-作者邵猛通过分享AI提示词技巧，帮助用户快速生成专业级信息卡/公众号封面，实现"一图看懂内容"的传播效果。</p>
-<p><strong>核心方法</strong><br />
-1. <strong>六大设计风格</strong><br />
-   - 提供Bento Grid、卡片、杂志、PPT、视差、互动故事6种布局的精准提示词模板<br />
-   - 支持任意尺寸适配，适配不同AI模型（如Midjourney/DALL·E）<br />
-2. <strong>创新风格"琉光手稿"</strong><br />
-   融合印刷品质感与玻璃拟态特效，打造高辨识度封面设计<br />
-3. <strong>可定制提示词</strong><br />
-   提供参数调整方法论（如主题/色彩/元素替换技巧）</p>
-<p><strong>验证成果</strong><br />
-• 多用户成功复刻案例佐证有效性<br />
-• 强调"信息优先"原则：用视觉层次突出核心内容  </p>
-<p><strong>行动呼吁</strong><br />
-邀请读者共享设计风格及优质提示词，共建AI设计生态。全文突出实用性与创新性，提供即用型解决方案。</p>
+            <p>文章标题为《[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！》，作者为邵猛。</p>
+<p>文章内容主要围绕如何利用AI模型生成信息卡和公众号封面展开。作者首先介绍了自己分享AI相关内容的原因，希望通过分享来学习AI领域的最新知识。为了让大家更方便地了解分享的内容，作者决定制作信息卡，通过图片展示内容的核心内容，让大家能够快速判断是否感兴趣。</p>
+<p>作者介绍了制作信息卡的几种设计风格，包括Bento Grid、卡片、杂志、PPT、视差和互动故事布局。作者分享了每种风格对应的提示词，并说明了如何使用这些提示词生成相应的网页布局。作者还介绍了如何根据不同的需求调整提示词，以达到满意的效果。</p>
+<p>此外，作者还分享了自己对信息卡和公众号封面设计的思考。作者认为，信息卡和公众号封面应该简洁明了，突出核心信息。作者介绍了自己设计的“琉光手稿”风格，这种风格融合了印刷品的秩序感与高级玻璃拟态的未来感，非常适合作为封面或摘要。</p>
+<p>最后，作者呼吁大家分享自己喜欢的设计风格和好的提示词，共同推动AI设计的发展。</p>
         </div>
     </article>
 
@@ -140,13 +153,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfWcqufCx7r" class="article-nav-link prev">
+        <a href="recvfWcqufCx7r.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板）</span>
         </a>
         
         
-        <a href="/post/recvfUB0nPy91Z" class="article-nav-link next">
+        <a href="recvfUB0nPy91Z.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">一人公司 (OPC) 创业必备的 9 个 Agent Skills</span>
         </a>
@@ -156,7 +169,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Medeo 接入 OpenClaw生态，办公创作从此躺平~ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Medeo 接入 OpenClaw生态，办公创作从此躺平~ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">自动化工作流</span>
+            <span class="card-tag card-tag-primary">自动化工作流</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">办公自动化</span>
+            
+            <span class="topic-chip">内容创作</span>
+            
+            <span class="detail-reading-time">约 8 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Medeo 接入 OpenClaw生态，办公创作从此躺平~</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Medeo接入OpenClaw生态，用户可在飞书聊天中直接生成视频，实现一站式办公创作。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Medeo接入OpenClaw生态，用户可在飞书聊天中直接生成视频，实现一站式办公创作。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>好的，这是对文章核心的提炼（198字）： 核心提炼： Medeo 视频创作工具正式接入 OpenClaw 生态，用户现可直接在飞书内调用 Medeo 一键生成视频，无需切换平台，大幅提升办公创作效率。 接入教程极简，仅需3步、10分钟：安装技能、获取 API Key、测试使用。接入后，通过自然语言对话即可指令 OpenClaw 调用 Medeo 制作视频。 实测效率提升显著： 热点视频制作： 从接入前的至少30分钟缩短至接入后的10分钟出初稿。 教育动画、动漫创作等场景也因流程整合，效率倍增。 限时福利： 仅需6美元（原价28美元）即可开通 Medeo Pro 会员，享所有AI视频模型、去水印、700积分、200G存储等权益。 此举旨在打破工具壁垒，让用户在日常办公中聚焦创意，省时省力。立即接入，体验飞书内直出视频的便捷！</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/hR0cgKs2pDhghQamJNhpZQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,16 +137,49 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>好的，这是对文章核心的提炼（198字）：</p>
-<p><strong>核心提炼：</strong></p>
-<p>Medeo 视频创作工具正式接入 OpenClaw 生态，<strong>用户现可直接在飞书内调用 Medeo 一键生成视频</strong>，无需切换平台，大幅提升办公创作效率。</p>
-<p>接入教程极简，<strong>仅需3步、10分钟</strong>：安装技能、获取 API Key、测试使用。接入后，通过自然语言对话即可指令 OpenClaw 调用 Medeo 制作视频。</p>
-<p><strong>实测效率提升显著：</strong><br />
-*   <strong>热点视频制作：</strong> 从接入前的至少30分钟缩短至接入后的<strong>10分钟</strong>出初稿。<br />
-*   教育动画、动漫创作等场景也因流程整合，效率倍增。</p>
-<p><strong>限时福利：</strong> <strong>仅需6美元</strong>（原价28美元）即可开通 Medeo Pro 会员，享所有AI视频模型、去水印、700积分、200G存储等权益。</p>
-<p>此举旨在打破工具壁垒，让用户在日常办公中<strong>聚焦创意，省时省力</strong>。立即接入，体验飞书内直出视频的便捷！</p>
+            <p>文章标题：Medeo 接入 OpenClaw生态，办公创作从此躺平~</p>
+<p>文章简介：Medeo 正式接入 OpenClaw 生态啦！Medeo 本就可以一键直出视频，现在直接在飞书里也能调用 Medeo 啦。赶热点、看飞书文档、日常处理工作，再加直接在飞书里生成视频，简直妙哇。手把手教大家在 Medeo 接入 OpenClaw，新手也能秒上手，建议收藏备用！</p>
+<p>文章内容：</p>
+<p>各位老铁鹅们，今天必须同步一个超实用重磅更新 —— Medeo 正式接入 OpenClaw 生态啦！Medeo 本就可以一键直出视频，现在直接在飞书里也能调用 Medeo 啦。赶热点、看飞书文档、日常处理工作，再加直接在飞书里生成视频，简直妙哇。话不多说，现在手把手教大家在 Medeo 接入 OpenClaw，新手也能秒上手，建议收藏备用！</p>
+<p>Medeo 接入 OpenClaw 官方实操教程全程就3步，10分钟就能搞定，每一步都给大家标清楚了，还配了截图指引，跟着做，不用担心踩坑！</p>
+<p>操作前提是飞书已经安装了 OpenClaw 生态。</p>
+<p>第一步｜安装 Medeo 技能并获取 API 密钥</p>
+<p>将以下内容输入给 OpenClaw 机器人，它会进行自动配置安装。请安装 medeo-video 技能，GitHub 地址：https://github.com/one2x-ai/medeo-video-skill</p>
+<p>安装完成后，你的 OpenClaw 机器人将引导你注册 Medeo 平台并获取 API 密钥（以 mk_开头）。</p>
+<p>配置完成后，只需说出“帮我生成一个 XX 视频”即可使用。</p>
+<p>相关链接：</p>
+<p>GitHub地址：https://github.com/one2x-ai/medeo-video-skill</p>
+<p>Medeo 平台：https://medeo.app</p>
+<p>OpenClaw 注册：https://openclaw.ai</p>
+<p>安装完成后，它会提醒你获取 API Key。点击链接 https://medeo.app/dev/apikey ，即进入获取 API Key 界面。</p>
+<p>第二步｜在 Medeo 平台创建并获取 API 密钥</p>
+<p>点击第一步中的 apikey 链接，进入到 API Key 界面。接下来，点击“Create API Key”按钮，启动 API 密钥创建流程。输入自定义密钥名称后，点击“Create”完成创建。生成 API 密钥后，点击复制按钮保存。</p>
+<p>第三步：测试使用（快速上手，2分钟搞定）</p>
+<p>将复制保存的 API Key 发送给 OpenClaw 机器人，它会帮你自动配置。配置成功后，我们只需要和 OpenClaw 机器人进行对话就能开始创作，无需切换工具、学习复杂操作，用大白话对话就能调用 Medeo 生成视频，全流程在办公场景内一站式完成！</p>
+<p>🔥OpenClaw 接入后，效率真的翻几倍！</p>
+<p>很多伙伴可能会问，接入 Openclaw 到底能省多少事？结合大家日常使用 Medeo 的高频场景，我们做了实测，接入前 vs 接入后，差异真的太明显。</p>
+<p>场景 1 热点视频紧急产出</p>
+<p>接入前：热点时效性极强，运营伙伴们常常遇到这样的情况——突发行业热点，领导在飞书发需求，你得到 Medeo 网页端制作，一套操作下来至少30分钟，等出片，热点流量早就凉了。🥹</p>
+<p>接入后：完全不用跨平台折腾！把需求、素材直接扔给@OpenClaw，发一句指令帮我寻找 TikTok 现在最火的热点视频，并利用 Medeo 进行制作视频10 分钟就能出初稿。</p>
+<p>场景 2 教育知识点动画视频制作</p>
+<p>接入前：老师制作知识点动画时，需手动将课件内容转化为视频提示词、调整风格，流程割裂繁琐，挤占大量备课时间，影响教学准备效率。</p>
+<p>接入后：飞书内直接发送课件 + 简单指令，比如把勾股定理数学公式知识点，做成 15秒卡通动画讲解，语速稍慢，贴合初中生认知@OpenClaw 会自动调用 Medeo 完成动画生成。</p>
+<p>场景 3 AI 动漫创作</p>
+<p>接入前：制作短动漫时，需要在脚本文档、素材文件和 Medeo 之间来回切换，反复复制指令、上传素材、同步修改，流程碎片化，来回操作耗时长，打断创作思路。</p>
+<p>接入后：直接在飞书打包发送素材，下达生成指令“帮我套用一个国内抖音上最火的剧本，生成 15s 动漫片段”@OpenClaw 一键调用 Medeo 创作，全程不切换平台，创作更连贯、效率更高。</p>
+<p>🎁 Medeo 限时福利｜6元解锁高效创作特权</p>
+<p>为了让大家更好地体验 “Medeo + OpenClaw” 的高效创作模式，我们特意准备了限时福利👇</p>
+<p>💴$6 美元即可获得价值 28$ Pro会员</p>
+<p>💳现已开通【银联】支付充值会员功能</p>
+<p>💡充值 Pro 会员可享受 Medeo 上线的所有 AI 生成视频大模型、去水印、700积分、200G储存等福利~</p>
+<p>写在最后</p>
+<p>一直以来，Medeo 都在努力让视频创作更简单、更高效！！这次接入 OpenClaw 生态，就是希望打破工具壁垒，让大家在日常办公场景中，不用来回切换，就能轻松调用 Medeo，省出更多时间和精力，聚焦创意本身。</p>
+<p>现在就跟着教程，完成 Medeo 与 OpenClaw 的接入，体验飞书聊天框直接生成视频的便捷吧～如果接入过程中遇到任何问题，欢迎在评论区留言，我们会第一时间为大家解答～</p>
+<p>扫码进入社群平台搜索关注 了解更多信息</p>
+<p>抖音 | @Medeo视频号 | @Medeo.AI哔哩哔哩 | @MedeoAI小红书 | @Medeo·一生智能</p>
+<p>点击阅读原文直达 Medeo 官网：https://www.medeo.app/</p>
         </div>
     </article>
 
@@ -133,13 +187,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdCUJfyupOg" class="article-nav-link prev">
+        <a href="recvdCUJfyupOg.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Openclaw与CC的握手，效率翻倍</span>
         </a>
         
         
-        <a href="/post/recvdqzD1t2Stx" class="article-nav-link next">
+        <a href="recvdqzD1t2Stx.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">百万字长篇，如何用AI拆书？</span>
         </a>
@@ -149,7 +203,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

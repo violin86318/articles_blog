@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">编程开发</span>
+            <span class="card-tag card-tag-primary">编程开发</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">GitHub Copilot</span>
+            
+            <span class="topic-chip">编程开发</span>
+            
+            <span class="topic-chip">效率工具</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Coxy通过本地代理将GitHub Copilot协议翻译为OpenAI兼容API，解锁其全部潜力并支持多账号管理。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Coxy通过本地代理将GitHub Copilot协议翻译为OpenAI兼容API，解锁其全部潜力并支持多账号管理。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心工具：Coxy本地代理 功能：将GitHub Copilot私有协议转为标准OpenAI API（localhost:3000/api），兼容Open WebUI等第三方工具。 部署：一行Docker命令启动（docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest），免Node.js依赖。 机制：复用Copilot官方语言服务器包（@github/copilot-language-server），外部封装API接口。 关键特性： 1. 多模型支持：直接调用gpt-4.1、gpt-4o及需手动开启的GPT-5 mini模型； 2. 多账号管理：支持绑定多个GitHub账号独立使用免费额度，数据本地SQLite存储（Docker需挂载防丢失）； 3. 免鉴权简化：设置默认token后无需Authorization头。 延伸工具：Copilot CLI提供命令行代码编写/部署能力。两者结合可最大化释放Copilot潜力，尤其适合多账号用户避免额度浪费。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/oSF2PTHR6UahrN7MYJSJDQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,17 +137,15 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心提炼（198字）：</p>
-<p><strong>核心工具：Coxy本地代理</strong><br />
-- <strong>功能</strong>：将GitHub Copilot私有协议转为标准OpenAI API（<code>localhost:3000/api</code>），兼容Open WebUI等第三方工具。<br />
-- <strong>部署</strong>：一行Docker命令启动（<code>docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest</code>），免Node.js依赖。<br />
-- <strong>机制</strong>：复用Copilot官方语言服务器包（<code>@github/copilot-language-server</code>），外部封装API接口。<br />
-- <strong>关键特性</strong>：<br />
-  1. <strong>多模型支持</strong>：直接调用<code>gpt-4.1</code>、<code>gpt-4o</code>及需手动开启的<code>GPT-5 mini</code>模型；<br />
-  2. <strong>多账号管理</strong>：支持绑定多个GitHub账号独立使用免费额度，数据本地SQLite存储（Docker需挂载防丢失）；<br />
-  3. <strong>免鉴权简化</strong>：设置默认token后无需Authorization头。</p>
-<p><strong>延伸工具</strong>：Copilot CLI提供命令行代码编写/部署能力。两者结合可最大化释放Copilot潜力，尤其适合多账号用户避免额度浪费。</p>
+            <p>文章标题为《量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力》，作者为字节笔记本。文章主要介绍了如何使用Coxy这个本地代理服务来解锁GitHub Copilot的全部潜力。</p>
+<p>Coxy是一个本地代理服务，它将GitHub Copilot的请求协议翻译成标准的OpenAI兼容API。使用Coxy后，你本地会多出一个http://localhost:3000/api的接口，任何支持OpenAI API的工具都可以接进来，包括Open WebUI、LLM CLI，或者你自己写的脚本。</p>
+<p>使用Coxy的步骤很简单。如果你不想安装Node.js，可以使用一行Docker命令搞定：docker run -p 3000:3000 ghcr.io/coxy-proxy/coxy:latest。然后，在浏览器中打开localhost:3000，使用GitHub账号登录，生成一个token，并将其设置为默认。之后，所有请求都不需要带Authorization头，直接发送即可。</p>
+<p>Coxy背后的机制很有意思。GitHub Copilot的VS Code插件通过@github/copilot-language-server这个包与GitHub服务器通信。Coxy使用的是同一个包，相当于在VS Code之外启动了一个相同的语言服务器，然后在外面包了一层OpenAI兼容的接口。目前支持的模型包括gpt-4.1、gpt-4o，以及GPT-5 mini（需要在GitHub账号设置里手动开启）。</p>
+<p>如果你有多个GitHub账号，每个账号都有独立的免费额度，Coxy支持多token管理，可以手动切换。这对于有多账号习惯的人来说非常实用，不然那些额度就真的是纯浪费。数据存储在本地SQLite中，如果你使用Docker挂载，记得把db文件mount出来，否则重启后数据会丢失。</p>
+<p>此外，文章还介绍了Copilot CLI的使用。Copilot CLI是Copilot早自己的CLI工具，安装非常简单。安装完成后，你可以使用它来进行代码编写、部署和运维等工作。</p>
+<p>总的来说，Coxy和Copilot CLI都是非常实用的工具，可以帮助你更好地使用GitHub Copilot，解锁其全部潜力。如果你已经在GitHub上工作，值得尝试一下这两个工具。</p>
         </div>
     </article>
 
@@ -134,13 +153,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg2c5AgNlHR" class="article-nav-link prev">
+        <a href="recvg2c5AgNlHR.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">不写代码，用 AI 上线你的作品集——飞书 + GitHub + 自动刷新完整教程</span>
         </a>
         
         
-        <a href="/post/recvfX5Z1NwEbT" class="article-nav-link next">
+        <a href="recvfX5Z1NwEbT.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</span>
         </a>
@@ -150,7 +169,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

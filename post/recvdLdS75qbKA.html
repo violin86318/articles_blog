@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>ListenHub ASR 语音识别 API 全新上线，无限免费 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>ListenHub ASR 语音识别 API 全新上线，无限免费 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">ListenHub</span>
+            
+            <span class="topic-chip">语音识别</span>
+            
+            <span class="topic-chip">API</span>
+            
+            <span class="topic-chip">工具推荐</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">ListenHub ASR 语音识别 API 全新上线，无限免费</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ ListenHub ASR 语音识别 API 无限免费上线，专为 Agent 设计支持本地离线转录和多语言识别。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>ListenHub ASR 语音识别 API 无限免费上线，专为 Agent 设计支持本地离线转录和多语言识别。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>198字）： ListenHub ASR 语音识别 API 全新上线，无限免费！核心亮点：本地离线转录，无需 API Key，安装即用；专为 Agent 设计，无缝集成 Claude Code 和龙虾🦞自动化工作流。采用双模型方案：默认 sensevoice 支持中英日韩粤等多语言识别（数据：覆盖5+语言），轻量级 whisper-tiny.en 适配纯英文场景。配合 ffmpeg 扩展音频格式支持，转录后可直接衔接 Podcast、Explainer 等内容工作流，让音频真正可复用。此外，ListenHub API 现已提供六种能力：播客、TTS、解说视频、AI 图片生成、ASR 和内容解析，全部为 Agent 优化。免费安装使用，地址：https://listenhub.ai/docs/zh。遇到问题？入群讨论！让你的 Agent 耳聪目明，高效升级！</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/zj5VR4PQzdon4yebkSpJZA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,9 +139,40 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是留言（字数：198字）：</p>
-<p>ListenHub ASR 语音识别 API 全新上线，无限免费！核心亮点：本地离线转录，无需 API Key，安装即用；专为 Agent 设计，无缝集成 Claude Code 和龙虾🦞自动化工作流。采用双模型方案：默认 sensevoice 支持中英日韩粤等多语言识别（数据：覆盖5+语言），轻量级 whisper-tiny.en 适配纯英文场景。配合 ffmpeg 扩展音频格式支持，转录后可直接衔接 Podcast、Explainer 等内容工作流，让音频真正可复用。此外，ListenHub API 现已提供六种能力：播客、TTS、解说视频、AI 图片生成、ASR 和内容解析，全部为 Agent 优化。免费安装使用，地址：https://listenhub.ai/docs/zh。遇到问题？入群讨论！让你的 Agent 耳聪目明，高效升级！</p>
+            <p>文章标题：ListenHub ASR 语音识别 API 全新上线，无限免费</p>
+<p>文章内容：</p>
+<p>ListenHub ASR 语音识别 API 全新上线，无限免费。</p>
+<p>原创 AGENT橘 AGENT橘<br />
+2026年3月13日 09:27 北京</p>
+<p>ListenHub ASR 语音识别 API 全新上线，无限免费。</p>
+<p>API 特点：</p>
+<ul>
+<li>本地离线转录，无需 API Key，安装即可使用。</li>
+<li>专为 Agent 设计，方便你的 Claude Code 和龙虾🦞直接接入自动化工作流。</li>
+<li>我们采用双模型方案：默认 sensevoice 支持中英日韩粤等多语言识别，也提供轻量的 whisper-tiny.en 适配纯英文场景。</li>
+<li>配合 ffmpeg 还能支持更多音频格式。</li>
+<li>转录之后，还能无缝衔接 Podcast、Explainer 等内容工作流，把音频真正变成可复用内容。</li>
+</ul>
+<p>免费安装，免费使用，让你的 Agent 耳聪目明！</p>
+<p>安装地址： https://listenhub.ai/docs/zh</p>
+<p>此外 ListenHub 的 API 现已支持六种能力，特别为 Agent 优化，六种能力分别是：</p>
+<ul>
+<li>播客</li>
+<li>TTS 文本转语音</li>
+<li>解说视频</li>
+<li>AI 图片生成</li>
+<li>ASR 语音识别</li>
+<li>内容解析</li>
+</ul>
+<p>ListenHub 会员可直接接入你的 Agent 进行使用，随意畅玩。</p>
+<p>如果在使用 ListenHub API 和 Skills 的过程中遇到任何问题，欢迎入群讨论</p>
+<p>AGENT橘</p>
+<p>赞</p>
+<p>分享</p>
+<p>推荐</p>
+<p>写留言</p>
         </div>
     </article>
 
@@ -126,13 +180,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdMvgSOyil5" class="article-nav-link prev">
+        <a href="recvdMvgSOyil5.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感</span>
         </a>
         
         
-        <a href="/post/recvdL9WWNEbHs" class="article-nav-link next">
+        <a href="recvdL9WWNEbHs.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">OpenClaw 接入 Claude 订阅：防封中转方案实战教程</span>
         </a>
@@ -142,7 +196,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>一人公司 (OPC) 创业必备的 9 个 Agent Skills — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>一人公司 (OPC) 创业必备的 9 个 Agent Skills — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">商业机会</span>
+            <span class="card-tag card-tag-primary">商业机会</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">一人公司</span>
+            
+            <span class="topic-chip">Agent</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">创业</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">一人公司 (OPC) 创业必备的 9 个 Agent Skills</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 9个Agent Skills将抽象创业理念转化为可反复调用的决策接口，降低创始人思维切换成本，并通过AI持续引导现实、节制的判断框架。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>9个Agent Skills将抽象创业理念转化为可反复调用的决策接口，降低创始人思维切换成本，并通过AI持续引导现实、节制的判断框架。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Sahil Lavingia 将其著作《极简创业》的哲学封装为 9 个 AI Agent 可执行的创业教练技能，专为一人公司（OPC）设计。这 9 项技能覆盖创业全流程： 1. 社区定位（找精准用户群）→ 2. 需求验证（避免伪需求）→ 3. MVP 构建（反过度开发）→ 4. 早期客户获取→ 5. 价值定价→ 6. 高效营销→ 7. 可持续增长（反盲目扩张）→ 8. 价值观定锚（决策基准）→ 9. 极简复盘（持续迭代）。 核心价值： ▸ 将抽象创业理论转化为 结构化决策接口（每个技能对应独立 YAML 系统提示） ▸ 通过 AI 强制实施 现实约束，遏制&#34;虚荣型建设&#34;与过早规模化 ▸ 降低创始人决策切换成本，始终锚定&#34;问题-解决方案匹配度&#34;这一极简内核 关键洞察：AI 的核心作用并非替代人类决策，而是持续将创业者拉回最小必要动作框架（如 MVP 阶段仅需 5 位付费用户验证即可推进），用系统性提示对抗非理性扩张冲动。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/bOLAmBBDPNMppktXirT_og&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,17 +139,22 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心内容提炼（195字）：</p>
-<p>Sahil Lavingia 将其著作《极简创业》的哲学封装为 <strong>9 个 AI Agent 可执行的创业教练技能</strong>，专为一人公司（OPC）设计。这 9 项技能覆盖创业全流程：<br />
-1. <strong>社区定位</strong>（找精准用户群）→ 2. <strong>需求验证</strong>（避免伪需求）→ 3. <strong>MVP 构建</strong>（反过度开发）→ 4. <strong>早期客户获取</strong>→ 5. <strong>价值定价</strong>→ 6. <strong>高效营销</strong>→ 7. <strong>可持续增长</strong>（反盲目扩张）→ 8. <strong>价值观定锚</strong>（决策基准）→ 9. <strong>极简复盘</strong>（持续迭代）。</p>
-<p><strong>核心价值</strong>：<br />
-▸ 将抽象创业理论转化为 <strong>结构化决策接口</strong>（每个技能对应独立 YAML 系统提示）<br />
-▸ 通过 AI 强制实施 <strong>现实约束</strong>，遏制"虚荣型建设"与过早规模化<br />
-▸ 降低创始人决策切换成本，始终锚定"<strong>问题-解决方案匹配度</strong>"这一极简内核  </p>
-<blockquote>
-<p>关键洞察：AI 的核心作用并非替代人类决策，而是持续将创业者<strong>拉回最小必要动作框架</strong>（如 MVP 阶段仅需 5 位付费用户验证即可推进），用系统性提示对抗非理性扩张冲动。</p>
-</blockquote>
+            <p>文章标题为《一人公司 (OPC) 创业必备的 9 个 Agent Skills》，作者是 Gumroad 创始人 Sahil Lavingia。文章中，Sahil Lavingia 将他的著名书籍《The Minimalist Entrepreneur》中的极简创业哲学封装为 9 个 Agent Skills，让 Agent 做可交互的 AI 创业教练。文章详细介绍了这 9 个技能，它们分别是：</p>
+<ol>
+<li>Find Community（找社区）</li>
+<li>Validate Idea（验证想法）</li>
+<li>MVP（最小可行产品）</li>
+<li>First Customers（早期客户）</li>
+<li>Pricing（定价）</li>
+<li>Marketing Plan（营销计划）</li>
+<li>Grow Sustainably（可持续增长）</li>
+<li>Company Values（公司价值观）</li>
+<li>Minimalist Review（极简复盘）</li>
+</ol>
+<p>文章强调了这些技能的重要性，特别是在一人公司或极小团队中，它们有助于避免过度建设、过早扩张和虚荣型决策。这些技能将创业过程分解为一系列具体的步骤和决策，帮助创业者更加清晰地规划和管理他们的创业旅程。文章还提到了这些技能的实现方式，即每个技能都在一个子文件夹中，包含一个 YAML 前置元数据 + 结构化系统提示的文件，指导 AI 扮演“极简创业哲学顾问”。</p>
+<p>文章最后总结了这 9 个技能的整体价值，指出它们将抽象的创业理念变成了可反复调用的决策接口，降低了创始人在不同阶段“该怎么想”的切换成本，并且强调了 AI 在创业过程中的角色应该是持续帮助创业者回到更现实、更节制的判断框架中。</p>
         </div>
     </article>
 
@@ -134,13 +162,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfUBeoQd951" class="article-nav-link prev">
+        <a href="recvfUBeoQd951.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！</span>
         </a>
         
         
-        <a href="/post/recvfPp7ElOQhs" class="article-nav-link next">
+        <a href="recvfPp7ElOQhs.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">小红书+微信小程序，一个人也能做到100万的蓝海机会来了</span>
         </a>
@@ -150,7 +178,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

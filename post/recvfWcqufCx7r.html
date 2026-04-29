@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板） — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板） — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">光影</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">AI 绘画</span>
+            
+            <span class="detail-reading-time">约 10 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板）</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 10种可复用光影公式+分镜运镜模板，秒变电影质感
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>10种可复用光影公式+分镜运镜模板，秒变电影质感</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心数据： 10种可复刻光影技法（本文详解前5种） 8位武侠导演经典镜头解析（徐克/张艺谋/胡金铨为主） 每技法包含4要素：分镜逻辑+运镜指令+光影参数+风格融合公式 光影技法精髓： 1. 逆光剪影（徐克轮廓+张艺谋构图+胡金铨留白）→ 刀刻金边+天空留白2/3 2. 侧光剑气（45°明暗对比+竹影色彩碰撞）→ 剑光闪烁照亮竹林 3. 顶光禅意（垂直光束+丁达尔效应）→ 佛寺尘埃粒子+对称构图 4. 冷暖对决（红蓝正邪二分法）→ 雨夜桥面冷暖光割裂空间 5. 轮廓光侠客（发丝光+暗调背景）→ 发际金线+深邃阴影 核心价值： 将三位大师的 光影符号（徐克飘逸/张艺谋浓烈/胡金铨空灵）转化为可量化的AI指令模板，通过精准的 光源角度+色彩比例+运镜轨迹（如推近速度/环绕角度），实现普通画面到电影质感的跃迁。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/5ITFX3NdC7opRnvnG5kJCg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,20 +137,97 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是全文核心提炼（198字）：</p>
-<p><strong>核心数据</strong>：<br />
-- <strong>10种</strong>可复刻光影技法（本文详解前5种）<br />
-- <strong>8位</strong>武侠导演经典镜头解析（徐克/张艺谋/胡金铨为主）<br />
-- <strong>每技法包含4要素</strong>：分镜逻辑+运镜指令+光影参数+风格融合公式  </p>
-<p><strong>光影技法精髓</strong>：<br />
-1. <strong>逆光剪影</strong>（徐克轮廓+张艺谋构图+胡金铨留白）→ 刀刻金边+天空留白2/3<br />
-2. <strong>侧光剑气</strong>（45°明暗对比+竹影色彩碰撞）→ 剑光闪烁照亮竹林<br />
-3. <strong>顶光禅意</strong>（垂直光束+丁达尔效应）→ 佛寺尘埃粒子+对称构图<br />
-4. <strong>冷暖对决</strong>（红蓝正邪二分法）→ 雨夜桥面冷暖光割裂空间<br />
-5. <strong>轮廓光侠客</strong>（发丝光+暗调背景）→ 发际金线+深邃阴影  </p>
-<p><strong>核心价值</strong>：<br />
-将三位大师的 <strong>光影符号（徐克飘逸/张艺谋浓烈/胡金铨空灵）转化为可量化的AI指令模板</strong>，通过精准的 <strong>光源角度+色彩比例+运镜轨迹</strong>（如推近速度/环绕角度），实现普通画面到电影质感的跃迁。</p>
+            <p>文章标题：最强光影合集（上）：10个光影提示词，普通画面秒变电影质感（附模板）</p>
+<p>文章内容：</p>
+<p>上篇我们聊了镜头语言，这一篇，聊点更“玄”的——光影。如果说镜头决定你“看什么”，那光影决定你“怎么感受”。同一场景，顺光是叙事，侧光是层次，逆光是情绪。差的不是画面，是氛围。</p>
+<p>很多人心里都有一个武侠梦。刀光剑影、恩怨情仇这些是表面，更让人记住的，其实是那些一眼难忘的瞬间，逆光里孤独的剪影，竹林间忽明忽暗的剑光，古寺中倾泻而下的一束天光。</p>
+<p>这些经典画面，背后站着三位绕不开的名字：徐克、张艺谋、胡金铨。徐克的飘逸写意，张艺谋的浓烈色彩，胡金铨的空灵禅意——他们不是在拍打斗，而是在用光影写诗。</p>
+<p>我用AI做武侠视频时，一直在琢磨一件事： 普通人，能不能用AI，把这种“电影级光影”复刻出来？</p>
+<p>试了很多次，也踩了不少坑，最后慢慢也算是总结出一套可行的方法论：10种可复用的光影技巧。 每一种，都拆到分镜、光源、运镜，能直接拿去用。</p>
+<p>这一篇，我们先讲最基础、也是最容易出效果的5种。</p>
+<ol>
+<li>逆光剪影</li>
+</ol>
+<p>参考影片：徐克《新龙门客栈》沙漠逆光、张艺谋《英雄》漫天红叶、胡金铨《龙门客栈》大漠孤烟</p>
+<p>三位大师风格解析：</p>
+<p>徐克：刀刻般的轮廓，神秘感。他喜欢让人物站在逆光中，你只能看到黑色的剪影，但那种孤独和决绝感扑面而来。</p>
+<p>张艺谋：大场面构图，俯拍视角。他喜欢用大远景、对称画面，让整个场景有一种庄严感。</p>
+<p>胡金铨：留白意境，山水背景。他喜欢在画面中留出大量空白，让山水成为背景，人物只是其中一点，空灵而诗意。</p>
+<p>融合点：逆光剪影 + 大场面构图 + 山水留白 = 三重境界</p>
+<p>分镜逻辑：</p>
+<p>镜头1（建立）：大远景，日落悬崖，金色天空占据画面2/3</p>
+<p>镜头2（主体）：人物剪影入画，站在悬崖边缘</p>
+<p>镜头3（推近）：缓慢推近，从全景到剪影特写</p>
+<p>镜头4（收尾）：定格在人物轮廓，背景天空呈现金红色渐变</p>
+<p>视觉冲击：人物边缘被光线勾勒出一圈金边，轮廓如刀刻般锋利。你不知道他是谁，但你知道他是个高手。背景是大面积的留白——金色的天空、远处的山水，人物只是画面中的一笔。</p>
+<p>专业提示词（光影+运镜）：</p>
+<p>镜头1（建立）：日落时分，悬崖之巅，金色天空占据画面上方2/3，远处山水若隐若现，云雾缭绕，胡金铨式留白构图。</p>
+<p>镜头2（主体）：一位身着玄色长袍的剑客从画面右侧缓步入画，站在悬崖边缘，强烈金色逆光从地平线照射过来，将他整个人变成黑色剪影。</p>
+<p>镜头3（推近）：他的长发和衣袂在风中缓缓飘动，轮廓如刀刻般锋利分明，手中长剑斜指地面，剑身在夕阳中闪过一道寒光。</p>
+<p>镜头4（收尾）：镜头缓慢推近到剪影特写，焦点始终保持在人物轮廓上，背景天空呈现金红色渐变，张艺谋式大场面构图。</p>
+<p>运镜：建立镜头（大远景）→ 缓慢推近 → 人物剪影特写</p>
+<p>光影：强烈逆光剪影，金色轮廓光，刀刻般锋利边缘，孤独决绝氛围，山水留白</p>
+<ol>
+<li>侧光剑气</li>
+</ol>
+<p>参考影片：徐克《十面埋伏》竹林大战、张艺谋《十面埋伏》色彩对比、胡金铨《侠女》竹林禅意</p>
+<p>三位大师风格解析：</p>
+<p>徐克：剑光闪烁，快速环绕。他喜欢用快速运镜捕捉打斗的瞬间，剑光一闪，照亮整个画面。</p>
+<p>张艺谋：色彩对比，大场面。他喜欢用浓烈的色彩——绿色的竹林、红色的血、金色的阳光，形成强烈的视觉对比。</p>
+<p>胡金铨：自然光，空灵感。他喜欢用自然光拍摄竹林，让画面有一种空灵的诗意。</p>
+<p>融合点：侧光立体 + 竹林色彩 + 空灵意境 = 竹林对决</p>
+<p>分镜逻辑：</p>
+<p>镜头1（建立）：竹林全景，阳光从竹叶缝隙穿透</p>
+<p>镜头2（对峙）：两位剑客对峙，侧光在脸上形成明暗对比</p>
+<p>镜头3（交手）：剑锋相交瞬间，升格慢动作，环绕镜头</p>
+<p>镜头4（收尾）：剑光闪烁，照亮整个竹林</p>
+<p>视觉冲击：强烈的明暗对比，人物的半边脸在光里，半边脸在影里。剑光一闪，照亮整个竹林。绿色的竹叶、金色的阳光、银色的剑光，色彩对比强烈。</p>
+<p>专业提示词（光影+运镜）：</p>
+<p>镜头1（建立）：茂密竹林深处，清晨阳光从竹叶缝隙中穿透而来，形成一道道光束，照亮空气中的尘埃，胡金铨式空灵意境。</p>
+<p>镜头2（对峙）：两位剑客在竹林空地中对峙。强烈侧光从左侧照射，在人物脸上形成明暗对比。白衣剑客半边脸被照亮，眼神坚毅；黑衣剑客在阴影中，杀气腾腾。</p>
+<p>镜头3（交手）：两人同时出剑。镜头快速环绕两位剑客360度旋转，同时升格慢动作。剑锋相交的瞬间，火花四溅。</p>
+<p>镜头4（收尾）：剑光闪烁，照亮飘落的竹叶，张艺谋式色彩对比——绿色竹叶、金色阳光、银色剑光。</p>
+<p>运镜：建立镜头（竹林全景）→ 双人对峙 → 交手瞬间（升格）→ 环绕镜头</p>
+<p>光影：45度侧光，强烈明暗对比，剑光闪烁，竹林光影交错，紧张刺激氛围</p>
+<ol>
+<li>顶光禅意</li>
+</ol>
+<p>参考影片：徐克《狄仁杰之通天帝国》佛堂场景、张艺谋《影》水墨画面、胡金铨《山中传奇》禅意空灵</p>
+<p>三位大师风格解析：</p>
+<p>徐克：光束如瀑布，丁达尔效应。他喜欢让光束从高处倾泻而下，照亮空气中的尘埃，形成肉眼可见的光路。</p>
+<p>张艺谋：对称构图，庄重感。他喜欢用对称的画面，让整个场景有一种庄严感。</p>
+<p>胡金铨：禅意空灵，留白。他喜欢在画面中留出大量空白，让光影自然流动，空灵而诗意。</p>
+<p>融合点：顶光光束 + 对称构图 + 禅意留白 = 古寺修行</p>
+<p>分镜逻辑：</p>
+<p>镜头1（建立）：固定镜头，仰拍光束从天窗倾泻而下</p>
+<p>镜头2（入画）：老僧缓步入画，盘坐在蒲团上</p>
+<p>镜头3（推近）：缓慢推近，聚焦老僧面部和手部</p>
+<p>镜头4（收尾）：细节插入——佛珠、光束中的尘埃</p>
+<p>视觉冲击：光束如瀑布般倾泻，照亮空气中的金色尘埃，形成神圣光路。老僧在光束中若隐若现，面部被柔和光线照亮，庄严而神秘。画面大面积留白，只有光束和老僧，禅意十足。</p>
+<p>专业提示词（光影+运镜）：</p>
+<p>镜头1（建立）：千年古刹大雄宝殿内，固定镜头仰拍。顶光从高处的天窗垂直倾泻而下，如瀑布般的光束照亮空气中的金色尘埃，形成神圣光路，胡金铨式禅意留白。</p>
+<p>镜头2（入画）：一位白眉老僧从画面左侧缓步入画，盘坐在蒲团上打坐修行。他身披袈裟，手持佛珠，面向光源，面部被柔和光线照亮。</p>
+<p>镜头3（推近）：镜头缓慢推近，聚焦老僧的面部和手中的佛珠。光束在空气中缓缓流动，时间仿佛静止。</p>
+<p>镜头4（收尾）：细节插入——佛珠在光束中转动，尘埃粒子在光束中飞舞，张艺谋式对称构图。</p>
+<p>运镜：固定镜头（仰拍光束）→ 人物入画 → 缓慢推近 → 细节插入</p>
+<p>光影：顶光光束，如瀑布般倾泻，金色尘埃粒子，神圣庄严氛围，丁达尔效应</p>
+<ol>
+<li>冷暖对决·正邪对立</li>
+</ol>
+<p>参考影片：徐克《东方不败》红衣与蓝衣、张艺谋《英雄》极致红黑、胡金铨《侠女》水墨黑白</p>
+<p>三位大师风格解析：</p>
+<p>徐克：红蓝对比，色彩战争。他喜欢用强烈的色彩对比来表现正邪对立，红色代表热情或邪恶，蓝色代表冷静或正义。</p>
+<p>张艺谋：极致红黑，冲击力。他喜欢用极致的红色和黑色，让画面有一种强烈的视觉冲击。</p>
+<p>胡金铨：水墨黑白，意境。他喜欢用水墨画般的黑白光影，让画面有一种文人画的意境。</p>
+<p>融合点：冷暖对比 + 极致色彩 + 水墨意境 = 正邪对立</p>
+<p>分镜逻辑：</p>
+<p>镜头1（建立）：雨夜古桥全景，左侧暖光，右侧冷光</p>
+<p>镜头2（正反打）：白衣剑客特写，被暖光照亮</p>
+<p>镜头3（正反打）：红衣魔女特写，被冷光笼罩</p>
+<p>镜头4（对冲）：从两人中间拍摄，冷暖光线交织</p>
+<p>视觉冲击：画面一分为二，一半是暖色调（红、黄、金），一半是冷色调（蓝、青、紫）。两个人物，两种命运，一眼就能分辨正邪。雨水在中间如帘，冷暖光线在雨中</p>
         </div>
     </article>
 
@@ -137,13 +235,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfWSy3dJPcQ" class="article-nav-link prev">
+        <a href="recvfWSy3dJPcQ.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">用/做好 Agent Skill 的 3 个前提</span>
         </a>
         
         
-        <a href="/post/recvfUBeoQd951" class="article-nav-link next">
+        <a href="recvfUBeoQd951.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">[最新版提示词合集] 信息卡和公众号封面等任意尺寸提示词汇总整理，适用于不同 AI 模型，已经有好多朋友完美复刻了！</span>
         </a>
@@ -153,7 +251,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

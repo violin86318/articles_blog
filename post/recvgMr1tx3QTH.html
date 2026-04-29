@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Claude Code防封号终极指南 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Claude Code防封号终极指南 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">教程实操</span>
+            <span class="card-tag card-tag-primary">教程实操</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">防封策略</span>
+            
+            <span class="topic-chip">教程实操</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Claude Code防封号终极指南</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 构建让系统信服的真实人类行为档案是防封核心。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>构建让系统信服的真实人类行为档案是防封核心。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>## Claude Code防封号核心提炼（&lt;200字） Anthropic的风控模型是动态评估账号是否像正常人类用户，而非静态规则。防封核心在于主动构建可信的“人类行为档案”，养号期约一个月（首次续费后）。关键策略包括： 入口：新账号前两周只用Claude Desktop内置功能，避免CLI和第三方客户端（如OpenCode），因CLI易被误判为自动化脚本。 订阅：通过Google Play/iOS App Store订阅（提供信任背书），从$20/月Pro Plan起步，多次自然触碰限额后再升级Max Plan。 行为：升级Max Plan后前两周触发用量限额不超过3次；模拟人类作息（避免24小时高负载，保持峰谷变化）。 IP与指纹：避免公共代理（万人骑IP），早期不频繁换IP；封号后需彻底清除电脑所有Claude文件以重置机器指纹。 永久规则：不共享账号，不用公共代理。养号期后限制可放松，但需持续保持正常行为节奏。 （字数：198）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/IcsMmG6ERtAXI7H02fpdCw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -114,31 +135,28 @@
 
         <!-- Table of Contents -->
         
-        <div class="toc" id="toc">
-            <div class="toc-header" id="tocHeader">
-                <span class="toc-title">📑 目录</span>
-                <span class="toc-toggle">▼</span>
-            </div>
-            <ul class="toc-list">
-                
-                <li class="toc-item level-3">
-                    <a href="#claude-code防封号核心提炼-200字" class="toc-link">Claude Code防封号核心提炼（&lt;200字）</a>
-                </li>
-                
-            </ul>
-        </div>
-        
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <h3 id="claude-code200">Claude Code防封号核心提炼（&lt;200字）</h3>
-<p>Anthropic的风控模型是动态评估账号是否像正常人类用户，而非静态规则。防封核心在于主动构建可信的“人类行为档案”，养号期约一个月（首次续费后）。关键策略包括：<br />
-- <strong>入口</strong>：新账号前两周只用Claude Desktop内置功能，避免CLI和第三方客户端（如OpenCode），因CLI易被误判为自动化脚本。<br />
-- <strong>订阅</strong>：通过Google Play/iOS App Store订阅（提供信任背书），从$20/月Pro Plan起步，多次自然触碰限额后再升级Max Plan。<br />
-- <strong>行为</strong>：升级Max Plan后前两周触发用量限额不超过3次；模拟人类作息（避免24小时高负载，保持峰谷变化）。<br />
-- <strong>IP与指纹</strong>：避免公共代理（万人骑IP），早期不频繁换IP；封号后需彻底清除电脑所有Claude文件以重置机器指纹。<br />
-- <strong>永久规则</strong>：不共享账号，不用公共代理。养号期后限制可放松，但需持续保持正常行为节奏。</p>
-<p>（字数：198）</p>
+            <p>文章标题：Claude Code防封号终极指南</p>
+<p>作者：刘小排</p>
+<p>文章摘要：这篇文章主要讨论了如何避免在使用Claude Code时被Anthropic封号。作者通过个人经验和分析，提出了一套防封策略，强调要构建一个让系统相信你是正常人类的行为档案。</p>
+<p>文章内容：</p>
+<p>去年年末，我被封了无数个Claude Code号，封了又买，买了又封。虽然使用没有中断过，但是老是折腾还是非常不爽的。久病成医，结合Claude Code最近泄露的代码、以及我个人的经验，我可能已经找到了防止Claude Code的第一性原理。最近两个月，我的账号再也没有被封过了。</p>
+<p>大多数人在谈论Claude Code封号问题的时候，都在问同一个问题：Anthropic封号的标准是什么？这个问题问错了。正确的问题是：Anthropic的系统在试图判断什么？这两个问题看起来很像，但思维方向完全相反。前者假设封号是一套规则，你只要找到规则就能钻空子。后者承认封号是一套系统——一个持续运行的、对你的账号行为进行实时评估的概率模型。理解这个区别，对你接下来读到的每一条建议，都至关重要。</p>
+<p>Anthropic的风控模型，本质上是在回答一个问题：这个账号，是不是一个正常使用Claude的人类？注意，不是“是不是在滥用”，不是“是不是在共享账号”，而是——像不像一个正常人。这听起来很模糊，但一旦你用这个框架来理解下面的规则，你会发现每一条都不再需要死记硬背，因为它们背后有统一的逻辑。</p>
+<p>草根哲学以玄学抽卡为主：买住宅IP、不要跟他说中文……理解系统后，聪明的做法是：主动构建一个让系统相信你是正常人类的行为档案。</p>
+<p>关于入口：你从哪里进来，决定你第一印象有一条规则，我认为是目前被低估最严重的：新账号的早期，不要用CLI，去用Claude Desktop里内置的Claude Code功能。这需要解释一下。Claude Code有两种使用方式：一种是在Claude Desktop这个图形界面里操作，另一种是直接在终端里跑命令行（也就是CLI）。对于有经验的开发者来说，CLI更快、更灵活，是首选。但问题在于，CLI是Anthropic风控模型最敏感的入口。为什么？因为CLI的使用模式，和自动化脚本、API批量调用，在行为特征上几乎无法区分。一个人类开发者坐在电脑前用CLI，和一个程序自动循环调用API，产生的流量特征是高度相似的。这是CLI的结构性原罪，跟你有没有违规无关。想想看，假设你是Anthropic，你发现一个用户注册新账号后直接付费、然后直接开始大量用Claude Code CLI，你很难觉得他不可疑吧？正确做法是：新账号的前一两周，老老实实用Claude Desktop界面操作Claude Code。如下图所示等账号积累了足够的“人类行为特征”之后，再切换到CLI工作流。一两周之后，CLI的风险就大幅下降了。同理，规则二、新账号阶段，不要使用非官方客户端。OpenCode、OpenClaw、CraftAgent，以及各种反向代理工具——这些都是好工具，但它们产生的流量特征，和Anthropic官方客户端有可测量的差异。风控模型是可以识别的。不是说这些工具有问题，而是说：新账号不是用它们的时候。</p>
+<p>关于订阅：钱的流向，也是信号第二个被低估的规则：规则三、用Google Play或iOS App Store订阅，不要在官网直接用信用卡订阅。官网直接订阅，其实是一个风险更高的路径。通过应用商店，你的支付是经过苹果或谷歌的账户体系认证的，这是一个额外的可信度背书——对风控模型而言，这相当于多了一层“这是真实用户”的证明。下面是我的Google Play订阅截图另一个反直觉的规则：规则四、从$20/月的Pro Plan开始，不要上来就买Max Plan。你可能觉得，我用量大，买贵的计划不是更合理吗？但风控模型不是这样看的。一个新账号，第一天就订阅$200/月的Max Plan，然后立刻跑满计算量——这个行为模式，更像一个在批量运营账号的人，而不是一个普通开发者。正确路径是：Pro Plan → 多次自然触碰限额 → 有机地升级到Max Plan。让账号的成长轨迹，看起来像一个真实用户在发现工具价值之后逐步加码，而不是一开始就对这个账号有商业计划。</p>
+<p>关于行为节奏：你的账号需要表现得像一个人这里有几条规则，合并来看会更清晰：规则五、升级Max Plan后前两周，触发用量限额不要超过3次。触发用量限额，俗称“打满”。你刚升级到Max Plan就经常“打满”，你就太像一个批量运行账号的坏人了。规则六、你的账号需要睡觉。是的，你要睡觉，你的账号也要睡觉。如果你的账号是全天24小时、不间断地产生高计算量，这在统计上就是一个异常信号——因为正常的人类是有作息的。人会吃饭，会睡觉，会周末休息，会有峰谷变化。一个24小时均匀高负载的账号，行为特征上更接近一个自动化服务，而不是一个坐在电脑前的开发者。这两条规则加在一起，说的是同一件事：在养号期内，你的账号的行为节奏，需要符合人类生活节律的统计分布。</p>
+<p>关于IP，多数人纠结的是住宅IP还是机房IP——这个区别远没有你想象的重要。真正重要的有两点：规则七、不要用同时有大量用户在使用的公共代理；规则八、新账号在早期阶段，不要频繁更换IP。IP频繁变化，本身就是一个可疑信号。固定在一个常用网络环境里，是更安全的选择。</p>
+<p>关于机器指纹：被封号之后，最危险的事如果你曾经被封过号，这一条是最关键的。Claude Code在本地计算“机器指纹”（Device Fingerprint）。这不是什么秘密，Claude Code的泄露代码里对此有明确体现。说白了就是：Anthropic知道你在用哪台电脑。所以，如果你被封号之后，只是换了一个新账号，但电脑还是同一台，Claude、Claude Code的安装文件还在，配置文件、对话记录、Session文件还在——那么新账号会被关联到旧的被封账号上，然后接着被封。正确做法是：换账号的时候，不止是删应用，是要让你的电脑，看起来像从来没有安装过Claude的状态。全新安装 = 新的指纹 = 和历史的切断。</p>
+<p>规则九、换号的时候，不止是删应用，是要让你的电脑，看起来像从来没有安装过Claude的状态。全新安装 = 新的指纹 = 和历史的切断。</p>
+<p>规则十、关于养号期：一个月是一个关键节点我们给整个框架一个时间维度。养号期，大约是一个月——也就是你的账号完成第一次续费之后。这个节点之前，上面所有的限制都应该严格遵守：用Desktop不用CLI，不用第三方客户端，控制每周打满次数，保持正常作息，不乱换IP，从Pro Plan起步。续费完成之后，风控模型对你的账号已经积累了足够的正向信号，这些限制可以有序地放松了。</p>
+<p>当然，规则十一、永远不要共享账号给别人用规则十二、永远不要用万人骑的公共代理——这两条没有养号期的概念，是永久规则。</p>
+<p>划重点：Claude Code的封号机制，不是一套静态的违规规则，而是一个动态的“真实人类概率评估模型”。你要做的事，不是绕过规则，而是在养号期的第一个月里，主动构建一个让模型信服的行为档案——正常的入口、正常的节奏、正常的成长路径。一句话：做个正常人，就不会封号。</p>
+<p>Takeaways新账号前两周，只用 Claude Desktop里的Claude Code，不碰 CLI新账号阶段，不使用 OpenCode / OpenClaw / CraftAgent 等第三方客户端通过 App Store 或 Google Play 订阅，不在官网直接刷卡从 $20 Pro Plan 起步，多次触碰限额后再自然升级升级Max Plan后前两周，触发用量上限不超过 3 次账号要有作息——不要 24 小时持续高负载IP 类型无所谓，但别用万人骑的公共代理，且早期不要频繁切换 IP被封过号的，换账号前彻底清除电脑上一切 Claude 相关文件（指纹重置）不要共享账号给任何人养号期约一个月（首次续费后），之后上述限制可以有序放松另有一部分方法，不适合在公众号里大范围传播。如果我们有机会线下见面，可以继续聊。另外最后打个小广告，我最喜欢的AI创业社群九周年庆，有优惠，看评论区。</p>
         </div>
     </article>
 
@@ -146,13 +164,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvgMHNOwVrNi" class="article-nav-link prev">
+        <a href="recvgMHNOwVrNi.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">I run multiple $10K MRR companies on a $20/month tech stack</span>
         </a>
         
         
-        <a href="/post/recvgBEcSoWbEV" class="article-nav-link next">
+        <a href="recvgBEcSoWbEV.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">看完比赛后，AI 短剧真的开始能一站式做了</span>
         </a>
@@ -162,7 +180,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

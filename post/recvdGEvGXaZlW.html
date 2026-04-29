@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>OpenClaw龙虾技校Skill选课指南 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>OpenClaw龙虾技校Skill选课指南 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">教程实操</span>
+            <span class="card-tag card-tag-primary">教程实操</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">教程实操</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">OpenClaw龙虾技校Skill选课指南</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 按龙虾类型匹配专业课程组合是最大亮点。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>按龙虾类型匹配专业课程组合是最大亮点。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>根据《OpenClaw龙虾技校Skill选课指南》，核心内容提炼如下： 1. 查课表与选课起点 优先引导龙虾学习公开Skill页（ClawHub/GitHub资源库），部分课程已内置为必修。 2. 基础能力优先 必修正底层能力课：find-skills（搜索）、summarize（总结）、github（协作）、agent-browser（浏览）等，并推荐&#34;元能力&#34;课如 skill-creator（开发技能）。 3. 综合素质课决定长期表现 如 openclaw-logfire（日志）、self-improving-agent（自我优化）、task-resume（断点续作）等，保障龙虾持续稳定工作。 4. 按专业方向分流 细分9大学院（如文书办公、编程研发、财经情报、电商运营等），不同工种需匹配对应课程。 5. 按龙虾类型定制 针对6类龙虾（尝鲜型/文职型/工程型等）设计课程组合，避免盲目堆砌Skill。 6. 核心原则：精准选课＞数量 校训强调“先定专业再选课”，Skill需适配工种需求，非越多越好。 关键资源： 课表平台：ClawHub（https://clawhub.com）、GitHub课程库（含大量个人开发Skill，需注意风险） 附录索引超过50项具体Skill，覆盖各专业场景。 （字数：198）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/9rT5CLV-Vf7LvQEsKJqhiw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,46 +137,30 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>根据《OpenClaw龙虾技校Skill选课指南》，核心内容提炼如下：</p>
-<ol>
-<li><strong>查课表与选课起点</strong>  </li>
-<li>
-<p>优先引导龙虾学习公开Skill页（ClawHub/GitHub资源库），部分课程已内置为必修。</p>
-</li>
-<li>
-<p><strong>基础能力优先</strong>  </p>
-</li>
-<li>
-<p>必修正底层能力课：<code>find-skills</code>（搜索）、<code>summarize</code>（总结）、<code>github</code>（协作）、<code>agent-browser</code>（浏览）等，并推荐"元能力"课如 <code>skill-creator</code>（开发技能）。</p>
-</li>
-<li>
-<p><strong>综合素质课决定长期表现</strong>  </p>
-</li>
-<li>
-<p>如 <code>openclaw-logfire</code>（日志）、<code>self-improving-agent</code>（自我优化）、<code>task-resume</code>（断点续作）等，保障龙虾持续稳定工作。</p>
-</li>
-<li>
-<p><strong>按专业方向分流</strong>  </p>
-</li>
-<li>
-<p>细分9大学院（如文书办公、编程研发、财经情报、电商运营等），不同工种需匹配对应课程。</p>
-</li>
-<li>
-<p><strong>按龙虾类型定制</strong>  </p>
-</li>
-<li>
-<p>针对6类龙虾（尝鲜型/文职型/工程型等）设计课程组合，避免盲目堆砌Skill。</p>
-</li>
-<li>
-<p><strong>核心原则：精准选课＞数量</strong>  </p>
-</li>
-<li>校训强调“先定专业再选课”，Skill需适配工种需求，非越多越好。</li>
-</ol>
-<p><strong>关键资源</strong>：<br />
-- 课表平台：ClawHub（https://clawhub.com）、GitHub课程库（含大量个人开发Skill，需注意风险）<br />
-- 附录索引超过50项具体Skill，覆盖各专业场景。  </p>
-<p>（字数：198）</p>
+            <p>根据您提供的参考信息，以下是文章《OpenClaw龙虾技校Skill选课指南》的主要内容：</p>
+<p>一、课表先去哪里查<br />
+- 建议直接将公开Skill页的网址发给龙虾，让它去学习。<br />
+- 很多版本的🦞已经将一些课程作为必修课内置，无需再选。<br />
+- 部分Skill由个人开发，使用时需注意风险。</p>
+<p>二、先别急着报热门课，先把基础课修对<br />
+- 基础课如find-skills、tavily-search、summarize、github、agent-browser等，是补搜索、查找、浏览、协作等底层能力。<br />
+- 推荐的“元能力”课程有skill-creator和skill-vetter。</p>
+<p>三、综合素质课不直接发毕业证，但决定龙虾会不会长期工作<br />
+- 如openclaw-logfire、self-improving-agent、proactive-agent、task-resume、nblm等课程，帮助龙虾持续工作、复盘、纠错。</p>
+<p>四、专业分流学院：同一只龙虾，分院以后才开始像不同工种<br />
+- 文章详细介绍了文书与办公室学院、行政与总助学院、内容与传播学院、编程与研发学院、设计与多媒体学院、财经与情报学院、电商运营学院、项目管理学院、研究与信息学院等不同学院的方向和课程。</p>
+<p>五、按龙虾类型排课，别一锅炖<br />
+- 根据龙虾的类型（如尝鲜型、文职型、内容型、值班型、工程型、折腾型）推荐不同的课程组合。</p>
+<p>六、最后的校训：先定专业，再选课程<br />
+- 强调Skill的重要性，但不是越多越好，应根据龙虾的工种选择合适的课程。</p>
+<p>附录一：课表去哪里查<br />
+- ClawHub：https://clawhub.com<br />
+- GitHub（Awesome OpenClaw Skills）：https://github.com/VoltAgent/awesome-openclaw-skills</p>
+<p>附录二：文中提到的Skill网址索引<br />
+- 文章中提到了大量的Skill，并提供了相应的网址索引。</p>
+<p>请注意，以上内容是根据您提供的参考信息整理的，如需获取完整内容，请访问文章链接：https://mp.weixin.qq.com/s/9rT5CLV-Vf7LvQEsKJqhiw。</p>
         </div>
     </article>
 
@@ -163,13 +168,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdIrpJNPs4q" class="article-nav-link prev">
+        <a href="recvdIrpJNPs4q.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill</span>
         </a>
         
         
-        <a href="/post/recvdGiZyDOJCv" class="article-nav-link next">
+        <a href="recvdGiZyDOJCv.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">OpenClaw是鸡肋吗？</span>
         </a>
@@ -179,7 +184,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

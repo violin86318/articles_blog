@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>OpenClaw是鸡肋吗？ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>OpenClaw是鸡肋吗？ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,41 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">工具评测</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">OpenClaw是鸡肋吗？</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 你的心态决定OpenClaw的价值，主动深耕能提前获得红利和个人成长。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>你的心态决定OpenClaw的价值，主动深耕能提前获得红利和个人成长。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>文章核心：针对OpenClaw被质疑为“鸡肋”（如专业度低、技能调用不主动、记忆差），作者刘小排以Cursor（AI编程工具）类比：一年多前，99%+用户认为Cursor鸡肋，但1%坚持者（如作者本人）通过适应和优化，成功做出月活超100万的产品。作者建议，面对OpenClaw，用户有两种选择：做大多数人（等AI成熟再用）或做一小撮人（提前享受红利）。后者需：1. 使用顶级模型（如GPT-5.4、Claude Opus 4.6）；2. 理解任务原理以改进；3. 保持耐心（AI学习需时间）；4. 本地验证SOP确保稳定；5. 利用工具如ACP/TMUX处理长任务。最终，工具价值取决于心态——“相由心生”，养虾（使用OpenClaw）过程也是自我成长。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/xJ-ApoM6y0Y5QGYTLXmDfg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +135,31 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章核心：针对OpenClaw被质疑为“鸡肋”（如专业度低、技能调用不主动、记忆差），作者刘小排以Cursor（AI编程工具）类比：一年多前，99%+用户认为Cursor鸡肋，但1%坚持者（如作者本人）通过适应和优化，成功做出月活超100万的产品。作者建议，面对OpenClaw，用户有两种选择：做大多数人（等AI成熟再用）或做一小撮人（提前享受红利）。后者需：1. 使用顶级模型（如GPT-5.4、Claude Opus 4.6）；2. 理解任务原理以改进；3. 保持耐心（AI学习需时间）；4. 本地验证SOP确保稳定；5. 利用工具如ACP/TMUX处理长任务。最终，工具价值取决于心态——“相由心生”，养虾（使用OpenClaw）过程也是自我成长。</p>
+            <p>文章标题：OpenClaw是鸡肋吗？</p>
+<p>作者：刘小排</p>
+<p>文章内容：</p>
+<p>哈喽，大家好，我是刘小排。最近一周风向有点变，很多人真正使用OpenClaw后，认为它是鸡肋。不知道你是否有这样的感觉呢？今天在生财有术里，有朋友向我提问。我也分享给大家我的思考。</p>
+<p>Mae Y 提问：关于openclaw“鸡肋”的问题希望收获老师一些建议，看看是否我使用的方式不对或者技巧没到位openclaw爆火以后，各种低门槛高门槛、云端部署本地部署的虾试了一个遍，刚开始使用还是有比较多的新鲜感的，每天也搜罗着各种技能钳给虾装上，但新鲜感过去以后，真正想让虾投入生产力使用时就发现了它实在是很笨，具体体现在：</p>
+<ol>
+<li>想让龙虾完成的垂类任务，专业度堪忧，最后还不是不得不用一些垂类的专业工具；</li>
+<li>装了非常多的技能，但龙虾自己并不会主动的组合调用，必须靠人来告诉它这个任务需要用什么技能，感觉就3.是有一个丰富的工具箱，但它自己却不知道3. 所谓的记忆功能，实际使用中没有发挥出来越用越聪明的体感，时间一长或者上下文一场经常出现信息丢失、犯过的错误一犯再犯，整体的记忆逻辑不是一种“学进去”的感觉，就是“死记硬背，还常常背漏了”，感觉是现在过于简易的文件式记忆管理体系导致的</li>
+</ol>
+<p>下面有几个具体的例子：</p>
+<ol>
+<li>想让虾帮我写一个目前正在创业的一个赛道的调研报告，发现它上网搜索的水平基本只有一些简单的关键词，最后提交给我的也是很水的文档，几乎没有信息量，在给它装了几个写研究报告的技能、数据获取&amp;分析的技能，甚至给出了明确的报告框架以后，写出来的东西还是不可用，说实话折腾了这一通就发现它交付的东西还没有市面上各种chatbot内置的研究技能交付的东西好使；</li>
+<li>之前有一本写了一半的小说，让小龙虾帮我续写，喂了各种人设、背景、大纲的东西进去以后，还是呈现很明显的“失忆”现象，体验下来并没有把本地的知识库用起来的体感，另外对于写作中我给它指出的错误，能够一步步改好，但没有记下来，比如这一章我指导它改出来我满意的了，下一章它写出来又是原样的错误再犯一次，并且在我给出明确的指令“根据之前我指出来过的你的问题先检查修改一下”后，只记得上一轮的错误，往前十几轮的不会主动记忆起来，需要非常明文的指示才可以，感觉就是记下来了很多东西，但完全没有理解和在后续的任务中应用起来；</li>
+</ol>
+<p>我的回答你好。你的问题让我回想起来，今天的 OpenClaw，跟一年多前（2024 年底、2025 年初）的 Cursor 非常像。当时说 Cursor 是鸡肋的人，可太多了。那时候，大部分人（99%+）跟风用了 Cursor 之后，得出的结论都是“没什么用”——“AI 写代码老写错”“AI 编程只能做简单的任务”“人类程序员绝对不可能失业”“AI写的只是胶水代码”……还有一件趣事，当时我的前老板傅盛，在公司会议上演示Cursor写代码的时候，遇到了一个Bug，当时就有程序员起哄，说“看吧，我就说吧，还是需要有经验的程序员才能搞定”。下面的人哄堂大笑。</p>
+<p>一年多前，我和程前朋友圈做过一期采访，分享了我是如何用 Cursor 做出商业化能打的产品的。那期评论区里，时不时就会出现这样的声音：“我以 14 年资深软件工程师的身份告诉你，AI 写代码不行。”感兴趣的朋友可以去考古看看。在当时，只有一小撮人，大概只有 1%，他们顶着困难，哪怕那时候 Cursor 和 AI 编程还不够好用，仍然选择主动去适应它的工作方式，不懂就慢慢学、慢慢弄懂，AI 弄错了就耐心跟它磨。就是在那个阶段，他们也已经能靠 Cursor 做出真正有用、商业上能打的产品。很幸运，我就是其中一员。我是在2023年Cursor“比2024年更难用”的时候，就开始用Cursor了。在2025年1月，在那些“14年的资深工程师”还在当键盘侠的时候，我已经用Cursor做出来挺能打的产品了。我用Cursor做的产品，月活超过100万了我不知道那些“资深软件工程师”，现在是否改变了看法。也许他们永远不会改变。那又怎样呢？和我无关。我们各自有各自的世界。回到你的问题。小龙虾好用吗？当然不好用。你描述的那些现象，都是客观事实，不用怀疑。但我想说的是——面对“一个还不好用的新事物”，你其实有两种选择：做大多数人，或者做那一小撮人。两种选择都没有错。做大多数人，会比较轻松，也没什么损失。不好用就先不用，等好用了再说——反正现在 AI 进步这么快，等个一年半载，自然就好用了。做那一小撮人，会非常累。但一旦做到，就能比大众至少提前一年享受到红利。能提前享受到的红利，才是真红利。你说是吗。</p>
+<p>假设你想在小龙虾这件事上做后者假设你想在小龙虾这件事上做后者，这里有几个具体建议。</p>
+<ol>
+<li>如果用于严肃工作，那请你只用最顶级的模型来驱动小龙虾。在今天这个时间点 ，最顶级的模型只有两个：GPT-5.4、Claude Opus 4.6； （如果用来娱乐倒是无所谓，最近国产模型都挺好的。）</li>
+<li>每项你安排小龙虾做的工作， 你都要明白原理。 因为只有你本人明白了原理， 才能想办法改进。比如你刚才描述的什么记忆丢失问题，那你得先明白在你那个场景下记忆为什么丢失，才能跟AI一起想办法，从原理层面想到另外的方案。再比如你提到的工具装得多忘记调用的问题、专业知识的不够专业的问题，都一样。</li>
+<li>耐心。你无法通过只靠“看AI总结”的方式，瞬间学会高等数学——学任何东西都需要时间和练习、需要真正的理解。无论AI有多强，“你能瞬间学会高等数学”的这一天，永远不会到来。同样，为什么你会有错觉，觉得只和小龙虾随便聊聊天，就能用好它呢？关于这一点，我正好昨天单独写了一篇 AI时代，最稀缺的能力是耐心4. 先本地验证SOP你想想看，就和师傅带徒弟一样，和我做课也一样 —— 我在课里写的内容，那肯定是我全部实操过、任何人操作都不会出问题，我才敢写到课里面，最后还要邀请不同年龄段不同背景的人分别测试。你不妨把小龙虾当成你的实习生。复杂的工作任务，你自己先用Claude Code或者Codex，在你自己电脑上做一遍，形成SOP（也可以是skill），确保无论什么情况它执行后都能稳定产出符合要求的结果，然后再把SOP给到同样使用顶级模型的OpenClaw，这事就成了 —— 以后你只需要在飞书/Telegram里指挥小龙虾就行。</li>
+<li>耗时长的任务，让小龙虾使用ACP或TMUX工具来协助原理和操作方法在这一篇文章里 如何让OpenClaw指挥三位大哥协作写代码？无论你认为OpenClaw是不是鸡肋，你都是对的佛学里有个词，叫“相由心生”。不是指人的长相。它的意思是：你眼中看到的世界，是由你内心的状态塑造的。同一件事，悲观的人看到的是障碍，乐观的人看到的是机会；同一个工具，觉得它没用的人用出来的是废品，觉得它有潜力的人用出来的是杠杆。你的“心”，决定了你眼前这个世界的“相”。你认为 OpenClaw 是鸡肋，它就是鸡肋。你认为它是值得深耕的工具，它就是。这不是自我安慰，也不是鸡汤——这只关乎你的价值观和你的选择。中文圈子把“使用 OpenClaw”的过程，叫做“养虾”。我觉得这个词起得非常贴切。养虾，不是一件一劳永逸的事。你得喂它、观察它、在它犯错的时候耐心纠正它，在它进步的时候及时给它新的任务。慢慢地，它开始懂你的习惯，懂你的偏好，懂你做事的方式。但在这个过程里，悄悄发生变化的，其实还有你自己。你会开始思考：什么任务值得交给它，什么任务必须自己来。你会开始拆解流程，因为只有你自己先搞清楚，才能教会它。你会变得更有耐心，也更清楚自己真正想要的是什么。养虾养到最后，你会发现——你养大的不只是一只虾，更是你自己。最后，既然刚刚提到了我课，就顺便做一个小广告吧。2000个名额还剩最后一点点了，详情见这里 刘小排终于发布AI编程课了谢谢你的喜爱支持。</li>
+</ol>
         </div>
     </article>
 
@@ -125,13 +167,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdGEvGXaZlW" class="article-nav-link prev">
+        <a href="recvdGEvGXaZlW.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">OpenClaw龙虾技校Skill选课指南</span>
         </a>
         
         
-        <a href="/post/recvdGiGCMbepu" class="article-nav-link next">
+        <a href="recvdGiGCMbepu.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">一种无需编写代码快速搭建飞书多Agent机器人的方法</span>
         </a>
@@ -141,7 +183,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

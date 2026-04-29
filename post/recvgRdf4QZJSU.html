@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Seedance</span>
+            
+            <span class="topic-chip">AI 视频</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">运镜</span>
+            
+            <span class="detail-reading-time">约 7 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 这篇文章分享豆包 Seedance2.0 连贯视频生成的实测流程，并介绍 seedance-prompt-skill 如何把运镜提示词拆解得更有电影感。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>这篇文章分享豆包 Seedance2.0 连贯视频生成的实测流程，并介绍 seedance-prompt-skill 如何把运镜提示词拆解得更有电影感。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Hi，大家好！我是蜡笔，你的AI入门 学习指南💡 周末没出门，干了点有意思的事，专门练了视频生成，把各种运镜指令都过了一遍。刚好又碰到豆包网页版重新开放了 seedance2.0 的视频生成能力，但离谱的是手机端还是用不了，只能老老实实在网页上肝。 连续三天我基本把每天5个额度榨得一滴不剩。过程中还意外挖到一个专门做 seedance2.0 运镜提示词的 skill，装上之后配合使用，明显感觉视频质量直接抬了一档。 这次我在豆包上做了一...</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/hK7iTYcNUg9tzpg4-jyUcg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,89 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>Hi，大家好！我是蜡笔，你的AI入门 学习指南💡 周末没出门，干了点有意思的事，专门练了视频生成，把各种运镜指令都过了一遍。刚好又碰到豆包网页版重新开放了 seedance2.0 的视频生成能力，但离谱的是手机端还是用不了，只能老老实实在网页上肝。 连续三天我基本把每天5个额度榨得一滴不剩。过程中还意外挖到一个专门做 seedance2.0 运镜提示词的 skill，装上之后配合使用，明显感觉视频质量直接抬了一档。 这次我在豆包上做了一...</p>
+            <p>Hi，大家好！我是蜡笔，你的AI入门</p>
+<p>学习指南💡</p>
+<p>周末没出门，干了点有意思的事，专门练了视频生成，把各种运镜指令都过了一遍。刚好又碰到豆包网页版重新开放了 seedance2.0 的视频生成能力，但离谱的是手机端还是用不了，只能老老实实在网页上肝。</p>
+<p>连续三天我基本把每天5个额度榨得一滴不剩。过程中还意外挖到一个专门做 seedance2.0 运镜提示词的 skill，装上之后配合使用，明显感觉视频质量直接抬了一档。</p>
+<p>这次我在豆包上做了一个30秒(本来可以40s或更长)的连贯视频，算是第一次比较像样的突破了。所以这篇就顺手把成果放出来，也一起分享这个挺好用的 skill，还有我整理的一些运镜指令。</p>
+<p>01</p>
+<p>豆包做的视频</p>
+<p>这次又做了清明上河图盛景，自我比较下，比上次的视频输出有所进步；而且发现了豆包连贯生成的用法真的不错，就是要⚠️注意尺寸一致，具体可以看下我的操作步骤：</p>
+<p>第一步</p>
+<p>就是正常生成一个10s视频，豆包最长只能生成10s视频；提示词是skill帮我生成的，下面会具体分享出来。</p>
+<p>第二步</p>
+<p>就要注意我圈出来这句话</p>
+<p>将上面的视频继续延长10秒。接续第1段</p>
+<p>，这个就是保证豆包能理解你需要连贯剧情的关键，当然后面的提示词也是要跟前面的衔接起来，例如</p>
+<p>虹桥</p>
+<p>这个元素就是能接上的。</p>
+<p>第三步</p>
+<p>为什么我前面说本来可以40s呢，因为在第四段时，我忘了选16:9的尺寸，豆包给我默认生成了9:16的竖屏；本来我以为继续给它说改成16:9的就能生成一个新的，结果看下图2；生成了一个无关紧要的视频。。。</p>
+<p>然后我又没了生成额度，但我又想周一给你们分享出来。所以你们切记，别犯这个错。</p>
+<p>02</p>
+<p>专门生成Seedance2.0运镜的skill</p>
+<p>这是我刷X时发现的宝藏，创造者：松果先生，反正记得去github给一个Star；亲测真的很好用！这个skill生成的提示词主要是视频结构拆解、运镜方面特别优秀，所以并不限于用在</p>
+<p>Seedance2.0，用在其它视频平台，效果也会更好一些。</p>
+<p>seedance-prompt-skill</p>
+<p>专门为字节跳动 Seedance 2.0（即梦）打造，一句话描述你的创意，它就能帮你生成结构化、可直接复制使用的高质量中文视频提示词。</p>
+<p>不会写提示词的人，也能更快做出有电影感的 AI 视频。</p>
+<p>做 AI 视频创作、即梦出片的，值得试试。</p>
+<p>GitHub：</p>
+<p>https://github.com/songguoxs/seedance-prompt-skill</p>
+<p>随意一个🦞都可以安装这个skill：</p>
+<p>安装完，你输入一句话，它就会自动理解你的内容，给你拆解提示词，如果是超过15s的视频需求，它会给你自动拆解多段提示词；如果像豆包只支持10s一段，你也可以提前说明要拆几段，每段10s；它都可以理解到位。</p>
+<p>例如这个视频，我觉得</p>
+<p>这个</p>
+<p>希区柯克变焦运镜</p>
+<p>用在初入桃花源的惊叹这里真的非常不错！</p>
+<p>视频提示词：</p>
+<p>16</p>
+<p>:</p>
+<p>9</p>
+<p>横屏，3D国漫渲染风格，电影感，</p>
+<p>15</p>
+<p>秒。</p>
+<p>0</p>
+<p>-</p>
+<p>3</p>
+<p>秒：跟随镜头，一个扎着发髻、背着竹篓的年轻小人，沿着昏暗山洞中的溪流深一脚浅一脚地前行，洞壁上滴水泛起涟漪，他的呼吸声急促而紧张；</p>
+<p>4</p>
+<p>-</p>
+<p>7</p>
+<p>秒：小人推开洞口垂下的藤蔓，一束强烈的金色阳光劈面照来，镜头从小人身后越过他的肩膀，从黑暗的山洞内部向外望去，逆光剪影效果，洞口外是一线耀眼的粉白色光芒；</p>
+<p>8</p>
+<p>-</p>
+<p>11</p>
+<p>秒：希区柯克变焦，镜头从小人震惊的表情急速拉远至鸟瞰大远景，展现桃花源的壮阔全貌——层层叠叠的桃花林铺满山谷，溪流如碧玉丝带蜿蜒其间，远处有炊烟袅袅的茅舍和桃花树下劳作的古人身影，花瓣在空中旋转飞舞；</p>
+<p>12</p>
+<p>-</p>
+<p>15</p>
+<p>秒：缓推特写小人的脸，他的眼眶微红，嘴唇颤抖着喃喃自语</p>
+<p>"这……这便是桃花源？"</p>
+<p>，一滴泪光在眼角闪烁，身后洞口的光影与面前桃花林的金色暖光在他脸上交叠，音效为山洞回声消散转为清脆鸟鸣和溪流声，配乐为恢宏而温柔的弦乐渐起。 禁止：任何文字、字幕、</p>
+<p>LOGO</p>
+<p>或水印</p>
+<p>03</p>
+<p>运镜口令合集</p>
+<p>这些</p>
+<p>指令别光顾收</p>
+<p>藏，如果你没有具体的想法用，只想练习的情况下；完全可以把（指令和场景）直接复制给豆包，就能给你生成一个5s视频，让你知道这个运镜是怎么用的。</p>
+<p>最后</p>
+<p>写在最后</p>
+<p>一直以来，我自己做AI视频的水平，是被模型推着走的。模型变强，我就跟着变强。现在不只是模型在升级，各种skill技能的叠加，才是真正把水平往上抬的东西。</p>
+<p>但更关键的一点，其实是实践练习。平时不练，等哪天真要用的时候，脑子是空的，手也是慢的，根本谈不上发挥。我自己体感特别明显，之前做出来的视频，大多都停在表面，没有深度，全靠大家捧场。</p>
+<p>这次也算刻意练习，也顺手把过程记录下来。对我来说，输出不只是分享，是在给未来的自己存档。哪天我需要做一个目的性很强的视频，回头翻到这篇，说不定就能重新点燃创作思路。</p>
+<p>既然看到这里了</p>
+<p>如果觉得有用，先点个赞</p>
+<p>再顺手点个在看或转发</p>
+<p>♥</p>
+<p>点赞</p>
+<p>☆</p>
+<p>↗</p>
+<p>转发</p>
+<p>THANKS FOR READING</p>
         </div>
     </article>
 
@@ -125,13 +229,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvh24Ee7uM98" class="article-nav-link prev">
+        <a href="recvh24Ee7uM98.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了</span>
         </a>
         
         
-        <a href="/post/recvgMHNOwVrNi" class="article-nav-link next">
+        <a href="recvgMHNOwVrNi.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">I run multiple $10K MRR companies on a $20/month tech stack</span>
         </a>
@@ -141,7 +245,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

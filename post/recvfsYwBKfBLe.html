@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>掌握这几个神级Skill，前端质感直接拉满 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>掌握这几个神级Skill，前端质感直接拉满 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">前端设计</span>
+            
+            <span class="topic-chip">设计与视觉</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">掌握这几个神级Skill，前端质感直接拉满</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ AI深度接管设计体系，实现组件、规范、动效和审美的模块化调用。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>AI深度接管设计体系，实现组件、规范、动效和审美的模块化调用。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍7款AI驱动的设计工具，可显著提升前端开发效率与界面质感： 1. Impeccable：集成17种设计命令（如polish/audit），优化前端设计流程； 2. UI Skills：提供15个模块化能力包，覆盖设计一致性、无障碍优化等工程化需求； 3. Taste Skill：通过字体、动效等细节一键重构界面高级感； 4. Better Icons：整合20万+图标资源，实现搜索到项目同步的自动化； 5. UI Design Brain：60+组件库支持SaaS/企业/数据面板等多风格设计； 6. Motion AI Kit：专业动效生成与性能优化工具； 7. 设计系统生成器：直连Figma自动提取规范，一键生成设计文档。 核心趋势：AI正深度接管设计全流程（组件/规范/动效/审美），推动设计能力模块化，实现&#34;前端质感升级&#34;的自动化革新。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/RxFvp4JLOdQtjIgWlok5oQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,17 +137,34 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心提炼（196字）：</p>
-<p>本文介绍<strong>7款AI驱动的设计工具</strong>，可显著提升前端开发效率与界面质感：<br />
-1. <strong>Impeccable</strong>：集成17种设计命令（如polish/audit），优化前端设计流程；<br />
-2. <strong>UI Skills</strong>：提供15个模块化能力包，覆盖设计一致性、无障碍优化等工程化需求；<br />
-3. <strong>Taste Skill</strong>：通过字体、动效等细节一键重构界面高级感；<br />
-4. <strong>Better Icons</strong>：整合20万+图标资源，实现搜索到项目同步的自动化；<br />
-5. <strong>UI Design Brain</strong>：60+组件库支持SaaS/企业/数据面板等多风格设计；<br />
-6. <strong>Motion AI Kit</strong>：专业动效生成与性能优化工具；<br />
-7. <strong>设计系统生成器</strong>：直连Figma自动提取规范，一键生成设计文档。</p>
-<p><strong>核心趋势</strong>：AI正深度接管设计全流程（组件/规范/动效/审美），推动设计能力模块化，实现"前端质感升级"的自动化革新。</p>
+            <p>文章标题为《掌握这几个神级Skill，前端质感直接拉满》，内容主要介绍了作者在补AI设计相关技能时发现的一些实用工具，这些工具可以帮助前端、产品或AI工具方向的人提升工作效率。</p>
+<p>文章中提到的7个实用工具分别是：</p>
+<ol>
+<li>
+<p><strong>Impeccable</strong>：这是一个增强型前端设计工具，内置了17个设计命令，如polish、audit、distill等，可以用于前端设计。</p>
+</li>
+<li>
+<p><strong>UI Skills</strong>：这是一套完整的UI工程化能力包，包含15个独立技能模块，覆盖了设计一致性、无障碍优化、SEO元数据处理、动画性能优化、动画十二原则实践等多个方面。</p>
+</li>
+<li>
+<p><strong>Taste Skill</strong>：这是一套偏向审美提升的工具，可以对现有项目进行改版重构，并一键输出完整代码，通过字体、留白、卡片、动效等细节提升界面高级感。</p>
+</li>
+<li>
+<p><strong>Better Icons</strong>：这个工具解决了图标查找的繁琐问题，拥有超过20万图标资源，支持快速搜索并自动同步到项目中。</p>
+</li>
+<li>
+<p><strong>UI Design Brain</strong>：这是一个包含60+组件的最佳实践库，支持SaaS、极简、企业、创意、数据面板等多种设计风格。</p>
+</li>
+<li>
+<p><strong>Motion AI Kit</strong>：这是一个专注于动效与性能优化的工具，提供动画设计、CSS弹性动效生成、性能审计、过渡效果可视化等专业能力。</p>
+</li>
+<li>
+<p><strong>设计系统自动生成器</strong>：这个工具可以直接连接Figma，自动提取颜色、字体、间距、组件等规范，一键生成skill.md文档，无需手动搭建设计系统。</p>
+</li>
+</ol>
+<p>文章最后提到，AI不再只是辅助编写代码，而是开始深度介入并接管整个设计体系，从组件、规范、动效到审美，都在逐步变成可以模块化调用的能力。</p>
         </div>
     </article>
 
@@ -134,13 +172,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfsZuk2mwFi" class="article-nav-link prev">
+        <a href="recvfsZuk2mwFi.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">分享6个我觉得应该必装的Skills</span>
         </a>
         
         
-        <a href="/post/recveHAdaQZqba" class="article-nav-link next">
+        <a href="recveHAdaQZqba.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Web Access：一个Skill，拉满Agent联网和浏览器能力</span>
         </a>
@@ -150,7 +188,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

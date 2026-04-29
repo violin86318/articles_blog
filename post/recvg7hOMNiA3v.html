@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>「AI漫剧分镜电影感神仙提示词」全部分享 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>「AI漫剧分镜电影感神仙提示词」全部分享 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">AI 视频</span>
+            
+            <span class="topic-chip">分镜</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">漫剧</span>
+            
+            <span class="detail-reading-time">约 5 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">「AI漫剧分镜电影感神仙提示词」全部分享</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 提供手动或编程方法帮助提取网页内容
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>提供手动或编程方法帮助提取网页内容</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>深耕AI实战的带娃奶爸创业者老孙（只做真实落地、拒绝割韭菜），分享AI漫剧破局干货： 很多创作者做AI漫剧常遇画面无质感、缺沉浸感的问题，核心差距是没用到电影语言引导AI。老孙死磕数万张AI生成图，总结出黄金公式的「AI漫剧分镜电影感提示词」，涵盖5大热门题材共25组开箱即用，另附3个消除AI感的独家渲染秘籍。 评论区扣666可领，加v可进免费AI实战交流群，还赠《火龙漫剧合作指导手册》+即梦10000组关键词资料包。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/x4QS217xgz8FZCb9PLmFzw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -114,12 +137,92 @@
 
         <!-- Table of Contents -->
         
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#ai创业" class="toc-link">AI创业</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#ai漫剧" class="toc-link">AI漫剧</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#创业" class="toc-link">创业</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#ai" class="toc-link">AI</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#短视频" class="toc-link">短视频</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#seedance2" class="toc-link">Seedance2</a>
+                </li>
+                
+            </ul>
+        </div>
+        
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>深耕AI实战的带娃奶爸创业者老孙（只做真实落地、拒绝割韭菜），分享AI漫剧破局干货：<br />
-很多创作者做AI漫剧常遇画面无质感、缺沉浸感的问题，核心差距是没用到电影语言引导AI。老孙死磕数万张AI生成图，总结出黄金公式的「AI漫剧分镜电影感提示词」，涵盖5大热门题材共25组开箱即用，另附3个消除AI感的独家渲染秘籍。<br />
-评论区扣666可领，加v可进免费AI实战交流群，还赠《火龙漫剧合作指导手册》+即梦10000组关键词资料包。</p>
+            <p>大家好，我是老孙，深耕AI实战应用的带娃奶爸创业者，只做真实落地、拒绝割韭菜！</p>
+<p>加v：Skye178，赠送《火龙漫剧合作指导手册》和即梦10000组关键词资料包！</p>
+<p>👇点击名片，一起学AI、提认知、破焦虑</p>
+<p>在AI漫剧的创作世界里，无数创作者都曾困在同一道关口——剧情明明跌宕起伏，但是做出来的画面却总像失了魂的“定妆照”。人物是缺乏肌理的塑料质感，背景是单薄得透光的贴纸，整部作品毫无沉浸感，更别提抓人的故事张力。</p>
+<p>同样是研究AI漫剧的，别人的作品每一帧看起来都是院线大片，你的画面却总缺了那股让人挪不开眼的质感，差距究竟藏在哪？</p>
+<p>其实，拉开这张差距的核心，从来不是素材本身，而是少了“电影语言”这根串联画面的灵魂丝线。</p>
+<p>我之前为了破解这个难题，死磕数万张AI生成画面，在一次次调试与优化中，终于给我摸索出了规律。</p>
+<p>现在，我把这套沉淀已久的「AI漫剧分镜电影感神仙提示词」全部分享给你们，只希望能帮助更多创作者走出瓶颈。</p>
+<p>这套提示词绝非凭空捏造，而是严格遵循</p>
+<p>【镜头景别/角度】+【电影级主光源】+【环境氛围描述】+【角色服饰材质与动作】+【面部微表情与情绪张力】</p>
+<p>的黄金公式，每一个指令都藏着让画面“活”起来的密码。</p>
+<p>内容涵盖废土科幻、东方仙侠、现代悬疑、都市情感、热血动作5大热门题材，25个分镜指令开箱即用，无需反复修改，直接拿来用就快可以了。哪怕是刚入门的新手，也能瞬间让画面拉满大片质感！更惊喜的是，文末还藏着3个纯中文的“电影感”渲染独家秘籍，这是能让画面质感再上一层楼的关键，一定要看到最后，千万别错过！</p>
+<p>01.东方仙侠风格</p>
+<p>以东方留白气韵为骨，以极致动态美与宿命感为魂，着重刻画衣袂飘飘的飘逸姿态，营造清冷绝尘、意境悠远的氛围感。</p>
+<p>02.废土科幻风格</p>
+<p>主打高反差光影、机械冷硬质感与末日废土的破败感，每一组提示词都能打造极具视觉冲击力的分镜，让你的AI漫剧自带末日科幻大片气场。</p>
+<p>03.都市情感风格</p>
+<p>强调细腻的柔和光影、生活质感的自然流露与角色间的微表情互动，每一组提示词都能勾勒出真实动人的都市情愫，让你的AI漫剧自带烟火气与共情力。</p>
+<p>04.现代悬疑风格</p>
+<p>以阴冷色调为底，以极致压迫感与细腻心理暗示为魂，着重通过精准构图与细节刻画，营造不安情绪，让你的AI漫剧自带拉满的悬疑张力。</p>
+<p>05.热血动漫风格</p>
+<p>以夸张透视为底，以肌肉紧绷感、速度线与画面破坏力为魂，着重刻画激烈动作瞬间，让你的AI漫剧自带燃炸的热血张力。</p>
+<p>06.独家秘招</p>
+<p>提示词写得再长、语句再优美，没有给ai正确的指令，得到的图片一样一眼"ai味"；</p>
+<p>所以下面这三个独家技巧，学会了能让你的画面有质的飞跃；</p>
+<p>AI工具不过是手中的画笔，而真正手握导筒、掌控全局的，从来都是你自己。想让你的漫剧在众多作品中脱颖而出，就必须抛开干瘪乏味的词汇，用饱含情绪、充满画面感的“电影语言”去引导AI。</p>
+<p>不妨就从这25个提示词开始，把其中的人物与环境替换成你专属的设定，现在就动手跑图尝试，准备解锁属于你的视觉大片吧！</p>
+<p>如果你需要上面的提示词，在</p>
+<p>评论区回复666</p>
+<p>，我单独发给你们吧！</p>
+<p>好了，今天的教程就聊到这里了；</p>
+<p>粉丝福利来啦～</p>
+<p>我专门建了一个 <strong>AI视频实战交流群</strong>，每天都会在群里拆解当下最新的模型玩法和实操技巧。</p>
+<p>扫码添加我即可免费进群，还能领取我整理的私藏资料——**</p>
+<p>《火龙漫剧合作指导手册》</p>
+<p>+</p>
+<p>即梦10000组关键词</p>
+<p>**，不管是用来参考学习，还是制作提示词智能体，都非常实用。</p>
+<p>今天的内容分享就到这里，觉得内容对你有帮助的话，</p>
+<p>别忘了一键四连：点赞、关注、分享和评论哦！</p>
+<p>我是老孙，一个深耕AI实战应用的带娃奶爸创业者，欢迎大家关注我！</p>
+<h1 id="ai创业">AI创业</h1>
+<h1 id="ai漫剧">AI漫剧</h1>
+<h1 id="创业">创业</h1>
+<h1 id="ai">AI</h1>
+<h1 id="短视频">短视频</h1>
+<h1 id="seedance2">Seedance2</h1>
+<p>.0</p>
         </div>
     </article>
 
@@ -127,13 +230,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg8l2T43ZpR" class="article-nav-link prev">
+        <a href="recvg8l2T43ZpR.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">2026年GEO优化入门手册：AI搜索时代你的内容为什么没被引用</span>
         </a>
         
         
-        <a href="/post/recvg2cgf0kYy8" class="article-nav-link next">
+        <a href="recvg2cgf0kYy8.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">装了七八回才摸透——用 Antigravity 安装 OpenClaw 完整教案</span>
         </a>
@@ -143,7 +246,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

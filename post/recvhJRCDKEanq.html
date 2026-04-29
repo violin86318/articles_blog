@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>DeepSeek V4：不是最强的，可能是最重要的 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>DeepSeek V4：不是最强的，可能是最重要的 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,41 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">DeepSeek</span>
+            
+            <span class="topic-chip">模型评测</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">DeepSeek V4：不是最强的，可能是最重要的</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ DeepSeek V4通过多项技术创新实现长上下文处理突破，性能接近前沿闭源模型且价格远低于竞品，开放可商用的属性使其成为开源AI领域的重要里程碑。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>DeepSeek V4通过多项技术创新实现长上下文处理突破，性能接近前沿闭源模型且价格远低于竞品，开放可商用的属性使其成为开源AI领域的重要里程碑。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>DeepSeek V4虽性能暂未超越Anthropic Opus 4.7、OpenAI GPT-5.5等前沿闭源模型，却是AI领域极具分量的里程碑。它价格优势显著：V4 Pro输出价格仅为GPT-5.5的11.6%，V4 Flash仅为GPT-5.5的0.93%，还通过多项技术创新大幅降低长上下文处理的计算显存成本，数学、代码、中文任务已接近前沿闭源水平。它开放权重、采用MIT许可可商用，是开源AI的重大突破，为行业带来全新发展机遇。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/_eAVHgcW-YEvkg1ho6yV-A&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +135,35 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>DeepSeek V4虽性能暂未超越Anthropic Opus 4.7、OpenAI GPT-5.5等前沿闭源模型，却是AI领域极具分量的里程碑。它价格优势显著：V4 Pro输出价格仅为GPT-5.5的11.6%，V4 Flash仅为GPT-5.5的0.93%，还通过多项技术创新大幅降低长上下文处理的计算显存成本，数学、代码、中文任务已接近前沿闭源水平。它开放权重、采用MIT许可可商用，是开源AI的重大突破，为行业带来全新发展机遇。</p>
+            <p>根据您提供的参考信息，以下是文章《DeepSeek V4：不是最强的，可能是最重要的》的主要内容：</p>
+<p><strong>文章概述</strong></p>
+<ul>
+<li>文章主要讨论了 DeepSeek V4 模型的发布及其在 AI 领域的重要性。</li>
+<li>对比了 DeepSeek V4 与 Anthropic 的 Opus 4.7 和 OpenAI 的 GPT-5.5，分析了 DeepSeek V4 在性能和价格方面的特点。</li>
+</ul>
+<p><strong>DeepSeek V4 的特点</strong></p>
+<ul>
+<li><strong>价格优势</strong>：DeepSeek V4 Pro 的输出价格是 GPT-5.5 的 11.6%，V4 Flash 的输出价格是 GPT-5.5 的 0.93%，远低于竞争对手。</li>
+<li><strong>长上下文处理</strong>：DeepSeek V4 在处理长上下文方面表现出色，通过创新的注意力机制和训练稳定性技术，大幅降低了计算和显存成本。</li>
+<li><strong>注意力机制</strong>：V4 使用了压缩稀疏注意力（CSA）和重压缩注意力（HCA）相结合的方式，有效地处理长距离依赖关系。</li>
+<li><strong>训练稳定性</strong>：V4 采用了新的优化器 Muon 和流形约束的超连接（mHC）技术，提高了训练的稳定性。</li>
+<li><strong>低精度训练</strong>：V4 在训练中使用了 FP4 和 FP8 精度，并通过无损反量化技术，实现了高效的训练和推理。</li>
+<li><strong>后训练</strong>：V4 使用了在线策略蒸馏（OPD）方法，将多个领域专家的能力合并到一个统一模型中。</li>
+</ul>
+<p><strong>性能对比</strong></p>
+<ul>
+<li>DeepSeek V4 在数学、代码和中文任务上表现出色，接近或达到了前沿闭源模型的水平。</li>
+<li>在长时程 agent、真实代码库调试、长上下文检索质量等方面，V4 与前沿闭源模型还有一定差距。</li>
+</ul>
+<p><strong>重要性</strong></p>
+<ul>
+<li>DeepSeek V4 的发布标志着开源模型在性能和价格上取得了重大突破，为 AI 领域带来了新的可能性。</li>
+<li>V4 的开放权重和 MIT 许可证，使得任何人都可以使用、修改和商用该模型。</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>DeepSeek V4 模型通过技术创新和工程优化，实现了在长上下文处理方面的突破，并为开源 AI 领域带来了新的竞争力和发展机遇。尽管在部分任务上与前沿闭源模型还有差距，但 V4 的价格优势和开放性使其成为 AI 领域的重要里程碑。</p>
         </div>
     </article>
 
@@ -125,13 +171,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhSYAy4KAkT" class="article-nav-link prev">
+        <a href="recvhSYAy4KAkT.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Karpathy的AI知识库方法很好用，但不一定适合你</span>
         </a>
         
         
-        <a href="/post/recvhJRtMccdfj" class="article-nav-link next">
+        <a href="recvhJRtMccdfj.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">卡兹克写作风格Skill+Karpathy LLM Wiki ：构建能自我进化的文章写作知识库</span>
         </a>
@@ -141,7 +187,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>开源我的所有 skill，以及 skill 管理方法 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>开源我的所有 skill，以及 skill 管理方法 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">开源我的所有 skill，以及 skill 管理方法</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 开源所有技能并基于GitHub CLI实现自动化管理方法，实现跨工具、跨电脑、跨网络的技能共享与定时同步。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>开源所有技能并基于GitHub CLI实现自动化管理方法，实现跨工具、跨电脑、跨网络的技能共享与定时同步。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>作者为实现跨设备、跨工具的skill共享，将100余个自研skill开源并建立系统化管理体系。核心方法包括： 1. 全局skill目录：统一存放于.claude/skills，按写作/画图/信息获取/产品经理四大类分文件夹管理 2. 跨工具同步：通过软链接将Codex等工具的skill根目录同步至全局目录 3. 自动化流程： 使用skill-mannage工具定时自动Git推送 推荐GitHub CLI实现Agent无障碍操作仓库 4. 开源共享：所有skill已同步至GitHub仓库（https://github.com/zephyrwang6/myskill），涵盖AI绘画提示、写作模板等实用技能。 作者强调此体系支持跨网络环境协作，并在社群持续分享skill开发与管理技巧，呼吁读者参与开源生态建设。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/4Toyhq9UuYYHQMZjx0uG-w&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,16 +137,9 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心内容提炼（196字）：</p>
-<p>作者为实现跨设备、跨工具的skill共享，将<strong>100余个自研skill</strong>开源并建立系统化管理体系。核心方法包括：<br />
-1. <strong>全局skill目录</strong>：统一存放于<code>.claude/skills</code>，按<strong>写作/画图/信息获取/产品经理</strong>四大类分文件夹管理<br />
-2. <strong>跨工具同步</strong>：通过软链接将Codex等工具的skill根目录同步至全局目录<br />
-3. <strong>自动化流程</strong>：<br />
-   - 使用<code>skill-mannage</code>工具定时自动Git推送<br />
-   - <strong>推荐GitHub CLI</strong>实现Agent无障碍操作仓库<br />
-4. <strong>开源共享</strong>：所有skill已同步至GitHub仓库（<strong>https://github.com/zephyrwang6/myskill</strong>），涵盖AI绘画提示、写作模板等实用技能。  </p>
-<p>作者强调此体系支持<strong>跨网络环境协作</strong>，并在社群持续分享skill开发与管理技巧，呼吁读者参与开源生态建设。</p>
+            <p>文章标题为《开源我的所有 skill，以及 skill 管理方法》。文章内容主要讲述了作者在家办公时，为了使自己的电脑也能使用工作电脑的 skill，将 100 多个 skill 进行了同步和分类。这些 skill 可以实现跨工具、跨电脑、跨网络的使用和分享。作者使用的方法包括用 .claude/skills 来做全局 skill，其他工具如 codex 的 skill 根目录做软链接同步 claude/skill，对全局 skill 按类型拆分文件夹，并在 GitHub 建仓同步，最后建立一个 skill-mannage 来定时自动推送 git。作者还强烈建议使用 GitHub CLI 来实现让 Agent 无障碍增删改查 git。文章最后分享了作者的四大类 skill，包括写作类、画图类、信息获取类、产品经理类，并提供了相应的 GitHub 仓库地址。所有 skill 的 GitHub 仓库地址为 https://github.com/zephyrwang6/myskill。作者还在社群里分享了很多关于 skill 工作的创造和管理方法，并鼓励大家点赞支持，后续会分享制作技巧和管理方法，以使 Agent 更有用。</p>
         </div>
     </article>
 
@@ -133,13 +147,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfPoRha6Lc0" class="article-nav-link prev">
+        <a href="recvfPoRha6Lc0.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">今天干脆一次性把小红书矩阵这件事说清楚</span>
         </a>
         
         
-        <a href="/post/recvfPovYBe5hq" class="article-nav-link next">
+        <a href="recvfPovYBe5hq.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析</span>
         </a>
@@ -149,7 +163,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

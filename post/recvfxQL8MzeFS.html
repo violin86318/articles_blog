@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Qwen</span>
+            
+            <span class="topic-chip">模型评测</span>
+            
+            <span class="topic-chip">语音多模态</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Qwen3.5-Omni全模态模型能真正理解语音捕捉情感意图实现端到端多模态交互
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Qwen3.5-Omni全模态模型能真正理解语音捕捉情感意图实现端到端多模态交互</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心创新： 阿里千问团队发布的 Qwen3.5-Omni 全模态模型突破传统AI交互限制，首次实现端到端音视频直接理解与输出，无需中间转换（如语音转文字），显著提升交互效率与语义还原度。 关键能力： 1. 真实“听懂”语音：捕捉语气、情感及多说话人场景（旧模型仅能处理文字转录）； 2. 多模态实时处理：支持 128K长音视频输入、多语种语音实时输出、语义打断响应； 3. 产品体验革新：交互更贴近人类自然行为（如带情感语音反馈），降低使用门槛。 行业意义： 全模态技术已进入产品化阶段，Qwen3.5-Omni 的 8K上下文应用场景及开源生态（支持微信端体验）为AI产品设计开启新想象空间，推动人机交互向“类人”体验进化。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/qz13Dl0GNmpd6iw21e_tPg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,16 +137,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是《AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测》的核心提炼（196字）：</p>
-<p><strong>核心创新：</strong><br />
-阿里千问团队发布的 <strong>Qwen3.5-Omni 全模态模型</strong>突破传统AI交互限制，首次实现<strong>端到端音视频直接理解与输出</strong>，无需中间转换（如语音转文字），显著提升交互效率与语义还原度。</p>
-<p><strong>关键能力：</strong><br />
-1. <strong>真实“听懂”语音</strong>：捕捉语气、情感及多说话人场景（旧模型仅能处理文字转录）；<br />
-2. <strong>多模态实时处理</strong>：支持 <strong>128K长音视频输入</strong>、多语种语音实时输出、语义打断响应；<br />
-3. <strong>产品体验革新</strong>：交互更贴近人类自然行为（如带情感语音反馈），降低使用门槛。</p>
-<p><strong>行业意义：</strong><br />
-全模态技术已进入产品化阶段，Qwen3.5-Omni 的 <strong>8K上下文应用场景</strong>及开源生态（支持微信端体验）为AI产品设计开启新想象空间，推动人机交互向“类人”体验进化。</p>
+            <p>文章标题为《AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测》，作者为“一泽Eze”，发布平台为“微信公众平台”。</p>
+<p>文章内容主要围绕阿里千问团队发布的 Qwen3.5-Omni 全模态模型展开。作者认为，从 AI 产品设计的角度来看，这个模型值得更高的讨论热度。文章首先回顾了 AI 语音通话的发展历程，从 ChatGPT 的高级语音模式到 OpenAI 发布的 GPT-4o，指出在旧管线中，语音模式并不能直接观察语气、说话者人数，也不能输出情感。文章通过对比非全模态模型与全模态模型在处理语音时的差异，强调了全模态模型在捕捉说话人心情与含义方面的优势。</p>
+<p>文章进一步探讨了全模态模型在加速人 AI 交互效率方面的作用，指出全模态模型可以直接处理音频、图像、视频，并通过端到端输出语音、图像等模态，减少中间转换的损耗。以 Qwen3.5-Omni 为例，作者展示了该模型在处理长音视频、语音输出、多语种、语义打断、实时工具调用等方面的能力。</p>
+<p>文章还讨论了全模态模型在 AI 产品设计中的应用前景，认为全模态模型能够让 AI 产品的交互方式更接近真实人类做事的方式，从而降低 AI 产品的使用门槛，提升用户体验。作者以音视频实时通话、长音频处理、多语种端到端语音等案例，展示了全模态模型在 AI 产品设计中的潜力。</p>
+<p>最后，作者总结了全模态模型的发展现状，认为全模态模型已经到了进入 AI 产品设计考量的阶段，并鼓励产品侧发挥想象力，探索全模态模型在 AI 产品设计中的应用。文章还提供了普通用户和开发者体验 Qwen3.5-Omni 的方法。</p>
         </div>
     </article>
 
@@ -133,13 +151,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfPovYBe5hq" class="article-nav-link prev">
+        <a href="recvfPovYBe5hq.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">阿里千问新模型 Qwen3.6-Plus 测评：前端 Coding 效果、多模态推理及 Agent 能力解析</span>
         </a>
         
         
-        <a href="/post/recvfuothuiAfb" class="article-nav-link next">
+        <a href="recvfuothuiAfb.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？</span>
         </a>
@@ -149,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

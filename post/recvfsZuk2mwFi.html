@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>分享6个我觉得应该必装的Skills — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>分享6个我觉得应该必装的Skills — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,41 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">工具推荐</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">分享6个我觉得应该必装的Skills</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 掌握创造个性化Skills的能力是提升效率的关键。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>掌握创造个性化Skills的能力是提升效率的关键。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心观点： 通用AI能力正在贬值，而精准解决个性化需求的专属能力（Skills）成为关键竞争力。作者强推6个必装技能： 1. Frontend Design：根治AI前端设计“土味”，强制规划美学方向，优化排版/字体/动效。 2. 办公四件套：无缝读写/编辑Word、Excel、PPT、PDF文件，提升文档处理专业性。 3. Web Access：联网+操控浏览器（带登录状态），自动沉淀网站操作经验，越用越强。 4. PUA模式：专治AI“摆烂”，用7步检查清单强制切换思路，突破问题解决瓶颈。 5. Claude-mem：实现跨会话长期记忆，自动注入关键上下文。 6. Skill-Creator（核心）：允许用户将自身需求封装成专属Skill，实现个性化赋能。 结论： 最牛技能永远是“自己造的Skill”。Skills的价值在于将个人经验转化为可复用的智能工具，推动AI从通用助手进阶为专属生产力引擎。 注：全文未出现具体数据，核心聚焦个性化技能的价值升华。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/udSpp7eMqwiRo5yVShRzLw?scene=1&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,21 +135,31 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章《分享6个我觉得应该必装的Skills》的核心提炼（约190字）：</p>
-<p><strong>核心观点</strong>：<br />
-通用AI能力正在贬值，而<strong>精准解决个性化需求的专属能力（Skills）</strong>成为关键竞争力。作者强推6个必装技能：<br />
-1. <strong>Frontend Design</strong>：根治AI前端设计“土味”，强制规划美学方向，优化排版/字体/动效。<br />
-2. <strong>办公四件套</strong>：无缝读写/编辑Word、Excel、PPT、PDF文件，提升文档处理专业性。<br />
-3. <strong>Web Access</strong>：联网+操控浏览器（带登录状态），自动沉淀网站操作经验，越用越强。<br />
-4. <strong>PUA模式</strong>：专治AI“摆烂”，用7步检查清单强制切换思路，突破问题解决瓶颈。<br />
-5. <strong>Claude-mem</strong>：实现跨会话长期记忆，自动注入关键上下文。<br />
-6. <strong>Skill-Creator（核心）</strong>：允许用户将自身需求封装成专属Skill，实现个性化赋能。  </p>
-<p><strong>结论</strong>：<br />
-最牛技能永远是“<strong>自己造的Skill</strong>”。Skills的价值在于将个人经验转化为可复用的智能工具，推动AI从通用助手进阶为专属生产力引擎。  </p>
-<blockquote>
-<p><em>注：全文未出现具体数据，核心聚焦个性化技能的价值升华。</em></p>
-</blockquote>
+            <p>文章标题为《分享6个我觉得应该必装的Skills》。</p>
+<p>文章内容主要介绍了作者认为对大家有用的六个Skills，并详细解释了每个Skill的功能和使用方法。以下是每个Skill的简要介绍：</p>
+<ol>
+<li>
+<p><strong>Frontend Design</strong>：这个Skill出自Anthropic官方，用于解决AI做前端页面时品味问题。它要求AI在写代码之前先想清楚一个大胆的美学方向，然后所有的排版、留白比例、字体选择、动效都要围绕这个方向来。装上这个Skill后，生成的页面排版会舒服很多。</p>
+</li>
+<li>
+<p><strong>办公必备四件套</strong>：包括docx、xlsx、pdf、pptx四个Skills，来自Anthropic官方。有了这个四件套，AI就能读取和编辑各种格式的文件，如Word、PPT、Excel、PDF等。装上这个四件套后，处理文档时会更加高效和专业。</p>
+</li>
+<li>
+<p><strong>Web Access Skill</strong>：来自@一泽开发的联网Skill，将联网搜索和浏览器操控结合到一起。这个Skill可以通过Chrome DevTools Protocol直接连接本地的Chrome进程，带着登录状态，所以可以搜索和访问登录过的网站，如微博、小红书、B站等。它还能自动沉淀每个网站的操作经验，越用越顺。</p>
+</li>
+<li>
+<p><strong>PUA</strong>：这个Skill专治AI摆烂问题。当AI在解决问题时遇到困难，可以开启PUA模式，它会强制打断AI的思路，让它执行一个7项检查清单，逼它换思路。PUA Skill能有效提高AI解决问题的效率。</p>
+</li>
+<li>
+<p><strong>Claude-mem</strong>：这个Skill解决记忆持久化问题。它会自动记录每次对话里的关键信息，并在下次开新会话时自动注入相关的上下文。装上这个Skill后，Claude Code就能像小龙虾一样拥有长期记忆。</p>
+</li>
+<li>
+<p><strong>Skill-Creator</strong>：这是作者认为最重要的Skill，它能帮助用户自己构建属于自己Skills的Skill。通过Skill Creator，用户可以将自己的需求和经验封装、沉淀成Skills，从而解决个性化问题。</p>
+</li>
+</ol>
+<p>文章最后总结了Skills的价值，认为通用技能在贬值，而知道自己需要什么的那个能力在升值。作者鼓励读者安装这些Skills，并强调最牛逼的Skill永远是下一个自己造的那个。</p>
         </div>
     </article>
 
@@ -138,13 +167,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfuothuiAfb" class="article-nav-link prev">
+        <a href="recvfuothuiAfb.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？</span>
         </a>
         
         
-        <a href="/post/recvfsYwBKfBLe" class="article-nav-link next">
+        <a href="recvfsYwBKfBLe.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">掌握这几个神级Skill，前端质感直接拉满</span>
         </a>
@@ -154,7 +183,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

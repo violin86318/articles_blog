@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>看完比赛后，AI 短剧真的开始能一站式做了 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>看完比赛后，AI 短剧真的开始能一站式做了 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">AI 视频</span>
+            
+            <span class="topic-chip">短剧</span>
+            
+            <span class="topic-chip">工具推荐</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">看完比赛后，AI 短剧真的开始能一站式做了</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ AI仿真人短剧已能通过完整高效的工作流一站式制作完成
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>AI仿真人短剧已能通过完整高效的工作流一站式制作完成</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心结论： AI仿真人短剧已突破“能否做”阶段，进入“一站式高效制作”周期。实测验证：从故事到成片，完整工作流耗时仅1小时左右（不含渲染排队）。 关键数据与流程： 1. 效率提升：LibTV平台10分钟内生成高完成度作品； 2. 成本变化：Seedance 2.0积分从15,000缩水至6,000+，生成成本上升； 3. 核心工作流： 豆包智能体生成故事骨架→扩写小说→拆解剧本（关键环节） 资产统一设计（如校服风格强制一致，避免世界观割裂） Z-Image生成真人级角色图（优于插画风工具） Seedance 2.0通过&#34;全能参考&#34;生成视频（需真人审核前置避坑） 4. 生态价值：Liblib产品矩阵（LibTV/Lovart等）正构建短剧-设计-模型-社区的全链条基础设施，而非孤立工具。 核心突破： 资产稳+模型选型准（如Z-Image仿真人）+流程顺，可系统化解决早期&#34;反复返工&#34;痛点，实现短剧高效量产。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/HrlfYiUD0eWlm8bc0UD6_A&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,21 +137,27 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是基于原文的核心提炼（195字）：</p>
-<p><strong>核心结论</strong>：<br />
-AI仿真人短剧已突破“能否做”阶段，进入“一站式高效制作”周期。实测验证：<strong>从故事到成片，完整工作流耗时仅1小时左右（不含渲染排队）</strong>。</p>
-<p><strong>关键数据与流程</strong>：<br />
-1. <strong>效率提升</strong>：LibTV平台10分钟内生成高完成度作品；<br />
-2. <strong>成本变化</strong>：Seedance 2.0积分从15,000缩水至6,000+，生成成本上升；<br />
-3. <strong>核心工作流</strong>：<br />
-   - 豆包智能体生成故事骨架→扩写小说→拆解剧本（关键环节）<br />
-   - <strong>资产统一设计</strong>（如校服风格强制一致，避免世界观割裂）<br />
-   - Z-Image生成真人级角色图（优于插画风工具）<br />
-   - Seedance 2.0通过"全能参考"生成视频（需真人审核前置避坑）<br />
-4. <strong>生态价值</strong>：Liblib产品矩阵（LibTV/Lovart等）正构建<strong>短剧-设计-模型-社区</strong>的全链条基础设施，而非孤立工具。</p>
-<p><strong>核心突破</strong>：<br />
-资产稳+模型选型准（如Z-Image仿真人）+流程顺，可系统化解决早期"反复返工"痛点，实现短剧高效量产。</p>
+            <p>文章标题：看完比赛后，AI 短剧真的开始能一站式做了</p>
+<p>作者：羊羊</p>
+<p>来源：微信公众平台</p>
+<p>文章摘要：站在一个创作者的角度看，现在到底能不能比较顺地做出一条AI仿真人短剧。</p>
+<p>文章正文：</p>
+<p>大家好，我是羊羊~最近大家说Seedance 2.0是背刺王。原本很多人冲着高并发和高积分去开的高级会员，现在积分缩水得很厉害，从15000掉到了六千多！并发也一路往下掉。同样的钱，能跑的次数变少了；同样的质量，生成成本却变高了。这种变化，对真正在做内容的人来说，感受其实非常直接。</p>
+<p>刚好前两天我们去北京亦庄参加了AIFUT线下大会，也在现场看到了LibTV赞助的比赛。现场氛围特别燃，真的有点像在看电竞比赛。再来张合照吧。最让我印象深的，不只是热闹，而是比赛时间很短。短短10分钟，现场就已经能生成出完成度挺高的作品了。看到这里，我一下就对这个平台有点好奇。因为如果它真的能在这么短的时间里，把一条内容快速跑出来，那它就不只是一个“多接了几个模型”的工具，而是很可能已经开始具备一站式做短剧的能力了。</p>
+<p>所以我这次想知道的是：站在一个创作者的角度看，现在到底能不能比较顺地做出一条AI仿真人短剧。测试完后我的结论是：可以，尤其是对于“图”和“视频”部分。</p>
+<p>我这次做的题材很简单：穷姑娘上贵族学校，不谈恋爱，专心搞钱。这个题材为什么选它？因为它很短剧。身份反差大，情绪抓手强，人物关系也比较容易立住。如果只是为了测试流程，这种题材很合适。</p>
+<p>先定故事我没有一上来就去做图。因为现在做AI短剧，我越来越觉得，前面故事没定好，后面很多工作都会白做。人物会乱，场景会乱，镜头也会乱。所以我直接把故事扔给了LibTV的画布。这一步的意义不是为了“让AI替我写完”。而是为了先把故事骨架拉出来。我要先看这个故事有没有钩子，有没有人物关系，有没有能往下拆的情绪线。这一版我看下来觉得还不错，所以就没有推翻重来，而是继续往下走。但说实话，其实我们平日自己调教的豆包智能体或许会更好。（同款智能体文末可领取）</p>
+<p>更准确一点说，是把这个方向交给偏编剧、偏作家路线的豆包智能体，让它结合现在比较火的爆款短剧逻辑，先帮我往外扩成一个小说故事。再拆剧本接下来，我把小说继续扔给编剧豆包智能体，让它帮我拆成剧本。（同款智能体文末可领取）</p>
+<p>这一步其实非常关键。因为小说和剧本不是一回事。小说更像是给人读的，剧本是给后面的资产、镜头和视频生成用的。如果你只停留在“有个故事”，后面做起来会特别散。但一旦进入剧本状态，人物、场景、情节推进就会清楚很多。这次它生成出来的剧本已经很细了。我自己只是微调了一些地方，把几处节奏和细节顺了顺，没有从头大改。这个时候，短剧才算真正开始进入“可制作”的阶段。</p>
+<p>资产要稳接着我把剧本扔进了资产设计师的豆包智能体里。（同款智能体文末可领取）</p>
+<p>这一步，我觉得很多人容易忽略。他们会觉得，先出几张好看的人物图就行。但做仿真人短剧，如果资产这一步不稳，后面几乎一定返工。资产设计师这个智能体会把人物和场景的设计都给出来，不只是描述，还会直接把提示词整理好，而且中英文都有。这对后面进图像模型特别方便。这里有一个我自己很在意的点：统一。因为我这次做的是校园题材，所以我会特别强调，这些角色是在同一所学校里。既然在同一所学校，校服就应该差不多一致。男女差别主要只体现在裤子和裙子的区别上，而不是每个人都穿得像不同学校的人。这个点如果不提前说清楚，后面画出来的人物即使单张都不错，放在同一个故事里也会显得很散。而短剧一旦散，观众的信任感就会掉得很快。所以这一步我看得很仔细。不是只看“漂不漂亮”，而是看它能不能被放进同一个世界观里。</p>
+<p>开始出图人物和场景方向定下来以后，我才真正开始做资产图。这一步我放到了LibTV里做。但我这里用它，不是因为我要写它，而是因为对我来说，这里刚好能把我需要的模型接起来，省掉来回切工具的时间。既然这次做的是仿真人，那我一开始就没有打算用偏插画感的路线。我直接选了Z-Image。原因很简单。它做真人的效果会更稳一些，尤其是这种偏青春偶像剧感的人物，出来的脸、皮肤、光影和气质会更接近真人拍摄。如果拿它和Seedream这种路线去比，我自己的使用感受是，Zimage更适合这次这个题。至少在“像不像真人”这件事上，它更容易一步到位。我这次重点先出了三个主角色：男主、女主、女配角。这三个人生成出来以后，我自己是比较满意的。他们不是同一种脸套了三次，而是各自有各自的形象，这一点很重要。后面我又补了两张真实场景图。这样人物资产和场景资产就差不多齐了。</p>
+<p>进入视频到这一步，才真正进入视频生成。我用的是Seedance 2.0，而且不是传统那种一张图一张图去硬控镜头的思路，而是直接走全能参考。这里有个很关键的点，如果做的是仿真人内容，一定要注意：先做真人审核。就是先把前面生出来的人物图片传进去，转成可用的合规素材。不然你直接拿真人风格图去跑视频，很容易在这一层就失败。等这些人物图变成可用素材之后，再把人物图和场景图全部接过来，连到视频节点里。接下来要做的事情，其实不复杂：告诉它哪张图是谁，再把对应那一段剧本内容一起发进去。剩下的，让它在这些参考基础上往下生成。点生成以后，基本就能出一段15秒左右的视频。后面的逻辑就很清楚了。继续按这个方法往下跑，连续跑几段，最后再拼起来，一条一分钟左右的AI仿真人短剧就出来了。</p>
+<p>这次最大的感受我这次做完以后，最大的感受不是“某一个工具真强”。而是：现在这条链路终于开始顺了。以前做AI短剧，最容易卡住的地方是，你每一步都能做一点，但整条线不顺。今天补人物，明天补场景，后天再回去改剧情，做着做着就开始返工。但这一次不是这种感觉。从题材、故事、剧本、资产，到最后视频节点去跑，它是一条比较完整的线。中间当然也会有微调，但不会再变成那种东补一点、西补一点的拉扯状态。而且真正人思考的部分，花的时间并不长。如果不算生成排队的时间，我自己真正去做决策、去整理、去推进这条线，差不多也就是一个小时左右。后面剪辑的时间也不算长。这件事对我来说，比单纯“模型效果更强了”更重要。因为它意味着，AI仿真人短剧这件事，已经开始从“能不能做”往“能不能高效做”走了。</p>
+<p>我对liblib四件套的看法所以如果现在再回头看，我会觉得这件事真正有意思的地方，不只是LibTV接入了Seedance 2.0。更重要的是，现在我真的可以在一个相对顺的工作流里，调用不同模型，做出一条完整的AI仿真人短剧。这件事本身就是变化。而且我觉得，它后面还会继续往前走。因为从这家公司现在这几个产品的分工来看，它已经不是单纯在做几个分散的小工具了，而是在搭一套内容创作体系。简单说：LibTV更偏视频和短剧链路Lovart更偏设计Agent星流AI更像国内更顺手的设计路线Liblib更像底层模型生态和创作者社区你单看某一个产品，可能会觉得它只是多了一个功能。但把这几个东西放在一起看，会发现它想做的其实不是“一个模型入口”，而是一整套创作基础设施。这也是为什么我现在对这类平台的看法，已经不只是“哪个好用”。而是我会开始想：未来一个创作者到底是在切着工具做内容，还是会慢慢进入某一个完整生态里去做内容。我自己的判断是，后者会越来越明显。</p>
+<p>最后一句所以如果你问我，这次做这条短剧最大的意义是什么。不是我又试了一个新模型，也不是我又找到一个新平台。而是我更确定了一件事：AI仿真人短剧，已经开始进入“能完整做出来”的阶段了。而且如果你方法顺、资产稳、模型选得对，它不只是能做出来，还可以做得更快，也更像那么回事。这件事，我觉得比单纯讨论某个产品厉不厉害，更值得说。感谢你看到最后，如果你想领取“AI短剧智能体”或者交流“AI短剧”，欢迎来群里聊聊，持续分享行业一线资讯与经验⭐～<strong><em>*相关阅读</em></strong>*我定义了一个AI视频届的“文图视音剪”五步模型……11月，我居然来广州高校做老师了绝了！用海螺AI拿下AI视频比赛大奖！作品测试：可灵1.6把大招当平a打出去了100w+播放封神！1分钟教你制作！各地的守护神终于出现了</p>
         </div>
     </article>
 
@@ -138,13 +165,13 @@ AI仿真人短剧已突破“能否做”阶段，进入“一站式高效制作
     
     <nav class="article-nav">
         
-        <a href="/post/recvgMr1tx3QTH" class="article-nav-link prev">
+        <a href="recvgMr1tx3QTH.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Claude Code防封号终极指南</span>
         </a>
         
         
-        <a href="/post/recvgyk2WFQ479" class="article-nav-link next">
+        <a href="recvgyk2WFQ479.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">一条AI短剧，41.8万赞。一个人，没团队，全靠AI出片。----纯干货建议先收藏</span>
         </a>
@@ -154,7 +181,7 @@ AI仿真人短剧已突破“能否做”阶段，进入“一站式高效制作
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

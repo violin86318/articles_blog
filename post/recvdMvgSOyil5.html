@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">自动化工作流</span>
+            <span class="card-tag card-tag-primary">自动化工作流</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">Token</span>
+            
+            <span class="topic-chip">效率工具</span>
+            
+            <span class="detail-reading-time">约 1 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Happycapy 提供无限 Token 计划，让用户专注工作流，无花费顾虑。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Happycapy 提供无限 Token 计划，让用户专注工作流，无花费顾虑。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>文章《把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感》介绍了 AI 产品 Happycapy，它整合了 OpenClaw 和 Claude Code 两大功能，并内置超过 32 万个 Skills。该产品支持图像生成（使用 nano banana 2）和视频生成技能。作者通过体验公众号写作、日记系统开发、发票管理等，验证了其高效性和满意度。此外，Happycapy 提供独立的云端沙盒环境确保数据安全，并支持直接发送邮件、定时推送 AI 热点资讯等便利功能。其无限 Token plan 让用户专注于工作流而非花费，显著降低了 AI 工具使用门槛，提升了工作效率。（字数：148）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/r0W4PWpHaV5BE-P5EVkhiQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,11 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章《把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感》介绍了 AI 产品 Happycapy，它整合了 OpenClaw 和 Claude Code 两大功能，并内置超过 32 万个 Skills。该产品支持图像生成（使用 nano banana 2）和视频生成技能。作者通过体验公众号写作、日记系统开发、发票管理等，验证了其高效性和满意度。此外，Happycapy 提供独立的云端沙盒环境确保数据安全，并支持直接发送邮件、定时推送 AI 热点资讯等便利功能。其无限 Token plan 让用户专注于工作流而非花费，显著降低了 AI 工具使用门槛，提升了工作效率。（字数：148）</p>
+            <p>文章标题为《把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感》，作者是苍何。文章主要介绍了名为 Happycapy 的 AI 产品，该产品集成了 OpenClaw 和 Claude Code 两大功能，并内置了超过 32 万个 Skills。</p>
+<p>文章中提到，Happycapy 不仅支持使用 nano banana 2 进行生图，还内置了生视频技能。作者体验了 Happycapy 的多种功能，如公众号写作、日记系统开发、发票管理系统等，并对这些功能表示满意。此外，Happycapy 还提供了独立的云端沙盒环境，确保用户数据的安全。</p>
+<p>文章还强调了 Happycapy 的便利性，如可以直接发送邮件、设置定时任务推送 AI 热点资讯等。作者认为，Happycapy 的无限量 plan 使得用户可以更专注于工作流，而不是花费。最后，作者总结了 Happycapy 的优势，认为它降低了 AI 工具的使用门槛，提高了工作效率。</p>
         </div>
     </article>
 
@@ -125,13 +151,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdOwIfGmcwP" class="article-nav-link prev">
+        <a href="recvdOwIfGmcwP.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Lovart 真正一键详情页长图 多角度生产视频 写实买家秀</span>
         </a>
         
         
-        <a href="/post/recvdLdS75qbKA" class="article-nav-link next">
+        <a href="recvdLdS75qbKA.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">ListenHub ASR 语音识别 API 全新上线，无限免费</span>
         </a>
@@ -141,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

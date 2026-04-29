@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Openclaw + OpenCode 才是 vibe coding 的最棒组合！ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Openclaw + OpenCode 才是 vibe coding 的最棒组合！ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">编程开发</span>
+            <span class="card-tag card-tag-primary">编程开发</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">OpenCode</span>
+            
+            <span class="topic-chip">Vibe Coding</span>
+            
+            <span class="topic-chip">编程开发</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Openclaw + OpenCode 才是 vibe coding 的最棒组合！</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Openclaw + OpenCode 实现从代码生成到自动部署的闭环，开创了 Agent Coding 新范式。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Openclaw + OpenCode 实现从代码生成到自动部署的闭环，开创了 Agent Coding 新范式。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心内容： 作者苍何提出 OpenClaw + OpenCode 是实现自动化编程（Vibe Coding）的最佳工具组合，并详细演示了从代码生成到部署的闭环流程： 1. 工具配置：安装 OpenCode，集成 GitHub CLI 和 Vercel CLI； 2. 自动化流程： 用 OpenCode 生成项目代码（以贪吃蛇游戏为例，含完整逻辑/样式/HTML）； 自动管理代码版本并推送至 GitHub； 通过 Vercel CLI 实现秒级自动部署； 3. 未来展望：提出 Agent Coding 将成为新范式，个人可拥专属 AI Agent 完成编程及其他任务。 关键价值： 首次实现 &#34;生成-托管-部署&#34;全链路自动化； 提供可复现的教程与代码示例，降低实践门槛； 强调 OpenClaw 的无限潜力，预示编程模式向 AI Agent 协作进化。 全文未提及具体数据，核心聚焦于技术路径与范式革新。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/U3PHOYSAaTFRwl77--YaAA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,23 +139,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是《Openclaw + OpenCode 才是 vibe coding 的最棒组合！》的核心提炼（约180字）：</p>
-<p><strong>核心内容：</strong><br />
-作者苍何提出 <strong>OpenClaw + OpenCode</strong> 是实现自动化编程（Vibe Coding）的最佳工具组合，并详细演示了从代码生成到部署的闭环流程：<br />
-1. <strong>工具配置</strong>：安装 OpenCode，集成 GitHub CLI 和 Vercel CLI；<br />
-2. <strong>自动化流程</strong>：<br />
-   - 用 OpenCode 生成项目代码（以贪吃蛇游戏为例，含完整逻辑/样式/HTML）；<br />
-   - 自动管理代码版本并推送至 GitHub；<br />
-   - 通过 Vercel CLI 实现秒级自动部署；<br />
-3. <strong>未来展望</strong>：提出 <strong>Agent Coding</strong> 将成为新范式，个人可拥专属 AI Agent 完成编程及其他任务。  </p>
-<p><strong>关键价值：</strong><br />
-- 首次实现 <strong>"生成-托管-部署"全链路自动化</strong>；<br />
-- 提供可复现的教程与代码示例，降低实践门槛；<br />
-- 强调 OpenClaw 的无限潜力，预示编程模式向 AI Agent 协作进化。  </p>
-<blockquote>
-<p>全文未提及具体数据，核心聚焦于技术路径与范式革新。</p>
-</blockquote>
+            <p>文章标题为《Openclaw + OpenCode 才是 vibe coding 的最棒组合！》，作者为苍何。文章主要介绍了如何使用 Openclaw 和 OpenCode 实现自动化编程，并自动将代码发布到 GitHub 和部署到 Vercel。</p>
+<p>文章详细描述了实现这一过程的具体步骤，包括安装 OpenCode、配置 GitHub CLI 和 Vercel CLI、创建项目目录、使用 OpenCode 生成代码、管理代码版本、自动部署到 Vercel 等等。作者还提供了详细的命令和代码示例，方便读者理解和实践。</p>
+<p>文章最后展望了 Agent Coding 的未来，认为每个人都可以拥有一个专属的 Agent 来帮助编程，或者完成任何他们希望做的事情。作者表示，虽然目前只是实现了闭环，但 Openclaw 的想象空间是无限的，未来 coding 的范式可能会变为 agent coding。</p>
+<p>文章还提供了一个完整的贪吃蛇游戏开发教程，包括游戏逻辑代码、样式表和 HTML 结构，读者可以通过这个教程来学习和实践 Agent Coding 的具体操作。</p>
+<p>总的来说，这篇文章提供了一个全新的编程范式，即通过 AI Agent 来实现自动化编程，对于想要学习和实践 Agent Coding 的读者来说是一个很好的资源。</p>
         </div>
     </article>
 
@@ -140,13 +153,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdW4rezCX6n" class="article-nav-link prev">
+        <a href="recvdW4rezCX6n.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Skill创作手记：我用1块钱把Mycc微信群聊天记录一键转成灵感库</span>
         </a>
         
         
-        <a href="/post/recvdOwIfGmcwP" class="article-nav-link next">
+        <a href="recvdOwIfGmcwP.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Lovart 真正一键详情页长图 多角度生产视频 写实买家秀</span>
         </a>
@@ -156,7 +169,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Karpathy的AI知识库方法很好用，但不一定适合你 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Karpathy的AI知识库方法很好用，但不一定适合你 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">知识管理</span>
+            <span class="card-tag card-tag-primary">知识管理</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Karpathy</span>
+            
+            <span class="topic-chip">知识库</span>
+            
+            <span class="topic-chip">AI 学习</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Karpathy的AI知识库方法很好用，但不一定适合你</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Karpathy的LLM wikiAI知识库方法虽好用，但需分场景适配，学习研究可直接照搬，内容创作要借鉴结构加人工把关，企业仅小规模可用，大规模仍需用RAG，印证了没有最好的工具，只有最适合自身场景的工具。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Karpathy的LLM wikiAI知识库方法虽好用，但需分场景适配，学习研究可直接照搬，内容创作要借鉴结构加人工把关，企业仅小规模可用，大规模仍需用RAG，印证了没有最好的工具，只有最适合自身场景的工具。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文作者蔡蔡啊点评Karpathy提出的LLM知识库方法，指出其需分场景适配：学习研究场景可直接用Obsidian+Claude Code搭建，利于关联知识积累；内容创作场景需基于自身输出历史构建并人工把关AI内容准确性；企业仅适用于小规模团队，文档规模大时易超上下文窗口且缺乏权限管理与精确溯源，大规模仍需RAG。结论为没有最好工具，只有适配场景的工具。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/dLhk8GEYBhpaIVUIBB6nHw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +137,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>本文作者蔡蔡啊点评Karpathy提出的LLM知识库方法，指出其需分场景适配：学习研究场景可直接用Obsidian+Claude Code搭建，利于关联知识积累；内容创作场景需基于自身输出历史构建并人工把关AI内容准确性；企业仅适用于小规模团队，文档规模大时易超上下文窗口且缺乏权限管理与精确溯源，大规模仍需RAG。结论为没有最好工具，只有适配场景的工具。</p>
+            <p>文章标题为《Karpathy的AI知识库方法很好用，但不一定适合你》，作者为蔡蔡啊。文章主要讨论了Andrej Karpathy提出的AI知识库方法，即通过AI将知识编译成一个持续维护的wiki，这种方法在学习研究场景中非常有效，但在内容创作场景和企业知识库场景中不一定适用。</p>
+<p>在学习研究场景中，LLM wiki可以原样复制使用，因为它可以持续积累、反复查阅、强调关联，帮助研究者更好地理解和关联不同的知识。文章详细介绍了如何使用Obsidian和Claude Code搭建LLM-wiki，包括创建知识库结构、摄入原始资料、生成系列Markdown文件等步骤。此外，文章还提到了如何进行查询和整理，以确保知识库的准确性和完整性。</p>
+<p>在内容创作场景中，直接照搬Karpathy的方案可能会出问题，因为内容创作者的知识库结构通常与学习研究场景不同。内容创作者的知识库通常基于个人思考和风格，而不是基于外部原始资料。因此，内容创作者应该基于Output的历史内容，而不是Input的原始资料，来构建自己的wiki。此外，文章还提醒内容创作者要注意AI生成内容的准确性，确保生成的观点与自己的观点一致。</p>
+<p>在企业知识库场景中，LLM wiki可能不适用。虽然wiki听起来比RAG简单多了，不用搞向量数据库，不用做嵌入，每次新增还能自己更新。但简单有简单的代价。首先是它目前支持的规模上限很明显。当wiki膨胀到几百上千个文档时，index.md可能就会超出上下文窗口，你还是得压缩、分片、或者引入检索——这就变成RAG-over-wiki了，不再是纯粹的LLM wiki。其次是权限管理，企业级RAG结合向量数据库通常有更成熟的RBAC（基于角色的权限访问控制）方案，但LLM-wiki没有这东西，所以目前更多只能用在小团队或大组织的小部门中。还有一个致命问题：引用精确性。企业场景对来源追溯要求很高。RAG可以告诉用户“这个结论来自第几页第几段”，但完全由LLM维护的wiki可能会幻觉出一个概念之间的错误关联。当这个错误写进wiki，就会影响后续所有查询。</p>
+<p>文章最后总结说，Karpathy的LLM wiki确实是个好东西，但得分场景。学习研究场景，直接照搬，非常好用。内容输出场景，借鉴结构，人工把关。企业知识库，小规模可用，大规模还是得用RAG。说到底，没有最好的工具，只有最适合你场景的工具。</p>
         </div>
     </article>
 
@@ -125,13 +151,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhSZ4x4vlJX" class="article-nav-link prev">
+        <a href="recvhSZ4x4vlJX.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">如何把Obsidian Web Clipper价值最大化？</span>
         </a>
         
         
-        <a href="/post/recvhJRCDKEanq" class="article-nav-link next">
+        <a href="recvhJRCDKEanq.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">DeepSeek V4：不是最强的，可能是最重要的</span>
         </a>
@@ -141,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

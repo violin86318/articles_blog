@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">知识管理</span>
+            <span class="card-tag card-tag-primary">效率工具、知识管理、开源软件</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Obsidian</span>
+            
+            <span class="topic-chip">Web Clipper</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="detail-reading-time">约 12 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Defuddle 作为免费开源的 Obsidian 工具，让用户完全掌控网页内容清洗和 Markdown 转换，强化了本地优先理念，并挑战付费服务如 Jina.ai。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Defuddle 是 Obsidian 本地文件生态系统里一个非常强力的工具，通俗来说，是 Obsidian Web Clipper 的网页版。 给 Defuddle 一个链接，它就能帮你清洗掉网页上的广告、推荐区等杂乱元素，尽量提取出干净的正文和结构化的元数据。 Defuddle 是开源的。我们甚至可以自己本地部署。这就很 Obsidian 了。 让 App 成为用户自己可以控制的系统，而不是把用户变成 App 的附庸。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Obsidian推出Defuddle.md，作为Web Clipper的网页版，提供URL接口将网页清洗为干净Markdown。它开源且可本地部署，支持开发者、AI Agent及普通用户，强化了Obsidian本地优先、文件中心的理念，让网页内容更自由地融入个人知识库。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/r8nQkTi_RIHBBe-isBPw7Q&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -114,18 +137,74 @@
 
         <!-- Table of Contents -->
         
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#obsidian-推出了-defuddle-把-obsidian-web-clipper-推到了一个新的高度" class="toc-link">Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#obsidian-web-clipper-网页变-markdown" class="toc-link">Obsidian Web Clipper ：网页变 Markdown</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#defuddlemd专注清洗的抽取层" class="toc-link">Defuddle.md：专注清洗的抽取层</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#最后" class="toc-link">最后</a>
+                </li>
+                
+            </ul>
+        </div>
+        
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心提炼（196字）：</p>
-<p><strong>Obsidian 坚守“本地优先”理念，以纯文本 Markdown 文件构建用户自主掌控的笔记生态。</strong> 其核心工具 <strong>Web Clipper 插件</strong>可将网页内容（含元信息）转为 Markdown 存入本地库。最新推出的 <strong>Defuddle.md</strong> 将该功能提升至新高度，成为生态内强力工具。</p>
-<p>Defuddle 本质是 <strong>Web Clipper 的网页版</strong>，提供三种使用方式：<br />
-1.  <strong>普通用户</strong>：通过浏览器访问网站，输入网址即可获取清洗后的 HTML/Markdown。<br />
-2.  <strong>开发者/AI Agent</strong>：通过 URL 接口直接获取清洗结果。<br />
-3.  <strong>Obsidian 用户</strong>：直接使用 Web Clipper 插件无缝集成。</p>
-<p><strong>关键优势：</strong><br />
-*   <strong>免费开源</strong>（对比竞品如 Jina Reader API 的 0.15美元/次收费）。<br />
-*   支持<strong>本地部署</strong>，用户完全掌控数据与流程，践行“工具服务于人，而非奴役于人”的理念。</p>
+            <h1 id="obsidian-推出了-defuddle-把-obsidian-web-clipper-推到了一个新的高度">Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/ewVQS3ZTL3p8IkFr9KS89W7vRIUMKicnxpg1v7CynOa9JVmUEvFVOSysbLKULz83EZibQdOe0oKdkgJ5wuxbo9YhELqthetc8gia1qe5ic5Ku3g/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>我一直很喜欢 Obsidian 的核心理念：本地优先，万物皆文件，而且是单纯的 Markdown 文本文件。在这样的模式下，笔记完全属于我们自己，我们可以自由地搭配各种组件或插件，按照自己的习惯去定制操作和工作流。 而且，信息的保存备份同步，都在我们自己的控制下。</p>
+<p>我之前介绍过 Obsidian 自家推出的 Web Clipper， 一个网页剪藏类的浏览器插件，同样秉承了上述的「文件中心」理念，把我们正在浏览的网页内容变为一个Markdown 笔记， 存入 Obsidian 的资料库中，而且还包含元信息。</p>
+<p>最近 Obsidian 推出了 一个新的网站，Defuddle.md，Defuddle 是 Obsidian 本地文件生态系统里一个非常强力的工具，通俗来说，是 Obsidian Web Clipper 的网页版。</p>
+<p>如果把 Obsidian 看作一个本地笔记的 OS， 我们之前介绍过 CLI（命令行接口），这个 Defuddle 更像Obsidian Web Clipper 的一个 URL 接口。</p>
+<p>所以，在详解 Defuddle 之前，我们先快速回顾一下 Web Clipper。</p>
+<h2 id="obsidian-web-clipper-网页变-markdown">Obsidian Web Clipper ：网页变 Markdown</h2>
+<p>聊到 Obsidian Web Clipper，我个人觉得它最吸引人的地方，在于它早就超越了传统的网页保存抓取功能。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>它不仅仅是把网页抓下来，更厉害的是它支持极其灵活的 Obsidian 模板。Web Clipper 能够提取网页里的各种元数据（比如作者、发布时间、甚至特定的页面元素）。更让我惊喜的是，它现在还支持条件判断、循环这些逻辑操作。这意味着，在采集网页的阶段，我们就可以按照自己的规则把内容整理好，直接变成干净、结构化的本地 Markdown 文件。</p>
+<p>当然弊端是，如果用户不喜欢默认的整理模板，需要自己配置，这个过程可能会有一些门槛（其实可以让 AI 来配）。</p>
+<p>但总的来说，Obsidian Clipper 完美契合了 Obsidian 的生态，让网页内容非常顺滑地融入我们个人的知识库。对于 Power User，又提供了自己捣鼓的空间。不要小看这些 Power User， 那么多 Obsidian 插件，大多都是用户自己捣鼓出来的。</p>
+<h2 id="defuddlemd专注清洗的抽取层">Defuddle.md：专注清洗的抽取层</h2>
+<p>而 Defuddle 的出现，让我觉得 Obsidian 是把 Web Clipper 背后最核心的网页抽取能力单独开放出来了。</p>
+<p>如果，大家是某个信息领域的资料收集者，调研者，数据分析者 …… 如果自己又能稍微捣鼓两下，又或者借助 AI（包括最近大火的小龙虾）捣鼓两下。 那么Defuddle.md 绝对是一个惊喜！</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>给 Defuddle 一个链接，它就能帮你清洗掉网页上的广告、推荐区等杂乱元素，尽量提取出干净的正文和结构化的元数据。它就像是一个专门负责把复杂网页转化为标准 Markdown 文本的净化器。 有了这个，任何人都可以做一个自己的 Web Clipper，而且不用隶属于 Obsidian。</p>
+<p>Defuddle 提供几种访问方式。</p>
+<ul>
+<li>
+<p>普通用户，浏览器访问，输入需要转换的网页网址，查看清洗过的 HTML 或 Markdown</p>
+</li>
+<li>
+<p>AI Agent 或 开发者， 通过 URL 接口，获取清洗转换结果</p>
+</li>
+<li>
+<p>Obsidian 用户， 直接使用 Web Clipper 插件 即可（背后就是 Defuddle）。</p>
+</li>
+</ul>
+<p>其中最有价值的，我觉得就是 「URL 接口」，想象我是一个小龙虾，又聋又瞎，按用户要求收集访问网页非常痛苦，又是无头浏览器，又是被屏蔽，即使取得网页，里面的杂质噪音又很多； 现在好了，直接调用 Defuddle 一切解决。</p>
+<p>而且，很重要的是，Defuddle 是开源的。我们甚至可以自己本地部署。这就很 Obsidian 了。 让 App 成为用户自己可以控制的系统，而不是把用户变成 App 的附庸。</p>
+<h2 id="最后">最后</h2>
+<p>市面上，其实剪藏插件很多，其中不少的目的是锁定用户到某个特定App。 而 Obsidian Web Clipper 不同， 因为 Obsidian 理念是 File Over App。 现在，更进一步， Defuddle 被开放出来，大家可以直接用了，而且还是开源的。 所以，有点太阔绰了，反而不适应了。</p>
+<p>如果对这类网页抓取（作为PKM重要组成部分）有兴趣的话，之前 Jina.ai 也提供了付费的 Reader API （下图）。Jina 是很多 AI 从业者的首选，现在则感觉有了一个免费开源的对手。当然，Jina号称是 AI模型 清洗抓取，还略有不同。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/ewVQS3ZTL3picibb6pT8Yw3pvFszjUSP4wDR2gu7IysOvibcmazPTaz2lWQweiaLAMGI44yZjyqMKTeEvXRyOlicicKn1jqIw4fadoIiadbV7MBEhE/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=3" /></p>
+<p>说实话，我现在反而开始担心 Defuddle 要被人滥用了（或者被屏蔽了）。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/hQibibdG339M2fGdibibGlWZwwLZ982zqqau3YCDpEwEjAYcvicKXxyH5hmIcVLOhSqXOYK7X3IbEGqIa2zYqStKNyQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=4" /></p>
         </div>
     </article>
 
@@ -133,13 +212,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdhtQaiUiIV" class="article-nav-link prev">
+        <a href="recvdhtQaiUiIV.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制</span>
         </a>
         
         
-        <a href="/post/recvdc2Jgx01tr" class="article-nav-link next">
+        <a href="recvdc2Jgx01tr.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">顶级邪修再战 Nano Banana Pro ，超多玩法，太猛了这玩意！</span>
         </a>
@@ -149,7 +228,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>I run multiple $10K MRR companies on a $20/month tech stack — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>I run multiple $10K MRR companies on a $20/month tech stack — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">商业机会</span>
+            <span class="card-tag card-tag-primary">商业机会</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">MRR</span>
+            
+            <span class="topic-chip">创业</span>
+            
+            <span class="topic-chip">低成本技术栈</span>
+            
+            <span class="detail-reading-time">约 9 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">I run multiple $10K MRR companies on a $20/month tech stack</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 将技术成本压至每月20美元，创业者可拥有与百万美元融资相同的无限生存时间。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>将技术成本压至每月20美元，创业者可拥有与百万美元融资相同的无限生存时间。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>📊 核心数据 加拿大独立开发者 Steve Hanov 以 $20/月技术成本 运营 6 个月收入均超 $10K 的产品（总月收入六位数美元），成本仅为： 服务器：$5（Linode/DigitalOcean） AI工具：钻 GitHub Copilot 定价漏洞实现 $13≈$60 效果 零 AWS/Kubernetes/Docker 开销 🔧 颠覆性技术选型 SQLite + WAL 替代 Postgres（速度提升10倍） Go 静态二进制简化部署 自研30行 OAuth2 替代 Auth0 拒绝&#34;企业云思维&#34;臃肿方案 💡 关键洞察 1. 成本即生存： &#34;$20/月成本 ≈ $100万融资的生存时长&#34; 2. 约束驱动技术： 基于&#34;单人/$20预算/多产品&#34;约束，Go+SQLite+VPS 成最优解 3. 本质逻辑： &#34;技术开销不应阻碍试错，分母（成本）可控即永生&#34; 🚨 终极启示 技术非瓶颈，找到值得解决的问题并行动才是核心挑战。压降成本至近零，可无限试错直至成功——&#34;无需融资，无需许可&#34;。 引自原文金句： &#34;Keeping costs near zero gives you the exact same runway as getting a million dollars in funding.&#34;</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/eTFOY-gtZxNJr8lRHGf6pg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,31 +137,51 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是针对提供文本的精炼核心要点（198字）：</p>
-<p>📊 <strong>核心数据</strong><br />
-加拿大独立开发者 Steve Hanov 以 <strong>$20/月技术成本</strong> 运营 <strong>6 个月收入均超 $10K 的产品</strong>（总月收入六位数美元），成本仅为：<br />
-- 服务器：$5（Linode/DigitalOcean）<br />
-- AI工具：钻 GitHub Copilot 定价漏洞实现 $13≈$60 效果<br />
-- 零 AWS/Kubernetes/Docker 开销</p>
-<p>🔧 <strong>颠覆性技术选型</strong><br />
-- <strong>SQLite + WAL</strong> 替代 Postgres（速度提升10倍）<br />
-- <strong>Go 静态二进制</strong>简化部署<br />
-- 自研30行 OAuth2 替代 Auth0<br />
-- 拒绝"企业云思维"臃肿方案  </p>
-<p>💡 <strong>关键洞察</strong><br />
-1. <strong>成本即生存</strong>：<br />
-<em>"$20/月成本 ≈ $100万融资的生存时长"</em><br />
-2. <strong>约束驱动技术</strong>：<br />
-   基于"单人/$20预算/多产品"约束，Go+SQLite+VPS 成最优解<br />
-3. <strong>本质逻辑</strong>：<br />
-<em>"技术开销不应阻碍试错，分母（成本）可控即永生"</em>  </p>
-<p>🚨 <strong>终极启示</strong><br />
-技术非瓶颈，<strong>找到值得解决的问题并行动</strong>才是核心挑战。压降成本至近零，可无限试错直至成功——<em>"无需融资，无需许可"</em>。  </p>
-<blockquote>
-<p>引自原文金句：<br />
-<em>"Keeping costs near zero gives you the exact same runway as getting a million dollars in funding."</em></p>
-</blockquote>
+            <p>根据您提供的参考内容，以下是访问链接 https://mp.weixin.qq.com/s/eTFOY-gtZxNJr8lRHGf6pg 后提取的网页文本内容：</p>
+<hr />
+<p>哈喽，大家好，我是刘小排。今天早上看小龙虾递给我的每日情报的时候，被一条 Hacker News上952分的帖子扎到了。标题叫：“I run multiple $10K MRR companies on a $20/month tech stack”。翻译过来：我一个人跑着好几个月收入过万美元的产品，每月技术开销只要 $20。我反复看了两遍标题，确认自己没看错。然后花了一个小时把帖子和500多条评论全看完了。越看越安静。主角是加拿大 Waterloo 的一个独立开发者，叫 Steve Hanov。一个人，六个产品，每个 $10K+ MRR，加起来每月收入六位数美元。月固定开销：$20。别人 VC 融 100 万，每月烧 5 万，20 个月钱花完就得死。Steve 每月只烧 20 美元——他可以永远不死。这不是商业模式，这是数学。他在原文里写了一句话，我看完之后截图保存了：“Keeping costs near zero gives you the exact same runway as getting a million dollars in funding。”把成本压到接近零，和拿到一百万美元融资，给你的生存时间是一样长的。</p>
+<p>先说他的 $20 到底花在哪一张清单，看完之后你可能会重新想想自己的 AWS 账单：<br />
+- 服务器：Linode 或 DigitalOcean，1GB RAM，$5/月<br />
+- 数据库：SQLite（不是 Postgres！）<br />
+- 语言：Go（不是 Python 不是 Node）<br />
+- 认证：自己写的 30 行 OAuth2（不是 Auth0）<br />
+- AI 开发：GitHub Copilot 钻定价漏洞，$13/月打出 $60 的效果<br />
+- 部署：systemd 一个 service 文件<br />
+- Docker？没有。<br />
+- Kubernetes？没有。<br />
+- AWS？更没有。就这 $20，没了。</p>
+<p>他的四个反共识判断这才是真正值得学习的东西！<br />
+- 第一条：SQLite + WAL 就是你的 Postgres，而且快 10 倍。<br />
+- 第二条：Go 的静态二进制是部署革命。<br />
+- 第三条：不要买“企业云思维”的账。<br />
+- 第四条：钻 GitHub Copilot 的定价漏洞。</p>
+<p>他的六个产品分别是啥？我整理了一下，一共是这6个产品：<br />
+- websequencediagrams.com 在线画 UML 时序图<br />
+- zwibbler.com 嵌入式白板 SDK<br />
+- rhymebrain.com 8 语种押韵词典<br />
+- rapt.ink 浏览器矢量图形编辑器<br />
+- eh-trade.ca 加美股智能分析<br />
+- xreplyextension.com X/Twitter AI 回复扩展</p>
+<p>洞察一：B2B 养 C 端。<br />
+洞察二：研发复用。<br />
+洞察三：慢做、深做、长做。<br />
+洞察四：定价模式比定价数字更重要。</p>
+<p>Steve 原文里还有一句话，放在这里正合适：“The tech industry wants you to believe that building a real business requires complex orchestration. It doesn't.”</p>
+<p>关于技术选型，评论区最清醒的一段话在所有争论“该用 Go 还是 Python”、“该用 SQLite 还是 Postgres”的声音里，@andersmurphy 的一段长回复是我觉得最有洞见的。有人问他有没有书单推荐，他没有列书，而是说了一句让我停下来想了很久的话：先设定约束，再从约束出发选技术。</p>
+<p>结论是：没有放之四海皆准的“最佳技术栈”。约束决定选择，而不是技术决定约束。Steve 的约束是“一个人、$20/月、六个产品”。在这个约束下，Go + SQLite + 单机 VPS 几乎是唯一最优解。</p>
+<p>我们能抄什么作业？以下是我的感受：<br />
+- 认真考虑下就把数据库迁到 SQLite + WAL。<br />
+- 认真考虑把 app 从 ECS/Lambda 搬到一台 Hetzner。<br />
+- 试试 GitHub Copilot Chat那个定价漏洞到底香不香……<br />
+- 省下来的钱，攒几个月买张 RTX 3090，从此获得无限算力。</p>
+<p>最后评论区最后一条让我印象最深的，来自 @fcatalan：“I ran a top 10 most visited Spanish language site on a Pentium III server. I have the technical chops to do all the article says. But 10k MRR sounds to me like travelling to Mars. I have 0 ideas and 0 initiative to push them ahead。”</p>
+<p>技术不是问题。找到一个值得解决的问题，然后真的去做——这才是最难的部分。</p>
+<p>关于“值得解决的问题”，我的上一篇文章正好也提到了一个 Skill 其他 Skill 都是给 AI 用的，这个是给你用的。</p>
+<p>但至少，Steve 告诉我们：技术开销不应该成为阻碍你去试的理由。看完 Steve 的帖子，我回头算了一下自己每月的技术开销。有点不好意思说数字。我们这一代独立开发者，可能真的被“企业级最佳实践”洗脑太久了。那套实践是给 FANG 那种“服务十亿用户”的公司写的。对一个 $10K MRR 的产品来说，它们 80% 是纯负担。但你不试着砍一刀，你永远觉得它们理所应当。你能活多久，不取决于你账户里有多少钱。取决于“你有多少钱 ÷ 你每月花多少钱”。分子你控制不了——VC 不理你、市场不买账、产品没起来——分子随时归零。但分母你百分百能控制。把分母压到 $20，你就可以一直活着，一直试，直到试对为止。你就拥有了全世界最强的创业者状态——不需要任何人的钱，也不需要任何人的同意。2026 年了。大丈夫当如是也！</p>
+<p>另外最后打个小广告，我最喜欢的 AI 创业社群九周年庆，有优惠，看评论区。</p>
+<hr />
         </div>
     </article>
 
@@ -148,13 +189,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvgRdf4QZJSU" class="article-nav-link prev">
+        <a href="recvgRdf4QZJSU.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了</span>
         </a>
         
         
-        <a href="/post/recvgMr1tx3QTH" class="article-nav-link next">
+        <a href="recvgMr1tx3QTH.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Claude Code防封号终极指南</span>
         </a>
@@ -164,7 +205,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

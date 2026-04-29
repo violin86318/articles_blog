@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>卡兹克写作风格Skill+Karpathy LLM Wiki ：构建能自我进化的文章写作知识库 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>卡兹克写作风格Skill+Karpathy LLM Wiki ：构建能自我进化的文章写作知识库 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">写作</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">Karpathy</span>
+            
+            <span class="topic-chip">知识库</span>
+            
+            <span class="detail-reading-time">约 9 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">卡兹克写作风格Skill+Karpathy LLM Wiki ：构建能自我进化的文章写作知识库</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 用写作风格 Skill 和 Karpathy LLM Wiki 把优秀作者的方法沉淀成可复用、可进化的个人写作知识库。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>用写作风格 Skill 和 Karpathy LLM Wiki 把优秀作者的方法沉淀成可复用、可进化的个人写作知识库。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>昨天中午吃饭的时候顺手刷公众号，看到卡兹克发了一篇新文章： 边吃边看，大概花了五分钟。 然后回到办公室，立刻打开了我的Agent，1分钟完成了skill的配置。。。 说明： 国内写AI文章，卡兹克可以说是天花板级别了，有热点、有观点、有节奏、有深度、还有很浓的人味。 老早就想借鉴他的文风来写了，但是之前出来的都是东施效颦。 现在，看到这篇文章，我的脑子里只有一个念头： 官方终于出正版了！ 配置好后，我用它做了这么几件事： 1. 拆解&amp;...</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/7NTOqFVZMHs_6tsJoLx8Nw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,132 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>昨天中午吃饭的时候顺手刷公众号，看到卡兹克发了一篇新文章： 边吃边看，大概花了五分钟。 然后回到办公室，立刻打开了我的Agent，1分钟完成了skill的配置。。。 *说明： 国内写AI文章，卡兹克可以说是天花板级别了，有热点、有观点、有节奏、有深度、还有很浓的人味。 老早就想借鉴他的文风来写了，但是之前出来的都是东施效颦。 现在，看到这篇文章，我的脑子里只有一个念头： 官方终于出正版了！ 配置好后，我用它做了这么几件事： 1. 拆解&amp;...</p>
+            <p>昨天中午吃饭的时候顺手刷公众号，看到卡兹克发了一篇新文章：</p>
+<p>边吃边看，大概花了五分钟。</p>
+<p>然后回到办公室，立刻打开了我的Agent，1分钟完成了skill的配置。。。</p>
+<p>*说明：</p>
+<p>国内写AI文章，卡兹克可以说是天花板级别了，有热点、有观点、有节奏、有深度、还有很浓的人味。</p>
+<p>老早就想借鉴他的文风来写了，但是之前出来的都是东施效颦。</p>
+<p>现在，看到这篇文章，我的脑子里只有一个念头：</p>
+<p>官方终于出正版了！</p>
+<p>配置好后，我用它做了这么几件事：</p>
+<ol>
+<li>拆解&amp;学习卡兹克的skill</li>
+</ol>
+<p>卡兹克分享的这个skill主要用于公众号</p>
+<p>复刻</p>
+<p>「</p>
+<p>数字生命卡兹克」的文风</p>
+<p>创作微信公众号正文。</p>
+<p>里面很系统且详细的说明了卡兹克是如何与AI协作共同完成内容创作的：</p>
+<p>1.1 选题方法论：HKR质检模型</p>
+<p>在动笔之前，卡兹克设计了一套简单但有效的选题过滤机制：</p>
+<p>使用原则</p>
+<p>：</p>
+<p>S级选题三项兼备，及格选题至少占两项。如果素材只占一项或零项，主动调整方向而非硬写。</p>
+<p>这个模型的可执行性很强。不是在问"</p>
+<p>这个选题好不好"，而是在问"这个选题占了几项</p>
+<p>"，把主观判断变成了可量化的筛选。</p>
+<p>1.2 协作哲学：把AI定位为「素材库」而非「执笔者」</p>
+<p>这是整个skill最核心的认知前提。</p>
+<p>卡兹克没有把AI当成代笔工具，而是当作一个</p>
+<p>超级素材库和思维伙伴</p>
+<p>。</p>
+<p>他的分工逻辑是：</p>
+<p>交给AI做</p>
+<p>：找证据、找类比、补背景知识、按角度扩写、梳理逻辑结构</p>
+<p>人必须自己做</p>
+<p>：第一手观察、核心创意角度、情绪的真实表达、数据到人物的同理心转换</p>
+<p>AI擅长的是「补全」，人必须提供「灵魂」</p>
+<p>。</p>
+<p>没有人的第一手经历和核心判断，AI只能生产信息流而非作品。</p>
+<p>1.3内容原型：五种可复用的叙事结构</p>
+<p>卡兹克把公众号长文归纳为五种「原型」，每种有固定的叙事重心：</p>
+<p>可学习的点</p>
+<p>：不是每次写作都要从零设计结构，而是先判断内容属于哪个原型，然后按对应的「模板重心」来写。</p>
+<p>1.4 质量控制：四层自检金字塔</p>
+<p>设计的精髓</p>
+<p>：</p>
+<p>从L1到L4是从「可量化」到「主观判断」的递进。前三层可以AI自检，L4必须人来判断。这避免了一个常见误区——只靠规则检查无法判断"像不像真人写的"。</p>
+<p>skill里还有很多关于文风的定义和约束，这是保持卡兹克文风的关键。</p>
+<p>但它也是我们需要修改的关键模块。</p>
+<p>就像卡兹克说的，</p>
+<p>“开源这个skill，并不是为了让大家去模仿他，而是在此基础上，构建一个新的你。”</p>
+<p>所以，我开始改造自己的 Skill。</p>
+<ol>
+<li>改造成自己的skill：yutou.skill</li>
+</ol>
+<p>首先是去除“卡兹克”的印迹。</p>
+<p>我把skill里所有有关卡兹克的介绍文字全都替换为芋头小宝。</p>
+<p>开头和结尾的固定表达也换成我的风格。</p>
+<p>接下来，严格筛选风格内核里的内容，把适合我的留下，不适合的删除。</p>
+<p>同时新增一些我比较常用的写作逻辑和口语风格。</p>
+<p>最后再通篇检查一下是否有其他需要微调的。</p>
+<p>我保留了原skill很多的内容，如协作流程、选题逻辑、文章结构等（因为确实写的好，感觉自己以前的写作真是毫无章法）</p>
+<p>但也存在一个问题：使用这个skill写出来的文章会有点四不像（有点像卡兹克，又有点像我），看起来很别扭。</p>
+<p>所以，我还要和它进行持续打磨。</p>
+<p>我的方法是指定命题（来源于之前发布的文章标题），让它创作，</p>
+<p>再将创作出来的内容和我原来写的文章进行对比：看看谁写的更让我满意。</p>
+<p>好的地方保留，不好的地方剔除，对比着迭代几篇，直到写出我满意的内容和风格出来。</p>
+<p>这个过程会持续进行很长时间（说实话，到现在还没有打磨出我最满意的一版），</p>
+<p>以skill的方式沉淀经验技巧，就是为了同步进化，越用越好用。</p>
+<p>1.0版本差不多后，接下来，我们还要干一件大事。</p>
+<ol>
+<li>构建基于Karpathy LLM Wiki的个人知识库</li>
+</ol>
+<p>最近X（推特）和GitHub上有个LLM Wiki的构建方案特别火，据说是可以帮我们构建能自进化的个人知识库。</p>
+<p>构建方法也非常简单，接下来我们基于obsidian知识库和Claude code为大家展示整个流程：</p>
+<p>1.</p>
+<p>下载obsidian知识库，创建/打开一个仓库</p>
+<p>2.</p>
+<p>在仓库目录打开Claude code</p>
+<p>3.</p>
+<p>参考karpathy的llm-wiki配置个人知识库</p>
+<p>这里只需要把llm-wiki.md的内容发给Claude，让它参考进行配置即可。</p>
+<p>4.</p>
+<p>添加文档至raw目录，AI基于项目结构进行知识库创建</p>
+<p>这里我们使用插件</p>
+<p>obsidian web clipper</p>
+<p>进行原始文档内容抓取，注意添加目录改为raw。</p>
+<p>文档添加完，我们在Claude窗口，让它ingest这些原始文档</p>
+<p>片刻，我们的知识库就建立起来了。</p>
+<ol>
+<li>写作风格skill + LLM Wiki = 自进化的微信文章写作知识库</li>
+</ol>
+<p>我们把第2步里改造过的skill安装在这个项目路径下，就可以直接调用它来帮我们进行写作了</p>
+<p>基于llm wiki知识库进行写作，有几个比较好的优势：</p>
+<p>1.</p>
+<p>历史文章都是写作素材，可以快速借鉴，便于保持风格逻辑一致。</p>
+<p>2.</p>
+<p>新的创作内容直接写入知识库，知识库持续进化。</p>
+<p>3.</p>
+<p>写作内容系统化管理，真正沉淀为个人资产。</p>
+<p>做完上面4步，你的个人微信写作知识库就建立起来了。</p>
+<p>当然也不限于微信写作，你也可以用它来帮你共同积累任何领域的知识，流程和思路都是相通的。</p>
+<p>感谢看到这里，接下来我想说：</p>
+<p>配置整个流程并不难，一个晚上就跑通了。</p>
+<p>但需要长期投入时间打磨的，</p>
+<p>是属于自己的Skill</p>
+<p>。</p>
+<p>卡兹克那篇文章最有价值的地方，不是Skill本身，而是他在文章里讲的那个凌晨两点半的故事。</p>
+<p>他坐在那里，AI给的所有方案都觉得平庸。</p>
+<p>最后抬头看到书架上的《北京折叠》，突然把淘宝九块九和郝景芳的科幻小说接在了一起。</p>
+<p>那一刻，没有AI能帮他。</p>
+<p>但在那之前，他已经用Skill快速过掉了框架和素材环节，有足够的时间和精力，去等那个神之一手。</p>
+<p>这才是AI辅助创作真正的价值。</p>
+<p>它不帮你做决定，它帮你把那些不需要做决定的事情快速处理掉，</p>
+<p>然后让你有时间，去做只有你能做的事情。</p>
+<p>而这些只有你能做的事，就会成为你在AI时代独一无二的护城河。</p>
+<p>谢谢你看我的文章，我们，下次再见。</p>
+<p>【相关文章推荐】</p>
+<p>附核心Prompt！从0到1带你搭建企业专属“销售专家组 Agent”</p>
+<p>0成本玩转龙虾智能体，小白也能快速上手！</p>
+<p>告别“作坊式”制作：LibTV把我的「AI视频」创作效率拉高了10倍！</p>
+<p>OpenClaw是鸡肋吗？电商版OpenClaw已经在干活了！</p>
+<p>别再排队装OpenClaw了，我找到了可以一键上手的龙虾产品！</p>
+<p>云手机版的OpenClaw：像装App一样把龙虾装在手机里</p>
         </div>
     </article>
 
@@ -125,13 +272,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhJRCDKEanq" class="article-nav-link prev">
+        <a href="recvhJRCDKEanq.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">DeepSeek V4：不是最强的，可能是最重要的</span>
         </a>
         
         
-        <a href="/post/recvhIVwHxLGhE" class="article-nav-link next">
+        <a href="recvhIVwHxLGhE.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">开源一个 PPT Skill｜压进了我 10 年的设计经验</span>
         </a>
@@ -141,7 +288,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

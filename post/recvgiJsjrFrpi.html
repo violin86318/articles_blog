@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>ListenHub CLI 发布并开源，AI 音乐首次支持 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>ListenHub CLI 发布并开源，AI 音乐首次支持 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">AI 工具</span>
+            <span class="card-tag card-tag-primary">AI 工具</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">ListenHub</span>
+            
+            <span class="topic-chip">CLI</span>
+            
+            <span class="topic-chip">音乐生成</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="detail-reading-time">约 5 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">ListenHub CLI 发布并开源，AI 音乐首次支持</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ ListenHub CLI 开源发布并首次支持 AI 音乐生成功能。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>ListenHub CLI 开源发布并首次支持 AI 音乐生成功能。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>ListenHub CLI 正式开源发布，支持通过 npm install -g @marswave/listenhub-cli 全局安装。本次升级新增两大AI功能： 1. AI音乐生成：输入文字描述即可创作音乐（例：listenhub music generate --prompt &#34;动感电子舞曲&#34;），支持 --instrumental 纯音乐参数。翻唱功能可处理本地音频（mp3/wav/flac/m4a/ogg/aac，≤20MB）。 2. PPT幻灯片制作：根据主题自动生成带配音幻灯片（例：listenhub slides create --query &#34;TypeScript入门指南&#34;），可定制模板/语言/尺寸/页数。 原有功能保留： 播客（quick/deep/debate模式） TTS文本转语音（--lang &#34;zh&#34;支持多语言） 解说视频 图片生成（支持多张本地参考图） 技术特性： 所有命令支持 --json 输出和 --no-wait 异步模式 底层开源 TypeScript SDK（@marswave/listenhub-sdk），含OAuth登录/自动刷新token/429重试 MIT协议开源，安装后需 listenhub auth login 授权登录 GitHub链接详见原文。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/SRDnce3f44RTLv3ZepbIOw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,21 +139,18 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心内容提炼（196字）：</p>
-<p><strong>ListenHub CLI 正式开源发布</strong>，支持通过 <code>npm install -g @marswave/listenhub-cli</code> 全局安装。本次升级新增两大AI功能：<br />
-1. <strong>AI音乐生成</strong>：输入文字描述即可创作音乐（例：<code>listenhub music generate --prompt "动感电子舞曲"</code>），支持 <code>--instrumental</code> 纯音乐参数。<strong>翻唱功能</strong>可处理本地音频（mp3/wav/flac/m4a/ogg/aac，<strong>≤20MB</strong>）。<br />
-2. <strong>PPT幻灯片制作</strong>：根据主题自动生成带配音幻灯片（例：<code>listenhub slides create --query "TypeScript入门指南"</code>），可定制模板/语言/尺寸/页数。</p>
-<p><strong>原有功能保留</strong>：<br />
-- 播客（quick/deep/debate模式）<br />
-- TTS文本转语音（<code>--lang "zh"</code>支持多语言）<br />
-- 解说视频<br />
-- 图片生成（支持多张本地参考图）</p>
-<p><strong>技术特性</strong>：<br />
-- 所有命令支持 <code>--json</code> 输出和 <code>--no-wait</code> 异步模式<br />
-- 底层开源 <strong>TypeScript SDK</strong>（<code>@marswave/listenhub-sdk</code>），含OAuth登录/自动刷新token/429重试<br />
-- MIT协议开源，安装后需 <code>listenhub auth login</code> 授权登录</p>
-<p>GitHub链接详见原文。</p>
+            <p>文章标题为“ListenHub CLI 发布并开源，AI 音乐首次支持”。</p>
+<p>文章内容主要介绍了 ListenHub CLI 的发布和开源情况。该工具可以通过 npm install -g 安装，并在各种 Agent 环境中直接运行。除了之前已有的播客、TTS（文本转语音）、解说视频功能外，这次还新增了 AI 音乐生成和 PPT 幻灯片制作能力。</p>
+<p>在 AI 音乐生成方面，用户可以通过输入一段文字描述来生成相应的音乐作品。例如，使用命令 <code>listenhub music generate --prompt "动感电子舞曲" --style "EDM" --title "夜间飞驰"</code> 可以生成一首具有动感电子舞曲风格的曲子。如果需要纯音乐，可以添加 <code>--instrumental</code> 参数。此外，还提供了 cover 翻唱功能，用户可以上传本地音频文件进行翻唱，支持的音频格式包括 mp3、wav、flac、m4a、ogg、aac，最大支持 20MB 的文件大小。</p>
+<p>在 PPT 幻灯片制作方面，用户只需提供主题，即可生成一套带配音的幻灯片。例如，使用命令 <code>listenhub slides create --query "TypeScript 入门指南"</code> 可以生成关于 TypeScript 入门指南的幻灯片。SDK 中还提供了更多细节，可以指定模板类型、语言、尺寸、页数等参数。</p>
+<p>除了新增功能外，播客、TTS、解说视频等原有功能也都在。播客支持 quick、deep、debate 三种模式，用户可以输入参考链接来进行创作。TTS 功能可以通过一行命令完成，例如 <code>listenhub tts create --text "你好世界" --lang "zh"</code>。</p>
+<p>此外，图片生成功能也支持传入本地参考图，最多可以传入多张图片。例如，使用命令 <code>listenhub image create --prompt "水彩风格的小龙" --reference ./sketch.jpg --reference ./palette.png --aspect-ratio 16:9 --size 4K</code> 可以生成一张水彩风格的小龙图片。</p>
+<p>所有创作命令都支持 <code>--json</code> 输出和 <code>--no-wait</code> 异步模式，方便用户编写脚本进行串联。SDK 底层也一起开源了，使用 TypeScript 编写，包名为 <code>@marswave/listenhub-sdk</code>。SDK 提供了 OAuth 登录、自动刷 token、429 重试等功能，方便用户在自己的项目中集成 ListenHub 功能。</p>
+<p>安装和更新 ListenHub CLI 的命令为 <code>npm install -g @marswave/listenhub-cli</code>。安装完成后，需要先登录，可以使用命令 <code>listenhub auth login</code> 进行登录，浏览器会弹出授权页面，授权后 token 会存储在 <code>~/.config/listenhub/credentials.json</code> 文件中，过期会自动刷新。更新时，只需重新安装最新版本的 CLI 即可。</p>
+<p>CLI 和 SDK 都遵循 MIT 协议，用户可以自由使用。</p>
+<p>文章最后提供了 CLI 和 SDK 的 GitHub 链接，方便用户获取更多信息。</p>
         </div>
     </article>
 
@@ -138,13 +158,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvgiJE2BWAfi" class="article-nav-link prev">
+        <a href="recvgiJE2BWAfi.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">每天一个好用skill分享-用html做精美ppt</span>
         </a>
         
         
-        <a href="/post/recvg9QPqmhUm4" class="article-nav-link next">
+        <a href="recvg9QPqmhUm4.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Karpathy 精选 RSS 日报 | 2026-04-08 | 共 6 个核心主题</span>
         </a>
@@ -154,7 +174,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

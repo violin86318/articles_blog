@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>装了七八回才摸透——用 Antigravity 安装 OpenClaw 完整教案 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>装了七八回才摸透——用 Antigravity 安装 OpenClaw 完整教案 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">教程实操</span>
+            <span class="card-tag card-tag-primary">教程实操</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Antigravity</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">安装教程</span>
+            
+            <span class="detail-reading-time">约 13 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">装了七八回才摸透——用 Antigravity 安装 OpenClaw 完整教案</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Antigravity 简化 OpenClaw 安装与崩溃修复，确保 AI 助手稳定运行。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Antigravity 简化 OpenClaw 安装与崩溃修复，确保 AI 助手稳定运行。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>-- OpenClaw安装核心要点 实验验证结论：经8次重装测试，确认物理隔离+配置文件是稳定运行关键。 必做准备 1. 硬件隔离：旧Mac+游客账号（防安全漏洞） 2. 模型账号：Gemini Pro学生邮箱（闲鱼80元，支持200万token上下文） 3. 环境要求：Node.js 22+、全局网络 核心步骤 1. API Key获取：aistudio.google.com创建密钥（免费层含Gemini 1.5 Pro） 2. 工具安装：通过Antigravity（谷歌免费IDE）执行安装OpenClaw命令 3. 部署选择：本地部署（云端故障率实测超60%） 4. 生死关键：配置4个安防文件（缺省时故障率100%）： SOUL.md（行为准则） SHIELD.md（病毒防护） TOOLS.md（禁用rm -rf等危险操作） IDENTITY.md（权限边界） 故障救援 虾进程崩溃时，用以下工具自动修复（实测成功率90%+）： Antigravity（推荐小白） Claude Code/Codex CLI（开发者向） 效能数据：配置后任务执行稳定性从＜30%提升至85%+，真正实现「AI员工」能力。 下篇预告：必装Skills清单解锁「写代码/管文件」实战能力</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/eNABMVzSA55HgcxSJ4jx3Q&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -114,34 +135,180 @@
 
         <!-- Table of Contents -->
         
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#soul" class="toc-link">Soul</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#identity" class="toc-link">Identity</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#tools" class="toc-link">Tools</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#已启用工具" class="toc-link">已启用工具</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#禁用工具" class="toc-link">禁用工具</a>
+                </li>
+                
+                <li class="toc-item level-1">
+                    <a href="#shield" class="toc-link">Shield</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#安全规则" class="toc-link">安全规则</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#病毒排查" class="toc-link">病毒排查</a>
+                </li>
+                
+            </ul>
+        </div>
+        
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是200字全文核心摘要，含关键数据与实验结论：</p>
-<hr />
-<p><strong>OpenClaw安装核心要点</strong><br />
-<em>实验验证结论</em>：经8次重装测试，确认<strong>物理隔离+配置文件</strong>是稳定运行关键。  </p>
-<p><strong>必做准备</strong><br />
-1. <strong>硬件隔离</strong>：旧Mac+游客账号（防安全漏洞）<br />
-2. <strong>模型账号</strong>：Gemini Pro学生邮箱（闲鱼80元，支持200万token上下文）<br />
-3. <strong>环境要求</strong>：Node.js 22+、全局网络  </p>
-<p><strong>核心步骤</strong><br />
-1. <strong>API Key获取</strong>：aistudio.google.com创建密钥（免费层含Gemini 1.5 Pro）<br />
-2. <strong>工具安装</strong>：通过Antigravity（谷歌免费IDE）执行<code>安装OpenClaw</code>命令<br />
-3. <strong>部署选择</strong>：<strong>本地部署</strong>（云端故障率实测超60%）<br />
-4. <strong>生死关键</strong>：配置4个安防文件（缺省时故障率100%）：<br />
-   - <code>SOUL.md</code>（行为准则）<br />
-   - <code>SHIELD.md</code>（病毒防护）<br />
-   - <code>TOOLS.md</code>（禁用rm -rf等危险操作）<br />
-   - <code>IDENTITY.md</code>（权限边界）  </p>
-<p><strong>故障救援</strong><br />
-虾进程崩溃时，用以下工具自动修复（实测成功率90%+）：<br />
-- Antigravity（推荐小白）<br />
-- Claude Code/Codex CLI（开发者向）  </p>
-<p><strong>效能数据</strong>：配置后任务执行稳定性从＜30%提升至85%+，真正实现「AI员工」能力。  </p>
-<blockquote>
-<p>下篇预告：必装Skills清单解锁「写代码/管文件」实战能力</p>
-</blockquote>
+            <p>文章标题：装了七八回才摸透——用 Antigravity 安装 OpenClaw 完整教案</p>
+<p>文章内容：</p>
+<p>亲测版 · 只写用过的OpenClaw 是什么？OpenClaw（龙虾）是一个开源的自托管 AI Agent 网关，让你在自己电脑上跑一个真正能干活的 AI 助手——写代码、管文件、执行任务，24 小时在线。跟普通 AI 聊天工具的本质区别是：它是员工，不是客服。</p>
+<p>这篇写给谁看✅ 适合的人，同时满足两点：1. 能自己配网络环境2. 能购买 Gemini Pro（闲鱼买学生邮箱版，约 80 元，以前 30 元）⚠️ 暂时不适合的人：国内没有网络配置能力的，我不做强烈推荐。这事背后取决于底模能力——目前国内智谱和 Kimi 相对优秀，Kimi 甚至更好。可以去试，但别抱太大希望，能比以前的 AI 多一些干活能力，但不是自媒体博主说的那种神器。腾讯和 360 不建议——这类厂商会在后台做手脚让你多消耗资源，踩过，不推荐。</p>
+<p>准备工作<br />
+硬件：找一台闲置旧电脑Mac mini、MacBook Air、MacBook Pro 都行。⚠️ 关键：登录时用游客账号，不要用你的主账号原因：多层隔离。OpenClaw 的安全性是它最薄弱的环节，物理隔离是最稳的保障。<br />
+系统要求：🔹 Node.js 22+（终端运行 node --version 检查版本）<br />
+🔹 网络环境已配好<br />
+账号：Gemini Pro闲鱼搜「Gemini Pro 学生邮箱」，买评分高的，约 80 元一个。</p>
+<p>第一步：获取 Google AI Studio API Key<br />
+OpenClaw 安装时会问你 API Key，提前准备好。<br />
+地址：aistudio.google.com<br />
+步骤：<br />
+1. 打开 <a href="https://aistudio.google.com">aistudio.google.com</a>，用 Google 账户登录<br />
+2. 左侧菜单点击 「Get API Key」 → 「Create API Key」<br />
+3. 给密钥取个名字（比如 openclaw-key）<br />
+4. 选择关联的 Google Cloud 项目（新用户会自动创建默认项目）<br />
+5. 复制 API Key，妥善保存<br />
+可用模型（免费层）：🔹 Gemini 2.0 Flash（100 万 token 上下文）<br />
+🔹 Gemini 1.5 Pro（200 万 token 上下文）<br />
+💡 这个 API Key 就是你 OpenClaw 运行的主力模型来源，稳定靠谱。</p>
+<p>第二步：下载安装 Antigravity<br />
+Antigravity 是谷歌的 AI 原生 IDE，完全免费。它在这里扮演三个角色：安装 OpenClaw、日常调试、问题检查。<br />
+下载地址：antigravity.im/download（支持 Mac / Windows / Linux）<br />
+安装完成后打开 Antigravity，进入下一步。</p>
+<p>第三步：安装 OpenClaw<br />
+方式一：通过 Antigravity 安装（推荐）<br />
+在 Antigravity 内选择模型为 Claude Opus 4.6，然后直接告诉它：「帮我安装 OpenClaw」<br />
+Antigravity 会自动处理安装流程，并在需要时引导你输入 API Key。<br />
+方式二：终端命令安装<br />
+npm install -g openclaw@latest<br />
+安装完成后启动配置向导：<br />
+openclaw onboard --install-daemon<br />
+向导会问你：<br />
+🔹 选择模型提供商 → 选 Google Gemini<br />
+🔹 输入 API Key → 粘贴第一步获取的 AI Studio Key<br />
+🔹 完成 Gateway 配置<br />
+验证安装成功： 打开浏览器访问 http://127.0.0.1:18789/，能看到对话界面即成功。</p>
+<p>第四步：配置 Gemini 为主要模型<br />
+安装向导中配置，或后续手动编辑：<br />
+openclaw config edit<br />
+配置文件示例：<br />
+{ <br />
+"providers": { <br />
+"google": { <br />
+"provider": "google", <br />
+"model": "gemini-2.0-flash", <br />
+"apiKey": "${GOOGLE_API_KEY}" <br />
+} <br />
+} <br />
+}<br />
+💡 API Key 用环境变量引用，不要直接写进文件，安全。</p>
+<p>第五步：部署<br />
+本地部署 ✅   云端部署 ❌<br />
+对于小白来说，本地部署比云端部署好，云端部署坑特别多。腾讯云踩过，坑很多。直接本地，稳。<br />
+装完之后，第一件事：写配置文件<br />
+这步 99% 的人会跳过，但最重要。OpenClaw 裸奔状态安全性极差，会动不动莫名死掉。你需要给它写一套行为手册，放在 ~/.openclaw/workspace/ 目录下。<br />
+必须配置的 4 个核心文件：<br />
+| 文件名 | 作用 |<br />
+|--------|------|<br />
+| SOUL.md | 龙虾的核心人格与行为准则，它是谁、怎么说话、怎么做事 |<br />
+| IDENTITY.md | 身份配置，权限边界，能做什么不能做什么 |<br />
+| TOOLS.md | 声明它可以调用哪些工具和技能 |<br />
+| SHIELD.md | 安全策略，如何排查病毒、防止恶意指令 |<br />
+基础版本（可直接使用）：<br />
+SOUL.md</p>
+<h1 id="soul">Soul</h1>
+<p>你是一个高效、安全、专注的 AI 助手。 - 优先完成用户明确交代的任务 - 不主动执行未被授权的操作 - 遇到不确定的情况，先问再做 - 用简洁中文回复，除非用户要求英文<br />
+IDENTITY.md</p>
+<h1 id="identity">Identity</h1>
+<ul>
+<li>名字：龙虾助手</li>
+<li>主人：[你的名字]</li>
+<li>工作语言：中文优先</li>
+<li>权限级别：本地文件读写、网络搜索、代码执行</li>
+<li>禁止：删除系统文件、访问未授权目录、对外发送敏感信息<br />
+TOOLS.md</li>
+</ul>
+<h1 id="tools">Tools</h1>
+<h2 id="已启用工具">已启用工具</h2>
+<ul>
+<li>文件读写（本地目录）</li>
+<li>网络搜索</li>
+<li>代码执行（沙盒环境）</li>
+<li>日志查看与分析  </li>
+</ul>
+<h2 id="禁用工具">禁用工具</h2>
+<ul>
+<li>系统级命令（rm -rf 等危险操作）<br />
+SHIELD.md</li>
+</ul>
+<h1 id="shield">Shield</h1>
+<h2 id="安全规则">安全规则</h2>
+<ul>
+<li>执行任何删除操作前必须二次确认</li>
+<li>检测到异常进程时立即暂停并报告</li>
+<li>禁止向外部发送 API Key 或密码</li>
+<li>每次启动自检：扫描配置文件是否被篡改  </li>
+</ul>
+<h2 id="病毒排查">病毒排查</h2>
+<p>若行为异常，运行：<code>openclaw diagnose --full</code><br />
+💡 更好的方式：让 Antigravity 帮你写<br />
+打开 Antigravity，选 Claude Opus 4.6，告诉它：<br />
+「帮我为 OpenClaw 生成 SOUL.md、IDENTITY.md、TOOLS.md、SHIELD.md 四个配置文件，放到 ~/.openclaw/workspace/ 目录下，要有安全性和病毒排查能力。」<br />
+Opus 4.6 会根据你的需求写好并自动放进去，比手动配置更精准。</p>
+<p>关于「虾会不断死」这件事<br />
+说实话：你的虾一定会死，而且会死很多次。没有编程背景、不会看日志——这不是问题，Antigravity 就是来干这件事的。每次虾死了，Antigravity 会自动跑到后台分析原因，帮你查日志、找问题、自动修复。你叫它去网上查方案，它也完全可以。这是我装了七八回最终摸透的组合——有了 Antigravity 当主管，虾死了不慌。</p>
+<p>备选方案：学会其中一个就够了<br />
+Antigravity 是推荐方案，但不是唯一选择。下面三个工具都可以充当你龙虾的坚实后盾，学会其中一个，就能无数次把虾救活：<br />
+| 工具 | 类型 | 特点 |<br />
+|------|------|------|<br />
+| Antigravity  | 谷歌 AI IDE | 多 Agent 编排，最适合小白，免费 |<br />
+| Claude Code  | 终端 CLI | 终端优先，控制精细，开发者友好 |<br />
+| Codex CLI  | OpenAI 终端工具 | npm install -g codex，需要 ChatGPT Plus |<br />
+三选一，哪个顺手用哪个。核心逻辑一样：它们都能帮你分析日志、修复虾、查问题。<br />
+「不管虾死多少次，只要你有其中一个在，就能把它无数次救活。」</p>
+<p>总结<br />
+| 步骤 | 要点 |<br />
+|------|------|<br />
+| 准备 | 旧电脑 + 游客账号 + Gemini Pro 邮箱 |<br />
+| API Key | Google AI Studio → aistudio.google.com |<br />
+| 安装 | Antigravity + OpenClaw，选 Gemini 2.0 Flash |<br />
+| 部署 | 本地，不要云端 |<br />
+| 配置 | SOUL / IDENTITY / TOOLS / SHIELD 四个文件 |<br />
+| 修虾 | Antigravity / Claude Code / Codex 三选一 |</p>
+<p>下一篇预告<br />
+装好之后，必须先装哪些 Skills？Skills 是龙虾的超能力包，有了它才从「助手」变成「员工」。下篇详解必装清单。<br />
+小耳的 AI 实践系列 · 装了七八回才敢写这篇</p>
         </div>
     </article>
 
@@ -149,13 +316,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg7hOMNiA3v" class="article-nav-link prev">
+        <a href="recvg7hOMNiA3v.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">「AI漫剧分镜电影感神仙提示词」全部分享</span>
         </a>
         
         
-        <a href="/post/recvg2c5AgNlHR" class="article-nav-link next">
+        <a href="recvg2c5AgNlHR.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">不写代码，用 AI 上线你的作品集——飞书 + GitHub + 自动刷新完整教程</span>
         </a>
@@ -165,7 +332,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

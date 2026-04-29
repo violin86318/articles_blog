@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">教程实操</span>
+            <span class="card-tag card-tag-primary">教程实操</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">防封策略</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Skill Vetter是保护OpenClaw用户免受恶意Skills安全风险的关键工具，提供审查来源、代码和权限的风险等级评估。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Skill Vetter是保护OpenClaw用户免受恶意Skills安全风险的关键工具，提供审查来源、代码和权限的风险等级评估。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>好的，这是对《所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill》文章核心内容的提炼（&lt;200字）： 文章核心： OpenClaw的安全核心风险在于功能插件（Skills）的“投毒”。官方已公开记录多起恶意案例，例如用户hightower6eu曾在官方商店ClawHub批量发布伪装正常的恶意Skills。 为应对此威胁，强烈推荐安装Skill Vetter插件。它通过来源检查、代码审查、权限评估对目标Skill进行安全审查，并给出风险等级。例如： Desktop Control因功能强大被判定为高风险。 coding-agent因安装指令含可疑乱码（可能引导下载执行恶意代码）被判定为极端风险。 结论： 安装任何Skill前，务必使用Skill Vetter进行审查。切勿盲目点击安装，需了解其功能与风险，尤其涉及敏感操作时。这是防范恶意Skill、保障OpenClaw安全的关键步骤。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/ElpuiIh3css7XtmI9Ciwgw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,14 +137,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>好的，这是对《所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill》文章核心内容的提炼（&lt;200字）：</p>
-<p><strong>文章核心：</strong></p>
-<p>OpenClaw的安全核心风险在于<strong>功能插件（Skills）的“投毒”</strong>。官方已公开记录多起恶意案例，例如用户<code>hightower6eu</code>曾在官方商店<code>ClawHub</code>批量发布伪装正常的恶意Skills。</p>
-<p>为应对此威胁，<strong>强烈推荐安装<code>Skill Vetter</code>插件</strong>。它通过<strong>来源检查、代码审查、权限评估</strong>对目标Skill进行安全审查，并给出风险等级。例如：<br />
-*   <code>Desktop Control</code>因功能强大被判定为<strong>高风险</strong>。<br />
-*   <code>coding-agent</code>因安装指令含可疑乱码（可能引导下载执行恶意代码）被判定为<strong>极端风险</strong>。</p>
-<p><strong>结论：</strong> 安装任何Skill前，<strong>务必使用<code>Skill Vetter</code>进行审查</strong>。切勿盲目点击安装，需了解其功能与风险，尤其涉及敏感操作时。这是防范恶意Skill、保障OpenClaw安全的关键步骤。</p>
+            <p>文章标题为《所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill》。文章主要讨论了OpenClaw的安全问题，特别是功能插件（Skills）的投毒风险。作者指出，由于OpenClaw的能力很大程度上取决于安装的Skills，因此这些Skills成为了最大的安全风险来源之一。</p>
+<p>文章提到，OpenClaw官方已经公开过多个被举报为恶意的Skill，并且官方仓库中也有相关的安全讨论和记录。一个名为hightower6eu的用户曾在官方Skills商店ClawHub上发布了一堆看似正常的Skill，但后来被发现全部是恶意的。</p>
+<p>为了应对这一安全问题，作者推荐了一个名为Skill Vetter的Skill，它可以对其他Skill进行安全审查，帮助用户判断是否可以安装。Skill Vetter的工作原理包括检查Skill的来源、审查代码以及评估权限范围，从而给出一个风险等级。</p>
+<p>文章还提供了一些具体的例子，展示了Skill Vetter如何识别出高风险的Skill，例如一个名为Desktop Control的Skill，尽管其用途正当，但由于其强大的功能，被Skill Vetter判定为高风险。另一个名为coding-agent的Skill则被判定为极端风险，因为其安装指令中包含了一段可疑的乱码，可能引导OpenClaw下载并执行恶意代码。</p>
+<p>最后，作者强调了Skill Vetter的重要性，并建议用户在安装任何Skill之前都要进行安全审查。文章还提醒用户，即使是一些看似无害的Skill，如果涉及敏感信息或操作，也需要谨慎对待。作者鼓励用户在安装Skills时不要盲目点击，而应该了解每个Skill的功能和风险。</p>
         </div>
     </article>
 
@@ -131,13 +151,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdL9WWNEbHs" class="article-nav-link prev">
+        <a href="recvdL9WWNEbHs.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">OpenClaw 接入 Claude 订阅：防封中转方案实战教程</span>
         </a>
         
         
-        <a href="/post/recvdGEvGXaZlW" class="article-nav-link next">
+        <a href="recvdGEvGXaZlW.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">OpenClaw龙虾技校Skill选课指南</span>
         </a>
@@ -147,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

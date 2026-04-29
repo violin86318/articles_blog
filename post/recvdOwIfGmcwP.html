@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Lovart 真正一键详情页长图 多角度生产视频 写实买家秀 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Lovart 真正一键详情页长图 多角度生产视频 写实买家秀 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Lovart</span>
+            
+            <span class="topic-chip">AI 视频</span>
+            
+            <span class="topic-chip">电商设计</span>
+            
+            <span class="topic-chip">买家秀</span>
+            
+            <span class="detail-reading-time">约 9 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Lovart 真正一键详情页长图 多角度生产视频 写实买家秀</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Lovart更新支持一键生成电商详情页长图、多角度图像动画及写实买家秀功能。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Lovart更新支持一键生成电商详情页长图、多角度图像动画及写实买家秀功能。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>1. 一键电商长图 新增1:4（2048×8256）和1:8（1408×1172）长图比例，支持语音输入提示词生成详情页。1:4比例清晰度更优，可“一句话生成完整项目”，测试案例含扫地机器人十项功能模块组合图。 2. 多角度生成 支持产品/人物/建筑360°视角调节：通过“主体调节”或“摄像机环绕”一键生成多角度序列图，结合Kling 2.6模型可制作广告级动画（如时间静止特效）。 3. 写实买家秀 用实拍照片训练Banana 2模型，实现产品与真实场景融合，生成多角度买家秀图像，支持文字描述或临摹照片两种模式。 4. 高效工具升级 图像转矢量（一键输出SVG分层文件）、精细色彩调节（替代PS基础调色）功能上线。 总结：三大核心突破——高精度长图生成（2048×8256）、多角度动画制作、AI写实买家秀，实现电商视觉内容全链路高效生产。 （字数：198）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/FgU3ub7bl44vl1kKV-52Mw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,32 +139,60 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是Lovart升级核心功能提炼（数据基于原文）：</p>
-<ol>
-<li><strong>一键电商长图</strong>  </li>
-<li>
-<p>新增1:4（2048×8256）和1:8（1408×1172）长图比例，支持语音输入提示词生成详情页。1:4比例清晰度更优，可“一句话生成完整项目”，测试案例含扫地机器人十项功能模块组合图。</p>
-</li>
-<li>
-<p><strong>多角度生成</strong>  </p>
-</li>
-<li>
-<p>支持产品/人物/建筑360°视角调节：通过“主体调节”或“摄像机环绕”一键生成多角度序列图，结合Kling 2.6模型可制作广告级动画（如时间静止特效）。</p>
-</li>
-<li>
-<p><strong>写实买家秀</strong>  </p>
-</li>
-<li>
-<p>用实拍照片训练Banana 2模型，实现产品与真实场景融合，生成多角度买家秀图像，支持文字描述或临摹照片两种模式。</p>
-</li>
-<li>
-<p><strong>高效工具升级</strong>  </p>
-</li>
-<li>图像转矢量（一键输出SVG分层文件）、精细色彩调节（替代PS基础调色）功能上线。</li>
-</ol>
-<p><strong>总结</strong>：三大核心突破——高精度长图生成（2048×8256）、多角度动画制作、AI写实买家秀，实现电商视觉内容全链路高效生产。<br />
-（字数：198）</p>
+            <p>根据您提供的参考内容，以下是微信文章的全文内容：</p>
+<hr />
+<p><strong>Lovart 真正一键详情页长图 多角度生产视频 写实买家秀</strong></p>
+<p>Lovart 这几天进行了更新升级，今天来看看更新升级的重点。https://www.lovart.ai/</p>
+<p><strong>1. 一键电商详情页长图</strong></p>
+<p>一打开就会发现UI界面变了，更有设计感。加入了语言输入功能，可以直接语音写提示词，按C或点右下角就可以。语音输入功能。以后就是动嘴做图了。测试了一下，识别的是OK的。Banana 2 有了更多的比例，重点是1:4 1:8 的长图。这样我们就可以直接做长图。下面是1:4比例的测试，简单的项目就可以真正的一键完成。1:4 的图像尺寸是 2048*8256 要求不高的项目几乎可以直接用。真正的一键完成一个项目详情页。提示词【高端智能扫地机器人电商详情页主视觉 + 功能模块组合图｜Dibea C30 Pro 同款｜科技深蓝黑主色调｜产品外观绝对统一｜所有分镜中机身颜色、透明水箱、激光雷达、滚刷结构、底座设计必须完全一致】</p>
+<p>▶️ 整体构图：竖版长图（9:16），分为四大核心区块：<br />
+① 顶部「十项全能基站」区 → 深灰渐变背景 + 白色粗体大字“十项全能基站 一站式洁净体验”，下方小字说明“集上下水、加清洁液、洗拖布、烘干、集尘、除菌、窗菌补水、自清洁等一体”。中央为半透明基站模型，底部环绕蓝色光环，周围分布10个功能图标（集尘/除菌/自动补水/上下换水/洗拖布/清洗液/烘干/自清洁/避障/吸力调节），每个图标带发光边框+简体中文标签，呈放射状对称布局；<br />
+② 「毫米级感知」区 → 黑色网格地面 + 蓝色激光扫描线从机器人顶部雷达射出，覆盖桌腿、玩具狗等障碍物，形成3D点云轮廓；左上角标题“Millimeter 毫米级感知”，副标题“复杂环境 轻松避障”，左侧配“激光线感知”图标+说明文字“敏锐感知系统 激光线感知 复杂环境 轻松避障”；<br />
+③ 「自动驾驶级高算力芯片」区 → 电路板特写背景，中央悬浮一块发光AI芯片，表面印有“AI Dibeo”字样，四周布满蓝色电流纹路与LED灯珠；上方标题“自动驾驶级高算力芯片”，副标题“每秒万亿次处理信息 快速精准相应需求”；<br />
+④ 「四大核心清洁科技」区 → 机器人底部透视爆炸图，展示内部结构：双边贴角刷、V型滚刷、HEPA滤网、抑菌拖布，每项用蓝色圆角标签标注并引线指向对应部件；背景为深色机械纹理，突出科技感与精密感；<br />
+▶️ 文字细节：<br />
+- 主标题字体：思源黑体 Heavy / 方正兰亭特粗，字号最大，白色带轻微外发光；<br />
+- 副标题/说明文字：微软雅黑 Regular，字号适中，行距1.5倍，避免拥挤；<br />
+- 功能图标标签：小号宋体或苹方字体，居中对齐于图标下方；<br />
+- 所有文字均居中对齐或左对齐，严禁斜排或艺术变形；<br />
+- “AI Dibeo”芯片文字需清晰可辨，采用无衬线英文字体（如 Futura 或 Helvetica Neue）；<br />
+▶️ 色彩系统：<br />
+- 主色：#0A0F1C（深空黑）、#1A2332（金属灰蓝）、#007BFF（科技蓝）、#00D4FF（霓虹青）；<br />
+- 辅助色：#FFFFFF（纯白文字）、#E2E8F0（浅灰背景）、#FFD700（数据高亮，本图未使用但保留扩展性）；<br />
+- 光影：冷光源为主，局部暖光点缀（如芯片电流），强调立体感和未来感；<br />
+▶️ 材质与细节：<br />
+- 机身：哑光磨砂塑料 + 高光镀铬装饰环；<br />
+- 水箱：高透PC材质，可见内部水位线与管道；<br />
+- 激光雷达：顶部圆形凸起，发射蓝色扇形光束；<br />
+- 底盘结构：透明外壳展示双刷+滤网+拖布支架，边缘有蓝色能量流动效；<br />
+- 电路板：多层PCB板，铜箔走线发光，电容电阻排列整齐；<br />
+- 地面：反光大理石或木地板，反射产品轮廓与激光线；<br />
+▶️ 风格要求：<br />
+- 商业广告级渲染，8K分辨率，照片级写实；<br />
+- 所有元素边缘锐利，无锯齿；<br />
+- 背景虚化处理，聚焦主体；<br />
+- 禁止出现任何水印、LOGO以外的品牌标识；<br />
+- 所有分图中产品角度、比例、配色、UI样式必须严格统一，不可随意更改；<br />
+下面是1:8比例的测试，整体的效果也是不错的。1:8 的长图尺寸为 1408*1172 也是一段话 一键就可以完成，加入提示词生产即可。1:8的部分小字与清晰度没有1:4得好，1:4写提示词也更方便，细节也更好。</p>
+<p><strong>2. 多角度 产品</strong></p>
+<p>第二个重要的功能是多角度，在完成的图像上直接点击 多角度 即可。第一种调节模式是调节主体，可以看下图，非常直观，轻松控制不同的角度。下面是完成的效果。还有一张调节方式是控制摄像机，就是物体不变，摄的摄像机围绕物体旋转，也是非常的直观，效果与上市一样的。下面的完成的效果。</p>
+<p><strong>3. 多角度 人物与动画</strong></p>
+<p>产品可以控制，那人物自然也可以。同样的反复就可以完成不同角度的同一个人物。有了不同角度的图，就可以跟好的控制动画。加入一个动画控制器。选择两张图，使用首尾帧，使用Kling 2.6 模型，生产动画。有了8个镜头，剪辑在一起就可以完成一个广告。同样的全身人物也是一样的做法。动画的思路也是一样的。可以轻松完成时间静止的特效。</p>
+<p><strong>4. 多角度 室内巡游动画</strong></p>
+<p>人物可以控制，那室内外建筑动画也是同样的。与上面一样的方法先使用多角度生成另一个角度的图片。在使用Kling 2.6 模型完成动画。那同样的方法。</p>
+<p><strong>5. 多维度 买家秀</strong></p>
+<p>漂亮的图我们做过很多，今天做几个丑图，买家秀。banana2模型的学习能力是非常强大的，随手拍一张照片。让我们的产品去融入到这个写实的照片里面就可以实现写实的效果。有了写实的照片后，就可以利用多角度，来生成完成的一套买家秀图像。我似乎透露啥！！！</p>
+<p><strong>6. 服装 买家秀</strong></p>
+<p>在继续做一组丑图。下面是商家的卖家秀。banana2的买家秀两种方式生产，1是提示词描述，2是学习与临摹。最后为了更加真实还可以加入多角度。商机啊！</p>
+<p><strong>7. 一键图像 矢量</strong></p>
+<p>完成的图像右侧点击 矢量，就可以一键生产矢量图。完成的点击下载，下载后就是SVG格式。在使用矢量软件打开，都有对应的图层。哪怕是不清晰的图像，我进行了直接矢量的测试，效果也是非常不错的。</p>
+<p><strong>8. 精细的色彩调节</strong></p>
+<p>AI里面要比较精细的微调色彩几乎是不能的，现在加入了调整功能。常用的色彩调整功能全有了。这样对照片微调也可以不是有PS了，灰尘的方便高效。开始你的表演https://www.lovart.ai/</p>
+<p><strong>LOVART 课程咨询</strong></p>
+<p>https://work.weixin.qq.com/ca/cawcdefb6b49324097</p>
+<hr />
         </div>
     </article>
 
@@ -149,13 +200,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdOH8PsH0wU" class="article-nav-link prev">
+        <a href="recvdOH8PsH0wU.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Openclaw + OpenCode 才是 vibe coding 的最棒组合！</span>
         </a>
         
         
-        <a href="/post/recvdMvgSOyil5" class="article-nav-link next">
+        <a href="recvdMvgSOyil5.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">把 OpenClaw 和 Claude Code 装在一个产品里，享受无限 Token 的快感</span>
         </a>
@@ -165,7 +216,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

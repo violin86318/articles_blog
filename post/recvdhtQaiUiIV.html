@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,47 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">自动化工作流</span>
+            <span class="card-tag card-tag-primary">开发工具、开源项目、AI编程</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">飞书</span>
+            
+            <span class="topic-chip">远程控制</span>
+            
+            <span class="topic-chip">Agent</span>
+            
+            <span class="detail-reading-time">约 12 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 全文最有价值的亮点是：**该项目通过开源工具（如Claude-to-IM-skill）让Claude Code实现安全、便捷的远程控制，无缝连接飞书、Discord等IM平台，并提供交互式配置和权限管理功能。**
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>可以说完全自己搞了一个 Claude Code 桌面端 + Cowork + OpenClaw。 非常适合小白入门和使用，比 OpenClaw 安全多了 其中交互式配置这个非常方便，首次启动的时候 Claude 会通过详细的指引，引导你进行配置。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>作者分享了其开发的Codepilot项目，它是一个Claude Code桌面端，支持飞书、Discord等IM远程连接，并开源了Claude-to-IM和Claude-to-IM-skill两个项目，方便开发者快速接入IM远程控制。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/fjGd3mBJ2cHnR7Ctmx7vmA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -114,22 +139,96 @@
 
         <!-- Table of Contents -->
         
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#让你的-claudecode-秒变-openclaw龙虾连接飞书discord-远程控制" class="toc-link">让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#claude-to-im-skill" class="toc-link">Claude-to-IM-skill</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#claude-to-im" class="toc-link">Claude-to-IM</a>
+                </li>
+                
+            </ul>
+        </div>
+        
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是基于全文的核心提炼（195字）：</p>
-<p><strong>核心功能</strong>：<br />
-作者开发的 <strong>Codepilot</strong> 工具（V0.26.0）将 <strong>Claude Code</strong> 升级为类 "OpenClaw" 的 Agent 平台，支持：<br />
-1. <strong>跨平台控制</strong>：通过飞书/Discord/Telegram 远程操作 Claude Code<br />
-2. <strong>安全连接</strong>：交互式向导配置 IM 权限，Token 以 <code>chmod 600</code> 加密存储<br />
-3. <strong>多任务管理</strong>：可视化套餐配置、多 Agent 并发分屏、Token 使用检测<br />
-4. <strong>开源扩展</strong>：拆解出 <strong>Claude-to-IM</strong> 及 <strong>Claude-to-IM-skill</strong> 项目，实现对话持久化与流式消息预览  </p>
-<p><strong>关键数据</strong>：<br />
-- 开发效率：16 天发布 <strong>40 个版本</strong>，累计 <strong>220 次提交</strong><br />
-- 覆盖平台：全支持 <strong>MacOS/Windows</strong><br />
-- 安全优势：比 OpenClaw <strong>配置更简易</strong>，权限控制更严格  </p>
-<p><strong>开源地址</strong>：<br />
-https://github.com/op7418/CodePilot/releases/tag/v0.26.0</p>
+            <h1 id="让你的-claudecode-秒变-openclaw龙虾连接飞书discord-远程控制">让你的 ClaudeCode 秒变 Openclaw（龙虾），连接飞书、Discord 远程控制</h1>
+<p>我这几天都在用 Vibe Coding 做我的 Agent 客户端 Codepilot。</p>
+<p>除开春节假期的九天我用 16 天，发布了40 个版本、220 次提交，效率真的拉满。</p>
+<p>刚开始这个项目的定位只是 Claude Code 的桌面端，现在已经支持：</p>
+<ul>
+<li>飞书等 IM 远程连接；</li>
+<li>可视化配置所有 Code plan 套餐；</li>
+<li>藏师傅写的设计 Agent 和素材库；</li>
+<li>多个 Agent 并发分屏；</li>
+<li>Token 使用检测看板；</li>
+<li>还能一键帮你安装 Claude Code ；</li>
+<li>MacOS 和 Windows 全平台支持。</li>
+</ul>
+<p>等一系列的 Agent 功能。</p>
+<p>可以说完全自己搞了一个 Claude Code 桌面端 + Cowork + OpenClaw。</p>
+<p>非常适合小白入门和使用，比 OpenClaw 安全多了：</p>
+<p>https://github.com/op7418/CodePilot/releases/tag/v0.26.0</p>
+<p><img alt="Image" src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/ofWbZTuv4DUsSmhcTC4UcMK8tuX3DknjPDOhxKZjQUvpKlchXsUpekELFNuniaZ2jrcIXOcSsiacDBzLM2iaXn3ZN0uKcqysooh5PKnQ43SSicY/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>我这几天主要集中在实现一套非常优雅而且全面的 Claude Code 连接各种 IM 工具比如飞书之类的系统。</p>
+<p>参考了各个项目的优势同时结合我自己的需求，非常易用，比 OpenClaw 的配置方便非常多。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>然后我就想说既然都写了，除了放在 Codepilot 里面不如拆出来开源。</p>
+<p>帮大家减轻点开发压力，顺便给那些想使用 Claude Code 本身还想连接 IM 的朋友。</p>
+<p>所以就有了两个项目：Claude-to-IM 以及 Claude-to-IM-skill</p>
+<h2 id="claude-to-im-skill">Claude-to-IM-skill</h2>
+<p>这个 Skills 可以直接将你当前的 Claude Code 对话远程连接到飞书、Discord 等 IM 工具，即使你在外面也可以跟你的的 Claude Code 进行交互了。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>具体的功能有：</p>
+<ul>
+<li>三大 IM 平台 — Telegram、Discord、飞书，可任意组合启用</li>
+<li>交互式配置 — 引导式向导逐步收集 token，附带详细获取说明</li>
+<li>权限控制 — 工具调用需要在聊天中通过内联按钮明确批准</li>
+<li>流式预览 — 实时查看 Claude 的输出（Telegram 和 Discord 支持）</li>
+<li>会话持久化 — 对话在守护进程重启后保留</li>
+<li>密钥保护 — token 以 chmod 600 存储，日志中自动脱敏</li>
+<li>无需编写代码 — 安装 Skill 后运行 /claude-to-im setup 即可</li>
+</ul>
+<p>其中交互式配置这个非常方便，首次启动的时候 Claude 会通过详细的指引，引导你进行配置。</p>
+<p>甚至会告诉你该点哪里，门槛非常低。</p>
+<p>设置完就可以跟你的 Claude Code 用 IM 进行远程交互了。</p>
+<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>可以用下面这个命令安装：</p>
+<pre><code>npx skills add op7418/Claude-to-IM-skill
+</code></pre>
+<p>同时项目也是开源的，可以过来反馈问题和贡献 PR：</p>
+<p>https://github.com/op7418/Claude-to-IM-skill</p>
+<h2 id="claude-to-im">Claude-to-IM</h2>
+<p>这个主要面向的是开发者朋友们，如果你的产品也是基于 Agent SDK 开发。</p>
+<p>你也想要快速的接入多个 IM 远程控制，就可以用这个库。</p>
+<p>主要的特点是：</p>
+<ul>
+<li>多平台适配器：Telegram（长轮询）、Discord（Gateway WebSocket）、飞书（WSClient）</li>
+<li>流式预览：通过消息编辑实现实时响应草稿，支持按平台定制的节流策略</li>
+<li>权限管理：通过交互式内联按钮实现 Claude Code 工具审批（允许 / 拒绝 / 本次会话允许）</li>
+<li>会话绑定：每个 IM 聊天映射到一个持久化的会话，支持工作目录和模型配置</li>
+<li>Markdown 渲染：平台原生格式化——Telegram 用 HTML、Discord 用 Discord 风格 Markdown、飞书用富文本卡片</li>
+<li>可靠投递：按平台限制自动分块、指数退避重试、HTML 降级、消息去重</li>
+<li>安全机制：输入验证、令牌桶速率限制（每个聊天 20 条/分钟）、用户授权白名单、完整审计日志</li>
+<li>宿主无关：所有宿主依赖通过 4 个 DI 接口抽象——不绑定数据库驱动、不绑定 LLM 客户端、不绑定框架</li>
+</ul>
+<p>其他详细的接入指南啥的我就不在这里说了，直接去看文档就行：</p>
+<p>https://github.com/op7418/Claude-to-IM</p>
+<p>上面这两个项目都欢迎大家点 Star，同时如果有问题可以在 Github  反馈，也可以提交 PR。</p>
+<p>如果觉得今天的内容对你有帮助的话，可以帮我点个赞👍或者转发给需要的朋友们。</p>
         </div>
     </article>
 
@@ -137,13 +236,13 @@ https://github.com/op7418/CodePilot/releases/tag/v0.26.0</p>
     
     <nav class="article-nav">
         
-        <a href="/post/recvdhwFNosb9P" class="article-nav-link prev">
+        <a href="recvdhwFNosb9P.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Openclaw自己操作Claude code完整开发了TikTok爆款分析系统</span>
         </a>
         
         
-        <a href="/post/recvdh7JTnqDbw" class="article-nav-link next">
+        <a href="recvdh7JTnqDbw.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Obsidian 推出了 Defuddle， 把 Obsidian Web Clipper 推到了一个新的高度</span>
         </a>
@@ -153,7 +252,7 @@ https://github.com/op7418/CodePilot/releases/tag/v0.26.0</p>
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">PDF</span>
+            
+            <span class="topic-chip">排版</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="detail-reading-time">约 5 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 可在Claude Code中直接使用的lovstudio/md2pdf Skill，是目前唯一同时具备Markdown原生全功能排版、CJK中文专项支持、全链路文档结构、零重依赖的Markdown转出版级专业PDF方案。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>可在Claude Code中直接使用的lovstudio/md2pdf Skill，是目前唯一同时具备Markdown原生全功能排版、CJK中文专项支持、全链路文档结构、零重依赖的Markdown转出版级专业PDF方案。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>因Claude Code源码泄露，作者计划制作100+页深度技术报告，面临Markdown转出版级PDF的需求，尝试Pandoc+LaTeX等多款现有方案均碰壁后，基于reportlab开发了Claude Code专属Skill lovstudio/md2pdf。该工具支持标准Markdown，对中文友好，可直接在Claude Code sandbox运行，能生成带封面、目录、书签、水印的专业PDF，经对比12款竞品，它是唯一同时具备Markdown原生全功能排版、CJK专项支持、全链路文档结构、零重依赖的方案，仅需一行命令即可安装使用。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/7ZhEyJNmwiHaKFrNKZaAHw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,47 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>因Claude Code源码泄露，作者计划制作100+页深度技术报告，面临Markdown转出版级PDF的需求，尝试Pandoc+LaTeX等多款现有方案均碰壁后，基于reportlab开发了Claude Code专属Skill lovstudio/md2pdf。该工具支持标准Markdown，对中文友好，可直接在Claude Code sandbox运行，能生成带封面、目录、书签、水印的专业PDF，经对比12款竞品，它是唯一同时具备Markdown原生全功能排版、CJK专项支持、全链路文档结构、零重依赖的方案，仅需一行命令即可安装使用。</p>
+            <p>文章标题：我做了一个精美 PDF 排版 Skill，以生成 100+ 页 Claude Code 系统报告为例</p>
+<p>文章摘要：<br />
+本文介绍了如何使用 Claude Code Skill 生成专业的 PDF 报告。作者在 Claude Code 源码泄露后，决定制作一份深度技术报告，并面临将 Markdown 文件转换为出版级 PDF 的挑战。通过尝试多种方案，包括 Pandoc + LaTeX、WeasyPrint、md-to-pdf / Puppeteer 和 MiniMax 的方案，作者最终选择了 reportlab 库来创建自己的 Skill，名为 lovstudio/md2pdf。这个 Skill 能够接受标准 Markdown，对中文友好，并在 Claude Code sandbox 中直接运行，生成包含封面、目录、书签、水印、页眉页脚的专业 PDF。文章还介绍了 md2pdf Skill 的特点和优势，以及与其他竞品的对比。</p>
+<p>文章目录：<br />
+一、起因：Claude Code 源码泄露，我想做一份像样的研究报告<br />
+二、"这能有多难？"——一个下午的崩溃之旅<br />
+三、既然没有，那就自己做一个<br />
+四、解决了哪些"别人没解决"的问题<br />
+五、对比：12 个竞品，逐一过招<br />
+六、为什么不用 MiniMax 的 Skill？<br />
+七、一个设计哲学的选择<br />
+八、安装与使用<br />
+九、后记</p>
+<p>文章内容：<br />
+一、起因：Claude Code 源码泄露，我想做一份像样的研究报告<br />
+作者在 Claude Code 源码泄露后，决定制作一份深度技术报告，并面临将 Markdown 文件转换为出版级 PDF 的挑战。</p>
+<p>二、"这能有多难？"——一个下午的崩溃之旅<br />
+作者尝试了多种方案，包括 Pandoc + LaTeX、WeasyPrint、md-to-pdf / Puppeteer 和 MiniMax 的方案，但都遇到了各种问题。</p>
+<p>三、既然没有，那就自己做一个<br />
+作者最终选择了 reportlab 库来创建自己的 Skill，名为 lovstudio/md2pdf。</p>
+<p>四、解决了哪些"别人没解决"的问题<br />
+md2pdf Skill 具有以下特点：<br />
+1. CJK 双层方案——字符级精确混排<br />
+2. 代码块保真——esc_code() 黑魔法<br />
+3. 全链路文档结构——从封面到封底<br />
+4. 智能表格列宽<br />
+5. 主题系统——10 种设计风格</p>
+<p>五、对比：12 个竞品，逐一过招<br />
+作者对 12 个 MD→PDF 相关的竞品进行了对比，发现 md2pdf Skill 是唯一同时具备 Markdown 原生全功能排版 + CJK 专项支持 + 全链路文档结构 + 零重依赖的方案。</p>
+<p>六、为什么不用 MiniMax 的 Skill？<br />
+作者认为 MiniMax 的 Office Skills 侧重通用文档平台，而 md2pdf Skill 侧重中文技术报告的全链路排版。</p>
+<p>七、一个设计哲学的选择<br />
+作者认为一个好的 Skill 应该让 Agent 用起来像呼吸一样自然，不需要装浏览器，不需要学新格式，不需要配字体。</p>
+<p>八、安装与使用<br />
+md2pdf Skill 可以通过 npx skills add lovstudio/md2pdf 一行命令安装，并在 Claude Code 里直接使用。</p>
+<p>九、后记<br />
+作者认为 md2pdf Skill 的诞生是为了满足自己当时的需求，现在也可以被其他人使用。</p>
+<p>文章总结：<br />
+本文介绍了如何使用 Claude Code Skill 生成专业的 PDF 报告，并介绍了 lovstudio/md2pdf Skill 的特点和优势。这个 Skill 能够接受标准 Markdown，对中文友好，并在 Claude Code sandbox 中直接运行，生成包含封面、目录、书签、水印、页眉页脚的专业 PDF。</p>
         </div>
     </article>
 
@@ -125,13 +187,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg1h2IDlOBb" class="article-nav-link prev">
+        <a href="recvg1h2IDlOBb.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">量大管饱！ 用 Coxy 解锁GitHub Copilot的全部潜力</span>
         </a>
         
         
-        <a href="/post/recvfWSy3dJPcQ" class="article-nav-link next">
+        <a href="recvfWSy3dJPcQ.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">用/做好 Agent Skill 的 3 个前提</span>
         </a>
@@ -141,7 +203,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

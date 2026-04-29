@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>百万字长篇，如何用AI拆书？ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>百万字长篇，如何用AI拆书？ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">知识管理</span>
+            <span class="card-tag card-tag-primary">知识管理</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">拆书</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="topic-chip">AI 阅读</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">百万字长篇，如何用AI拆书？</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 突破性断点续拆机制实现百万字网文AI解析
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>突破性断点续拆机制实现百万字网文AI解析</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>文章《百万字长篇，如何用AI拆书？》探讨了利用AI技术高效拆解百万字级别网文的新方法。传统AI工具受限于上下文窗口（如GPT模型无法处理超长文本），无法一次性处理整部作品。为此，提出一种专门的“拆书skill”解决方案：首先，分拆章节（通过脚本识别章节标题，生成多个MD文件存储于“原文拆解”文件夹）；其次，用子agent分析每章内容，提取剧情梗概（约500字），并可根据需求定制维度如节奏或情绪；再者，引入断点机制以应对流程中断风险，确保连续性；最后，定义文件结构存放原始和分析结果。这种方法不仅节省时间（避免手动操作），还能帮助作者学习写作趋势，释放创造力，并适用于其他AI应用场景，强调在AIGC时代清晰表达需求的重要性。（字数：175）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/Z6pz_42ksWCByWC6cmNCVQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +137,29 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>文章《百万字长篇，如何用AI拆书？》探讨了利用AI技术高效拆解百万字级别网文的新方法。传统AI工具受限于上下文窗口（如GPT模型无法处理超长文本），无法一次性处理整部作品。为此，提出一种专门的“拆书skill”解决方案：首先，分拆章节（通过脚本识别章节标题，生成多个MD文件存储于“原文拆解”文件夹）；其次，用子agent分析每章内容，提取剧情梗概（约500字），并可根据需求定制维度如节奏或情绪；再者，引入断点机制以应对流程中断风险，确保连续性；最后，定义文件结构存放原始和分析结果。这种方法不仅节省时间（避免手动操作），还能帮助作者学习写作趋势，释放创造力，并适用于其他AI应用场景，强调在AIGC时代清晰表达需求的重要性。（字数：175）</p>
+            <p>文章标题为《百万字长篇，如何用AI拆书？》，内容主要讨论了如何利用AI技术来拆解长篇网文，特别是针对百万字级别的长篇作品。文章指出，传统的AI拆书方法受限于模型能力，难以处理大量文本，因此提出了一种新的方法来突破这一限制。</p>
+<p>文章首先强调了拆书对于网文作者的重要性，无论是新手还是成熟作者，都需要通过拆书来学习和跟上新的写作趋势。然而，现有的AI拆书工具在处理长篇文本时存在上下文窗口的限制，导致无法一次性处理整个长篇作品。</p>
+<p>为了解决这个问题，文章提出了一种新的思路，即制作一个专门的拆书skill。这个skill将包括以下几个步骤：</p>
+<ol>
+<li>
+<p><strong>分拆章节</strong>：首先，AI需要将长篇作品按照章节进行拆分，以便于逐章处理。这可以通过设计脚本来实现，脚本会读取小说原文的前50字，确定章节标题的样式，然后将整本书拆解成多个MD格式的文件，并按照章节顺序命名和排序，存储在一个名为“原文拆解”的文件夹下。</p>
+</li>
+<li>
+<p><strong>分析章节内容</strong>：接下来，运行子agent来分析每个章节的内容，提取章节的剧情梗概（大约500字左右）。这里可以根据具体需求来调整提取的内容，比如节奏、情绪、钩子等。</p>
+</li>
+<li>
+<p><strong>定义拆文维度或流程</strong>：这一步需要根据个人的需求来定义，比如归纳单章的剧情梗概，整理每一章的节奏和情绪，或是综合多章来分析一个剧情单元的结构框架和人物弧光等。</p>
+</li>
+<li>
+<p><strong>断点机制</strong>：由于拆书过程可能比较长，耗费的token较多，因此需要设计断点机制，确保在流程的任意步骤中断后，可以从断点处继续执行后续步骤，而不是重新开始。</p>
+</li>
+<li>
+<p><strong>文件结构定义</strong>：为了存放拆书过程中产生的文件，需要定义一套文件结构。这个结构可以包括原始文件、拆解后的章节文件、分析结果等。</p>
+</li>
+</ol>
+<p>文章最后提到，这种快速制作skill的方法可以应用于其他需要AI解决问题的场景中，省时省力。同时，也强调了清晰、准确、完整表达需求的能力在AIGC时代的重要性。通过这种方式，AI可以帮助作者释放双手，让他们可以更加专注于创造性的工作。</p>
         </div>
     </article>
 
@@ -125,13 +167,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdCUCJHZhFf" class="article-nav-link prev">
+        <a href="recvdCUCJHZhFf.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">Medeo 接入 OpenClaw生态，办公创作从此躺平~</span>
         </a>
         
         
-        <a href="/post/recvdoLXgChRMr" class="article-nav-link next">
+        <a href="recvdoLXgChRMr.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流）</span>
         </a>
@@ -141,7 +183,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

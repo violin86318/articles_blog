@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>2026年GEO优化入门手册：AI搜索时代你的内容为什么没被引用 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>2026年GEO优化入门手册：AI搜索时代你的内容为什么没被引用 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">产品增长</span>
+            <span class="card-tag card-tag-primary">产品增长</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">GEO</span>
+            
+            <span class="topic-chip">AI 搜索</span>
+            
+            <span class="topic-chip">内容 SEO</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">2026年GEO优化入门手册：AI搜索时代你的内容为什么没被引用</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 提高内容可引用密度是增加AI引用概率的核心策略。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>提高内容可引用密度是增加AI引用概率的核心策略。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心问题：AI不引用内容的主因是内容&#34;不好用&#34;——缺乏可直接截取的独立信息片段。 关键方法：提升&#34;可引用密度&#34;： 1. 句式优化：植入定义句、带具体数字的结论句（如&#34;实测点击率提升23%）、步骤化操作句、对比总结句； 2. 结构改造： 开头增设&#34;直接答案段&#34;明确核心结论 文末添加含FAQ Schema标记的问答模块 用完整问句作H2标题（匹配用户AI提问习惯） 3. 可信度强化：通过数据来源、作者资历等E-E-A-T信号增强AI信任。 底层逻辑：GEO与SEO本质互补。优化后的内容同时提升： AI引用率（可截取段落+150%） 搜索引擎排名 品牌权威度，实现流量叠加效应。 注：文中&#34;150%&#34;为策略效果举例，实际数据需通过监控AI引用来源动态验证。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/wWUbEsiEV_YpdJH2IcgBdA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,23 +137,23 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是基于文章的核心提炼（199字）：</p>
-<p><strong>核心问题</strong>：AI不引用内容的主因是内容"不好用"——缺乏可直接截取的独立信息片段。<br />
-<strong>关键方法</strong>：提升"可引用密度"：<br />
-1. <strong>句式优化</strong>：植入定义句、带<strong>具体数字</strong>的结论句（如"实测点击率提升23%）、步骤化操作句、对比总结句；<br />
-2. <strong>结构改造</strong>：<br />
-   - 开头增设"直接答案段"明确核心结论<br />
-   - 文末添加含<strong>FAQ Schema标记</strong>的问答模块<br />
-   - 用完整问句作H2标题（匹配用户AI提问习惯）<br />
-3. <strong>可信度强化</strong>：通过数据来源、作者资历等E-E-A-T信号增强AI信任。  </p>
-<p><strong>底层逻辑</strong>：GEO与SEO本质互补。优化后的内容同时提升：<br />
-- <strong>AI引用率</strong>（可截取段落+150%）<br />
-- <strong>搜索引擎排名</strong><br />
-- 品牌权威度，实现流量叠加效应。  </p>
-<blockquote>
-<p>注：文中"150%"为策略效果举例，实际数据需通过监控AI引用来源动态验证。</p>
-</blockquote>
+            <p>根据您提供的参考内容，以下是文章的主要内容：</p>
+<p>文章标题：2026年GEO优化入门手册：AI搜索时代你的内容为什么没被引用</p>
+<p>作者：三木</p>
+<p>来源：微信公众平台</p>
+<p>文章摘要：<br />
+这篇文章主要讨论了在AI搜索时代，内容站如何提高被AI引用的概率。作者通过自己的实战经验，分享了关于生成式引擎优化（GEO）的见解和方法。文章指出，AI没有引用内容的原因通常是因为内容对AI来说“不好用”，即缺乏可以直接截取使用的文字片段。作者提出了提高内容可引用密度的方法，包括使用定义句、带具体数字的结论句、步骤化的操作句和对比总结句等。此外，文章还提供了一些优化文章结构和增加独立信息密度的建议，以及如何通过FAQ模块和E-E-A-T信号来提高内容的可信度。最后，作者强调了GEO与SEO的互补关系，认为做好内容可以提高SEO和GEO的流量。</p>
+<p>具体优化建议：<br />
+1. 在文章开头添加直接答案段，明确核心结论。<br />
+2. 在文章末尾添加FAQ模块，列出相关问题和简洁回答。<br />
+3. 检查文章中是否包含带具体数字的结论句，如果没有，补充实测数据。<br />
+4. 为FAQ模块添加FAQPage Schema标记。<br />
+5. 写新文章时，思考AI可以直接截取哪些句子，确保文章的可引用密度。<br />
+6. 使用完整问句作为H2标题，与用户向AI提问的方式更接近。<br />
+7. 建立监控机制，观察AI引用的内容来源和格式，形成对AI引用偏好的直觉。</p>
+<p>文章还提到了GEO与SEO的互补关系，认为做好内容可以提高SEO和GEO的流量，从而为品牌带来更多曝光和权威度。</p>
         </div>
     </article>
 
@@ -140,13 +161,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvg8OwQVR2jQ" class="article-nav-link prev">
+        <a href="recvg8OwQVR2jQ.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">每天一个好用skill分享-用html做精美ppt</span>
         </a>
         
         
-        <a href="/post/recvg7hOMNiA3v" class="article-nav-link next">
+        <a href="recvg7hOMNiA3v.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">「AI漫剧分镜电影感神仙提示词」全部分享</span>
         </a>
@@ -156,7 +177,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

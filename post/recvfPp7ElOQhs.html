@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>小红书+微信小程序，一个人也能做到100万的蓝海机会来了 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>小红书+微信小程序，一个人也能做到100万的蓝海机会来了 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">商业机会</span>
+            <span class="card-tag card-tag-primary">商业机会</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">小红书</span>
+            
+            <span class="topic-chip">微信小程序</span>
+            
+            <span class="topic-chip">商业机会</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">小红书+微信小程序，一个人也能做到100万的蓝海机会来了</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 结合AI技术的“小红书挖掘验证需求流量+微信小程序交付变现”是当前个人创业的蓝海机会，还可免费参加生财3天体验营获取实操路径参考。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>结合AI技术的“小红书挖掘验证需求流量+微信小程序交付变现”是当前个人创业的蓝海机会，还可免费参加生财3天体验营获取实操路径参考。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>当前有一个单人可操作的蓝海赚钱机会：小红书挖真实需求、验证流量，微信小程序做标准化交付变现。 微信现已上线AI应用及工具小程序成长计划，开发、模型、变现成本都已降到极低。 变现分两种：独立访客超500即可开通流量主赚广告分成，或是直接卖模板、工具、定制服务盈利。 已有多案例验证：圈友西昂10个月做15个小程序，7个稳定盈利，总收益约10万，日入上千；还有单品29.9元售9000+、5元单次服务售5000+等成绩。 现在窗口期已打开，可加入生财3天免费体验营获取完整实操路径。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/nw7opCuXXKNtqlQx5iyW_g&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,12 +137,27 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>当前有一个单人可操作的蓝海赚钱机会：小红书挖真实需求、验证流量，微信小程序做标准化交付变现。<br />
-微信现已上线AI应用及工具小程序成长计划，开发、模型、变现成本都已降到极低。<br />
-变现分两种：独立访客超500即可开通流量主赚广告分成，或是直接卖模板、工具、定制服务盈利。<br />
-已有多案例验证：圈友西昂10个月做15个小程序，7个稳定盈利，总收益约10万，日入上千；还有单品29.9元售9000+、5元单次服务售5000+等成绩。<br />
-现在窗口期已打开，可加入生财3天免费体验营获取完整实操路径。</p>
+            <p>小红书+微信小程序，一个人也能做到100万的蓝海机会来了</p>
+<p>亦仁前段时间发了一条超级标，他说这个机会追踪研究了一个月，和非常多的人聊过，非常确定：小红书产品打造养成系。</p>
+<p>01/这个超级标是什么？</p>
+<p>简单说就是两步：用小红书挖掘需求、验证流量，再用微信小程序把产品交付标准化。</p>
+<p>小红书负责“逛”，用户每天在上面搜英语口语怎么练、怎么管理班级、怎么备考、怎么做简历……这些都是真实的高频需求，不是内容创作者发明的，是用户每天在搜、在问、在收藏的。</p>
+<p>微信负责“用”，用户每天打开微信，小程序入口随手可得，支付和订阅顺畅，更关键的是用户会反复用，一旦反复用起来，续费和复购就自然发生了。</p>
+<p>元旦第一天，微信正式上线了AI应用及线上工具小程序成长计划，把开发成本、模型成本、变现摩擦全部降到最低。背后的信号很清晰：微信不缺内容，缺的是能被天天用起来的服务供给。</p>
+<p>02/怎么变现？</p>
+<p>有两条路。第一条是流量主广告分成，小程序独立访客超过500人就能开通，用户使用小程序时看广告，你赚广告分成。</p>
+<p>第二条是直接卖产品，用小程序作为交付载体，通过小红书引流，卖模板、卖工具、卖定制服务。</p>
+<p>03/现在怎么入局？</p>
+<p>亦仁分享了个一个很简单的原则：先做减法，再做加法。别追求多功能，把一个高频动作做到顺滑好用，先上线跑起来。AI已经把做工具的门槛打穿了，一个人也能做MVP，供给能快速生产，机会就从谁发现得早变成谁迭代得快。</p>
+<p>04/给大家分享几个真实的案例</p>
+<p>圈友西昂，10个月用AI做了15个小程序，7个稳定产出，总收益约10万，日入上千。他的策略是快速开发、快速上线，跑不起来就放弃，用数量博概率用AI做了15个小程序变现10万，我摸到了微信生态的新机会</p>
+<p>市面上还有更多案例：有人做讲解小程序，单个SKU 29.9元，已售9000+；有人做照片AI转拼豆图纸，5元一次，已售5000+；有人刚上线没怎么推，一周就稳定每天10个新增用户、2-3单转化。</p>
+<p>这些产品第一版都很粗糙，但只要真的解决问题，用户会用行为给你反馈。</p>
+<p>小红书已经把需求训练成熟了，AI把工具供给门槛打穿了，微信又把交付与复购的基础设施铺好了。三件事同时发生，这个窗口期才真正打开。</p>
+<p>如果你也想抓住这个机会，欢迎加入生财3天免费体验营，添加老师即可看到航海手册，里面有完整的实操路径可以参考。</p>
+<p>👉 戳链接加入生财3天免费体验营：真实项目案例+社群陪伴+直播大课帮你突破赚钱认知" /&gt;</p>
         </div>
     </article>
 
@@ -129,13 +165,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfUB0nPy91Z" class="article-nav-link prev">
+        <a href="recvfUB0nPy91Z.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">一人公司 (OPC) 创业必备的 9 个 Agent Skills</span>
         </a>
         
         
-        <a href="/post/recvfPoRha6Lc0" class="article-nav-link next">
+        <a href="recvfPoRha6Lc0.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">今天干脆一次性把小红书矩阵这件事说清楚</span>
         </a>
@@ -145,7 +181,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

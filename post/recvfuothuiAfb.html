@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">音乐生成</span>
+            
+            <span class="topic-chip">Mureka</span>
+            
+            <span class="topic-chip">内容创作</span>
+            
+            <span class="detail-reading-time">约 10 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Mureka V9 让任何人都能通过打字轻松创作高质量音乐，准确表达情感意图，彻底打破音乐创作门槛。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Mureka V9 让任何人都能通过打字轻松创作高质量音乐，准确表达情感意图，彻底打破音乐创作门槛。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Mureka V9 是昆仑万维开发的 AI 音乐工具，用户只需打字即可创作歌曲，如将唐诗《春江花月夜》转化为古风音乐。它基于 MusiCoT 技术（Music Chain-of-Thought），让 AI 像人类作曲家一样思考，解决了传统 AI 音乐的问题：生成多样性（相同提示词每次结果不同）、混音质感接近专业水平（人声与伴奏清晰分离）、段落控制（理解歌词情感，如副歌情绪递进）。生成速度大幅提升，从想法到结果仅需十几分钟，创作效率比专业制作人提高十倍。2026 年 1 月，Mureka V8 登顶全球 AI 人声和乐器双榜单第一；3 月发布的 V9 在精确控制、混音和段落理解上实现质的飞跃。在北京市政府支持下（如 2026 中关村论坛），Mureka 降低音乐创作门槛，使音乐从“消费内容”变为表达方式，推动 AI 音乐从“能生成”走向“更懂人”。（198 字）</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/0BNkSvoS3zkehGeHesg7iw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +137,11 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>Mureka V9 是昆仑万维开发的 AI 音乐工具，用户只需打字即可创作歌曲，如将唐诗《春江花月夜》转化为古风音乐。它基于 MusiCoT 技术（Music Chain-of-Thought），让 AI 像人类作曲家一样思考，解决了传统 AI 音乐的问题：生成多样性（相同提示词每次结果不同）、混音质感接近专业水平（人声与伴奏清晰分离）、段落控制（理解歌词情感，如副歌情绪递进）。生成速度大幅提升，从想法到结果仅需十几分钟，创作效率比专业制作人提高十倍。2026 年 1 月，Mureka V8 登顶全球 AI 人声和乐器双榜单第一；3 月发布的 V9 在精确控制、混音和段落理解上实现质的飞跃。在北京市政府支持下（如 2026 中关村论坛），Mureka 降低音乐创作门槛，使音乐从“消费内容”变为表达方式，推动 AI 音乐从“能生成”走向“更懂人”。（198 字）</p>
+            <p>文章标题：会打字就能写歌？当唐诗遇上 Mureka V9：这首「春江花月夜」，AI 竟然唱出了“孤篇压全唐”的灵魂？</p>
+<p>文章内容：</p>
+<p>乔帮主作为音乐爱好者，之前一直有个遗憾：不会乐器，也不会写歌词做曲。没想到，AI 时代一下梦想成真。现在，只要你会打字，你就能创作音乐。AI 生成音乐工具顶流，海外是 Suno，国内是 Mureka。尤其后者，更适合国内用户直连使用。https://www.mureka.cn前段时间受邀参与 Mureka V9 内测，让我有点吃惊。我们先听为快：古诗词变歌曲《春江花月夜》是中国古典诗歌史的一座高峰，被誉为"孤篇盖全唐"。我让Mureka V9生成一首古风歌曲。画面配乐上传任意一张图片，Mureka V9可以根据画面自动生成配乐。克隆声音唱歌把好友杨猛的声音传上去，模仿「黄色潜水艇」写了一首英文歌。从"能生成"到"能表达"用过 AI 音乐工具的人都知道，最大的问题不是"生成不出来"。而是生成的东西不是我想要的：① 写了一段深情的歌词，AI 给你配了个欢快的旋律。② 想要副歌情绪递进，AI 却平平淡淡唱完。③ 想要纯背景音乐，AI 非要加一堆莫名其妙的哼唱。Mureka V9，不仅没这些问题，还有一些意外的惊喜。生成多样性过去用 AI 音乐工具，最尴尬的就是生成十首歌，听起来都差不多。旋律走向雷同，编排套路重复，听两首就腻了。V9 这块提升明显，同样提示词，每次生成结果都不一样。从旋律逻辑、编排思路、情绪表达都有明显差异。只需要选择最喜欢的那首就行。让创作从"碰运气"变成了"有选择"。混音质感技术再先进，但大家最关注的还是"听起来怎么样"。V9 在混音质量上的改善，我第一耳朵就听出来了：人声和伴奏不再糊成一团，整体听感更清晰、更通透，声音密度和空间感都接近专业制作水平。比如这首：段落控制V9 新增了段落级文本控制，能够理解不同段落中的表达重点和演唱意图。我测试了一首歌，副歌部分写了"终于与你相见"，V9 真的把"终于"这个词唱出了那种等待后释放的感觉。关键词落在了强拍上，情绪也跟着递进。这种细节，过去的 AI 根本做不到。生成速度从输入想法到听到结果，等待时间明显更短了。这看起来是工程优化，但对创作方式的改变是根本性的。我现在的创作流程是：先快速生成五六个版本，听一遍选出最接近的两三个，然后针对性调整。整个过程可能就十几分钟，但产出质量比过去"一次生成碰运气"高太多了。对话式创作"简易"创作模式，对小白太友好了，聊天式创作歌曲。用"午后咖啡馆的邂逅"为意向，快速用对话写了一首歌曲。MusiCoT 到底是什么V9 建立在一个叫 MusiCoT（Music Chain-of-Thought） 的技术上。如果经常用大模型，一定对CoT这个词不陌生。没想到音乐生成也可以用上CoT。简单说，就是让 AI 在生成音乐时，像人类作曲家一样"思考"：先理解歌词的情感重心再规划段落结构最后协调旋律、人声、编曲等多个维度的表达不是直接从提示词生成声音，而是先"想明白"再"做出来"。Mureka 到底在做什么传统音乐平台解决的是"听什么"的问题，Mureka 解决的是"怎么创作、怎么表达、怎么分发"。有点像新时代的"Spotify"，具体来说：创作效率飙升：专业制作人需一天完成的编曲，现在压缩到 10 分钟表达方式改变：音乐不再只是被动聆听的内容，而是主动表达的语言AI 原生化：作品是版本化的、可二次创作、进化用 Mureka，不只是"生成一首歌"，而是：给朋友生日写一首专属歌曲记录某个瞬间的情绪和感受把别人的作品 Remix 成自己喜欢的风格...音乐从"消费内容"变成了"表达方式"。用户不再只是消费者，而是表达者与参与者。比如今天的工作都完成了，开心！让Mureka V9写一首歌表达心情。技术突破背后的产业支持这次 Mureka V9 的发布，是在 2026 中关村论坛上正式亮相的。北京市东城区副区长邓慧敏表示："昆仑万维天工 AI 聚焦游戏、视频、音乐等领域发布的多项大模型技术创新成果，兼具技术高度和产业价值，推动 AI 技术从可用迈向好用。"北京市经济和信息化局二级巡视员张宇航在论坛上特别指出："大模型为游戏产业、影视产业、音乐产业带来创新方式的交互体验、内容生态的深刻变革。全模态的 AI 作为人工智能发展的重要方向，正深刻重构内容生产、传播与消费的全链条。"北京市正在加快构建覆盖基础研发、产品开放、成果转化、人才引育的全链条政策体系，开放文旅、教育等高价值应用场景，推动 AI 与数字文创、文艺科技等领域的深度融合。对于 AIGC 音乐这样的创新赛道，政策支持和产业生态的完善，意味着技术不再是孤岛，而是能真正落地、惠及每一个创作者的基础设施。昆仑万维的 AGI 战略在论坛上，天工 AI 董事长兼 CEO 周亚辉发布了 2026 年 AGI 战略升级"3+1"生态架构：四大模型：SkyReels 视频模型、Mureka 音乐模型、Matrix-Game 游戏世界模型、Skywork Agent 大模型三大平台：DramaWave（AI 版 Netflix）、Mureka 音乐平台（音乐版 Netflix）、猫森学园 2.0（AI 版 Roblox）一个操作系统：Skywork Super Agent，面向全球 5 亿内容创作者的"一人公司操作系统"周亚辉说："AGI 已经来了，只是还没有均匀分布。未来三年，一个人加 Mureka 就能做一张全球专辑。每一项在三年前需要一个团队甚至一个公司才能完成的事情，现在一个人就够了。"未来已来，只是分布不均。昆仑万维在 2024 年就在中国第一个发布了 Mureka 音乐大模型。2026 年 1 月 Mureka V8 登顶 AI 人声和乐器双榜单全球第一。3 月发布的 V9 更是在精确控制、混音质感、段落理解上实现了质的飞跃。从技术领先到产业落地，从单点突破到生态共建，昆仑万维正在把 AI 音乐从"工具"变成"平台经济体"。更多信息和报道见官方公众号：https://mp.weixin.qq.com/s/iKL2qnxrl9X3rXn9HhOHaA写在最后AI 音乐的下半场，不再是比拼"谁能生成"，而是比拼"谁更懂人"。Mureka V9 的意义在于：它降低了专业音乐的生产成本，让我这种不会乐器的人也能拥有"指挥家"般的控制力。它不只是生成得更快、声音更好，也开始更准确地响应创作者在段落层面的表达意图，让 AI 音乐从"能做出作品"，逐步走向"能更稳定地做出你真正想要的作品"。正如昆仑万维首席科学家、香港中文大学成宇教授所说："我们希望音乐从机器生成的工具走向创作系统，从单次输出走向版本化的工作流，从做一首歌走向持续共创，把音乐从少数人传播的技能变成更多人的表达语言。"Mureka 已经不是一个工具，而是一种新的表达方式。音乐创作的门槛被彻底打破了，剩下的只有想象力。</p>
         </div>
     </article>
 
@@ -125,13 +149,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvfxQL8MzeFS" class="article-nav-link prev">
+        <a href="recvfxQL8MzeFS.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">AI 从来没有真正「听过」你说话｜Qwen3.5-Omni 评测</span>
         </a>
         
         
-        <a href="/post/recvfsZuk2mwFi" class="article-nav-link next">
+        <a href="recvfsZuk2mwFi.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">分享6个我觉得应该必装的Skills</span>
         </a>
@@ -141,7 +165,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

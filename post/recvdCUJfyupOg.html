@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Openclaw与CC的握手，效率翻倍 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Openclaw与CC的握手，效率翻倍 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">自动化工作流</span>
+            <span class="card-tag card-tag-primary">自动化工作流</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">效率工具</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Openclaw与CC的握手，效率翻倍</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 通过Helms-AI实现Claude Code与OpenClaw的自动化协作。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>通过Helms-AI实现Claude Code与OpenClaw的自动化协作。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心突破： 通过Helms-AI MCP Server协议，实现Claude Code（代码工具）与OpenClaw（规划工具）的双向直接通信，解决人工传递信息痛点，效率翻倍。 关键能力： 1. 自动化工作流：OpenClaw可指挥Claude Code执行任务（如写代码），并自动审核结果。 2. 跨工具上下文共享：OpenClaw直接读取Claude Code的项目信息，消除重复沟通。 3. 全流程自动化：支持从编码→测试→通知→发布的完整链条（如自动发送Telegram通知）。 高效场景示例： Claude Code完成工作后，自动触发OpenClaw通知用户。 OpenClaw拆解任务→Claude Code执行→自动代码审查→更新状态。 部署： 安装Helms-AI服务器，双工具注册集成并配置通知渠道，即可启用“AI协作流水线”，实现零人工干预的高效协作。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/xHO1BYhr02JVq8MS3kTeqw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,19 +137,17 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是文章核心内容提炼（196字）：</p>
-<p><strong>核心突破：</strong><br />
-通过<strong>Helms-AI MCP Server</strong>协议，实现Claude Code（代码工具）与OpenClaw（规划工具）的<strong>双向直接通信</strong>，解决人工传递信息痛点，<strong>效率翻倍</strong>。</p>
-<p><strong>关键能力：</strong><br />
-1. <strong>自动化工作流</strong>：OpenClaw可指挥Claude Code执行任务（如写代码），并自动审核结果。<br />
-2. <strong>跨工具上下文共享</strong>：OpenClaw直接读取Claude Code的项目信息，消除重复沟通。<br />
-3. <strong>全流程自动化</strong>：支持从编码→测试→通知→发布的完整链条（如自动发送Telegram通知）。  </p>
-<p><strong>高效场景示例：</strong><br />
-- Claude Code完成工作后，自动触发OpenClaw通知用户。<br />
-- OpenClaw拆解任务→Claude Code执行→自动代码审查→更新状态。  </p>
-<p><strong>部署：</strong><br />
-安装Helms-AI服务器，双工具注册集成并配置通知渠道，即可启用“AI协作流水线”，实现零人工干预的高效协作。</p>
+            <p>文章标题为《Openclaw与CC的握手，效率翻倍》，内容主要介绍了Claude Code和OpenClaw两个AI工具如何通过Helms-AI MCP Server进行双向通信，以提高工作效率。</p>
+<p>Claude Code主要用于编写代码、修改bug和重构，而OpenClaw则用于规划任务、查找资料和编写文档。这两个工具各有优势，但之前它们之间没有直接的通信方式，导致用户需要在两个工具之间手动传递信息，效率较低。</p>
+<p>Helms-AI MCP Server是一个Model Context Protocol服务器，由Anthropic推出，它使得AI工具之间可以互相调用对方的能力，就像给AI装上了USB接口，不同工具之间可以直接插拔数据和指令。通过Helms-AI，OpenClaw可以直接调用Claude Code，Claude Code也能直接将结果反馈给OpenClaw，从而实现无需人工干预的自动化工作流程。</p>
+<p>文章中提到了四个使用Helms-AI后的高效场景：<br />
+1. 写完代码自动通知：Claude Code完成工作后，会自动通过OpenClaw发送Telegram消息通知用户。<br />
+2. OpenClaw指挥Claude Code干活：用户在OpenClaw中描述任务，OpenClaw会将其拆解并交给Claude Code执行，完成后OpenClaw进行代码审查。<br />
+3. 跨工具的上下文共享：OpenClaw可以直接读取Claude Code的项目信息，无需用户重复解释。<br />
+4. 自动化发布流程：从代码编写到测试、通知、更新任务状态、触发工作流到发布完成通知，整个流程可以自动运行。</p>
+<p>文章还提供了安装和配置Helms-AI的步骤，包括安装Helms-AI MCP Server、在Claude Code和OpenClaw中注册和启用集成，以及配置通知渠道等。最后，文章鼓励用户尝试使用这两个工具的协作功能，以设计更复杂的协作流程，从而大幅提升工作效率。</p>
         </div>
     </article>
 
@@ -136,13 +155,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdFAhbeQ4DD" class="article-nav-link prev">
+        <a href="recvdFAhbeQ4DD.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">1TB 免费 S3 存储空间</span>
         </a>
         
         
-        <a href="/post/recvdCUCJHZhFf" class="article-nav-link next">
+        <a href="recvdCUCJHZhFf.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Medeo 接入 OpenClaw生态，办公创作从此躺平~</span>
         </a>
@@ -152,7 +171,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

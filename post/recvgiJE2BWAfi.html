@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>每天一个好用skill分享-用html做精美ppt — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>每天一个好用skill分享-用html做精美ppt — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">PPT</span>
+            
+            <span class="topic-chip">HTML</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">每天一个好用skill分享-用html做精美ppt</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Frontend Slides能生成零依赖的HTML演示文稿，通过独创的“Show, Don&#39;t Tell”流程预览风格。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Frontend Slides能生成零依赖的HTML演示文稿，通过独创的“Show, Don&#39;t Tell”流程预览风格。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Frontend Slides 是一款专为Coding Agent设计的开源工具，通过一句话指令即可生成零依赖的HTML幻灯片（纯内联HTML/CSS/JS）。其核心优势包括： 1. 无需环境：直接浏览器运行，摆脱npm/构建工具依赖； 2. 智能设计：内置12+精选风格预设（含暗色/亮色/特殊主题），独创“Show, Don&#39;t Tell”流程——自动生成3套预览供用户选择，避免抽象描述； 3. 极致适配：采用clamp()响应式缩放，严格适配100vh视口，确保全屏幕无溢出； 4. 灵活模式：支持从零新建、PPTX一键转HTML、增强已有演示； 5. 高效编辑：自动拆分内容密度，浏览器内直接修改文字。 提供Claude/Cursor/OpenClaw一键安装，触发指令：“帮我做一份XX演示文稿”。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/0lcp0Jls0dcm3wA1qC3ufw&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,15 +137,14 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是基于《每天一个好用skill分享-用html做精美ppt》的核心提炼（198字）：</p>
-<p><strong>Frontend Slides</strong> 是一款专为Coding Agent设计的开源工具，通过一句话指令即可生成<strong>零依赖</strong>的HTML幻灯片（纯内联HTML/CSS/JS）。其核心优势包括：<br />
-1. <strong>无需环境</strong>：直接浏览器运行，摆脱npm/构建工具依赖；<br />
-2. <strong>智能设计</strong>：内置<strong>12+精选风格</strong>预设（含暗色/亮色/特殊主题），独创“Show, Don't Tell”流程——<strong>自动生成3套预览</strong>供用户选择，避免抽象描述；<br />
-3. <strong>极致适配</strong>：采用<code>clamp()</code>响应式缩放，严格适配<strong>100vh视口</strong>，确保全屏幕无溢出；<br />
-4. <strong>灵活模式</strong>：支持从零新建、PPTX一键转HTML、增强已有演示；<br />
-5. <strong>高效编辑</strong>：自动拆分内容密度，浏览器内直接修改文字。</p>
-<p>提供Claude/Cursor/OpenClaw<strong>一键安装</strong>，触发指令：“帮我做一份XX演示文稿”。</p>
+            <p>文章标题为《每天一个好用skill分享-用html做精美ppt》，内容主要介绍了一种名为Frontend Slides的开源Skill，该Skill专为Coding Agent设计，能够生成零依赖的HTML演示文稿。</p>
+<p>文章指出，传统的演示文稿制作方式往往使用固定的PPT模板，或者使用Reveal.js/Slidev等工具，但这些都需要安装许多依赖。而Frontend Slides则不同，它能够通过一句话生成纯HTML、CSS和JS内联的演示文稿，无需npm或构建工具，直接在浏览器中打开即可使用。</p>
+<p>文章还介绍了Frontend Slides的核心亮点，包括内置的12+精选风格预设，涵盖暗色、亮色和特殊主题等，能够避免AI生成的千篇一律的设计。此外，该Skill还独创了“Show, Don't Tell”流程，即先自动生成3套风格预览，用户看了效果后再选择，无需描述抽象的偏好。每张幻灯片都严格适配100vh视口，使用clamp()进行响应式缩放，确保在任何屏幕上都能完美呈现，不会溢出。</p>
+<p>Frontend Slides支持三种模式：从零新建、PPTX一键转HTML、增强已有演示。它还提供了6种幻灯片类型，包括标题、内容、网格、代码、引用和图片，能够满足不同的演示需求。此外，该Skill还能自动控制内容密度，超出限制时会自动拆页，并支持在浏览器内直接编辑文字。</p>
+<p>安装方面，Frontend Slides提供了Claude Code一键安装、OpenClaw命令安装和Cursor拉取即用的方式，用户只需说一句“帮我做一份XX演示文稿”即可触发。</p>
+<p>文章最后提供了该Skill的详细信息和更多基础知识的学习链接，方便用户了解更多。</p>
         </div>
     </article>
 
@@ -132,13 +152,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvgiLGHWBJH2" class="article-nav-link prev">
+        <a href="recvgiLGHWBJH2.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">39万播放的AI仿真人短剧，最值钱的是这套可复用SOP</span>
         </a>
         
         
-        <a href="/post/recvgiJsjrFrpi" class="article-nav-link next">
+        <a href="recvgiJsjrFrpi.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">ListenHub CLI 发布并开源，AI 音乐首次支持</span>
         </a>
@@ -148,7 +168,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

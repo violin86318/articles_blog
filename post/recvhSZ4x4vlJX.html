@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>如何把Obsidian Web Clipper价值最大化？ — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>如何把Obsidian Web Clipper价值最大化？ — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">知识管理</span>
+            <span class="card-tag card-tag-primary">知识管理</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">Obsidian</span>
+            
+            <span class="topic-chip">Web Clipper</span>
+            
+            <span class="topic-chip">知识管理</span>
+            
+            <span class="detail-reading-time">约 2 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">如何把Obsidian Web Clipper价值最大化？</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 作者蔡蔡啊分享了榨干原版Obsidian Web Clipper价值的实用配置使用技巧，还推出了支持B站视频和飞书文档处理、开源仅用于学习的中文增强版Obsidian Web Clipper，助力用户最大化该插件价值。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>作者蔡蔡啊分享了榨干原版Obsidian Web Clipper价值的实用配置使用技巧，还推出了支持B站视频和飞书文档处理、开源仅用于学习的中文增强版Obsidian Web Clipper，助力用户最大化该插件价值。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文是作者蔡蔡啊创作的《如何把Obsidian Web Clipper价值最大化？》，分享提升Obsidian网页剪藏插件使用价值的方法，内容分两部分展开：第一部分讲解榨干原版插件价值的使用技巧，包括配置解释器引入AI能力、设置模板触发条件、高亮文本、适配沉浸式翻译等；第二部分介绍覆盖原版全功能的中文增强版，其额外支持B站视频、飞书文档内容提取，讲解了对应插件obsidian-clipper-cn的用法。文末声明插件开源仅用于学习，作者将持续分享AI编程、AI Agent等相关内容。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/hoVUGb-ZHagyD0BlVFsOSA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +137,13 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>本文是作者蔡蔡啊创作的《如何把Obsidian Web Clipper价值最大化？》，分享提升Obsidian网页剪藏插件使用价值的方法，内容分两部分展开：第一部分讲解榨干原版插件价值的使用技巧，包括配置解释器引入AI能力、设置模板触发条件、高亮文本、适配沉浸式翻译等；第二部分介绍覆盖原版全功能的中文增强版，其额外支持B站视频、飞书文档内容提取，讲解了对应插件obsidian-clipper-cn的用法。文末声明插件开源仅用于学习，作者将持续分享AI编程、AI Agent等相关内容。</p>
+            <p>文章标题为《如何把Obsidian Web Clipper价值最大化？》，作者是蔡蔡啊。文章主要介绍了如何使用Obsidian Web Clipper插件来保存网页内容和YouTube视频的文字稿到Obsidian中，以及如何通过配置插件来提高其使用效率。</p>
+<p>文章分为两部分：如何“榨干”原版Obsidian Web Clipper和如何使用中文增强版Obsidian Web Clipper。</p>
+<p>第一部分主要介绍了原版Obsidian Web Clipper的使用技巧，包括配置“解释器”来引入AI能力，设置模板触发条件，高亮文本以及沉浸式翻译等功能。</p>
+<p>第二部分介绍了中文增强版Obsidian Web Clipper，它不仅具有原版插件的所有功能，还支持B站视频和飞书文档的处理。文章还介绍了如何使用obsidian-clipper-cn插件来获取B站视频和飞书文档的内容。</p>
+<p>文章最后声明，该插件已开源，仅用于学习，勿作他用。作者蔡蔡啊表示将持续分享AI编程、AI Agent以及AI学习思考等内容。</p>
         </div>
     </article>
 
@@ -125,13 +151,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhSZx17Mmtp" class="article-nav-link prev">
+        <a href="recvhSZx17Mmtp.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">一句话变成62个专业分镜：山音超级导演大师Skill来了</span>
         </a>
         
         
-        <a href="/post/recvhSYAy4KAkT" class="article-nav-link next">
+        <a href="recvhSYAy4KAkT.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">Karpathy的AI知识库方法很好用，但不一定适合你</span>
         </a>
@@ -141,7 +167,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

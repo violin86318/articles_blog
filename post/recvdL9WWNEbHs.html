@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>OpenClaw 接入 Claude 订阅：防封中转方案实战教程 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>OpenClaw 接入 Claude 订阅：防封中转方案实战教程 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">教程实操</span>
+            <span class="card-tag card-tag-primary">教程实操</span>
             
-            <span class="detail-reading-time">⏱ 约 2 分钟阅读</span>
+            
+            <span class="topic-chip">OpenClaw</span>
+            
+            <span class="topic-chip">Claude Code</span>
+            
+            <span class="topic-chip">防封策略</span>
+            
+            <span class="topic-chip">教程实操</span>
+            
+            <span class="detail-reading-time">约 11 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">OpenClaw 接入 Claude 订阅：防封中转方案实战教程</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 方案D（CLI子进程）提供指纹最干净的Claude订阅中转，确保安全稳定运行，避免双重付费。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>方案D（CLI子进程）提供指纹最干净的Claude订阅中转，确保安全稳定运行，避免双重付费。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>核心方案 翔宇通过「CLI子进程中转」将Claude订阅转化为标准API，使10个Agent零成本调用（月省80刀API费）。核心解决指纹风控问题： 1. 方案选择：对比4条路线后采用最安全的D方案（启动真实claude命令行进程），指纹与人工终端操作完全一致，远优于高危的Token方案（A）和易失效的Cookie方案（B）。 2. 关键设计： 沙箱隔离：每个请求独立进程，防数据污染 双模式指纹：普通请求无痕，工具调用通过系统指令注入 流式模拟：中文标点处分块输出 3. 实战验证： 7天处理2,431次请求，成功率99.2% 日均消耗18万Token，零额外费用 运行两周无Anthropic风控警报 结论：牺牲部分功能精度（如工具解析），换取绝对指纹安全。实测证明“最笨方法”即最稳策略。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/gSDEl3iM8q4S0LU6t_QtgA&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,22 +139,99 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>以下是全文核心提炼（198字）：</p>
-<p><strong>核心方案</strong><br />
-翔宇通过「CLI子进程中转」将Claude订阅转化为标准API，使10个Agent零成本调用（月省80刀API费）。核心解决<strong>指纹风控</strong>问题：<br />
-1. <strong>方案选择</strong>：对比4条路线后采用最安全的D方案（启动真实<code>claude</code>命令行进程），指纹与人工终端操作完全一致，远优于高危的Token方案（A）和易失效的Cookie方案（B）。<br />
-2. <strong>关键设计</strong>：<br />
-   - <strong>沙箱隔离</strong>：每个请求独立进程，防数据污染<br />
-   - <strong>双模式指纹</strong>：普通请求无痕，工具调用通过系统指令注入<br />
-   - <strong>流式模拟</strong>：中文标点处分块输出<br />
-3. <strong>实战验证</strong>：<br />
-   - 7天处理<strong>2,431次请求</strong>，成功率<strong>99.2%</strong><br />
-   - 日均消耗18万Token，<strong>零额外费用</strong><br />
-   - 运行两周无Anthropic风控警报  </p>
-<blockquote>
-<p>结论：牺牲部分功能精度（如工具解析），换取绝对指纹安全。实测证明“最笨方法”即最稳策略。</p>
-</blockquote>
+            <p>OpenClaw 接入 Claude 订阅：防封中转方案实战教程<br />
+翔宇工作流第27期：Claude 订阅<br />
+翔宇打开 OpenClaw 后台看了一眼：10 个 Agent 昨晚总共调了 347 次 Claude，情报部采集完热点、微信部写好了初稿、研发部审查完了代码。额外 API 费用：0 刀。<br />
+不是白嫖，是翔宇订了 Claude 的 200 刀月付套餐——本来只能在终端里一问一答地用。但翔宇在本机跑了一个中转服务，把订阅的能力变成了标准 API，10 个 Agent 随便调。Anthropic 后台看到的？就是一个正常用户在终端里用 Claude Code。没有任何可疑之处。<br />
+翔宇花了一个月研究怎么做到这件事。GitHub 上能找到的中转方案全翻了一遍，四条路线，三条都有坑。最后选了一条最笨但指纹最干净的路：直接让 Claude Code 的命令行帮你发请求。<br />
+读完这篇，你将获得：<br />
+一张中转方案全景图：四条路线的能力与风险对比<br />
+一套设计拆解：三个核心设计决策的「为什么」<br />
+一份文末提示词：复制给 Claude Code，从零搭建你自己的中转服务<br />
+1. 什么是中转<br />
+你买了 Claude 订阅，每个月 200 刀，可以在 Claude Code 终端里随便用。但这个「随便用」有个前提——你得亲自在终端里一问一答地用。<br />
+翔宇的 OpenClaw 有 10 个 AI Agent 需要调 Claude。它们不是人，不会打开终端敲键盘。它们需要的是一个标准接口——发一个请求过去，拿一个响应回来。<br />
+中转就是：把你的 Claude 订阅能力，转换成一个标准接口，让程序能调用。<br />
+翔宇踩过一个坑：最早没做中转，直接花钱买 Anthropic 的 API 额度。200 刀订阅之外又花了 80 刀 API 费——等于交了两次钱。中转的意义就是把订阅复用到程序调用场景，避免双重付费。<br />
+但中转有个核心风险：API 指纹<br />
+Anthropic 的后台不只看你发了什么请求——它还能看到你用的是什么工具发的、请求头长什么样、调用频率是什么模式。这些「行为特征」加起来，就是你的 API 指纹。<br />
+不同方式发出的请求，指纹全不一样。用 Claude Code 命令行发的、用开发包发的、用第三方工具发的——Anthropic 一眼就能分辨。<br />
+指纹不同 = 有被检测的风险。 所以选中转方案时，指纹是否「正常」就成了最关键的考量。<br />
+2. 四条路，该走哪条<br />
+翔宇把 GitHub 上的方案全翻了一遍，逐个拆解。每个方案用同一套标准评估：10 个维度，从功能覆盖到指纹风险，逐项对比。<br />
+方案 A：OAuth Token → Developer API<br />
+原理：你用 Claude Code 登录的时候，Anthropic 会给你的终端颁发一个 OAuth Token（格式为 sk-ant-oat-...）。这个方案就是通过 PKCE 流程获取这串 Token，然后绕过 Claude Code，自己写代码直接 POST 到 Anthropic 的开发者接口 api.anthropic.com/v1/messages。<br />
+GitHub 代表项目：CLIProxyAPI（15,900+ stars，Go 实现）<br />
+核心问题：请求头说自己是 Node.js，TLS 握手却是 Chrome 的指纹。就像穿着西装但脚上踩着拖鞋，Anthropic 低头一看就露馅。<br />
+功能最全，但底裤漏了。<br />
+方案 B：Web Cookie → 网页聊天接口<br />
+原理：你在浏览器里登录 claude.ai 网页版时，浏览器会存一个 Cookie。这个方案就是把这个 Cookie 复制出来，用代码模拟浏览器直接访问网页版的聊天接口。<br />
+GitHub 代表项目：clewdr（989 stars，Rust 实现）、clove（626 stars，Python 实现）<br />
+核心问题：Cookie 三天两头过期，每次都得打开浏览器手动复制一遍——跑了一个月翔宇就受不了了。<br />
+能调的模型最多，但 Cookie 过期太频繁，维护成本劝退。<br />
+方案 C：SDK 封装<br />
+原理：Anthropic 官方提供了一个开发工具包（Agent SDK），开发者可以用它在自己的程序里调用 Claude。<br />
+GitHub 代表项目：claude-code-openai-wrapper（441 stars，Python 实现）<br />
+核心问题：SDK 的 query() 调用时内部会传递空参数组合，相当于告诉 Anthropic「我不是正常用户」。<br />
+功能最完整，但指纹有暗伤。<br />
+方案 D：CLI 子进程（本文方案）<br />
+原理：你在终端里敲 claude -p "你好"，Claude Code 就会帮你发请求并返回结果。这个方案就是让程序自动帮你敲这个命令——每来一个请求，就在本机启动一个真实的 Claude Code 命令行进程。<br />
+核心优势：<br />
+指纹最干净：每个请求都是启动一个真实的 claude 命令行进程，发出去的请求带着完整的 CLI 版本号、终端类型、设备信息等元数据，和手动在终端里用 Claude Code 完全一样<br />
+零维护：每个子进程启动时自动使用本机 Claude Code 的登录状态，Claude Code 自身会自动处理 Token 刷新<br />
+部署难度最低：本机装了 Claude Code 且已登录，再装个 Node.js 就行<br />
+代价：<br />
+Tool Calling 靠正则提取文本，偶尔会解析失败<br />
+流式输出是模拟的，不如方案 C 精确<br />
+翔宇的选择<br />
+翔宇选方案 D 的理由就一个：指纹最干净。OpenClaw 需要的 System Prompt、Tool Calling、流式、多模态全部能覆盖，虽然不是原生实现，但够用。<br />
+风险排序：D（指纹最干净）&gt; C（中危）&gt; B（中高危）&gt; A（高危）<br />
+3. CLI 方案：设计与实现<br />
+整个系统拆成五层，每层只干一件事：<br />
+层级<br />
+职责<br />
+具体做什么<br />
+CLI 层<br />
+启动命令行进程<br />
+每收到一个请求，执行 claude -p，在临时沙箱目录中运行，超时 5 分钟自动强杀进程<br />
+Bridge 层<br />
+格式互相翻译<br />
+把 OpenAI 的 messages 数组拼成一段 prompt 文本传给命令行，再把命令行返回的 NDJSON 文本解析成 OpenAI 的 choices 响应格式<br />
+Server 层<br />
+对外暴露接口<br />
+Express 服务器，提供 /v1/chat/completions、/health、/metrics 三个地址<br />
+Infra 层<br />
+运维保障<br />
+p-queue 并发队列（默认 4 路）、JSONL 格式按日轮转日志、请求计数和成功率统计<br />
+Types 层<br />
+类型定义<br />
+TypeScript 类型文件<br />
+三个关键设计决策：<br />
+沙箱隔离——每个请求创建一个临时目录，结束立刻删除。防止并发请求文件互相串了。<br />
+双模式指纹——普通聊天不加任何自定义参数，指纹和正常用户完全一致。带工具的请求把工具定义注入到系统指令里，同时禁用命令行自带工具。<br />
+文本分块——命令行一次性吐出一大段文字，分块模块在中文标点和换行处自然断开，模拟流式效果。<br />
+4. 实战验证<br />
+实际运行数据（翔宇最近 7 天的统计）：<br />
+指标<br />
+数据<br />
+总请求数<br />
+2,431 次<br />
+成功率<br />
+99.2%<br />
+平均响应时间<br />
+8.3 秒<br />
+日均 Token 消耗<br />
+~180K<br />
+额外 API 费用<br />
+0 刀<br />
+服务崩溃次数<br />
+3 次（Watchdog 全部自动恢复）<br />
+翔宇在本地跑了两周多，目前没有收到 Anthropic 的警告或封号通知。<br />
+5. 一键复刻<br />
+准备两样东西：一台装了 Claude Code 的电脑（已登录订阅账号）、Node.js 20 以上。然后把提示词复制给 Claude Code，它会自动生成全部代码。<br />
+翔宇花了一个月趟完四条路，最后选了最笨的那条——但两周多跑下来，它也是最稳的那条。有时候最笨的办法，就是最好的办法。</p>
         </div>
     </article>
 
@@ -139,13 +239,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdLdS75qbKA" class="article-nav-link prev">
+        <a href="recvdLdS75qbKA.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">ListenHub ASR 语音识别 API 全新上线，无限免费</span>
         </a>
         
         
-        <a href="/post/recvdIrpJNPs4q" class="article-nav-link next">
+        <a href="recvdIrpJNPs4q.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">所有用OpenClaw的朋友，我都劝你先装上这个能保命的Skill</span>
         </a>
@@ -155,7 +255,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

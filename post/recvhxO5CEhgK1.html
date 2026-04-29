@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>Image 2 + 这套提示词 = 可交付的商业级 PPT — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Image 2 + 这套提示词 = 可交付的商业级 PPT — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,43 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">设计与视觉</span>
+            <span class="card-tag card-tag-primary">设计与视觉</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">PPT</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">商业交付</span>
+            
+            <span class="detail-reading-time">约 3 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">Image 2 + 这套提示词 = 可交付的商业级 PPT</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ Image 2配合包含风格、主题、元素、颜色、文字的这套提示词，一条Prompt就能搞定可随心换风格的全套可交付商业级PPT。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Image 2配合包含风格、主题、元素、颜色、文字的这套提示词，一条Prompt就能搞定可随心换风格的全套可交付商业级PPT。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文分享了用AI图像生成工具Image 2搭配定制提示词，一条Prompt即可搞定可交付商业级PPT的保姆级方法，支持随心更换风格。 这套可复用提示词包含五大核心维度：风格、PPT主题、所需元素、主色调、需融合的文字，可引导AI精准生成PPT所需的背景、插图、图表等素材。 只需确定主题后生成素材、插入排版美化即可，能大幅提升PPT制作效率，输出视觉效果独特的商业级PPT，是AI赋能PPT制作的创新思路。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/4Or8_muE76vdGsRaoiOfKg&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,10 +137,35 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>本文分享了用AI图像生成工具Image 2搭配定制提示词，一条Prompt即可搞定可交付商业级PPT的保姆级方法，支持随心更换风格。</p>
-<p>这套可复用提示词包含五大核心维度：风格、PPT主题、所需元素、主色调、需融合的文字，可引导AI精准生成PPT所需的背景、插图、图表等素材。</p>
-<p>只需确定主题后生成素材、插入排版美化即可，能大幅提升PPT制作效率，输出视觉效果独特的商业级PPT，是AI赋能PPT制作的创新思路。</p>
+            <p>文章标题：Image 2 + 这套提示词 = 可交付的商业级 PPT</p>
+<p>作者：摸鱼小李</p>
+<p>文章简介：Image 2 做PPT保姆级教程：一条Prompt搞定全套（风格随心换）</p>
+<p>文章内容：</p>
+<p>近年来，随着人工智能技术的飞速发展，越来越多的工具开始应用于各个领域，其中PPT制作领域也迎来了新的变革。Image 2作为一款强大的AI工具，为PPT制作带来了全新的可能性。本文将介绍如何利用Image 2和一套提示词，轻松制作出商业级的PPT。</p>
+<p>首先，我们需要了解Image 2的基本功能。Image 2是一款AI图像生成工具，可以根据用户的输入生成各种风格的图像。在PPT制作中，我们可以利用Image 2生成各种背景、插图和图表，从而丰富PPT的内容和视觉效果。</p>
+<p>接下来，我们将介绍一套提示词，这套提示词可以帮助我们更高效地利用Image 2生成所需的图像。提示词主要包括以下几个方面：</p>
+<ol>
+<li>
+<p>风格：用户可以根据需要选择不同的风格，如简约、商务、科技等。</p>
+</li>
+<li>
+<p>主题：用户需要输入PPT的主题，以便Image 2生成与主题相关的图像。</p>
+</li>
+<li>
+<p>元素：用户可以指定需要包含在图像中的元素，如人物、动物、植物等。</p>
+</li>
+<li>
+<p>颜色：用户可以指定图像的主色调，以便Image 2生成符合要求的图像。</p>
+</li>
+<li>
+<p>文字：用户可以输入需要添加到图像中的文字，以便Image 2将文字与图像融合。</p>
+</li>
+</ol>
+<p>在掌握了Image 2和提示词的基本使用方法后，我们就可以开始制作PPT了。首先，我们需要确定PPT的主题和内容，然后根据内容选择合适的风格和提示词。接下来，我们可以利用Image 2生成所需的图像，并将图像插入到PPT中。最后，我们需要对PPT进行排版和美化，以确保PPT的整体效果。</p>
+<p>通过使用Image 2和提示词，我们可以轻松制作出商业级的PPT。这种方法不仅提高了PPT制作的效率，还使得PPT的视觉效果更加丰富和独特。随着AI技术的不断发展，相信未来会有更多类似的工具出现，为PPT制作带来更多的可能性。</p>
+<p>总之，Image 2和提示词为我们提供了一个全新的PPT制作思路，让我们可以更加高效地制作出商业级的PPT。让我们一起拥抱AI技术，为PPT制作带来更多的创新和变革。</p>
         </div>
     </article>
 
@@ -127,13 +173,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhIVwHxLGhE" class="article-nav-link prev">
+        <a href="recvhIVwHxLGhE.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">开源一个 PPT Skill｜压进了我 10 年的设计经验</span>
         </a>
         
         
-        <a href="/post/recvhk58uwm8rt" class="article-nav-link next">
+        <a href="recvhk58uwm8rt.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">MCP 已死，CLI 当立？David Soria Parra 讲述 MCP 的不一样叙事</span>
         </a>
@@ -143,7 +189,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

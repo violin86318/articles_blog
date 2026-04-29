@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>bili2txt-agent：开源智能机器人，一键将B站视频转为飞书云文档 — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>bili2txt-agent：开源智能机器人，一键将B站视频转为飞书云文档 — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">自动化工作流</span>
+            <span class="card-tag card-tag-primary">自动化工作流</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">B站</span>
+            
+            <span class="topic-chip">飞书</span>
+            
+            <span class="topic-chip">Agent</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="detail-reading-time">约 4 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">bili2txt-agent：开源智能机器人，一键将B站视频转为飞书云文档</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 零学习成本自动将B站视频转化为结构化飞书文档。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>零学习成本自动将B站视频转化为结构化飞书文档。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>bili2txt-agent是一款开源智能机器人，可将B站视频自动转化为结构化飞书文档。用户只需在飞书中发送视频链接，系统即通过音频优先下载（比视频快300倍）获取内容，利用本地Whisper模型进行语音识别保护隐私，再经DeepSeek API智能精转、摘要，支持中英文双语模式。处理完成后自动创建“原文精转”和“关键纪要”两份飞书文档，实现零学习成本的视频知识提取。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/qqVzVp2eISigqAap1MAylQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,8 +139,39 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>bili2txt-agent是一款开源智能机器人，可将B站视频自动转化为结构化飞书文档。用户只需在飞书中发送视频链接，系统即通过音频优先下载（比视频快300倍）获取内容，利用本地Whisper模型进行语音识别保护隐私，再经DeepSeek API智能精转、摘要，支持中英文双语模式。处理完成后自动创建“原文精转”和“关键纪要”两份飞书文档，实现零学习成本的视频知识提取。</p>
+            <p>根据您提供的参考内容，以下是关于链接 https://mp.weixin.qq.com/s/qqVzVp2eISigqAap1MAylQ 的全文内容：</p>
+<hr />
+<p>你是否曾遇到过这样的场景：在B站看到一个精彩的教程视频，想把它整理成文字笔记，却只能手动暂停、打字、截图？或者想翻译一段双语视频内容，却要来回切换工具，耗时耗力？</p>
+<p>现在，bili2txt-agent来了！它是一个开源的智能机器人，只需要在飞书中发送一个B站视频链接，就能自动完成下载、语音识别、AI精转，并生成结构化的飞书云文档。</p>
+<p><strong>核心价值</strong><br />
+- 零学习成本：发送视频链接，自动生成文档<br />
+- 极致性能：音频下载比视频快300倍<br />
+- AI增强：DeepSeek API智能精转和摘要<br />
+- 智能缓存：相同视频秒级处理<br />
+- 多语言支持：支持中英文双语模式<br />
+- 多格式链接解析</p>
+<p><strong>完整URL</strong>：https://www.bilibili.com/video/BV1ScfFBZE3y<br />
+<strong>短链接</strong>：https://b23.tv/abc123<br />
+<strong>直接ID</strong>：BV1ScfFBZE3y或av123456（支持BV号和AV号）</p>
+<p><strong>双语处理模式</strong><br />
+- 中文模式（默认）：直接发送视频ID，生成纯中文的原文精转和关键纪要。<br />
+- 英文/双语模式：在ID后添加#en，如“BV1ScfFBZE3y#en”，英文/双语模式下系统会生成中英双语对照文档</p>
+<p><strong>技术亮点</strong><br />
+- 音频优先下载：利用 yt-dlp 提取音频流，音频流下载失败降级为下载视频流<br />
+- Whisper 本地模型：无需上传音频，保护隐私。<br />
+- DeepSeek 大模型增强：精转、摘要、双语对照，质量媲美人工。<br />
+- 飞书 WebSocket 长连接：实时响应消息，无需公网IP。</p>
+<p><strong>飞书云文档自动创建</strong><br />
+处理完成后，系统会自动创建两个飞书文档：<br />
+- 原文精转：视频内容的文字版（经AI修正）<br />
+- 关键纪要：包含核心观点的结构化摘要，并返回可分享的链接，方便你随时查阅、协作。</p>
+<p><strong>结语</strong><br />
+bili2txt-agent将B站视频与飞书文档无缝连接，让知识提取变得前所未有的简单。无论你是学生、老师、译者，还是内容创作者，它都能成为你的得力助手。立即体验，让视频内容“活”起来！</p>
+<p><strong>GitHub 仓库</strong>：https://github.com/phi0217/bili2txt-agent</p>
+<hr />
+<p>希望这些信息对您有所帮助！如果您有其他问题或需要进一步的帮助，请随时告诉我。</p>
         </div>
     </article>
 
@@ -125,13 +179,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvhk58uwm8rt" class="article-nav-link prev">
+        <a href="recvhk58uwm8rt.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">MCP 已死，CLI 当立？David Soria Parra 讲述 MCP 的不一样叙事</span>
         </a>
         
         
-        <a href="/post/recvh24Ee7uM98" class="article-nav-link next">
+        <a href="recvh24Ee7uM98.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">挖到一个宝藏运镜skill，我用豆包Seedance2.0把视频质量拉上来了</span>
         </a>
@@ -141,7 +195,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 

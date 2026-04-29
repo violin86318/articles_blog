@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="阅读与思考 — 探索设计、科技与人文的交汇点">
-    <title>我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流） — 阅读与思考</title>
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流） — 拾读库</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
 </head>
 
 <body>
@@ -21,18 +22,18 @@
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
             <a href="../index.html" class="nav-brand">
-                <span class="nav-brand-icon">📖</span>
-                <span>阅读与思考</span>
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
             </a>
             <div class="nav-actions">
                 <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
-                    🔍
+                    <span aria-hidden="true">⌕</span>
                 </button>
                 <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
-                    🌙
+                    <span aria-hidden="true">◐</span>
                 </button>
                 <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
-                    ☰
+                    <span aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -40,30 +41,30 @@
 
     <!-- Mobile Sidebar -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-sidebar" id="mobileSidebar">
-        <button class="mobile-sidebar-close" id="mobileSidebarClose">✕</button>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">导航</div>
-            <a href="../index.html" class="mobile-theme-btn" style="margin-bottom: 8px;">🏠 首页</a>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">搜索</div>
-            <button class="mobile-theme-btn" id="mobileSearchBtn">🔍 搜索文章</button>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
         </div>
         <div class="mobile-nav-section">
             <div class="mobile-nav-title">外观</div>
-            <button class="mobile-theme-btn" id="mobileThemeToggle">🌙 深色模式</button>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
         </div>
     </div>
 
     <!-- Search Modal -->
-    <div class="search-modal" id="searchModal">
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
         <div class="search-container">
             <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" id="searchInput" placeholder="搜索文章标题、金句或内容..."
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
                     autocomplete="off">
-                <button class="search-close" id="searchClose">ESC</button>
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
             </div>
             <div class="search-results" id="searchResults">
                 <div class="search-hint">输入关键词开始搜索</div>
@@ -77,15 +78,11 @@
     <!-- Top Bar: Back + Share -->
     <div class="detail-top-bar">
         <a href="../index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+            <span aria-hidden="true">←</span>
             返回首页
         </a>
         <button class="share-btn" id="shareBtn">
-            🔗 分享
+            分享
         </button>
     </div>
 
@@ -94,19 +91,45 @@
         <!-- Meta -->
         <div class="detail-meta">
             
-            <span class="card-tag">内容创作</span>
+            <span class="card-tag card-tag-primary">内容创作</span>
             
-            <span class="detail-reading-time">⏱ 约 1 分钟阅读</span>
+            
+            <span class="topic-chip">AI 绘本</span>
+            
+            <span class="topic-chip">Skill</span>
+            
+            <span class="topic-chip">工作流</span>
+            
+            <span class="topic-chip">内容创作</span>
+            
+            <span class="detail-reading-time">约 7 分钟阅读</span>
         </div>
 
         <!-- Title -->
         <h1 class="detail-title">我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流）</h1>
 
-        <!-- Quote -->
+        <!-- Digest -->
         
-        <div class="detail-quote">
-            ❝ 父母可轻松定制角色一致、图文互补的专属AI绘本，半小时解决行业难题。
-        </div>
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>父母可轻松定制角色一致、图文互补的专属AI绘本，半小时解决行业难题。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>好的，这是对文章核心内容的提炼（约190字）： 核心提炼： 作者利用 Claude Code 成功制作了以孩子为主角的定制AI绘本，解决了行业两大痛点：角色一致性（通过生成“角色参考图”固定形象）和图文有效配合（明确分工：文字表达画面无法呈现的感官、内心感受与留白，画面负责视觉）。整个迭代（V1-V3）仅耗时半小时，AI能迅速理解并执行图文分工的方法论。 这不仅是一项技术突破，更让个性化绘本创作普及化。父母可借助此Skill工作流（输入主题→共创故事→生成图文→输出HTML/PDF），让孩子深度参与制作一本专属绘本（包含其名字、形象、想象），赋予其独特意义（如文中六岁孩子的案例）。 最后，作者推荐了合著的20万字《AI家庭教育指南》（第四次重印），包含 30+应用场景、100+提示词，助力AI时代的家庭教育，培养“AI原住民”。 欢迎转发给关注教育创新的家长和教育工作者。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/K0LGgk3P1QLoanyo8XidDQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
         
 
         <!-- Review -->
@@ -116,13 +139,32 @@
         
 
         <!-- Content -->
+        <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>好的，这是对文章核心内容的提炼（约190字）：</p>
-<p><strong>核心提炼：</strong></p>
-<p>作者利用 <strong>Claude Code</strong> 成功制作了以孩子为主角的定制AI绘本，解决了行业两大痛点：<strong>角色一致性</strong>（通过生成“角色参考图”固定形象）和<strong>图文有效配合</strong>（明确分工：文字表达画面无法呈现的感官、内心感受与留白，画面负责视觉）。整个迭代（V1-V3）仅耗时<strong>半小时</strong>，AI能迅速理解并执行图文分工的方法论。</p>
-<p>这不仅是一项技术突破，更让个性化绘本创作<strong>普及化</strong>。父母可借助此<strong>Skill工作流</strong>（输入主题→共创故事→生成图文→输出HTML/PDF），让孩子深度参与制作一本专属绘本（包含其名字、形象、想象），赋予其独特意义（如文中六岁孩子的案例）。</p>
-<p>最后，作者推荐了合著的<strong>20万字《AI家庭教育指南》</strong>（第四次重印），包含 <strong>30+应用场景、100+提示词</strong>，助力AI时代的家庭教育，培养“AI原住民”。</p>
-<p><strong>欢迎转发给关注教育创新的家长和教育工作者。</strong></p>
+            <p>文章标题：我用 Claude Code 给孩子做了一个他是主角的AI绘本 skill（工作流）</p>
+<p>文章简介：<br />
+这篇文章讲述了作者如何利用 Claude Code 为孩子制作一本以孩子为主角的 AI 绘本。作者通过不断迭代工作流程，解决了角色一致性和图文配合的问题，最终制作出了一本完整的绘本。文章还探讨了 AI 在家庭教育中的应用，以及 AI 时代培养孩子的意义。</p>
+<p>文章正文：<br />
+欢迎关注星标，一起做 AI 原住民。我给和和做了一本他是主角的绘本（用 Claude Code 做的）第三版出来的那一刻，我自己先愣住了。上一页，小男孩睡在草地上，写着「脚痒痒的」，下一页，画面里，小男孩飞向太空。我盯着屏幕，心想：这……有点好啊。和和还不知道这本书的存在。我自己先喜欢上了。</p>
+<p>以前这件事有多麻烦？<br />
+AI 绘本这两年大家没少见。但说实话，大部分都一言难尽。要么角色每页都在变脸——第一页是圆眼睛，第三页变成了长眼睛，第五页干脆换了个人。要么图画了一个孩子在飞，文字也写「他飞起来了」，1+1=1，叠在一起反而变得更平。这是两道很难的坎：角色一致性和图文真正的配合。前者让定制绘本一直停留在「尝鲜」阶段——好玩，但做出来自己都觉得凑合。后者让 AI 绘本和真正好的绘本之间，始终有差距。</p>
+<p>我是怎么迭代工作流的？<br />
+我用 Claude Code 创建了这个画定制绘本的工作流。只要上传一张孩子的照片，Claude Code 和孩子互动以后，就能创建出以自家孩子为主角的故事绘本。（Claude Code 是一个自主性更高的 AI 智能体，可以直接执行任务——生成图片、写代码、组装 HTML，一气呵成。）</p>
+<p>V1：第一版出来，故事有了，画面也出来了。但和和的形象每页都在飘——这一页胖，下一页瘦，头发长短不一，感觉是六个不同的小男孩客串了同一个故事。</p>
+<p>V2：我把形象固定下来了。专门生成了一张「角色参考图」，每次画新的一页都把这张图一起喂给 AI，让它「照着画」。角色一致性问题基本解决。但 V2 有新的问题——图和文有一种奇怪的累赘感。图已经画得很清楚了，文字又把同一件事说了一遍。读起来像是给画面配了个字幕，多余。</p>
+<p>V3：我告诉 AI，图文应该怎么分工。文字只说画面画不出来的东西——触觉、声音、内心感受。画面负责视觉。两者各管一半，让读者自己在缝隙里拼出完整体验。还有留白。情感最浓的地方，文字反而要退场。我说完，它迅速就有了进步。整个 V1 到 V3 的迭代，半小时以内。</p>
+<p>我以为我在教 AI 做绘本，但做完这件事，我发现自己也学到了东西。<br />
+我之前懂一点绘本——知道图文要配合，但不知道怎么配。做这件事的过程中，AI 把真正的方法论带给了我。松居直说绘本是「文字 × 图画」，不是相加，是相乘。Nikolajeva 和 Scott 把图文关系分四个层次，反衬力量最强，对称是在浪费。Molly Bang 说构图形状本身就在传递情感——水平线是平静，对角线是冒险。这些东西，AI 都知道。我是跟着它建 Skill 的过程中，才真正弄明白的。我突然想，如果换一个人类画师，给他讲这套图文分工的逻辑，他理解、消化、真正内化到作品里，大概需要一段时间。AI 不需要。给到方法论，它立马就能用。这不是说 AI 比人厉害——画师的感受力、直觉、那种「只可意会」的东西，AI 可能还不能完全做到。但在「理解并执行一套清晰的老师傅方法论」这件事上，它的进化速度确实让我有点惊异。</p>
+<p>这件事真正让我兴奋的不是技术，是这件事现在属于每一个父母了。<br />
+你可以给孩子做一本真正属于他的绘本——他的故事，他来编；他的形象，他是主角；画风，你们一起挑。它离顶级绘本肯定有差距。但它能到达一个还不错的分数，而且这个分数还在快速往上走。更重要的是：这本书里，是你孩子的名字，是他的脸，是他想象的宇宙。你说，这对一个六岁的孩子意味着什么？</p>
+<p>如果你也想试，我把整个流程做成了一个 Skill（一套给 Claude Code 的 AI 工作流）。孩子给出主题 → CC 和孩子一起编故事 → 定角色、定画风 → 逐页生成插画 → 组装成可以打开的 HTML 绘本，还有可以打印的 PDF。孩子可以全程参与。这本书从第一个字开始，就是他的。这本专属于和和的绘本叫《小和和飞向宇宙》。他还不知道。等他看到的那天，我再来告诉你他说了什么。</p>
+<p>欢迎转发给你朋友圈的妈妈和教育工作者，一起培养在 AI 时代的原住民。<br />
+📖 新书推荐：《AI 家庭教育指南》我和 Evan 妈咪（Crystal 老师）合著的 20 万字实战手册。感谢同路人的支持，目前已经第四次重印。覆盖 AI 时代家庭教育的方方面面——从 AI 伙伴筛选与协作到认知升级，从亲子互动到学习方法。包含 30+ 应用场景，100+ 上手可用的提示词，随书赠送我们不断认知迭代的智能体。一定要扫码书签，智能体都在里面！如果你也在思考如何在 AI 时代培养孩子，这本书或许能给你一些启发。</p>
+<p>相关阅读:<br />
+AI 时代，人类最后的壁垒在哪里？<br />
+200 美金月薪，我们正式雇了第一个 AI 员工<br />
+Typeless：让我废弃键盘的下一代输入法</p>
+<p>欢迎转发给你朋友圈的妈妈和教育工作者，一起培养在 AI 时代的原住民。</p>
         </div>
     </article>
 
@@ -130,13 +172,13 @@
     
     <nav class="article-nav">
         
-        <a href="/post/recvdqzD1t2Stx" class="article-nav-link prev">
+        <a href="recvdqzD1t2Stx.html" class="article-nav-link prev">
             <span class="article-nav-label">← 上一篇</span>
             <span class="article-nav-title">百万字长篇，如何用AI拆书？</span>
         </a>
         
         
-        <a href="/post/recvdlqTsqwNBx" class="article-nav-link next">
+        <a href="recvdlqTsqwNBx.html" class="article-nav-link next">
             <span class="article-nav-label">下一篇 →</span>
             <span class="article-nav-title">企业微信正式接入 OpenClaw｜手把手教程</span>
         </a>
@@ -146,7 +188,7 @@
 
     <!-- Footer -->
     <footer class="site-footer" style="margin-top: 48px;">
-        <p>© 2026 阅读与思考 · 由 <a href="https://www.feishu.cn" target="_blank">飞书</a> 驱动</p>
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
     </footer>
 </div>
 
