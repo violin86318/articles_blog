@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>一个东北青年沉迷于给万物坐标 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">科技人文</span>
+            
+            
+            <span class="topic-chip">AI艺术</span>
+            
+            <span class="topic-chip">数据可视化</span>
+            
+            <span class="topic-chip">文物归还</span>
+            
+            <span class="topic-chip">跨文化</span>
+            
+            <span class="topic-chip">数字创作</span>
+            
+            <span class="topic-chip">东北青年</span>
+            
+            <span class="detail-reading-time">约 18 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">一个东北青年沉迷于给万物坐标</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>这不是个冰冷的数据项目，（地图上）每一个光点背后都是一段离家的故事，希望能通过这种方式，让更多人看到值得被记住的国宝们。 大模型可以实现很多可能性，如何将这些可能性减掉，留下最合适的才是最难的工作。 他笑称，如今的自己，很像东北“乱炖”，这道菜把豆角、土豆、茄子、排骨、五花肉等食材放在一起，最终出锅时，是一道美味、丰富的大菜。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>中国留学生瑞贤利用AI技术，将大英博物馆中来自99个国家的近5000件文物的家乡坐标可视化，创作了“如果文物都回家”视频，引发全球关注。他结合艺术与技术，通过地理坐标讲述文物离散的故事，并持续创作如“诗词山河”等作品，探索科技与文化的融合。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/KQfremqRbczkmUzRp1wm1Q&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>文章通过讲述瑞贤运用AI技术可视化文物坐标、创作互动作品的故事，展现了新一代青年如何以创新方式连接科技与文化，回应历史议题。他的作品不仅技术精湛，更蕴含对文物归乡、文化包容的深刻思考，体现了跨文化背景下的身份探索与创造热情，为数字时代的人文表达提供了生动范例。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#一个东北青年沉迷于给万物坐标" class="toc-link">一个东北青年沉迷于给万物坐标</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="一个东北青年沉迷于给万物坐标">一个东北青年沉迷于给万物坐标</h1>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/sz_mmbiz_png/KpS5BH56zwXF9tT9FnlOiblzGAnX4RicRFImt26FMtjcV1wFsibRAlOzKTyTOcwCMLPuiaXXoAAMVI1jMhsRb5uh43MLU6ChjM6D4ib8AHM6B9So/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" /></p>
+<p>社交媒体署名“麻省理工Rui同学”的作品“如果文物都回家”截图</p>
+<p>作者｜黄晓颖</p>
+<p>编辑｜秦珍子</p>
+<p>你知道大英博物馆里的文物来自哪些国家吗？</p>
+<p>中国留学生瑞贤用AI收集了散落在大英博物馆里、来自99个国家的近5000件文物的家乡坐标，把它们放到三维电子地图上，并依托这份地图创作了一条名为“如果文物都回家”的视频。</p>
+<p>海外社交媒体上，几百万人看过这一作品，有科技工作者、艺术家，甚至有外国大使馆的官方账号转发。</p>
+<p>作品收获了来自全球地理坐标的声音。有人觉得美，有人觉得浪漫，一位外国网友说，它用数据可视化的形式，讲述了博物馆展览墙上未曾展示的故事。</p>
+<p>作为创作者，瑞贤对那些积极的反馈感到惊喜。</p>
+<p>他1990年出生在中国辽宁，18岁到英国伦敦念书，在中央圣马丁艺术与设计学院学平面设计。毕业后的数年里，他两次到美国麻省理工学院学习。一次是做研究员，一次是读硕士——在国外的时间加起来已近10年。</p>
+<p>在英国时，瑞贤常到大英博物馆参观，后来从越来越多的新闻报道中了解到这些文物的身世。他注意到，不少国家展开了漫长而持久的追索，试着让文物“回家”。</p>
+<p>10年间，他常在故土和他乡之间往返，让他印象深刻的是，大英博物馆过去收藏的狮身人面像胡须，当年被以考古发掘的名义从埃及带走，直到100多年后才返回祖国。</p>
+<p>瑞贤想到，每件文物身上都有这样一个坐标，就像教他做咖喱猪排饭的同学来自日本，提起烤肉他就想起随性的墨西哥好友，自己则给大家烹制中国东北的名菜锅包肉。</p>
+<p>今年年初，他在做资料搜集时得知，大英博物馆藏有超过10万件来自古埃及的文物，在所有外国藏品中数量位列第二。</p>
+<p>藏品中的“罗赛塔石碑”，是大英博物馆里最受欢迎的展品之一，瑞贤曾现场参观过，他把它放在视频的开头。</p>
+<p>这块厚重的石碑刻于公元前196年，是一份古埃及时期的官方诏书，用象形文、埃及草书、古希腊文三种文字写成，曾被当作战利品运往英国，后被置于埃及馆展厅的正中央。</p>
+<p>它1799年被发掘之时，古埃及象形文字已失传千年。</p>
+<p>对照石碑上的古希腊文，象形文才得以破译，人们由此读懂金字塔铭文、法老墓志和神庙壁画。埃及一直希望，能迎回这把“文明的钥匙”。</p>
+<p>视频中，瑞贤还提到了墨西哥的奥尔梅克蛇纹石面具、伊朗的伊斯兰书法册页、秘鲁代表奇穆文明的金属残片，还有中国东晋画家顾恺之的《女史箴图》、敦煌的佛经画卷、商末的青铜方彝……</p>
+<p>“这不是个冰冷的数据项目，（地图上）每一个光点背后都是一段离家的故事，希望能通过这种方式，让更多人看到值得被记住的国宝们。”瑞贤在视频中说。在国外的日子里，他学习平面设计，也学习编程代码、AI算法，他把艺术和技术结合起来讲故事。</p>
+<p>打开他制作的网页，能看到布满文物缩略图的地球，浅灰色线条连接它们和故乡的名字，漂浮在地图之上。只要点击那些图片，观众就能了解某件文物的“身世”——包括它此刻寄身于大英博物馆哪一座展厅，又是来自哪里。</p>
+<p>这些文物，有的和祖国之间隔着大陆，有的隔着海洋，馆藏的新西兰毛利人的珠宝和木雕，在19世纪经海运到伦敦，最快也要90天。它们的祖国和它们相隔半个地球。现在，它们已经在大英博物馆待了超过200年。</p>
+<p>当鼠标触发“文物都回家”的效果时，人们会看到，罗赛塔石碑、中华缠枝纹薄胎玉壶等文物会从伦敦的经纬坐标出发，沿着当时来英的路线各自散开，在三维空间划出不同弧度，飞回自己的诞生之处，在某种意义上，这些文物“回家”了。</p>
+<p>近日，法国国民议会通过一项法案，将简化法国在殖民时期掠夺所得文物的归还程序，这也意味着，这类文物的回家路开始松动。19世纪，法国同样从中国带走了数万件文物，其中包括从圆明园带走的青铜鎏金佛塔、景泰蓝麒麟和《四十景图》。</p>
+<p>2025年，瑞贤35岁，第二次从麻省理工学院硕士毕业，乘机飞往上海，他要做些自己真正想做的事情。这种往返，他经历过多次。</p>
+<p>本科念完后，他回国进入互联网大厂工作，发现工程师和设计师常常互不理解，几年后他离职，因为“脑中有越来越多想法，自己掌握的技术却无法实现”。</p>
+<p>那时，AI还没有出现，人们常提的是“深度学习”，机器还在学着识别图像中的猫、狗。抱着试一试的想法，瑞贤前往麻省理工学院做研究员，在图书馆里重新开始学高中数学，想要补足技术上的短板。</p>
+<p>回国后，他回到互联网大厂工作，短短数年间，人人都开始谈论AI，瑞贤再次出国求学。</p>
+<p>做工程师和设计师有很大差别，“设计师思维讲究创新和感受，但工程师讲究创造一个工具，能够高效复用、解决问题”。他说，自己花了10多年，终于实现了科技与文化的结合。</p>
+<p>这一次到上海创业，瑞贤收集全世界的电影、蝴蝶、花卉、珊瑚信息……用地理坐标把它们标注在地图上。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>“蝶舞虫鸣星球”作品页面截图</p>
+<p>在他做的“世界神话地图”中，点击代表神话故事的表情符号，就能听到不同语言的讲述。如果人们对洪水主题感兴趣，既能听到大禹治水，也能读到诺亚方舟、苏美尔大洪水。</p>
+<p>从瑞贤的作品中，不少观众发现了一个互相联系的、广阔的世界。</p>
+<p>这位作者接触的最初的世界，是中国东北，冬季有漫长的雪季。他从小学习国画，家里给他请的家教重视中华文化经典，把《大学》和《中庸》当成教材。直到今天，他还能脱口而出背诵其中的片段。</p>
+<p>不过，刚到国外时，刚成年的瑞贤感到了思想上的迷茫，觉得有两种思维在脑中打架。</p>
+<p>他读冯友兰的《中国哲学简史》，这位思想家在赴美留学之初，曾因东西方的哲学观碰撞产生巨大的纠结。后来，经过系统学习，他在博士论文中写出，人的思想不分国界，哲学不分东西。</p>
+<p>瑞贤也发现，中国哲学强调的“物极必反”和黑格尔所讲的“对立面转化”有相似之处，二者并非完全对立。他说，咖喱猪排饭、东北锅包肉和墨西哥烤肉都曾带来珍贵的记忆，而他作品中“包容世界”的声音，也是给青年时代的自己一个回答。</p>
+<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<p>“世界神话地图”作品页面截图</p>
+<p>他笑称，如今的自己，很像东北“乱炖”，这道菜把豆角、土豆、茄子、排骨、五花肉等食材放在一起，最终出锅时，是一道美味、丰富的大菜。</p>
+<p>最近，他花了近两个月，做了一个名为“诗词山河”的作品，将165首古代诗词，用地理坐标的形式展现在中国地图上。</p>
+<p>这些内容来自瑞贤人生的“坐标”——儿时诵读的韵律，最终以视觉化的形式展现，远超他的期待，也让他兴奋。</p>
+<p>AI能帮他写代码，帮他搜索数据，更多时候，他把自己当成好莱坞电影《穿普拉达的女王》中的主编，不断对作品中的细节说“要或者不要”。</p>
+<p>比如，和长安相关的诗词太多，他最后选了大众熟悉的《春望》。视觉呈现方面，他选用名画《千里江山图》的配色，但同样是《千里江山图》，AI提取的颜色版本很多，北宋王希孟的《千里江山图》色彩偏暗，方琮仿作，色调更为明快。敲定这个“最美”的版本前，他至少换了11个主题配色。AI学习了水墨丹青，也学习了宋代的《万壑松风图》。</p>
+<p>“你告诉AI生成传统文化风格的作品，它出来时可能非常不传统，你要判断是明暗问题，还是配色、肌理的问题。”瑞贤说。</p>
+<p>他给作品设计了很多细节：鼠标移到《望庐山瀑布》时，会有瀑布从天而降；在《过零丁洋》中，他加上了“拍在岸上的海浪”；点击《枫桥夜泊》时，会响起阵阵钟声；他还让武汉的黄鹤楼有白鹤鸣声飞过，让大漠升起孤烟、东北下起大雪。</p>
+<p>一开始，AI生成的庐山瀑布只是实心的白色水柱，雪飘下时掺着六边形和字母F。他让AI“不要用全实心”，瀑布要“有雾气”，还要“有渐变”，水柱最下面的水波“要有波纹”，还要“溅起水花”。他还告诉AI，不要“写实的”雪，要“抽像的”，AI便把雪花换成了边缘模糊的圆点。</p>
+<p>在这个作品中，他作了数不清的判断，从平原、丘陵和山脉的颜色，云彩、海浪的形状，到地图的肌理……有人问他，为什么不放真实的地图照片，他更想追求“写意”的氛围。</p>
+<p>“大模型可以实现很多可能性，如何将这些可能性减掉，留下最合适的才是最难的工作。”瑞贤能感受到，AI在提升效率的同时，也带来了很多焦虑。</p>
+<p>有时，做出自己想要的效果，他会想起罗曼·罗兰小说里的约翰·克里斯朵夫，那个拥有父亲音乐技艺和祖父艺术创造力的音乐家，能够将自己在莱茵河畔听过的虫鸣、鸟叫都写进音符里，并将它们演奏出来。</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_png/KpS5BH56zwXMwS9poz7oKMYqZtY9JPBqHZuZSTnKITUpEpn94gWFUicaqKOho9gBGYuEp8mKqDhwInQo5Zics6DAFQWRyeKLia03cNClOjfwz0/640?wx_fmt=png&amp;from=appmsg&amp;watermark=1&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=3" /></p>
+<p>“潜入海底花园”作品页面截图</p>
+<p>瑞贤觉得，现在的生活“很幸福”也“很奢侈”，他会筛选找上门来寻求合作的广告商，但也不希望占用自己过多时间。</p>
+<p>在社交媒体平台，这位“麻省理工Rui同学”发布的内容启发了不少年轻人，有人说，作品使用的vibe coding技术和自己的专业也能结合起来。也有人对他使用的地图、表达的立场发表恶评，甚至通过私人渠道找到他、威胁他。因为担心遭遇网暴，他甚至不敢透露全名，只用名字中的两个字接受采访。</p>
+<p>不过，他还是勇敢地计划着，讲更多故事，关于自己的坐标，也关于这个世界的坐标。</p>
+<p>采访快要结束时，他问记者，你知道为什么冰岛没有桦树，当地人却会花粉过敏吗？北京的圆柏花粉会不会落在日本？</p>
+<p>问题的答案藏在地球的大气层和季风流动中，那些携带生命信息的微小存在，也能跨越国界、大陆与海洋，降落在地球的不同角落。</p>
+<p><strong>- END -</strong></p>
+<p><strong><em>*</em>*中国青年报·中国青年网出品</strong>****</p>
+<p><img alt="图片" src="https://mmbiz.qpic.cn/mmbiz_gif/qNPg7BB4JgibJiaLloOB0VuookiamOmDKSpZnuuYlic5yK61Aeicib7Vc7oEtyCfgvHb1ZTDmAzmGtJZUCcApJRXr5xw/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=4" /></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvieWodASglb.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">好的AI短片都有方法论</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
