@@ -106,7 +106,7 @@
             
             <span class="topic-chip">视觉开发板</span>
             
-            <span class="detail-reading-time">约 7 分钟阅读</span>
+            <span class="detail-reading-time">约 5 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -165,7 +165,7 @@
         <div class="detail-content">
             <h1 id="一个用影视板驱动生成视频的技巧">一个用影视板驱动生成视频的技巧</h1>
 <p>经常用 Seedance2.0 的人一定会发现，如果直接用文本来生成写实风格的人物视频，人脸的妆容总是很固定。</p>
-<p><img alt="由Seedance2.0生成" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBPqmIQ1swD4vgMC8UurE5ZBMYwW17H8cazZVO5MziaUSstOaJzBe4Ef6jkoyClDMuODVjRDHxDvZrh3Z8T9Sniag4tnQRKmYQ7A0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=0" />由Seedance2.0生成</p>
+<p><img alt="由Seedance2.0生成" src="/static/article-images/recvi1J4mOvqHD-0-c24b34a4e2.png" />由Seedance2.0生成</p>
 <p>如图所示，所有的人物几乎都是清一色这个风格，有一种略带“恐怖谷效应”的假人感。</p>
 <p>因此，做写实类视频时，人物垫图是必须的。</p>
 <p>Seedance2.0 现在的分镜能力下降，废卡率提升。</p>
@@ -173,9 +173,9 @@
 <p>下面做了一个简单测试：拍摄一个中国大学生打开购物网站，伸手从屏幕中取出一把雨伞的镜头。</p>
 <p>这个设定比较考验模型的泛化能力，因为训练数据中，这样具有想象力的“反物理”镜头并不占多数。</p>
 <p>我直接让 GPT-Image-2 根据这个主题，生成 3x3 宫格的分镜图，出来的效果如下：</p>
-<p><img alt="GPT-Image-2生成效果" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBMgkGKP2BWh3ibp1MrSfH7x1XIU9KMIDqor3Cz5Sc1A21B4My6e7mFZINiccnSEib9TDBEibqT53bRBWiakoSCkpgKl6TnPoPIcocJg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=1" />GPT-Image-2生成效果</p>
+<p><img alt="GPT-Image-2生成效果" src="/static/article-images/recvi1J4mOvqHD-1-67f5e272f8.webp" />GPT-Image-2生成效果</p>
 <p>整体还行，但中间第五幅图存在明显异常，让它再调整了一下：</p>
-<p><img alt="GPT-Image-2生成效果" src="https://mmbiz.qpic.cn/sz_mmbiz_png/4ibe5DocEFBOlaR8Ua7AuTjZllMFpMGv3vYDj3Ks4W0KzG7EOFlCPwnicyUdH8Ee6UmCkgpVzkUhibLlLwRIqF5KbnH0ACFQNh9Q346j0D652g/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=2" />GPT-Image-2生成效果</p>
+<p><img alt="GPT-Image-2生成效果" src="/static/article-images/recvi1J4mOvqHD-2-58eebd15eb.png" />GPT-Image-2生成效果</p>
 <p>现在分镜图对了，把它喂到 Seedance2.0 里面，出来的效果如下。</p>
 <p>Seedance2.0 能够读懂分镜图，但由于 图5 和 图6 之间的运动关系有偏差，导致视频中也出现了不连贯的情况。</p>
 <p>因此，想要通过 GPT-Image-2 直接生成可用的分镜图，还是不容易的。</p>
@@ -188,7 +188,7 @@
 <p>生成的效果挺不错，相比于9宫格的分镜图，这张图的信息量更大。</p>
 <p>把这张图喂给 Seedance2.0 生成视频，出来的效果好多了。</p>
 <p>这个提示词的稳定性很好，只需要更换主题词就可以了，其它都能复用，而且也没有卡人脸审核的问题。</p>
-<p><img alt="更换主题“寻找星星的你”" src="https://mmbiz.qpic.cn/mmbiz_png/4ibe5DocEFBNovemWeOOU05Libt2gibFFicWRkA9lMkZ3KhnBTR211CQzHFb4tx7LdxiaPx08ibicicf6gFaDHtxHCqm4ujQHDGNF4NafibFKJnl9tG0/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1#imgIndex=4" />更换主题“寻找星星的你”</p>
+<p><img alt="更换主题“寻找星星的你”" src="/static/article-images/recvi1J4mOvqHD-3-140cacdaaf.webp" />更换主题“寻找星星的你”</p>
         </div>
     </article>
 
