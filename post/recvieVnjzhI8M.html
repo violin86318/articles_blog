@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>30 分钟掌握 Codex 95% 的能力？！不相信？一起学习：七大核心能力 + 一个彩蛋功能！ — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">人工智能</span>
+            
+            
+            <span class="topic-chip">自动化</span>
+            
+            <span class="topic-chip">Codex</span>
+            
+            <span class="topic-chip">AI智能体</span>
+            
+            <span class="topic-chip">本地代理</span>
+            
+            <span class="topic-chip">技能复用</span>
+            
+            <span class="topic-chip">文件系统</span>
+            
+            <span class="detail-reading-time">约 21 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">30 分钟掌握 Codex 95% 的能力？！不相信？一起学习：七大核心能力 + 一个彩蛋功能！</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>OpenAI Codex 已不只是一个写代码的工具，而是一个能完成&#39;任何知识工作 + 编码工作&#39;的桌面级 AI 智能体超级应用。 每一次使用旧 skill，都是迭代它的机会——发现新亮点直接说&#39;以后都这样做&#39;，让 Agent 更新 skill 文件。 OpenAI 把 Codex 定位为&#39;通用知识工作 Agent 的桌面 OS&#39;——本地文件是状态，AGENTS.md 是偏好，Plugins 是外设，Skills 是程序，Browser/Computer Use 是执行器，Automations 是 cron，Chronicle 是感知层。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍了OpenAI Codex的七大核心能力与一个彩蛋功能，包括完整文件访问、持久化记忆、插件连接、技能复用、原生图像生成、浏览器与操作系统控制以及定时自动化。Codex定位为本地桌面级AI智能体，与ChatGPT等云端工具不同，它直接操作本地文件系统，适合非开发者使用。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/5J-2qJm0dUfB50wot2hLrQ&#39;," target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文系统拆解了Codex的核心能力，突出了其本地化、产品化的设计理念。通过七大能力与一个彩蛋的框架，清晰展示了Codex如何从对话工具演进为工作台，对个人和团队优化AI工作流具有实用参考价值。作者强调技能演化和自动化是提升效率的关键，观点务实且具启发性。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#30-分钟掌握-codex-95-的能力不相信一起学习七大核心能力-一个彩蛋功能" class="toc-link">30 分钟掌握 Codex 95% 的能力？！不相信？一起学习：七大核心能力 + 一个彩蛋功能！</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#learn-95-of-codex-in-30-minutes" class="toc-link">Learn 95% of Codex in 30 minutes</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#codex-与-chatgptclaude-的根本区别" class="toc-link">Codex 与 ChatGPT/Claude 的根本区别</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#七大核心能力解读" class="toc-link">七大核心能力解读</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-1full-file-access完整文件访问" class="toc-link">能力 1：Full File Access（完整文件访问）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-2persistent-memory持久化记忆" class="toc-link">能力 2：Persistent Memory（持久化记忆）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-3plugins插件-外部连接" class="toc-link">能力 3：Plugins（插件 / 外部连接）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-4skills技能-可复用-sop" class="toc-link">能力 4：Skills（技能 / 可复用 SOP）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-5gpt-image-access原生图像生成" class="toc-link">能力 5：GPT Image Access（原生图像生成）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-6browser-computer-use浏览器与操作系统级控制" class="toc-link">能力 6：Browser &amp; Computer Use（浏览器与操作系统级控制）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#能力-7automations定时与触发式自动化" class="toc-link">能力 7：Automations（定时与触发式自动化）</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#彩蛋chronicle环境感知记忆" class="toc-link">彩蛋：Chronicle（环境感知记忆）</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#整体框架的工程评价" class="toc-link">整体框架的工程评价</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#对个人团队工作流的实际启示" class="toc-link">对个人/团队工作流的实际启示</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#一句话总结" class="toc-link">一句话总结</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#相关资源推荐" class="toc-link">相关资源推荐</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="30-分钟掌握-codex-95-的能力不相信一起学习七大核心能力-一个彩蛋功能">30 分钟掌握 Codex 95% 的能力？！不相信？一起学习：七大核心能力 + 一个彩蛋功能！</h1>
+<h2 id="learn-95-of-codex-in-30-minutes">Learn 95% of Codex in 30 minutes</h2>
+<p>一位知名 AI 开发者、VibeCode.dev 联合创始人 Riley Brown 最新发布的 Youtube 视频 <strong>Learn 95% of Codex in 30 minutes</strong>，他表示：OpenAI Codex 已不只是一个写代码的工具，而是一个能完成"任何知识工作 + 编码工作"的桌面级 AI 智能体超级应用。</p>
+<blockquote>
+<p><strong>Learn 95% of Codex in 30 minutes</strong></p>
+<p>https://www.youtube.com/watch?v=474wZZHoWN4[1]</p>
+</blockquote>
+<p>视频以"七大核心能力 + 一个彩蛋功能"为主线，系统拆解了 Codex 与 ChatGPT、Claude、Claude Code 等工具的本质差异，以及它在真实业务流中的落点。</p>
+<p>半个小时，真的能让我们学习到 Codex 95% 的能力？不信？一起看看，看完再来评论！</p>
+<hr />
+<h2 id="codex-与-chatgptclaude-的根本区别">Codex 与 ChatGPT/Claude 的根本区别</h2>
+<p>这是整段视频的隐含前提，作者反复强调：</p>
+<ul>
+<li><strong>ChatGPT / Claude</strong>：你上传的文件、生成的文件都存储在<strong>云端</strong>，是一个"对话沙盒"。</li>
+<li><strong>Codex</strong>：所有输入与产出都直接落在你<strong>本地电脑的真实文件系统</strong>上，并且 Agent 拥有对本机文件的完整读写权限，还能进一步控制浏览器与操作系统。</li>
+</ul>
+<p>这一差别决定了 Codex 不是"更强的 ChatGPT"，而是更接近 Claude Code / Cursor Agent 那一类——<strong>面向真实工作流的本地代理</strong>——但配了一个对非开发者也友好的图形界面。</p>
+<hr />
+<h2 id="七大核心能力解读">七大核心能力解读</h2>
+<h3 id="能力-1full-file-access完整文件访问">能力 1：Full File Access（完整文件访问）</h3>
+<p><strong>演示场景</strong>：把 60 多张收据图片放在 <code>Downloads/receipts to process</code> 下，让 Agent 进行 OCR、分类、汇总，最终生成带 dashboard、分类汇总、付款方式分析的 Excel。</p>
+<p><strong>关键点</strong>：</p>
+<ul>
+<li>Agent 通过本机路径直接读取原始文件（而非用户手动逐个上传）。</li>
+<li>输出物（xlsx）也保留在本地，可一键 "Open in Folder" 定位。</li>
+<li>作者建议：<strong>以"项目（Project）= 文件夹"组织工作</strong>。每个 Project 就是磁盘上一个真实目录，所有该 Project 内的会话都默认在该目录读写文件，并能用 <code>@文件名</code> 跨会话引用前面产出的文档。</li>
+</ul>
+<p><strong>工程含义</strong>：这把 Agent 的"工作记忆"显式映射到了文件系统。这是 Claude Code 的设计哲学，但 Codex 把它包装成普通用户也能理解的"项目+聊天"模型。</p>
+<hr />
+<h3 id="能力-2persistent-memory持久化记忆">能力 2：Persistent Memory（持久化记忆）</h3>
+<p>Codex 区分两类记忆：</p>
+<p>| 类型 | 文件 | 谁来写 | 用途 |<br />
+| --- | --- | --- | --- |<br />
+| <strong>手动记忆</strong> | <code>AGENTS.md</code> | 你（或你让 Agent 写） | 你显式希望 Agent 长期遵守的偏好、规范 |<br />
+| <strong>自动记忆</strong> | <code>~/.codex/memories/</code> 下的文件 | Agent 自己维护 | Agent 对你工作模式的观察 |</p>
+<p>作者的实操建议很务实：</p>
+<ul>
+<li>想固化一个偏好（如"以后做 landing page 都用左侧目录布局"），直接对 Agent 说"请记住"，它会把这条写进 <code>AGENTS.md</code>。</li>
+<li><strong>不要手动改自动记忆文件</strong>，让 Agent 自己维护即可，定期阅读它能反向了解 Agent 对你的画像。</li>
+</ul>
+<p>这本质上是 Cursor / Claude Code 早已采用的 <code>AGENTS.md / CLAUDE.md</code> 规范，OpenAI 在 Codex 中做了产品化。</p>
+<hr />
+<h3 id="能力-3plugins插件-外部连接">能力 3：Plugins（插件 / 外部连接）</h3>
+<p>Plugins 是 Codex 与外部 SaaS（Slack、Gmail、Notion 等，作者说当前已超过 100 个）打通的连接层，相当于 MCP / Connectors 的产品化封装。</p>
+<p><strong>演示场景</strong>：</p>
+<ol>
+<li>装好 Gmail 插件后，让 Agent "翻过去两周邮件，找出所有想找我做付费推广的品牌方，做调研后输出表格"——5 分钟左右产出一份带研究备注的品牌方清单。</li>
+<li>装好 Notion 插件后，让 Agent 从用户的 Notion 中读取以往的高质量长视频脚本，<strong>学习作者的写作语气</strong>，再为新主题生成一份"听起来就是作者本人写的"草稿。</li>
+</ol>
+<p>调用方式上，输入 <code>@</code> 即可弹出插件菜单，体验对标 Cursor 的 <code>@</code> 选择器。</p>
+<hr />
+<h3 id="能力-4skills技能-可复用-sop">能力 4：Skills（技能 / 可复用 SOP）</h3>
+<p>作者把 Skills 描述为"reusable workflow recipes / SOP"——一份让 Agent 每次遵循的指令文件。它们存放在 <code>plugins/skills/</code> 下，调用方式是 <code>/skill_name</code>。</p>
+<p><strong>两种创建方式</strong>：</p>
+<ol>
+<li><strong>Prompt-to-Skill（直接生成）</strong>：一句话"创建一个叫 X 的 skill，做 Y"。简单，但作者认为效果一般。</li>
+<li><strong>手工迭代后反向萃取（推荐）</strong>：先和 Agent 来回打磨，直到产出真的让你满意，再说"我对这个结果满意，请把它沉淀为一个 skill"。Agent 会回看完整对话，把你认可的工作流写成 <code>SKILL.md</code>。</li>
+</ol>
+<p><strong>进一步的关键洞察</strong>（作者明确提到）：</p>
+<blockquote>
+<p>每一次使用旧 skill，都是迭代它的机会——发现新亮点直接说"以后都这样做"，让 Agent 更新 skill 文件。</p>
+</blockquote>
+<p>这把 skill 当作"活文档"，而不是一次性 prompt。这一思路与 Anthropic 的 Skills 规范完全一致：Skills = 可演化的过程性知识。</p>
+<p><strong>Plugin vs Skill 的边界</strong>：</p>
+<ul>
+<li>Plugin = 与外部系统的"连接 + 工具"。</li>
+<li>Skill = 用这些工具做某件事的"流程指令"。</li>
+<li>一个 Skill 可以<strong>调用多个 Plugin</strong>（例如 brand-deal-researcher 内部调用 Gmail 插件）。</li>
+</ul>
+<hr />
+<h3 id="能力-5gpt-image-access原生图像生成">能力 5：GPT Image Access（原生图像生成）</h3>
+<p>Codex 内置了图像生成能力（GPT-image-2，当前 OpenAI 最强图像模型）。</p>
+<p><strong>演示</strong>：上传一张毛衣样图，让 Agent 生成 5 张不同人种模特、不同人数（1/1/1/3/5 人）穿着该毛衣的产品图。</p>
+<p>工程上值得注意：图像生成在 Codex 中以一个<strong>内置 skill (<code>image-gen</code>)</strong> 的形式存在，与第三方 skill 平起平坐。这意味着所有"内置能力"也用 Skills 这套抽象统一描述——这是一个干净的设计选择。</p>
+<hr />
+<h3 id="能力-6browser-computer-use浏览器与操作系统级控制">能力 6：Browser &amp; Computer Use（浏览器与操作系统级控制）</h3>
+<p>两个能力以 <strong>Plugin</strong> 形式提供：<code>@computer use</code> 与 <code>@browser use</code>。</p>
+<p><strong>Computer Use 演示</strong>：让 Agent 打开本机 Canva 客户端，新建演示文稿，把刚生成的 5 张产品图一图一页放进去。Agent 真实地接管鼠标、操作 Canva。</p>
+<p><strong>Browser Use 演示</strong>：把生成的 HTML 文件转成一个测验类小应用，然后让 Agent <strong>自己打开浏览器测试这个应用</strong>——点击 Start、答题、验证答案对错、检查侧边栏与滚动行为。这本质上是一个<strong>自动化 QA 闭环</strong>：Agent 既是开发者也是测试者。</p>
+<p>这是 Codex 最具颠覆性的能力：<strong>人机交互的三件套（键盘、鼠标、屏幕）正式被 Agent 接管</strong>，使任何能在 GUI 内完成的工作都进入 Agent 可达范围。</p>
+<hr />
+<h3 id="能力-7automations定时与触发式自动化">能力 7：Automations（定时与触发式自动化）</h3>
+<p>任何已经跑通的会话都可以"一句话变定时任务"：</p>
+<blockquote>
+<p>"请每周五早 9 点跑一次这个流程，并更新这张表。"</p>
+</blockquote>
+<p>Agent 会在 Automations 面板中创建一条记录，包含触发时间、所用 Skill、活动状态、上次运行时间等。</p>
+<p>这把前面六项能力闭合成一个完整的工作流系统：</p>
+<p><strong>Plugins（连接） → Skills（流程） → Automations（调度）</strong></p>
+<p>效果上等价于一个为个人量身定制的、由自然语言配置的 Zapier / n8n。</p>
+<hr />
+<h2 id="彩蛋chronicle环境感知记忆">彩蛋：Chronicle（环境感知记忆）</h2>
+<p>开启后，Codex 会<strong>持续对你的屏幕进行截图采样</strong>，并把这些视觉上下文喂给 Agent。</p>
+<p><strong>演示</strong>：作者没有上传任何文件，只说"用 Chronicle 看看我演示文稿里还该加些什么"，Agent 直接基于近期截图，列出了"Codex 超级应用地图"、"全控制环路图"、"prompt 文件示意"等具体补充建议。</p>
+<p>作者诚实指出：<strong>这功能略有侵入性</strong>（always-on 屏幕录制 → 截图）。但其价值也很明确——<strong>Agent 第一次拥有了"看到你正在做什么"的环境感知</strong>，这是从"被动响应 prompt"走向"主动协作"的关键技术原语。</p>
+<hr />
+<h2 id="整体框架的工程评价">整体框架的工程评价</h2>
+<p>把七大能力抽象一下，可以画出 Codex 的能力栈：</p>
+<pre><code>[Chronicle 环境感知]   ←— 视觉上下文输入        ↓[File System 全访问] + [Persistent Memory] ←— 持久状态层        ↓[Plugins 外部连接]   ←— 工具层（与 SaaS / 系统对接）        ↓[Skills 可复用流程]  ←— 程序化知识层（SOP）        ↓[Browser / Computer Use] ←— 执行层（GUI 级动作）        ↓[Automations 调度]    ←— 时间维度的触发器
+</code></pre>
+<p>这套结构与业内已经成型的 Agent 设计范式高度吻合（Claude Code、Cursor、Anthropic Skills、MCP 等），但 Codex 的差异在于：</p>
+<ol>
+<li><strong>统一的产品形态</strong>：把"开发者工具 + 知识工作工具"合并成一个 GUI App，非工程背景用户也能用。</li>
+<li><strong>以本地文件系统为真实状态</strong>：避免了云端沙盒带来的迁移成本和不可见性。</li>
+<li><strong>Skills + Plugins 双轴</strong>：清晰区分"做什么的流程"和"用什么去做"，这是 ChatGPT 早期 Custom GPT 体系所欠缺的。</li>
+<li><strong>Automations 把单次任务变成持续服务</strong>：从"AI 助手"过渡到"AI 员工"。</li>
+</ol>
+<hr />
+<h2 id="对个人团队工作流的实际启示">对个人/团队工作流的实际启示</h2>
+<ul>
+<li><strong>以项目文件夹为单位组织 Agent 工作</strong>：天然解决了"Agent 失忆"和"产出散落"两大痛点。</li>
+<li><strong>善用 AGENTS.md 把品味和规范固化</strong>：这是把个人偏好"编译"为 Agent 行为的最低成本路径。</li>
+<li><strong>Skill 不要一次写好，要在使用中演化</strong>：每一次"我希望以后都这样做"都是一次免费的 SOP 升级。</li>
+<li><strong>真正能放大杠杆的是 Automations</strong>：定时跑销售线索分析、邮件汇总、内容选题、对账等高频低价值工作，是个人 ROI 最高的切入点。</li>
+<li><strong>对 Chronicle 持谨慎态度</strong>：在涉及客户数据、机密文档的环境里启用前，先想清楚截图记录的合规边界。</li>
+</ul>
+<hr />
+<h2 id="一句话总结">一句话总结</h2>
+<p>这期视频的真正价值不止在于"教你 7 个功能"，是传递了一个判断：</p>
+<blockquote>
+<p><strong>OpenAI 把 Codex 定位为"通用知识工作 Agent 的桌面 OS"</strong>——本地文件是状态，AGENTS.md 是偏好，Plugins 是外设，Skills 是程序，Browser/Computer Use 是执行器，Automations 是 cron，Chronicle 是感知层。当这套抽象被普通用户接受时，AI 才真正从"对话框"走进了"工作台"。</p>
+</blockquote>
+<h2 id="相关资源推荐">相关资源推荐</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496882&amp;idx=1&amp;sn=3809729da1b43cfbf4791a3321715587&amp;scene=21#wechat_redirect">从 Claude Code 忠实用户到被说服切换到 Codex：一场 64 分钟的 OpenAI Codex 大师课</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496787&amp;idx=1&amp;sn=737e84fcc60df9e9da2f9f65f10ee543&amp;scene=21#wechat_redirect">OpenAI Codex 官方最佳实践和最新六大关键能力升级</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496683&amp;idx=1&amp;sn=11d899f9a7b8c75c8d0c93209bd2cc72&amp;scene=21#wechat_redirect">OpenAI Codex 核心成员访谈：Codex 团队如何用 Codex 做研发工作，对 AI Native 团队又有哪些重要启发？</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496549&amp;idx=1&amp;sn=e77c28290d2ca3204de3147522b71832&amp;scene=21#wechat_redirect">OpenAI Codex 最佳实践指南——8个步骤完整闭环、5个实操结论和7个典型误区</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwNDExODE4Nw==&amp;mid=2247496286&amp;idx=1&amp;sn=f13d286f81dce18060b566945fa064e7&amp;scene=21#wechat_redirect">OpenAI Codex 核心指令与配置速查表</a></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvid8FnwUQyq.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">Firecrawl：任意网页转干净 Markdown，AI 数据抓取神器，110000+ Star</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
