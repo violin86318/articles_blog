@@ -1,6 +1,6 @@
 import shutil
 from flask_frozen import Freezer
-from app import app, fetch_bitable_records, ARTICLE_IMAGE_DIR
+from app import app, ARTICLE_IMAGE_DIR, fetch_bitable_records
 
 # Force relative URLs so it works in GitHub Pages sub-directories
 app.config['FREEZER_RELATIVE_URLS'] = True
@@ -12,10 +12,15 @@ app.config['FREEZER_IGNORE_404_NOT_FOUND'] = True
 freezer = Freezer(app, with_no_argument_rules=False)
 
 
-def prime_assets():
-    # Ensure article content is fetched and localize markdown images before freezing
-    # so generated static assets (like article-image cache files) are present in scan.
-    fetch_bitable_records()
+def sync_frozen_assets():
+    # Even if static file discovery misses runtime generated images, copy them into build output.
+    source_dir = ARTICLE_IMAGE_DIR
+    destination_dir = app.root_path / 'build' / 'static' / 'article-images'
+    if source_dir.exists():
+        destination_dir.parent.mkdir(parents=True, exist_ok=True)
+        if destination_dir.exists():
+            shutil.rmtree(destination_dir)
+        shutil.copytree(source_dir, destination_dir)
 
 @freezer.register_generator
 def detail():
@@ -28,5 +33,5 @@ if __name__ == '__main__':
     if ARTICLE_IMAGE_DIR.exists():
         shutil.rmtree(ARTICLE_IMAGE_DIR)
     ARTICLE_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
-    prime_assets()
     freezer.freeze()
+    sync_frozen_assets()
