@@ -7,12 +7,13 @@ import hashlib
 from pathlib import Path
 from urllib.parse import urlparse, urlsplit, parse_qs
 import requests
-from flask import Flask, render_template, abort, url_for
+from flask import Flask, Response, abort, render_template, request, url_for
 from config import Config
 from cachetools import cached, TTLCache
 import markdown
 import markupsafe
 from markdown.extensions.toc import TocExtension, slugify_unicode
+from urllib.parse import quote
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -22,6 +23,8 @@ ARTICLE_IMAGE_DIR = STATIC_ROOT / 'article-images'
 
 # 缓存飞书 tenant_access_token (存活1小时)
 token_cache = TTLCache(maxsize=1, ttl=3600)
+IMAGE_PROXY_PATH = '/media/image-proxy'
+IMAGE_PLACEHOLDER_PREFIX = 'data:image/svg+xml'
 
 @cached(cache=token_cache)
 def get_tenant_access_token():
@@ -78,7 +81,39 @@ def flatten_toc_tokens(tokens):
     return toc
 
 
+def is_placeholder_image_url(url: str) -> bool:
+    return url.strip().lower().startswith(IMAGE_PLACEHOLDER_PREFIX)
+
+
+def build_proxy_image_url(url: str) -> str:
+    return f"{IMAGE_PROXY_PATH}?url={quote(url, safe='')}"
+
+
+def normalize_markdown_content(text: str) -> str:
+    if not text:
+        return ''
+
+    def _replace_image(match):
+        alt = (match.group('alt') or '').strip()
+        src = (match.group('src') or '').strip()
+
+        if not src:
+            return ''
+
+        if is_placeholder_image_url(src):
+            label = html.escape(alt or '图片')
+            return f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{label}\">{label}：来源内容未完整抓取</div>\n"
+
+        if src.startswith('http://') or src.startswith('https://'):
+            return f'![{alt}]({build_proxy_image_url(src)})'
+
+        return match.group(0)
+
+    return re.sub(r'!\[(?P<alt>[^\]]*)\]\((?P<src>[^)\n]+)\)', _replace_image, text)
+
+
 def render_markdown_content(text):
+    normalized_text = normalize_markdown_content(text or '')
     md = markdown.Markdown(
         extensions=[
             'fenced_code',
@@ -86,7 +121,7 @@ def render_markdown_content(text):
             TocExtension(slugify=slugify_unicode)
         ]
     )
-    rendered = md.convert(text or '')
+    rendered = md.convert(normalized_text)
     return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
 
 
@@ -586,6 +621,44 @@ def markdown_with_ids_filter(text):
         return ""
     rendered, _ = render_markdown_content(text)
     return markupsafe.Markup(rendered)
+
+
+@app.route('/media/image-proxy')
+def image_proxy():
+    image_url = (request.args.get('url') or '').strip()
+    if not image_url:
+        return Response('Missing image url', status=400, mimetype='text/plain')
+
+    if not (image_url.startswith('http://') or image_url.startswith('https://')):
+        return Response('Unsupported image url', status=400, mimetype='text/plain')
+
+    try:
+        response = requests.get(
+            image_url,
+            headers={
+                'User-Agent': 'Mozilla/5.0',
+                'Referer': 'https://mp.weixin.qq.com/'
+            },
+            timeout=15,
+            stream=True
+        )
+        response.raise_for_status()
+        content = response.content
+    except Exception as exc:
+        print(f"Error proxying image {image_url}: {exc}")
+        return Response('Failed to fetch image', status=502, mimetype='text/plain')
+
+    content_type = (response.headers.get('Content-Type') or '').lower()
+    if not content_type.startswith('image/'):
+        return Response('Invalid image content', status=415, mimetype='text/plain')
+
+    return Response(
+        content,
+        headers={
+            'Content-Type': content_type or 'image/octet-stream',
+            'Cache-Control': 'public, max-age=3600'
+        }
+    )
 
 
 @app.route('/')
