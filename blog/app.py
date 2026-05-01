@@ -48,6 +48,15 @@ SVG_FRAGMENT_PATTERNS = (
     "%3cpath",
     "%3crect",
 )
+SOURCE_URL_TRAILING_CHARS = '\'"`,，。；;）)]}>'
+MISSING_IMAGE_BLOCK_PATTERN = re.compile(
+    r'<div class="detail-image-missing"[^>]*>.*?</div>',
+    re.DOTALL,
+)
+MISSING_IMAGE_BLOCK_RUN_PATTERN = re.compile(
+    r'(?:\s*<div class="detail-image-missing"[^>]*>.*?</div>\s*){2,}',
+    re.DOTALL,
+)
 
 
 def normalize_image_url(raw_url):
@@ -63,6 +72,19 @@ def normalize_image_url(raw_url):
         url = url[1:-1].strip()
 
     return url.strip()
+
+
+def normalize_source_url(raw_url):
+    url = html.unescape(normalize_image_url(raw_url or ''))
+    if not url:
+        return ''
+
+    while url and url[-1] in SOURCE_URL_TRAILING_CHARS:
+        url = url[:-1]
+
+    if not url.startswith(('http://', 'https://')):
+        return ''
+    return url
 
 
 def is_svg_fragment_url(url):
@@ -248,7 +270,18 @@ def render_markdown_content(text):
         rendered,
         flags=re.IGNORECASE | re.DOTALL,
     )
+    rendered = MISSING_IMAGE_BLOCK_RUN_PATTERN.sub(_collapse_missing_image_blocks, rendered)
     return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
+
+
+def _collapse_missing_image_blocks(match):
+    block_count = len(MISSING_IMAGE_BLOCK_PATTERN.findall(match.group(0)))
+    return (
+        '\n'
+        f'<div class="detail-image-missing" role="note" aria-label="图片缺失提示">'
+        f'原文包含 {block_count} 张未完整抓取的图片，已合并省略'
+        f'</div>\n'
+    )
 
 
 def canonical_image_url(url):
@@ -455,11 +488,11 @@ def parse_source_link(value):
 
     markdown_link = SOURCE_LINK_PATTERN.search(text)
     if markdown_link:
-        return markdown_link.group(1).strip(), markdown_link.group(2).strip()
+        return markdown_link.group(1).strip(), normalize_source_url(markdown_link.group(2))
 
     plain_url = PLAIN_URL_PATTERN.search(text)
     if plain_url:
-        return '原文链接', plain_url.group(0).strip()
+        return '原文链接', normalize_source_url(plain_url.group(0))
 
     return text, ''
 
