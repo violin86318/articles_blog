@@ -11,6 +11,12 @@ app.config['FREEZER_IGNORE_404_NOT_FOUND'] = True
 # which are no-argument routes but are only valid when runtime query is provided.
 freezer = Freezer(app, with_no_argument_rules=False)
 
+
+def prime_assets():
+    # Ensure article content is fetched and localize markdown images before freezing
+    # so generated static assets (like article-image cache files) are present in scan.
+    fetch_bitable_records()
+
 @freezer.register_generator
 def detail():
     # Tell Freezer how to generate all dynamic article pages
@@ -22,4 +28,5 @@ if __name__ == '__main__':
     if ARTICLE_IMAGE_DIR.exists():
         shutil.rmtree(ARTICLE_IMAGE_DIR)
     ARTICLE_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    prime_assets()
     freezer.freeze()
