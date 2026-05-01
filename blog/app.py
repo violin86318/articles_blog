@@ -26,6 +26,63 @@ token_cache = TTLCache(maxsize=1, ttl=3600)
 IMAGE_PROXY_PATH = '/media/image-proxy'
 IMAGE_PLACEHOLDER_PREFIX = 'data:image/svg+xml'
 
+MARKDOWN_IMAGE_PATTERN = re.compile(
+    r'!\[(?P<alt>[^\]]*?)\]\(\s*(?P<src>[^)\n]+?)\s*(?:["\'].*?["\'])?\)',
+    re.DOTALL,
+)
+
+
+RAW_HTML_IMAGE_PATTERN = re.compile(
+    r'<img\b(?P<prefix>[^>]*?\bsrc\s*=\s*)(?P<quote>["\'])(?P<src>[^"\']+)(?P=quote)(?P<suffix>[^>]*?)>',
+    re.IGNORECASE | re.DOTALL,
+)
+
+
+SVG_FRAGMENT_PATTERNS = (
+    "fill='%23",
+    "fill=%23",
+    "%3csvg",
+    "%3c/g",
+    "%3c/rect",
+    "%3c/svg%3e",
+    "%3cpath",
+    "%3crect",
+)
+
+
+def normalize_image_url(raw_url):
+    if not raw_url:
+        return ''
+
+    url = (raw_url or '').strip()
+    if not url:
+        return ''
+
+    # strip Markdown helper wrappers
+    if len(url) >= 2 and ((url[0] == '"' and url[-1] == '"') or (url[0] == "'" and url[-1] == "'")):
+        url = url[1:-1].strip()
+
+    return url.strip()
+
+
+def is_svg_fragment_url(url):
+    if not url:
+        return False
+    lowered = url.lower().strip()
+    if lowered.startswith("data:image/svg+xml"):
+        return True
+    if lowered.startswith("fill='%23") or lowered.startswith("' fill='") or lowered.startswith("'%23"):
+        return True
+    if any(token in lowered for token in SVG_FRAGMENT_PATTERNS):
+        return True
+    return False
+
+
+def is_data_placeholder(url):
+    if is_placeholder_image_url(url):
+        return True
+    return is_svg_fragment_url(url)
+
 @cached(cache=token_cache)
 def get_tenant_access_token():
     if app.config['FEISHU_APP_ID'] == "***":
@@ -95,12 +152,12 @@ def normalize_markdown_content(text: str) -> str:
 
     def _replace_image(match):
         alt = (match.group('alt') or '').strip()
-        src = (match.group('src') or '').strip()
+        src = normalize_image_url(match.group('src'))
 
         if not src:
             return ''
 
-        if is_placeholder_image_url(src):
+        if is_data_placeholder(src):
             label = html.escape(alt or '图片')
             return f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{label}\">{label}：来源内容未完整抓取</div>\n"
 
@@ -116,7 +173,7 @@ def normalize_markdown_content(text: str) -> str:
 
         return match.group(0)
 
-    return re.sub(r'!\[(?P<alt>[^\]]*)\]\((?P<src>[^)\n]+)\)', _replace_image, text)
+    return MARKDOWN_IMAGE_PATTERN.sub(_replace_image, text)
 
 
 HTML_IMAGE_PATTERN = re.compile(
@@ -131,16 +188,16 @@ def normalize_html_content_images(text: str) -> str:
         return ''
 
     def _replace_html_image(match):
-        src = (match.group('src') or '').strip()
+        src = normalize_image_url(match.group('src'))
         attrs = (match.group('attrs') or '')
         after = (match.group('after') or '')
-        quote = (match.group('quote') or '"')
+        quote_char = (match.group('quote') or '"')
 
         alt_match = IMAGE_ALT_PATTERN.search(match.group(0))
         alt = (alt_match.group('alt') if alt_match else '图片') or '图片'
         safe_alt = html.escape(alt)
 
-        if is_placeholder_image_url(src):
+        if is_data_placeholder(src):
             return (
                 f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{safe_alt}\">"
                 f"{safe_alt}：来源内容未完整抓取</div>\n"
@@ -158,7 +215,7 @@ def normalize_html_content_images(text: str) -> str:
         if src.startswith('http://') or src.startswith('https://'):
             proxy_src = build_proxy_image_url(src)
             normalized_attrs = (
-                f"{attrs} src={quote}{proxy_src}{quote}"
+                f"{attrs} src={quote_char}{proxy_src}{quote_char}"
                 f"{after}"
             )
             return f"<img{normalized_attrs}>"
@@ -170,6 +227,12 @@ def normalize_html_content_images(text: str) -> str:
 
 def render_markdown_content(text):
     normalized_text = normalize_markdown_content(text or '')
+    normalized_text = re.sub(
+        r'^\s*[\'"]?\s*[^\n]*?(?:%3csvg|%3C/svg%3E|fill=\'%23|fill=%23)[^\n]*\)?\s*$',
+        '',
+        normalized_text,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
     md = markdown.Markdown(
         extensions=[
             'fenced_code',
@@ -179,6 +242,12 @@ def render_markdown_content(text):
     )
     rendered = md.convert(normalized_text)
     rendered = normalize_html_content_images(rendered)
+    rendered = re.sub(
+        r'<p>\s*[\'"]?\s*[^<]*?(?:%3csvg|%3C/svg%3E|fill=\'%23|fill=%23)[^<]*</p>\s*',
+        '',
+        rendered,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
     return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
 
 
@@ -213,12 +282,11 @@ def infer_image_extension(url, content_type=''):
 def should_localize_image(url):
     if not url:
         return False
-    if url.startswith('data:image/svg+xml'):
+    if is_data_placeholder(url):
         return False
     if not url.startswith(('http://', 'https://')):
         return False
-    host = urlparse(url).netloc.lower()
-    return host.endswith('qpic.cn') or host.endswith('qq.com') or 'wx_fmt=' in url
+    return True
 
 
 def download_article_image(url, article_id, image_index):
@@ -250,20 +318,41 @@ def localize_markdown_images(text, article_id):
     image_index = {'value': 0}
     localized = {}
 
-    def replace(match):
-        alt_text = match.group(1)
-        raw_url = match.group(2).strip()
-        if raw_url.startswith('data:image/svg+xml'):
-            return ''
+    def _missing_block(alt_text):
+        label = html.escape((alt_text or '图片').strip() or '图片')
+        return (
+            f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{label}\">"
+            f"{label}：来源内容未完整抓取</div>\n"
+        )
+
+    def _localize_once(url):
+        if url not in localized:
+            localized[url] = download_article_image(url, article_id, image_index['value'])
+            image_index['value'] += 1
+        return localized[url]
+
+    def replace_md(match):
+        alt_text = match.group('alt')
+        raw_url = normalize_image_url(match.group('src'))
+        if is_data_placeholder(raw_url):
+            return _missing_block(alt_text)
         if not should_localize_image(raw_url):
             return match.group(0)
-        canonical_url = canonical_image_url(raw_url)
-        if canonical_url not in localized:
-            localized[canonical_url] = download_article_image(canonical_url, article_id, image_index['value'])
-            image_index['value'] += 1
-        return f'![{alt_text}]({localized[canonical_url]})'
+        return f'![{alt_text}]({_localize_once(canonical_image_url(raw_url))})'
 
-    return MARKDOWN_IMAGE_PATTERN.sub(replace, text)
+    def replace_html(match):
+        alt_match = IMAGE_ALT_PATTERN.search(match.group(0))
+        alt_text = alt_match.group('alt') if alt_match else '图片'
+        raw_url = normalize_image_url(match.group('src'))
+        if is_data_placeholder(raw_url):
+            return _missing_block(alt_text)
+        if not should_localize_image(raw_url):
+            return match.group(0)
+        return match.group(0).replace(match.group('src'), _localize_once(canonical_image_url(raw_url)))
+
+    text = MARKDOWN_IMAGE_PATTERN.sub(replace_md, text)
+    text = RAW_HTML_IMAGE_PATTERN.sub(replace_html, text)
+    return text
 
 
 FAILED_GENERATION_MARKERS = (
@@ -287,7 +376,6 @@ PUBLISH_BLOCK_MARKERS = (
 LOW_SIGNAL_TITLES = {'无', '未命名', '无法提取标题'}
 SOURCE_LINK_PATTERN = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
 PLAIN_URL_PATTERN = re.compile(r'https?://\S+')
-MARKDOWN_IMAGE_PATTERN = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)')
 CATEGORY_ORDER = [
     'AI 工具',
     '自动化工作流',
