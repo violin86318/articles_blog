@@ -1,5 +1,6 @@
 import shutil
 from flask_frozen import Freezer
+from pathlib import Path
 from app import app, ARTICLE_IMAGE_DIR, fetch_bitable_records
 
 # Force relative URLs so it works in GitHub Pages sub-directories
@@ -15,12 +16,18 @@ freezer = Freezer(app, with_no_argument_rules=False)
 def sync_frozen_assets():
     # Even if static file discovery misses runtime generated images, copy them into build output.
     source_dir = ARTICLE_IMAGE_DIR
-    destination_dir = app.root_path / 'build' / 'static' / 'article-images'
+    root_path = Path(app.root_path)
+    destination_dir = root_path / 'build' / 'static' / 'article-images'
     if source_dir.exists():
         destination_dir.parent.mkdir(parents=True, exist_ok=True)
         if destination_dir.exists():
             shutil.rmtree(destination_dir)
         shutil.copytree(source_dir, destination_dir)
+
+@freezer.register_generator
+def index():
+    yield '/'
+
 
 @freezer.register_generator
 def detail():
