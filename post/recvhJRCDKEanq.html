@@ -227,7 +227,8 @@
 <p>V4 Pro 的输出价格，是 GPT-5.5 的 11.6%。</p>
 <p>V4 Flash 的输出价格，是 GPT-5.5 的 0.93%。</p>
 <p>按输出 token 算，Flash 比 GPT-5.5 便宜约 100 倍。</p>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>严格说还要看口径。按输入 token 算，Flash 比 GPT-5.5 便宜"只有"约 36 倍。但不管怎么比，这不是"便宜几倍"的量级。这是便宜一个到两个数量级。</p>
 <p>过去一年我已经习惯了"开源比闭源便宜几倍"的叙事。但"便宜一到两个数量级，而且能力离前沿不远"这种事，我还是第一次见。</p>
 <p>所以我打开 58 页技术报告的时候，心里真正的问题不是"V4 能不能打赢 Opus 4.7"，而是：它到底怎么做到的？</p>
@@ -266,7 +267,8 @@
 <p>最后账算下来是这样的：</p>
 <p>在 1M token 上下文下，V4 Pro 生成每个 token 需要的计算量只有上一代 V3.2 的 27%，KV cache 只有 10%。</p>
 <p>V4 Flash 更极致：计算量 10%，KV cache 7%。</p>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>这是什么意思？</p>
 <p>意思是长上下文里最贵的那两块成本——计算和显存——都被砍掉了八到九成。这不代表你的 API 账单会严格变成原来的十分之一，因为真实账单还和部署、批处理、其他优化有关。但它解释了为什么 DeepSeek 敢把 V4 的价格打到现在这个水平。</p>
 <p>这就是 V4 真正的赌注。</p>
@@ -295,7 +297,8 @@
 <p>它没有用一种注意力，而是同时用了两种，在不同的层里交替着用。</p>
 <p>第一种叫 CSA，Compressed Sparse Attention，压缩稀疏注意力。</p>
 <p>第二种叫 HCA，Heavily Compressed Attention，重压缩注意力。</p>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>我用一个画面来让你理解它俩的区别。</p>
 <p>假设你面前有一本 1000 页的书，你要在第 500 页写一个问题的答案，这个答案的线索可能散落在前面 499 页里。</p>
 <p>传统 attention 让你把前面 499 页每一个字都再读一遍。非常准，非常贵。</p>
@@ -404,7 +407,8 @@
 <p>磁盘 KV 缓存让 1M 上下文在有公共前缀的大量请求下变得真正经济。</p>
 <p>这些工程选择叠在一起，才是 V4 能把 1M 上下文价格打到 3.48 美元的底气。</p>
 <p>V4 的每一项技术创新背后，都蹲着一项工程创新。</p>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>这也是我在前面说的那句话：V4 不是一个模型，它是一整套围绕长上下文效率的工程栈。</p>
 <h2 id="_6"></h2>
 <p>六、后训练：先让专家专精，再把他们合成一个</p>
@@ -419,7 +423,8 @@
 <p>传统混合 RL 的做法大概是这样：你把不同能力（数学、代码、推理、指令遵循）的奖励信号混在一起，让一个模型同时学这些东西。</p>
 <p>好处是简单。坏处是不同能力会互相干扰。数学能力的优化方向可能把代码能力推偏。agent 的奖励信号可能让指令遵循变糟。</p>
 <p>V4 的做法是先分开，再合并。</p>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>第一步，分别训练多个专家模型。一个数学专家，一个代码专家，一个 agent 专家，一个指令遵循专家，等等。每个专家只干一件事，但要做到极致。流程是 SFT 打底，然后用 GRPO（DeepSeek 自家之前在 R1 里用过的 RL 算法）再往上推。</p>
 <p>第二步，用 OPD 把这些专家合并到一个模型里。</p>
 <p>OPD 怎么合并？学生模型（也就是最终要发布的 V4）自己生成回答。对学生生成的每一个 token，对应领域的专家老师给出自己的概率分布。学生要做的，是让自己的分布去对齐老师的分布。</p>
@@ -442,7 +447,8 @@
 <p>前面讲的都是 V4 怎么做到的。</p>
 <p>现在来看它做到了什么。</p>
 <p>价格先说。</p>
-<p><img alt="Image" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>V4 Pro 的输出价格是 GPT-5.5 的 11.6%，是 Opus 4.7 的 13.9%。</p>
 <p>V4 Flash 的输出价格是 GPT-5.5 的 0.93%，是 Opus 4.7 的 1.12%。</p>
 <p>过去一年大家已经习惯"开源便宜几倍"的叙事。V4 Flash 不是几倍，是约 100 倍。</p>
@@ -485,7 +491,8 @@
 <p>HLE（Humanity's Last Exam）：V4 Pro 37.7，Opus 4.6 是 40.0，Gemini 3.1 Pro 是 44.4。世界知识的深度，V4 还不是最强。</p>
 </li>
 </ul>
-<p><img alt="图片" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3" />)</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
 <p>如果你把这些数据铺在一张图上看，一个很清晰的模式会出现。</p>
 <p>V4 在"数学 + 代码 + 中文"这条轴上，已经站到了前沿闭源的同一高度。</p>
 <p>V4 在"长时程 agent + 真实代码库调试 + 长上下文检索质量 + 世界知识深度"这几条轴上，还差一截。</p>

@@ -405,4 +405,37 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
+    // ============================================
+    // Content Image Error Handling
+    // ============================================
+    const detailContent = document.querySelector('.detail-content');
+
+    function replaceWithMissingImage(image, reason) {
+        if (!image || !detailContent) return;
+        const holder = document.createElement('div');
+        holder.className = 'detail-image-missing';
+        holder.setAttribute('role', 'img');
+        const label = image.alt ? image.alt : '图片';
+        holder.textContent = `${label}：${reason}`;
+        image.replaceWith(holder);
+    }
+
+    if (detailContent) {
+        const images = detailContent.querySelectorAll('img');
+        images.forEach((image) => {
+            image.loading = 'lazy';
+            image.decoding = 'async';
+
+            const src = (image.getAttribute('src') || '').trim();
+            if (!src || src.startsWith('data:image/svg+xml')) {
+                replaceWithMissingImage(image, '来源内容未完整抓取');
+                return;
+            }
+
+            image.addEventListener('error', () => {
+                replaceWithMissingImage(image, '图片加载失败，已跳过');
+            });
+        });
+    }
+
 })();
