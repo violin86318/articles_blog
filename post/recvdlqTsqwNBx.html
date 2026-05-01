@@ -106,7 +106,7 @@
             
             <span class="topic-chip">长连接</span>
             
-            <span class="detail-reading-time">约 32 分钟阅读</span>
+            <span class="detail-reading-time">约 13 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -210,19 +210,19 @@
 <p>打开企业微信客户端，进入工作台，点「智能机器人」，再点「创建机器人」</p>
 <p>进入创建页面后，底部有一行小字：「如需使用自有系统获取成员与机器人的聊天并输出回复，可切换至 API 模式创建」。点「API 模式创建」</p>
 <div class="detail-image-missing" role="img" aria-label="切换到 API 模式创建">切换到 API 模式创建：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>切换到 API 模式创建</p>
 <p>连接方式选「使用长连接」。长连接的好处很实在：不需要域名，不需要公网 IP，本地电脑就能接收消息并返回结果</p>
 <p>选好之后，页面上会显示两个东西：<code>Bot ID</code> 和 <code>Secret</code>。把这两个值复制下来，后面要用</p>
 <div class="detail-image-missing" role="img" aria-label="获取 Bot ID 和 Secret">获取 Bot ID 和 Secret：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>获取 Bot ID 和 Secret</p>
 <h2 id="第二步安装企微插件关联-openclaw">第二步：安装企微插件，关联 OpenClaw</h2>
 <p>打开终端（macOS 上叫 Terminal，Windows 上叫命令提示符或 PowerShell），输入：<br />
 <code>openclaw plugins install @wecom/wecom-openclaw-plugin</code></p>
 <p>等它跑完，看到 <code>Installed plugin: openclaw-wecom</code> 和 <code>Restart the gateway to load plugins.</code> 就算装好了</p>
 <div class="detail-image-missing" role="img" aria-label="插件安装成功">插件安装成功：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>插件安装成功</p>
 <p>接着重启 OpenClaw：<br />
 <code>openclaw gateway start</code></p>
@@ -230,38 +230,38 @@
 <code>openclaw channels add</code></p>
 <p>终端会弹出一个列表，让你选 channel。往下翻，找到「企业微信（WeCom）」，选它</p>
 <div class="detail-image-missing" role="img" aria-label="选择企业微信渠道">选择企业微信渠道：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>选择企业微信渠道</p>
 <p>然后终端会依次让你输入两个东西：Bot ID 和 Secret。就把刚才从企微那边复制的值粘贴进去</p>
 <div class="detail-image-missing" role="img" aria-label="输入 Bot ID 和 Secret">输入 Bot ID 和 Secret：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>输入 Bot ID 和 Secret</p>
 <p>选完之后，选「Finished」</p>
 <div class="detail-image-missing" role="img" aria-label="选 Finished">选 Finished：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>选 Finished</p>
 <h2 id="第三步配对">第三步：配对</h2>
 <p>终端会问你配对方式，选「Pairing」</p>
 <div class="detail-image-missing" role="img" aria-label="选 Pairing">选 Pairing：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>选 Pairing</p>
 <p>配置完成后，终端会显示渠道配置成功</p>
 <div class="detail-image-missing" role="img" aria-label="配置成功">配置成功：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>配置成功</p>
 <p>现在回到企业微信。找到刚才创建的机器人，保存它，然后给它发一条消息，随便发个「你好」就行</p>
 <p>机器人会回复一段文字，里面有一个配对码（Pairing code），最后一行长这样：</p>
 <p><code>openclaw pairing approve openclaw-wecom ABFJ22X8</code></p>
 <div class="detail-image-missing" role="img" aria-label="企微中收到配对码">企微中收到配对码：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>企微中收到配对码</p>
 <p>把这行命令完整复制，粘贴到终端里，回车</p>
 <div class="detail-image-missing" role="img" aria-label="终端中完成配对">终端中完成配对：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>终端中完成配对</p>
 <p>配对完成。回到企微，再发一次「你好」，这次机器人会正常回复了</p>
 <div class="detail-image-missing" role="img" aria-label="正常对话">正常对话：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>正常对话</p>
 <p>到这里，基础的接入就全部跑通了</p>
 <h2 id="再往前走两步">再往前走两步</h2>
@@ -270,18 +270,18 @@
 <p>OpenClaw 可以通过 Webhook 直接往企微的智能表格里写数据。在智能表格中开启「接收外部数据」后，系统会生成一个唯一的 Webhook 地址，通过标准的 HTTP POST 请求就能新增或更新记录</p>
 <p>适用场景包括：外部系统数据自动同步、客户信息自动录入、工单状态自动更新等等</p>
 <div class="detail-image-missing" role="img" aria-label="智能表格 Webhook 适用场景">智能表格 Webhook 适用场景：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>智能表格 Webhook 适用场景</p>
 <p>详细配置可以参考企微开发者文档：接收外部数据到智能表格<code>https://developer.work.weixin.qq.com/document/path/101239</code></p>
 <p><strong>第二个，调用企微 API</strong></p>
 <p>如果想让 OpenClaw 做更多事情（比如创建文档、读写日程、管理通讯录），需要再多拿两个参数：企业 ID（corpid）和应用 Secret</p>
 <p>获取方式也简单。企业 ID 在管理后台的「我的企业」页面底部能看到</p>
 <div class="detail-image-missing" role="img" aria-label="获取企业 ID">获取企业 ID：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>获取企业 ID</p>
 <p>应用 Secret 在「应用管理」里，进入自建应用，点「查看」，Secret 会发到你的消息列表里</p>
 <div class="detail-image-missing" role="img" aria-label="获取应用 Secret">获取应用 Secret：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E "null")</p>
+
 <p>获取应用 Secret</p>
 <p>拿到这两个值之后，发给已经关联 OpenClaw 的机器人，它就能发起获取 access token 的请求，具体文档在这：<br />
 <code>https://developer.work.weixin.qq.com/document/path/91039</code></p>

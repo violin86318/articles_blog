@@ -106,7 +106,7 @@
             
             <span class="topic-chip">知识图谱</span>
             
-            <span class="detail-reading-time">约 26 分钟阅读</span>
+            <span class="detail-reading-time">约 18 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -177,12 +177,12 @@
 <p>如果你是在学习、研究某个领域，Karpathy 这套方案<strong>几乎可以原样复制</strong>。因为这就是大神自己最开始的应用场景。</p>
 <p>这套方案本身并不复杂，三层结构：<strong>Raw 层、Wiki 层，以及 Schema 层</strong>。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>硬讲这三层概念太过干巴，我直接从头跑个案例给大家看更直观。</p>
 <p>中间用到两个工具：Obsidian、Claude Code。这里默认大家都已经安装 Claude Code 并且会使用（也可以用你们常用的其它 AI 编程工具，如 Codex、Cursor、Qoder、Trae 等）。</p>
 <p>打开 Obsidian，点击【创建】，在指定文件夹下创建一个新的仓库。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>这就是你接下来的知识库大本营了，虽然现在还空空如也。没关系，继续下一步</p>
 <p>用 Claude Code 中打开刚才在 Obsidian 创建的文件夹，然后把 Karpathy 的 llm-wiki.md 链接丢给 Claude Code。</p>
 <pre><code>参考这份LLM-wiki指南,在当前项目创建相应知识库结构，目前知识库还没有raw 资料，后续补充:https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
@@ -190,7 +190,7 @@
 <p>注：对新手来说，最方便的方法是用 IDE 打开然后运行 Claude Code</p>
 <p>接着 Claude Code 就会根据 LLM-wiki 创建相应的知识库结构，首次创建的目录包括：<strong>raw、wiki、schema</strong> ，当然它们现在都还是空的。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>比如我最近要研究 harness engineering，就可以将自己找到的博客、论文等资料，都以 mardown 的格式丢到 raw 这个文件夹下。</p>
 <hr />
 <p>保存资料有个更方便的方法，就是用官方配套的 Obisidian Web Clipper，支持将你看到的好的文章、论文以及 YouTube 视频文稿，一键剪存到 Obisidian 中。</p>
@@ -203,7 +203,7 @@
 <pre><code>摄入 raw 文件夹新添加的文章
 </code></pre>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>AI 就会根据这些原始资料，自动生成系列 Markdown 文件，所有文件都放 wiki 这个文件夹下。</p>
 <p>文件的内容可能某个概念、人物、产品、专题、摘要、索引、操作历史等等，其中有三个很重要的文件，包括：</p>
 <ul>
@@ -219,17 +219,17 @@
 </ul>
 <p>所有文件并不是散乱的，彼此之间会用链接关联起来。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>这种关联在 IDE 中可能不够直观，</p>
 <p>但在 Obsidian 中，是这么一张知识图谱，你随时可以查看不同知识点、不同资料之间的关联。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>以上就是从 0 到 1 搭建 LLM-wiki ，并且完成初步内容摄取的全过程。</p>
 <p>但你以为 LLM-wiki 这就到头了，还没有。完整的 LLM-wiki 工作流还包括后续的 <strong>Query（查询）</strong>和 <strong>Lint（整理）</strong></p>
 <p><strong>Query</strong> 就是你有问题可以直接问 AI，AI 会去读相关页面，进行综合回答。回答得好，还可以把结论写回 wiki，也就是你的知识是越攒越厚的。</p>
 <p><strong>Lint</strong> 则是定期让 AI 检查一遍，看整个知识库有没有矛盾、有没有孤立页面、链接有没有断，保证你的知识库不会因为资料越多就越乱。</p>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>这就是 LLM-wiki 的完整工作流：从摄入到查询再到整理。</p>
 <p>这套方案之所以对学习研究这么好用，是因为它可以 <strong>持续积累、反复查阅、强调关联</strong>。</p>
 <p>你今天读一篇论文，下周读另一篇，两个月后突然发现——这两篇讲的是一个东西的不同侧面。</p>
@@ -254,7 +254,7 @@
 </li>
 </ul>
 <div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>如果我想让 AI 更好地理解我的思想和风格，应该喂给它的<strong>不是 Input，而是 Output</strong>。</p>
 <p>为什么？因为 Input 是别人的东西，Output 才是我的东西。AI 要学的是“我怎么想”，不是“我看了什么”。</p>
 <p>所以内容输出的场景下，我的 wiki 核心应该是<strong>基于 Output 的历史内容</strong>，而不是基于 Input 的原始资料。</p>

@@ -106,7 +106,7 @@
             
             <span class="topic-chip">CLI子进程</span>
             
-            <span class="detail-reading-time">约 51 分钟阅读</span>
+            <span class="detail-reading-time">约 48 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -277,7 +277,7 @@
 <p>不同方式发出的请求，指纹全不一样。用 Claude Code 命令行发的、用开发包发的、用第三方工具发的——Anthropic 一眼就能分辨。</p>
 <p><strong>指纹不同 = 有被检测的风险。</strong> 所以选中转方案时，指纹是否「正常」就成了最关键的考量。</p>
 <div class="detail-image-missing" role="img" aria-label="中转的本质：订阅复用">中转的本质：订阅复用：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>中转的本质：订阅复用</p>
 <hr />
 <h2 id="2-四条路该走哪条">2. 四条路，该走哪条</h2>
@@ -617,7 +617,7 @@
 <p>翔宇选方案 D 的理由就一个：<strong>指纹最干净</strong>。OpenClaw 需要的 System Prompt、Tool Calling、流式、多模态全部能覆盖，虽然不是原生实现，但够用。风险排序：D（指纹最干净）&gt; C（中危）&gt; B（中高危）&gt; A（高危）。</p>
 <p><strong>重要提醒</strong>：方案 A/B/C/D 都不在 Anthropic 官方授权范围内。Anthropic 的服务条款、速率策略、检测机制随时可能调整，任何中转方案都存在账号被限制或封禁的风险。翔宇在本地跑了两周没出问题，但这不代表方案本身没有风险——只是目前还没触发而已。账号风险自担，翔宇自己也做好了随时被封的心理准备。</p>
 <div class="detail-image-missing" role="img" aria-label="四条中转路线对比">四条中转路线对比：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>四条中转路线对比</p>
 <hr />
 <h2 id="3-cli-方案设计与实现">3. CLI 方案：设计与实现</h2>
@@ -678,7 +678,7 @@
 </blockquote>
 <p><strong>运维保障</strong>：Watchdog（看门狗）守护进程——服务异常崩溃自动重启，5 分钟内连续崩 5 次就停下排查，日志超 10MB 自动截断。翔宇的 Mac Mini 24 小时开机，配了 macOS 自带的开机自启，中转服务开机就跑。</p>
 <div class="detail-image-missing" role="img" aria-label="五层架构：每层只干一件事">五层架构：每层只干一件事：来源内容未完整抓取</div>
-<p>' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)</p>
+
 <p>五层架构：每层只干一件事</p>
 <hr />
 <h2 id="4-实战验证从启动到-openclaw-跑通">4. 实战验证：从启动到 OpenClaw 跑通</h2>
