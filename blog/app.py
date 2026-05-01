@@ -104,6 +104,13 @@ def normalize_markdown_content(text: str) -> str:
             label = html.escape(alt or '图片')
             return f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{label}\">{label}：来源内容未完整抓取</div>\n"
 
+        if src.startswith('/static/article-images/') or src.startswith('static/article-images/'):
+            local_path = src.split('?')[0].lstrip('/')
+            absolute_path = os.path.join(app.root_path, local_path)
+            if not os.path.isfile(absolute_path):
+                label = html.escape(alt or '图片')
+                return f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{label}\">{label}：本地图片缓存未找到</div>\n"
+
         if src.startswith('http://') or src.startswith('https://'):
             return f'![{alt}]({build_proxy_image_url(src)})'
 
