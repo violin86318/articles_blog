@@ -119,6 +119,55 @@ def normalize_markdown_content(text: str) -> str:
     return re.sub(r'!\[(?P<alt>[^\]]*)\]\((?P<src>[^)\n]+)\)', _replace_image, text)
 
 
+HTML_IMAGE_PATTERN = re.compile(
+    r'<img\b(?P<attrs>[^>]*?)\bsrc\s*=\s*(?P<quote>[\'"])(?P<src>.*?)(?P=quote)(?P<after>[^>]*)>',
+    re.IGNORECASE | re.DOTALL
+)
+IMAGE_ALT_PATTERN = re.compile(r'\balt\s*=\s*(["\'])(?P<alt>.*?)\1', re.IGNORECASE | re.DOTALL)
+
+
+def normalize_html_content_images(text: str) -> str:
+    if not text:
+        return ''
+
+    def _replace_html_image(match):
+        src = (match.group('src') or '').strip()
+        attrs = (match.group('attrs') or '')
+        after = (match.group('after') or '')
+        quote = (match.group('quote') or '"')
+
+        alt_match = IMAGE_ALT_PATTERN.search(match.group(0))
+        alt = (alt_match.group('alt') if alt_match else '图片') or '图片'
+        safe_alt = html.escape(alt)
+
+        if is_placeholder_image_url(src):
+            return (
+                f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{safe_alt}\">"
+                f"{safe_alt}：来源内容未完整抓取</div>\n"
+            )
+
+        if src.startswith('/static/article-images/') or src.startswith('static/article-images/'):
+            local_path = src.split('?')[0].lstrip('/')
+            absolute_path = os.path.join(app.root_path, local_path)
+            if not os.path.isfile(absolute_path):
+                return (
+                    f"\n<div class=\"detail-image-missing\" role=\"img\" aria-label=\"{safe_alt}\">"
+                    f"{safe_alt}：本地图片缓存未找到</div>\n"
+                )
+
+        if src.startswith('http://') or src.startswith('https://'):
+            proxy_src = build_proxy_image_url(src)
+            normalized_attrs = (
+                f"{attrs} src={quote}{proxy_src}{quote}"
+                f"{after}"
+            )
+            return f"<img{normalized_attrs}>"
+
+        return match.group(0)
+
+    return HTML_IMAGE_PATTERN.sub(_replace_html_image, text)
+
+
 def render_markdown_content(text):
     normalized_text = normalize_markdown_content(text or '')
     md = markdown.Markdown(
@@ -129,6 +178,7 @@ def render_markdown_content(text):
         ]
     )
     rendered = md.convert(normalized_text)
+    rendered = normalize_html_content_images(rendered)
     return rendered, flatten_toc_tokens(getattr(md, 'toc_tokens', []))
 
 
