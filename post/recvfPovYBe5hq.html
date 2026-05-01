@@ -128,7 +128,7 @@
             </div>
             
             
-            <a class="source-link" href="https://mp.weixin.qq.com/s/Y4Yq76zUyC8PZYBiye3HHQ&#39;," target="_blank" rel="noopener">
+            <a class="source-link" href="https://mp.weixin.qq.com/s/Y4Yq76zUyC8PZYBiye3HHQ" target="_blank" rel="noopener">
                 <span>查看原文</span>
                 <strong>原文链接</strong>
             </a>
@@ -213,73 +213,7 @@
 <li>Agentic Coding： 前端网页开发、复杂代码开发、终端操作与自动化任务能力提升</li>
 <li>100 万上下文窗口，以及提供了新的 API 参数 preserve_thinking，可在多轮对话中保留中间推理过程</li>
 </ul>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>摘自千问提供的 Benchmark 结果</p>
-<p>目前新模型已上架阿里云百炼。可直接接入 Claude Code、OpenClaw、Qwen Code 等编程助手使用。chat.qwen.ai 也可直接体验。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>Qwen3.6 的视觉推理一流，测了很多好玩 Case，使我的大脑旋转。</p>
-<h2 id="代码生成-demo">💻 代码生成 Demo</h2>
-<p>依旧从代码生成 Demo 效果看起，侧重观察单轮 Coding 生成质量，初步锚定模型水平。</p>
-<h3 id="case-1复杂网页文字特效">Case 1：复杂网页文字特效</h3>
-<p>Prompt 相同，分别用 Qwen3.6-Plus、Gemini 3.1 Pro、Claude Opus 4.6，一次指令跑出结果。</p>
-<p>为增加复杂度，要求模型在一次生成中，完成多项特效模式开发。</p>
-<p>Qwen3.6-Plus：</p>
-<p>Gemini 3.1 Pro：</p>
-<p>Claude Opus 4.6：</p>
-<p>Qwen 各项完成度均在线，文字链表现更佳；Opus 则在动画精细度上略占优势；Gemini表现较平。</p>
-<p>测试 Prompt 如下：</p>
-<pre><code>创建一个交互式网页项目：「TextPlayground - 文字特效实验场」页面顶部有 Tab 栏切换不同文字交互模式。页面展示一段英文文本，每个字母独立渲染为粒子。五个模式：1. 磁力场 — 按住鼠标，附近文字被排斥推开形成空洞，松开后缓慢回归原位2. 文字链 — 点击一个字母粘在鼠标上，拖动时相邻字母像锁链一样依次跟随3. 漩涡 — 按住鼠标，附近文字围绕鼠标旋转形成螺旋4. 追光 — 鼠标划过的文字发光放大，形成渐隐的亮带轨迹，不改变文字位置5. 拆字成灰 — 按住鼠标，附近的字母溶解为细小粒子飘散，松开后粒子重新聚合回字形视觉要求：- 背景浅色纸张质感- 动画流畅 60fps- 切换模式时文字平滑过渡回原位不使用任何第三方库，纯原生实现。项目结构和技术方案自主决定。
-</code></pre>
-<h3 id="case-23d-样板房">Case 2：3D 样板房</h3>
-<p>这个任务打算给模型上一下强度。若要完整完成，需要模型对 3D 开发、材质把控、真实样板房布局均有深入理解。</p>
-<p>Qwen3.6-Plus：</p>
-<p>Claude Opus 4.6：</p>
-<p>Gemini 3.1 Pro：</p>
-<p>该任务下，Claude 表现突出，但整体来说，对于当前模型来说均有较大挑战。各家在房间布局上均存在错位、假过道、错门现象。</p>
-<h2 id="依旧顶级的多模态推理">👀 依旧顶级的多模态推理</h2>
-<p>上代模型 Qwen3.5-Plus 在春节期间的多模态识别与推理能力，实测表现非常抢眼。持续观察多模态表现水平。</p>
-<h3 id="case-1找出图中全部不符合现实的地方">Case 1：找出图中全部不符合现实的地方</h3>
-<pre><code>仔细找全图中全部不符合现实的地方
-</code></pre>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>Qwen3.6-Plus</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>Gemini 3.1 Pro</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>相较而言，Qwen 总体胜出。</p>
-<p>从画面细致度观察来讲，Qwen 找出了更多直观的问题，保持 1 个数量的总正确数领先。而 Gemini 表现出略好的空间规律理解，能找出画面看起来正常但不符合规律的问题。</p>
-<h3 id="case-2地铁换乘路线推测">Case 2：地铁换乘路线推测</h3>
-<p>此题主要考察模型对复杂细节图片内容的识别与信息推理。</p>
-<p>问题 Prompt 如下：</p>
-<pre><code>从许村到南湖站最近的换乘路线是什么？不准联网，只能从我提供的图片进行推理
-</code></pre>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>Qwen 作答耗时不到 50s，答案正确无误，成功胜任视觉推理任务场景 ✅</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>对于复杂多细节图像的识别与理解能力突出。</p>
-<h2 id="agent-长程规划与执行">🦐 Agent 长程规划与执行</h2>
-<p>Qwen3.6-Plus 长程 Agentic 任务能力，较前代有一定提升。相较复杂长程任务，更擅长前端与指令明确的代码任务生成。</p>
-<h3 id="case-1通用联网任务">Case 1：通用联网任务</h3>
-<p>使用近日爆火的通用联网 Agent Skill 「Web-Access」（我做的），测试 Qwen3.6-Plus 在复杂网络环境的 Agent Loop 表现。</p>
-<p>直接给出并行调研指令：</p>
-<pre><code>帮我并行调研知乎、微博、B站的今日热榜内容，返回今日日报给我
-</code></pre>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>抓取三平台今日内容如下，并展现出模型自发对跨平台共性热点进行整合的智能行为。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 11 张未完整抓取的图片，已合并省略</div>
 <p>在任务过程中，可胜任指令遵循表现良好，最终其抓取内容经核实，内容数据均与实际情况一致。</p>
 <h3 id="case-2mac-桌宠开发">Case 2：Mac 桌宠开发</h3>
 <p>测试 Qwen3.6-Plus 在长程 Agentic Coding 能力，要求其根据已有角色资源，制作一只能在电脑桌面底部疯狂吃饭、拉 💩 的螃蟹桌宠（Btw，这只桌宠的角色资产也是用 Qwen3.6-Plus 画的）</p>

@@ -128,7 +128,7 @@
             </div>
             
             
-            <a class="source-link" href="https://mp.weixin.qq.com/s/sIrFvfb0H3n2dliyC-Xc2A&#39;," target="_blank" rel="noopener">
+            <a class="source-link" href="https://mp.weixin.qq.com/s/sIrFvfb0H3n2dliyC-Xc2A" target="_blank" rel="noopener">
                 <span>查看原文</span>
                 <strong>原文链接</strong>
             </a>
@@ -180,76 +180,7 @@
 <p>M2.7 的位置很微妙。</p>
 <p>Opus 4.7 不用质疑，是天花板，但价格大概是 M2.7 的 15 倍，复杂架构、跨文件重构这种活它最稳。</p>
 <p>DeepSeek V4 Pro 价格是 M2.7 的 3 倍左右，强推理、深度调试是它的强项。</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p>GLM-5.1 这一版主打长程任务稳定性，但价格比 M2.7 贵个 20% 左右。</p>
-<p>M2.7 自己就站在最便宜的旗舰档位上。</p>
-<p>再往下还有一堆 0.5 倍价格的小模型，但只能干玩具项目。</p>
-<p>我每天的工作有很多细碎的活，比如：</p>
-<ul>
-<li>
-<p>每日定时给我搜索网络上的播客、RSS 信息给我转成日报</p>
-</li>
-<li>
-<p>把一份 PDF 转成 PPT</p>
-</li>
-<li>
-<p>给文章配几张HTML 的逻辑图</p>
-</li>
-<li>
-<p>复刻一个网页原型</p>
-</li>
-<li>
-<p>画几个流程图</p>
-</li>
-</ul>
-<p>这些活的共同点是：<strong>Token 消耗多、任务定义清晰、链路不长、对工具调用稳定性要求高</strong>。</p>
-<p>这恰好是 M2.7 的舒适区，它的真实表现如何？</p>
-<p>可以看看下面这几个我这周真实跑过的case。</p>
-<p>02 用 M2.7 执行定时任务</p>
-<p>我把 M2.7 接入到了我的 openclaw，就可以在飞书里面主动收到 openclaw 发给我的消息。</p>
-<p>我做了几个定时执行的任务，每天有几次他会给我发我关注的博主的信息，我关注的 YouTube 的视频转成音频，我关注的一些话题，给我推送一些选题方案。</p>
-<p><strong>1 每天早上 RSS 总结</strong></p>
-<p>我用的是<code>rss-aggregator</code>（github.com/zephyrwang6/info-skill）这个 Skill，把订阅的博客和资讯源博主地址喂给它，定时每天跑三次，按主题归类，提炼出当天值得看的几条，自动推到飞书。</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p><strong>2 播客自动处理</strong></p>
-<p>我关注的 100 多个 YouTube 频道只要有更新，M2.7 就会给我挑选一个精品总结成文字发给我。</p>
-<p>它先用<code>youtube-feed</code>扫最近 48 小时的新视频，再用<code>youtube-transcript-cn</code>把字幕拉下来翻成中文，最后走<code>podcast-workflow</code>跑一遍摘要、金句提取，全部塞进飞书知识库。整个流程一条龙，我醒来直接看精华版，不用花 1 小时听原声。</p>
-<p>Skill 地址：github.com/zephyrwang6/info-skill</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p><strong>3 选题素材采集。</strong></p>
-<p>每天扫一遍 X、即刻、小红书的关键词，把跟我领域相关的爆款内容抓回来归档，顺手生成选题候选。</p>
-<p>我早上醒来，去扫一眼，有哪些值得研究的就深入去看。</p>
-<p>Skill 地址：github.com/zephyrwang6/info-skill</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p>这些任务以前都是"想做但懒得做"，现在 Agent 在那儿默默跑，每天早上打开飞书就有一沓干货等着我。</p>
-<p>Minimax 可以精准的调用工具搜索海内外信息，给到我总结分析。</p>
-<p>03 PDF 转可编辑的 PPT</p>
-<p>任务很简单，把一份图片型扫描财报 PDF，转成可编辑的 PPTX。</p>
-<p>我同时丢给了 DeepSeek V4 Pro 和 M2.7，两个都用到的 Minimax 官方 Office Skills（github.com/MiniMax-AI/skills）</p>
-<p>DS V4 Pro 的做法挺"聪明"的。它发现是图片型 PDF，没办法直接读文字，于是选了最省事的路径，把每页 PDF 截图，作为一张图片塞进 PPT。出来的 .pptx 能打开，看起来也像那么回事。</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p>但点进去一看，每页就是一张图。不能改字、不能调样式、不能复用模板。</p>
-<p>M2.7 先识别出这是图片型 PDF，主动调 OCR 把文字扣出来。然后分析了每页的版式，把内容按结构化方式重建成原生 PPT 形状。</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p>成品和我们手搓的 PPT 几乎无差，字能改、表能编辑、模板能套。</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<p>这个差距有意思的地方在于<strong>任务理解</strong>。</p>
-<p>DS V4 Pro 截图贴 PPT 这个方案技术上完全跑通。但它没理解我要的不是"一份长得像 PPT 的文件"，是"一份能编辑的 PPT"。</p>
-<p>M2.7 在动手前先想了一下，这个用户拿到 PPT 之后要干嘛？</p>
-<p>这种"想清楚再动手"的特质，在我后面几个 case 里反复出现。</p>
-<p>04 前端审美在线</p>
-<p>这是我敢用 Minimax M2.7 开发产品的最大原因，它设计的页面真的还挺不错的，可以看看下面这个效果：</p>
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
-<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
-
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 9 张未完整抓取的图片，已合并省略</div>
 <p>整个页面的字体是精心设计过的，页面也有动效。</p>
 <p>如果你想让模型产出的前端效果更好看，可以使用这个网站（motionsites.ai）提供的各种美观的前端样式，给到 Agent 参考执行。</p>
 <p>05 半小时长程任务</p>

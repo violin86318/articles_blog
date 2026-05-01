@@ -128,7 +128,7 @@
             </div>
             
             
-            <a class="source-link" href="https://mp.weixin.qq.com/s/rps5YVB6TchT9npAaIWKCw&#39;," target="_blank" rel="noopener">
+            <a class="source-link" href="https://mp.weixin.qq.com/s/rps5YVB6TchT9npAaIWKCw" target="_blank" rel="noopener">
                 <span>查看原文</span>
                 <strong>原文链接</strong>
             </a>
@@ -213,187 +213,12 @@
 <p>还能帮你自动在各大社交平台发布内容。包括打开社媒平台、填文案、传图片、自动发布，无需人为介入。</p>
 <p><img alt="Image" src="/static/article-images/recveHAdaQZqba-1-a16b51d1b4.webp" /></p>
 <p>更日常、真实的各类联网需求，都能处理：比如替你找剧集播放、查询美签预约系统（甚至可以直接帮你完成预约）</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>还能自动化 Web 测试；遇到部分人机验证，也能自动过。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>而且 Skill 内部设计了自动沉淀站点操作经验的机制，Agent 联网操作越用越顺。</p>
-<p>这些能力，都是 Agent 在这套 Skill 加持后的泛化表现，无需针对任何站点特化调优。</p>
-<p>Claude Code、Openclaw 等所有支持 skill 的 Agent 都可使用。</p>
-<p>请允许我向你介绍 ⬇️</p>
-<p>Web Access，我开发的 Agent SKill，自测最好用 Agent 通用联网方案。</p>
-<p>本文将向你分享 Skill 获取方法，顺便讲讲我的Skill 设计哲学 ➡️ 兼顾「只想上手即用」、「了解 Skill 设计方法」的朋友阅读。</p>
-<hr />
-<h2 id="起因agent-不是能联网吗为什么要加这个">起因：Agent 不是能联网吗，为什么要加这个？</h2>
-<p>想上手即用的可直接跳到下一节～</p>
-<p>我在做这套 Skill 之前，完整调研过 Claude Code、OpenClaw 的联网实现。</p>
-<p>Agent 们都有自己的联网工具，但着实不够好用：</p>
-<ul>
-<li>Claude Code：默认 Web Search 做搜索、 Web Fetch 读页面；装 Playwright、Chrome Devtool MCP 后也能控制浏览器。</li>
-<li>OpenClaw：同样提供 Search、fetch 的轻量 web 工具，遇到需登录/动态网站，能用 CDP 模式创建 Agent 专用浏览器。</li>
-</ul>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>前者 Claude Code 只提供工具，访问策略全靠模型判断。</p>
-<p>想法美好，现实骨感：模型太容易钻牛角尖了，一个“调研小红书中关于 XX 的风评”问题：</p>
-<ul>
-<li>要么拿着 Search 工具，换各种关键词在搜索引擎里请求非公开网页的信息</li>
-</ul>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<ul>
-<li>要么用 fetch 无能地请求需要登录、JS 密集的网站（根本加载不出来）</li>
-<li>要么得自行安装 Playwright、Agent Browser Cli，还免不了多次踩坑</li>
-</ul>
-<p>后者 OpenClaw，则依靠降级策略兜底：</p>
-<ul>
-<li>要么提供 CDP 模式，支持为 Agent 单独维持一个登录态 Profile，每个网站都需要重新为其登录，部分网站组件在 CDP 模式下也有无法加载的环境限制。</li>
-<li>要么多下载一个浏览器插件，使其能够直接操作用户浏览器。</li>
-</ul>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>而且，它们对 Agent 并发操作多个网页的支持都不算很好，还可能和你抢浏览器控制权（表现为刚开新浏览器的时候，弹出网页抢走屏幕焦点等）。</p>
-<p>我们也总希望 Agent 能在任务过程中，积累各站点的操作试错经验。</p>
-<p>可惜经验也无法高效地聚类积累：CC 跨会话记忆不积极，踩过的坑下次照踩；OpenClaw 的 Memory 理论上能记，但上下文占用太重，总结也不够精准。</p>
-<p>⬇️</p>
-<p>理想的 Agent 联网方案，应该能看清楚自己手里有几张牌：</p>
-<ol>
-<li>1.灵活分配搜索、静态读取、浏览器策略，遇到障碍能自己换工具，而不是在一条死路上反复撞。</li>
-<li>2.复用你已有的登录态，不为每个站点单独维护一套身份。</li>
-<li>3.强大的泛化能力，适应不同联网任务与目标站的操作、反爬要求。</li>
-<li>4.支持 Sub-Agent 分治、高并发跑海量网页。后台执行，互不干扰，不抢你的浏览器控制权。</li>
-<li>5.沉淀联网操作经验，下次访问同一个站点不用从头试错。</li>
-</ol>
-<p>Web Access Skill 完全解决了以上问题，正是我给这些问题的当前答案 ⬇️</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<hr />
-<h2 id="web-access-安装方法解锁-agent-完全联网能力">👉 Web Access 安装方法：解锁 Agent 完全联网能力</h2>
-<p>Web-access Skill，兼容 Claude Code、OpenClaw，以及任何支持 skill 的 Agent。</p>
-<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-
-<p>把下面这段话发给你的 Agent，就能完成安装：</p>
-<p>帮我安装 web-access skill，仓库地址是 https://github.com/eze-is/web-access。这个 skill 原为 Claude Code 设计，安装前请先理解其核心原理和工作逻辑，再结合你的 Agent 架构与电脑环境进行适配，使其真正融入当前环境，而非生硬移植。</p>
-<p>Agent 会自动下载、配置环境，完成安装。不需要你手动操作。</p>
-<p>为了确保浏览器操作的顺利，除了鼓励使用 Claude、Kimi K2.5 等大参数多模态 Agent 模型外，你还需要确认：</p>
-<ol>
-<li>1.【必须】安装 Chrome 浏览器并更新到最新版本</li>
-<li>2. Chrome 浏览器地址栏输入chrome://inspect/#remote-debugging，勾选Allow remote debugging for this browser instance</li>
-</ol>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>配置完成后，你只需要在 Agent 聊天窗口（CC、🦐 等都可以），</p>
-<p>输入“遵循 web-access skill”手动要求 Agent 参考；或直接输入你想做的联网相关的事情：</p>
-<ul>
-<li>搜索信息、查看网页内容：“帮我查 xx”</li>
-<li>操作网页界面（填表、点击、上传）：“打开 xx”</li>
-<li>抓取、发布某博、某 X 等社交平台内容：“帮我在xx 平台写 xx”</li>
-<li>以及读取动态渲染页面、任何需要浏览器的网络任务</li>
-</ul>
-<p>当 Agent 接到指令后，会在 Chrome 上弹出一个提示，同意的话，点击允许就好：</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>比如「调研小红书上 qwen、minimax、glm的风评」：</p>
-<p>Agent 自动加载 Skill，多开 Agent，免登进入小红书，并行调研数十个网页内容（支持文字直接阅读与截图多模态识别）</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>并且，在执行任务时，可自动沉淀常用网站的操作经验，可以显著提升后续执行效率（约节省 90% 的时间）</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>对了，如需最佳体验，强烈建议关闭多余的浏览器 MCP 服务，如 Chrome Devtools、Playwright MCP，避免模型在工具中左右互搏。</p>
-<hr />
-<h2 id="这个-skill-是如何做到的">这个 Skill 是如何做到的？</h2>
-<p>不需要看 Skill 设计原理的，可以直接滑到文末，有件很好玩的事分享给你。</p>
-<p>此为简介版，完整 Agent Skill 进阶设计经验，将会在后续「见知录」系列中重新整理解析，欢迎关注。</p>
-<p>不要小看 Skill 与 Prompt 的设计。Skill 的底层实现原理导致：</p>
-<ul>
-<li>针对固定任务，它可以是很具体的工作流经验「收集 XX 信息，汇总为 XX 报告」 </li>
-<li>面向通用场景，也可以视作 Agent 框架 system prompt 一部分，统筹某个原子化能力（虽然不如 agent 框架改造彻底）。 </li>
-</ul>
-<p>联网，是一种典型的通用场景：</p>
-<p>你让人类同事去查信息，不会告诉他「用搜索引擎还是打开浏览器」—— 你只说「上网帮我查一查 XX」。</p>
-<p>人类会自然地根据联网任务的刻板印象，盘点自己有的联网方法（搜索引擎、站内搜索、阅读网页、点击交互、而且能并行开多个 tab 操作网页），初步计划自己的第一步操作：</p>
-<ul>
-<li>阿里云某云服务定价：搜索引擎关键词“阿里云 某某云服务”，找到官网对应页面（因为比直接上官网顺手）</li>
-<li>小红书博主的更新情况：直接打开小红书，搜索该博主名称</li>
-<li>发布社媒帖子：打开站点，登录账号，直接创建帖子并发布</li>
-</ul>
-<p>我们在行动反馈中，实时调整自己的查询方法。不同的方法往往联用在一起，你很难说哪个行为可以完全孤立。</p>
-<p>而第一步计划离不开刻板印象的作用，虽不准确，但足以作为执行验证的第一步。再结合后续「验证-校准计划」的 Action Loop，在不断「尝试」中结束任务。</p>
-<p>BTW：此前 CC 和 🦐 在联网任务中，表现「一条道走到黑」、「并行能力差」等行为，往往源自没有像人类一样思考规划任务，或没有充足好用的基础工具。</p>
-<p>接下来正式分享 Web Access Skill 中精妙之处：</p>
-<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
-
-<hr />
-<h3 id="1skill-的哲学式设计">1）Skill 的哲学式设计</h3>
-<p>我尝试提出一个 Skill 设计理念：</p>
-<p>激发模型能力上限的 Skill = Agent 策略哲学 + 最小完备工具集 + 必要的事实说明</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>具体点解释：通用场景的 Agent Skill 或 Prompt，需避免过度指定 Agent「该怎么做」。</p>
-<p>更侧重重新校准模型在对应场景的「策略哲学」、补充 Agent 缺少的「基础工具」、提前强调模型显然未必记得的「事实说明」。</p>
-<p>Web-access 正是按这个思路，精细雕琢了联网场景的浏览哲学。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>模型的思考是上下文的惯性衔接。而模型容易陷入「刻板印象」，在复杂任务中做「惯性不思考」：</p>
-<ul>
-<li>联网查数据？那必然用 Web Search 工具啊</li>
-<li>网上搜到这么多个站点都这么写？那肯定就是事实啊</li>
-<li>网站用 fetch 加载不出来？肯定是网站挂了啊</li>
-</ul>
-<p>⬇️</p>
-<p>我们苦模型惯性久矣。</p>
-<p>为了对抗模型的显式惯性，我自己的方法是：在 Skill 中，为模型提供闭合、高度抽象的思考策略哲学。</p>
-<p>Web Access Skill 里定义了一个四步循环：</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>① 拿到任务，先定义成功标准：什么算完成了？拿到什么信息、执行什么操作、达到什么结果？这是后续所有判断的锚点。</p>
-<p>② 选一个最可能直达的方式作为起点去验证，比如已知涉及需要登录态、反爬的平台，直接进浏览器，不在静态工具（Search、Fetch、Curl）上浪费时间。</p>
-<p>③ 过程校验：每一步的结果都是证据，不只是「成功 / 失败」的二元信号。搜索没命中，不一定是关键词不对，也可能是目标本身不存在。页面缺少预期元素、重试无改善，都是在告诉你该换方向了。遇到弹窗和登录墙，先判断它是否真的挡住了目标内容——内容可能已经在 DOM 里，交互只是展示手段。</p>
-<p>④ 对照成功标准，确认任务完成后停止。不过度操作与纠结。</p>
-<p>这部分浏览哲学，没有写任何具体操作路径，只是把「怎么思考联网任务」描述清楚了。Agent 理解了这个框架，遇到没见过的网页、任务也能给出更好的策略。</p>
-<hr />
-<h3 id="2提供工具的最小完备集">2）提供工具的最小完备集</h3>
-<p>通用场景的灵活处理能力，建立在给 Agent 提供工具的最小完备集之上。</p>
-<p>大部分 Agent 框架都有一些联网工具，但整合得不够全面，可能缺少某些原子化能力。Skill 做的事，是把联网场景需要的工具整合到位，并清晰描述每个工具的能力边界。</p>
-<p>人类上网其实就三种行为：搜（找到信息在哪）、看（看到内容）、做（在页面上执行操作）。覆盖这三种行为，就构成了联网工具的最小完备集。</p>
-<p>对应到 Agent，则需要这些具体工具：</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<ul>
-<li>搜 → Search，搜索摘要、发现信息来源</li>
-<li>看 → Fetch / curl（公开页面 AI 提取 / 全文读取）或 浏览器打开（需登录、动态渲染的页面）</li>
-<li>做 → 浏览器自动化，点击、填表、上传等交互操作</li>
-</ul>
-<p>Skill 里用一张工具能力说明表，把这些工具的基础差异说清楚，为模型在不同任务中规划使用，提供参考基础：</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<p>出于节省 token 考虑，还选择了 Jina 作为一个可选中间层，可以和 WebFetch、Curl 组合使用，能把网页正文预先转成干净的 Markdown 再读，大幅节省 token 消耗。</p>
-<p>适合文章、博客、文档类页面，鼓励模型在合适时积极使用。</p>
-<p>关于浏览器为什么选 Chrome 自带 CDP：早期测试了 web-access 基于 Agent Browser 多开不同 CDP 端口方案，并行效果不错，需要多开浏览器窗口，而非单窗口多 Tab，体验不佳。</p>
-<p>刚好 Chrome 发布了原生 remote debugging 能力，测试发现原生 WebSocket 交互方式能更好地规避大部分网站的反爬识别，而且天然支持单个浏览器内多 tab 并行后台操作，直连用户日常 Chrome，天然携带登录态。——于是迁移到了 CDP。</p>
-<p>当然，完整的 skill 里面不止这些，还会包含如何检测 CDP 模式的连接状态、通过 WS 协议操作浏览器等说明（因为这些在原先 Agent 框架中未被提及）。</p>
-<p>建议尽可能只向模型交代基础说明，不做过多策略引导。</p>
-<p>附：为什么不走 Agent Reach 的路线？</p>
-<p>Agent Reach 这类方案是为每个网站单独写一套抓取方法。对支持的站点快且稳，但覆盖有限，对于有特定需求的用户效果也不错。</p>
-<p>Web-Access 选的是更加通用的联网方案：任何你能打开的网站 Agent 都能用，不依赖预设方法，更侧重激发 Agent Native 能力，覆盖面几乎没有上限。这是有意为之的取舍。</p>
-<hr />
-<h3 id="3补充必要的事实说明">3）补充必要的事实说明</h3>
-<p>诚然，模型近乎知道所有知识，但并非所有知识都能在任务中，第一时间被调用。导致任务执行不及预期效率，或带来不希望的风险。</p>
-<p>所以需要强调任务涉及到的「惰性知识」。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 19 张未完整抓取的图片，已合并省略</div>
 <p>篇幅有限，我挑选了部分设计，向你阐明在 Skill Prompt 中的差异：</p>
 <p>1）验证惰性知识边界，补充事实说明：</p>
 <p>模型在任务中，有很多未必快速记得的「事实、方法（惰性知识）」。</p>
 <p>在 Skill 设计中，需要找到容易重复遗忘的边界，针对必要的信息，在 Skill 中直接补充。</p>
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
-<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
-
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 2 张未完整抓取的图片，已合并省略</div>
 <p>以及一些特定的边界事实情况：</p>
 <div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
 
