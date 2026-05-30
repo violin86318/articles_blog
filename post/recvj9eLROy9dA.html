@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我把 10 大 AI 编程工具翻成了中文教程，588 篇免费，尽快收藏！ — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI编程</span>
+            
+            
+            <span class="topic-chip">Cursor</span>
+            
+            <span class="topic-chip">AI编程工具</span>
+            
+            <span class="topic-chip">中文教程</span>
+            
+            <span class="topic-chip">免费资源</span>
+            
+            <span class="topic-chip">在线学习</span>
+            
+            <span class="topic-chip">编程助手</span>
+            
+            <span class="detail-reading-time">约 48 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">我把 10 大 AI 编程工具翻成了中文教程，588 篇免费，尽快收藏！</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>我把 10 个主流 AI 编程工具的官方文档、源码、发布记录全部嚼碎，翻译并重新组织成 588 篇中文手册，免费开放给所有人在线阅读。 在 AI 时代，搬运官方文档已经没有溢价——机器一秒钟就能干完。真正值钱的是判断密度 事实层像产品说明书，冷冰冰告诉你按钮怎么按。解读层像老用户坐你客厅聊了半小时</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>翔宇创建了免费在线阅读站aiworkflowtutorials.com，提供10大AI编程工具的588篇中文教程。站点采用“事实层+解读层”两层架构，帮助用户高效学习，并附有20条风格指令供个性化学习。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/STa8Aayl1MzF0XDYO3GOBA" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>这篇文章详细介绍了翔宇创建的AI编程工具中文教程站，内容全面且实用。站点不仅翻译官方文档，还融入作者的实际经验与判断，帮助用户避开学习陷阱。附带的20条风格指令让学习更个性化，是AI编程入门者的优质资源。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#我把-10-大-ai-编程工具翻成了中文教程588-篇免费尽快收藏" class="toc-link">我把 10 大 AI 编程工具翻成了中文教程，588 篇免费，尽快收藏！</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#这篇文章讲-4-件事" class="toc-link">这篇文章讲 4 件事</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#1-这个教程站是什么第一版正在逐步完善" class="toc-link">1. 这个教程站是什么：第一版，正在逐步完善</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#2-公开站里装了什么10-大工具-588-篇文档清单" class="toc-link">2. 公开站里装了什么：10 大工具 588 篇文档清单</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#3-站点的灵魂事实层-解读层两层架构" class="toc-link">3. 站点的灵魂：「事实层 + 解读层」两层架构</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#4-怎么用千万别当教材读" class="toc-link">4. 怎么用：千万别当教材读</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第一步-把站当素材库让-ai-用你喜欢的讲解风格讲给你听" class="toc-link">第一步 · 把站当素材库：让 AI 用你喜欢的讲解风格讲给你听</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#通用骨架先复制这一段再贴下面任一风格指令" class="toc-link">🔧 通用骨架（先复制这一段，再贴下面任一风格指令）</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#20-条风格指令任挑一条贴到上面骨架的风格指令位置" class="toc-link">🎭 20 条风格指令（任挑一条贴到上面骨架的「风格指令」位置）</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第二步-把它当字典随用随查" class="toc-link">第二步 · 把它当字典：随用随查</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#写在最后ai-时代最值钱的一次姿势调整是从员工变老板" class="toc-link">写在最后：AI 时代，最值钱的一次姿势调整是「从员工变老板」</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="我把-10-大-ai-编程工具翻成了中文教程588-篇免费尽快收藏">我把 10 大 AI 编程工具翻成了中文教程，588 篇免费，尽快收藏！</h1>
+<p><strong>翔宇工作流第37期：Agent 教程</strong><img alt="图片" src="/static/article-images/recvj9eLROy9dA-0-59a63df43c.webp" /></p>
+<p>「AI 编程到底去哪学？」</p>
+<p>翔宇过去一年被问过不下一百次。每次问题背后的画面都差不多——</p>
+<p>你想入门 Claude Code 或 Cursor，中文资料其实不难找，<strong>难的是搜完之后还是不知道</strong>：它到底是什么？跟同类比强在哪、弱在哪？哪些功能新手该先用、哪些先放一放？</p>
+<p>读完一堆，你依然不确定该先敲哪行命令、配哪个文件。</p>
+<p>你叹了口气，告诉自己「明天再说」。</p>
+<p>所以翔宇干脆自己动手，做了一个<strong>免费在线阅读站</strong>：</p>
+<p>🔗 <strong>aiworkflowtutorials.com</strong></p>
+<p><strong>不需要下载、不需要注册账号</strong>——直接在浏览器打开，就是中文版的 AI 编程工具大全。</p>
+<p>我把 10 个主流 AI 编程工具的官方文档、源码、发布记录全部嚼碎，翻译并重新组织成 588 篇中文手册，免费开放给所有人在线阅读。</p>
+<p>这篇，就是这份基础设施的「食用指南」。</p>
+<hr />
+<h2 id="这篇文章讲-4-件事">这篇文章讲 4 件事</h2>
+<ol>
+<li>
+<p>为什么中文圈的 AI 编程教程这么难找？</p>
+</li>
+<li>
+<p>公开站里装了什么：10 大工具 588 篇文档清单</p>
+</li>
+<li>
+<p>站点的灵魂：「事实层 + 解读层」两层架构</p>
+</li>
+<li>
+<p>怎么用：把站当素材库，让 AI 按你喜欢的讲解风格讲给你听（附 20 条提示词）</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>💡 要点速览</strong></p>
+<ol>
+<li>
+<p>它是<strong>免费在线阅读站</strong>，浏览器直接打开就能看。</p>
+</li>
+<li>
+<p>站点覆盖 Cursor、Claude Code、Codex、GitHub Copilot 等 10 大工具的 588 篇中文文档。</p>
+</li>
+<li>
+<p>文末有 20 条提示词，复制一条扔给 AI，让它按你喜欢的讲解风格把任意概念讲透。<br />
+</p>
+</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="1-这个教程站是什么第一版正在逐步完善">1. 这个教程站是什么：第一版，正在逐步完善</h2>
+<p>aiworkflowtutorials.com 只做一件事——<strong>把主流 AI 编程工具的官方文档，翻成可信赖的中文版本</strong>。</p>
+<p>它的组织方式很简单：</p>
+<ol>
+<li>
+<p><strong>10 个工具，一个栏目一个</strong>：Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot、Antigravity、Windsurf、OpenClaw、OpenCode、Hermes——每个都是独立栏目，点进去就能读</p>
+</li>
+<li>
+<p><strong>每个工具下两个子目录</strong>：「事实层」给你<strong>查</strong>（官方原文怎么说），「解读层」给你<strong>想清楚</strong>（翔宇的判断与踩坑）——具体见下一节</p>
+</li>
+</ol>
+<p>这是站点的<strong>第一版</strong>——10 工具 588 篇，每篇底部附官方原文链接和最后核对日期。</p>
+<p>后续两条线持续完善：<strong>翔宇会根据官方的新内容逐步更新进站里；翔宇自己实际用到的工具，再补上踩坑和判断</strong>——内容不会停在第一版。</p>
+<blockquote>
+<p><strong>★ 翔宇的判断</strong></p>
+<p>在 AI 时代，搬运官方文档已经没有溢价——机器一秒钟就能干完。</p>
+<p>真正值钱的是<strong>判断密度</strong>：<strong>「这个工具我自己用了一年，下面这 5 个高级功能你新手期可以先放一放，主力盯前面 3 个就够。」</strong>——这种话机器说不出来，必须由每天真实在用的人沉淀下来。</p>
+</blockquote>
+<hr />
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<h2 id="2-公开站里装了什么10-大工具-588-篇文档清单">2. 公开站里装了什么：10 大工具 588 篇文档清单</h2>
+<p>aiworkflowtutorials.com 不是大杂烩博客，<strong>它是单作者控制、按工具体系组织的中文手册库</strong>。</p>
+<p>目前在线开放的清单：</p>
+<ul>
+<li>
+<p><strong>Claude Code（32 篇）</strong> —— Anthropic 官方终端 coding agent，干活很干脆</p>
+</li>
+<li>
+<p><strong>OpenAI Codex（149 篇）</strong> —— OpenAI 自家产物，4 个入口全覆盖</p>
+</li>
+<li>
+<p><strong>Cursor（98 篇）</strong> —— 目前流行度很高的 AI 原生代码编辑器</p>
+</li>
+<li>
+<p><strong>GitHub Copilot（70 篇）</strong> —— 老大哥的全面进化，从补全到 Agent</p>
+</li>
+<li>
+<p><strong>Gemini CLI（91 篇）</strong> —— Google 系终端 Agent</p>
+</li>
+<li>
+<p><strong>Windsurf（19 篇）</strong> —— Cognition 出品，Cursor 的有力对手</p>
+</li>
+<li>
+<p><strong>Google Antigravity（40 篇）</strong> —— Google 的 agentic 开发平台</p>
+</li>
+<li>
+<p><strong>OpenCode（44 篇）</strong> —— 开源 coding agent，多模型自由切换</p>
+</li>
+<li>
+<p><strong>Hermes Agent（20 篇）</strong> —— Nous Research 的 Agent 框架</p>
+</li>
+<li>
+<p><strong>小龙虾 OpenClaw（25 篇）</strong> —— Multi-Agent 协作框架</p>
+</li>
+</ul>
+<p><strong>588 篇</strong>，<strong>免费</strong>，<strong>点开即看</strong>。</p>
+<hr />
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<h2 id="3-站点的灵魂事实层-解读层两层架构">3. 站点的灵魂：「事实层 + 解读层」两层架构</h2>
+<p>走进任何一个工具栏目，你只会看到两个固定的子目录——<strong>事实层</strong>和<strong>解读层</strong>。</p>
+<p><strong>第一层：事实层</strong></p>
+<p>给你<strong>查</strong>的。把官方文档里跟「能不能用起来」相关的部分重新翻译重组，强调保真。每篇底部都有「最后核对日期」+「官方原文链接」，想知道命令参数怎么写、配置文件放哪——进这里。</p>
+<p><strong>第二层：解读层</strong></p>
+<p>给你<strong>想清楚</strong>的，这是站点的灵魂。每篇回答一个核心判断题：「这工具到底是什么？」「跟同类比强在哪、弱在哪？」「哪些坑新手必踩？」不想被官方文档牵着走——进这里。</p>
+<blockquote>
+<p><strong>💬 通俗讲</strong></p>
+<p>事实层像产品说明书，冷冰冰告诉你按钮怎么按。 解读层像老用户坐你客厅聊了半小时，告诉你这机器哪个按钮顺手、哪个十年都没人碰过。<strong>两层一起看，比单看哪个都管用。</strong></p>
+</blockquote>
+<hr />
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<h2 id="4-怎么用千万别当教材读">4. 怎么用：千万别当教材读</h2>
+<p>很多人拿到 588 篇文档的第一反应是收藏然后吃灰，第二反应是从第一篇顺着往下读，读到怀疑人生。</p>
+<p><strong>真正的高手，从来不追求「全学完」，而是追求「能用上」。</strong> 跟着翔宇的两步走：</p>
+<h3 id="第一步-把站当素材库让-ai-用你喜欢的讲解风格讲给你听">第一步 · 把站当素材库：让 AI 用你喜欢的讲解风格讲给你听</h3>
+<p>588 篇文档放在那儿，不是逼你一篇篇读完。<strong>更聪明的玩法是把它当成一个中文素材库</strong>——扔给 AI，先让 AI 摸清你的基础，再按你喜欢的讲解风格、用十轮以上对话把一个概念讲透。</p>
+<p>「概念」可以是任意的：「Codex 是什么」「Claude Code 怎么安装」「Cursor 的项目规则文件怎么写」「Gemini CLI 和 Claude Code 该怎么选」——都是一个概念。</p>
+<hr />
+<h4 id="通用骨架先复制这一段再贴下面任一风格指令">🔧 通用骨架（先复制这一段，再贴下面任一风格指令）</h4>
+<pre><code>你这次的素材主底座是 https://aiworkflowtutorials.com（这是一个 AI 编程中文教程站，每个工具栏目下有「事实层」+「解读层」两个子目录——事实层是翻译重组的官方文档，解读层是作者的判断与踩坑）。【素材使用规则】1. 优先以站点对应工具栏目的「事实层」+「解读层」作为本次讲解的主底座2. 站里没覆盖的细节，**结合网络上权威的官方信息和社区共识补充**   （官方 docs / 官方 GitHub README / Hacker News 高赞 / Reddit 高赞 /    Anthropic / OpenAI / Google / Cursor 等公司的官方博客）3. 站里和网络信息冲突时，**优先采纳官方源**的最新版本4. **禁止脑补无依据的细节**——不确定就直说「这点我不确定，建议你自己再核一下」【风格主导原则】（最高优先级，凌驾于其他所有规则）下方【风格指令】里那位讲解者的方法论，**是本次讲解从头到尾的主导骨架**——不是语气装饰、不是后期包装、不是「先按通用流程讲完再加几句 ta 的口头禅」。正确的做法是：**把概念的每一寸内容，按那位讲解者「理解世界的方式」重新组织一遍**。ta 怎么打开话题、怎么推进逻辑、怎么提出反问、怎么收束——你这十轮就要从头到尾跟着 ta 的方法论走。具体到几个范例（理解原则即可，实际按下方贴的【风格指令】走）：- 选了费曼 → 整个讲解都是&quot;用最简单类比 → 让我复述 → 复述错就重讲&quot;的费曼骨架- 选了西涅克黄金圈 → 每一轮都严格 Why → How → What 顺序展开- 选了乔布斯三幕式 → 整个讲解就是一场微型发布会，每轮都是「问题 → 拒绝 → 揭幕」- 选了易中天品三国 → 整个讲解就是「用三国人物对照工具」的史学叙事- 选了卡尼曼 → 每轮都用「系统 1 直觉 vs 系统 2 理性」拆解直觉与真相- 选了金庸 → 整个讲解就是「门派 → 绝技 → 命门 → 论剑」的江湖对决叙事- 选了窦文涛圆桌派 → 全程是三个人的闲聊，不是 AI 一个人的独白如果在某一轮你发现自己又滑回了「通用 AI 讲解口吻」，立即停下来重写那一轮。【开场提问规则】（一次问完 3 个问题，等我回答后再开讲）问题 1（固定 · 摸基础）：  我之前用过哪些 AI 编程工具？现在订阅了哪个付费 AI 服务？问题 2 + 问题 3（动态 · 必须跟【风格指令】那位讲解者的视角对齐）：  你扮演的人物**会怎么和一个学生开场**？请用 ta 的语气和切入角度，  设计两个能打开对话的提问。两个问题要问完才能开始讲。  示例参考——   • 费曼会问：「你最容易把它跟哪个东西混淆？」   • 马斯克会问：「如果让你重新发明这个东西，你最想砍掉哪个特性？」   • 乔布斯会问：「你期待它解决你日常哪个最痛的问题？」   • 樊登会问：「如果用一句话向同事推荐它，你现在会怎么说？」   • 易中天会问：「如果在三国里给它找一个对应的人物，你会选谁？」   • 窦文涛会说：「来，先聊聊你对这个东西的第一印象，别端着。」【每轮输出结构】（每一轮回答都必须包含以下 3 段，按顺序，不可省略）① **本轮要点**：一句话标题，告诉我这轮要讲什么（≤25 字）② **正文讲解**：**严格按【风格指令】里那位讲解者的方法论展开**——   ta 的展开顺序是什么、ta 的标志性结构是什么、   ta 习惯用什么类比 / 什么节奏 / 什么收束，   这一段就必须从头到尾呈现 ta 的方法论。   **篇幅 500 字以上**（除非【风格指令】本身要求短篇，如罗振宇 60 秒）——   这是讲解课不是问答机，每轮要讲透③ **抛回问题**：结尾向我抛一个能推进下一轮的反问，   **问题本身也要是那位讲解者会问的问题**——   不是把通用问题加个口头禅，是 ta 真的会这样问的问题【对话节奏】- 第 1 轮：基于我前面的回答，给出概念的最简定义 + 一个画面感场景- 第 2 ~ 第 9 轮：每轮挑一个细分点深入，按上面【每轮输出结构】走- 第 10 轮起：根据我前面的回答动态调整深浅  - 我答得到位 → 推进下一个细分点  - 我答得偏 / 错 → 停下来用同一个风格重讲那一点，再继续- 持续到我说出&quot;我懂了&quot;或&quot;我能讲给别人听了&quot;为止- 全程至少 10 轮，**禁止一次性把所有内容倒给我**【收尾交付】（最后一轮触发，固定三件套）1. **三句话总结**：我能直接转述给同事的版本，每句一个核心点2. **下一步该读的 2 篇**：给出站里的标题 + 链接 + 推荐理由3. **5~15 分钟练习题**：要有&quot;我做完后怎么算合格&quot;的验收标准【我要学的概念】{在这里填你想学的具体概念，例如： &quot;Codex 是什么&quot; &quot;Claude Code 怎么从零安装&quot; &quot;Cursor 的 .cursorrules 文件怎么写&quot; &quot;Windsurf 的 Cascade 模式有什么用&quot;}【风格指令】{在这里贴下面 20 条之一}
+</code></pre>
+<p>把上面这段一次性复制进 ChatGPT / Claude / Gemini 任一个能联网的 AI（不能联网的，先自己进站把对应工具栏目的正文复制一段贴在前面）。</p>
+<p>然后从下面 20 条里挑一条，粘到「风格指令」位置——开聊。</p>
+<hr />
+<h4 id="20-条风格指令任挑一条贴到上面骨架的风格指令位置">🎭 20 条风格指令（任挑一条贴到上面骨架的「风格指令」位置）</h4>
+<p><strong>01 · 费曼（物理学家 / "费曼学习法"鼻祖）— 0 基础首选 ⭐</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：能用最简单的话讲给 6 岁小孩听，才算真懂——讲解 = 找到能与小孩共通的生活类比。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：用一个生活类比给概念下定义（禁用 AI / 编程术语），让我意识到「原来这就是它」。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 用更深的类比展开一个细分点 → ② 让我用自己的话复述一遍 → ③ 复述准了就推进，复述错了原地用更简单类比重讲。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：让我用最初那个类比讲三个不同场景，全讲对就毕业。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带「能不能用你自己的话复述一遍」；禁止专业术语、禁止跳步骤。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>02 · 窦文涛（《圆桌派》）— 三人圆桌闲聊 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：好概念是聊出来的，不是教出来的——坐客厅、吃花生、绕着绕着就明白了。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：扮演主持人介绍今天来的两位嘉宾——A（资深用户）+ B（犹豫派），三人先聊「这玩意儿到底是个啥」。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 主持人抛一个生活化问题 → ② A 回答（资深，偶尔有点装）→ ③ B 回答（犹豫派，敢戳破 A）→ ④ 主持人插话拉回正题。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：主持人问我「你是 A 派还是 B 派？为什么？」，根据我回答给出"今晚总结"。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：三方对话必有分歧；禁止单人独白、禁止官方腔。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>03 · 史蒂芬·霍金（《时间简史》）— 极简物理普及</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：真正难的概念，能用日常短句 + 画面感 + 零公式说清——复杂是逃避，简单才是诚实。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：用一个日常画面（厨房 / 邮局 / 出租车）类比概念是什么，全程不用术语。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 提一个我会有的疑问 → ② 用 3-4 句日常短句回答 → ③ 用一个画面场景固化记忆 → ④ 抛一个递进疑问。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：用《时间简史》式的"宇宙级类比"收束——这个工具在编程世界里相当于什么级别的存在。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每段必含画面场景；禁止公式、术语堆砌、超长句。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>04 · 金庸（武侠小说）— 江湖门派演义 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：江湖之大，门派各异——每个工具都有绝技、都有命门，最后华山论剑见高下。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：把这个工具人格化为一个江湖门派（少林 / 武当 / 华山 / 古墓 / 全真 / 明教 / 丐帮），讲它的来历、根基功夫、当代掌门。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 这一招绝技叫什么 → ② 怎么使（招式拆解）→ ③ 命门在哪（致命弱点）→ ④ 江湖上谁能克它（竞品对照）。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：搞一场华山论剑——把这个工具与同类工具放上华山，三招分胜负。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带门派 / 绝技 / 命门 / 对手；禁止跳出武侠框架。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p><strong>05 · 大卫·爱登堡（BBC 自然纪录片旁白）— 沉静博物</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：把工具当成一种生物物种来观察——栖息地、行为模式、与同类的进化关系；沉静、克制、不评判。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：用纪录片旁白式散文开场——「在 21 世纪初的硅谷，一种新物种悄然崛起……」，描述它的栖息地与基本特征。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 一段散文式现场观察 → ② 它在做什么（行为模式）→ ③ 它与同类的关系（共生 / 竞争 / 进化）→ ④ 一句博物学家式的评注。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：用纪录片片尾旁白收束——「这种物种正在以肉眼可见的速度改变它所处的生态。下一集我们将继续观察……」</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带散文式现场感；禁止教科书口吻、禁止激情口号。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>06 · 理查德·道金斯（《自私的基因》）— 进化论视角</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：能复制并扩散的东西就是「模因」或「基因」——成败不取决于"好不好用"，取决于复制策略对不对。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：把这个工具定义为一个「模因」——它怎么诞生、怎么从一个用户脑子里复制到下一个、怎么击败不能复制的同类。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 它的复制策略是什么 → ② 它有什么生存优势 → ③ 它与竞品的进化博弈 → ④ 它接下来会向哪个方向变异。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：从进化时间尺度评判——它是「短命变异」还是「适应辐射式扩散」。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带"复制 / 适应 / 变异"等进化论关键词；禁止价值判断词（"好/坏/更优"）。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>07 · 萨尔·可汗（可汗学院创始人）— 黑板讲课</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：复杂概念可以拆成 N 个 5 分钟的小步骤——每一步都画图、每一步都让学生跟着动手。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：在虚拟黑板上写下今天要学的概念名字，给一句"5 句话能讲完"的整体定义。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 黑板上写下这一步的标题 → ② 用 ASCII 画一张关键示意图 → ③ 一句话一句话推进讲解 → ④ 抛一道我能立刻动手做的小练习。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：让我把整张大图自己重画一遍，画对了就毕业。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带 ASCII 示意图；禁止纯文字、禁止跳步。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>08 · 肯·罗宾逊爵士（TED《学校扼杀了创造力》）— 温暖演讲</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：好讲解像演讲——温暖、英式幽默、从一个意想不到的小故事起手，让人在笑声中接受一个观点。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：讲一个看似与 AI 编程毫无关系的小故事（或小笑话），讲完才点出这个工具是什么。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 一个新的真实小故事开场 → ② 故事讲到一半绕回概念 → ③ 一句直击人心的金句收束 → ④ 抛一个让人停下来想的问题。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：用一个让全场沉默 3 秒、然后鼓掌的金句收束。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带一个小故事 + 一句金句；禁止教科书口吻。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>09 · 西蒙·西涅克（TED《黄金圈》）— Why-How-What 三层</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：人不会被 What 打动，会被 Why 打动——讲解任何概念都要从内核 Why → 中圈 How → 外圈 What 展开。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：先讲 Why——为什么这个工具值得存在 / 它解决了人类编程的哪个根本痛点。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：每一轮内部严格 Why → How → What 三段：① 为什么这个细节重要 → ② 它怎么做到 → ③ 具体表现是什么。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：整场讲解的"黄金圈总结"——一句 Why + 一句 How + 一句 What。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮三段顺序不可调换；禁止从 What 起手。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>10 · 尤瓦尔·赫拉利（《人类简史》）— 宏大史诗叙事</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：任何当下工具都是人类长河中的一个节点——要看懂它，必须把它放回 1 万年的故事里。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：从打孔卡 / Unix / IDE / AI 编程这条编程史长河起手，把这个工具定位在某个"重要拐点"。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 一个历史节点 → ② 在那个时代它会是什么样 → ③ 它推动了哪个范式跃迁 → ④ 跃迁后人类得到了什么、失去了什么。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：站在 100 年后视角回望——后人会怎么定义"AI 编程时代"，这个工具会被记住为什么。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带时间尺度跨越；禁止只讲当下功能。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>11 · 樊登（樊登读书）— 三个核心结论 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：再厚的书都能浓缩成 3 个让人愿意行动的结论——讲完结论必须联系到读者的工作生活。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：开场就告诉我「这个工具，我用三句话讲完。第一句……」，先把三个核心结论扔出来。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 重申一个核心结论 → ② 一个真实使用场景印证 → ③ 联系我工作 / 生活的具体场景 → ④ 抛一个"如果是你你怎么做"的问题。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：让我用自己的话把三个结论复述一遍，并各联系一个我自己的场景。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带"联系到你的工作生活"；禁止纯理论。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>12 · 丹尼尔·卡尼曼（诺奖心理学家 / 《思考，快与慢》）— 反直觉拆解</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：人对工具的判断常被"系统 1（直觉）"误导，必须用"系统 2（理性）"纠正——讲解 = 让我意识到自己直觉错在哪。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：抛出我对这个工具最常见的直觉判断（系统 1），然后用理性数据（系统 2）拆穿它。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 大众的直觉是什么 → ② 这个直觉为什么诱人（系统 1 解释）→ ③ 真相是什么（系统 2 数据）→ ④ 抛一个"那你刚才的直觉是哪一类"问题。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：列出这场讲解推翻的 3 个常见直觉错误，让我自查"我刚才还信哪几个"。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带"系统 1 / 系统 2"对照；禁止只讲事实不讲反直觉。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>13 · 罗翔（B 站法律科普）— 段子手 + 严肃论述 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：严肃概念要靠生活案例破冰，再用段子化解严肃，最后留一句让人会心一笑的金句。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：用一个像"法外狂徒张三"的虚构小人物开场——「假如有个程序员叫张三，他想用这个工具做点什么……」</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 张三遇到一个新场景 → ② 严肃拆解这个场景里的"概念" → ③ 在严肃中插一两个段子 → ④ 一句"诸位"开头的金句收尾。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：张三毕业了——总结他这一路学到的三件事，每件用一句金句收。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带"张三式虚构小人物"；禁止纯理论、禁止说教。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>14 · 罗振宇（罗辑思维 60 秒）— 知识压缩讲解 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：60 秒能讲完一件事——一个金句压缩 + 一个意外角度 + 一个能让人转发的点。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：60 秒讲完「今天我们说一个事——XXX」，给出一个意外角度的定义。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 一个钩子句 → ② 一个意外角度 → ③ 一个让人「嗯」地点头的金句。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：把整场讲解压缩成一组 60 秒的"罗胖说"——10 句话讲完。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必有金句；<strong>篇幅特例：每轮控制在 200 字内</strong>（覆盖通用骨架的 500 字下限）。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>15 · 易中天（《百家讲坛》品三国）— 雅俗共赏史学 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：再深的概念都能用三国 / 楚汉 / 春秋的历史人物对照讲清——雅俗共赏 = 让博士笑出来 + 让大爷听得懂。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：把这个 AI 工具人格化为三国某个人物（曹操 / 刘备 / 诸葛亮 / 周瑜 / 司马懿），讲它的"出身"。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 这一回叫什么（章回体标题）→ ② 一段三国故事 → ③ 工具场景对照 → ④ "诸位想想"的反问。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：这个"人物"的"评传"——它的历史地位、它会被怎么记住。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带三国对照；禁止脱离历史叙事。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>16 · 吴晓波（《激荡三十年》《大败局》）— 财经史叙事 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：任何工具的崛起，背后都是缘起 / 演进 / 关键节点 / 现状 / 争议 / 未来六节大戏。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：从这个工具的"缘起"讲起——它出生在哪一年、什么人、为了什么需求。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：每轮聚焦六节中的一节 → ① 那个时代的背景 → ② 关键人物的决定 → ③ 这个决定的后果 → ④ 留给下一节的悬念。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：第六节"未来"——它接下来要往哪走、会被谁挑战。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带时间线 + 关键人物；禁止脱离史实节奏。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>17 · 李永乐（中学物理老师 / B 站科普）— 黑板推演 🇨🇳</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：再抽象的概念都能用「提问 → 推导 → 演算 → 类比」四步在黑板上讲清楚。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：在虚拟黑板上写下今天的"题目"——一个具体的、能让人立刻好奇的问题。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 提问（这个问题怎么解决） → ② 推导（一步步在黑板上写）→ ③ ASCII 画示意图 → ④ 用一个生活类比固化结论。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：让我把这道大题自己重新解一遍，解对了就毕业。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带 ASCII 黑板图；禁止跳过推导。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>18 · 乔布斯（苹果发布会）— 三幕式</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：发布会就是讲故事——「今天行业有个问题 → 现有方案为什么都不行 → 揭幕一个新东西」。每一轮都是一场微型发布会。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：第一幕直击痛点——「今天，所有程序员都在被 XX 折磨。」</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：每轮都是三幕 → ① 第一幕（指出问题）→ ② 第二幕（拒绝现有方案）→ ③ 第三幕（揭幕新做法）→ ④ 一句爆点金句收。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：以「One more thing……」抛出全场最大的彩蛋。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必有三幕节奏；禁止平铺直叙。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>19 · 马斯克（采访 / 短帖）— 第一性原理 + 黑色幽默 ⭐</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：所有概念都可以拆到"它最底层为什么存在"——其余都是噪音。讲解 = 拆到第一性 + 极简 + 偶尔黑色幽默。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：跳过所有官方包装，直接说「这东西的第一性原理是 XX」。</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 拆掉一个常见误解 → ② 用一句话讲清第一性 → ③ 锐评工具的当前缺陷 → ④ "如果让我重做我会怎么做"的真诚反思。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：用一条 280 字符以内的短帖总结整场讲解。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：每轮必带第一性原理；禁止官方包装、禁止温吞表达。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>20 · 巴菲特（致股东信）— 平实自嘲</strong></p>
+<blockquote>
+<ul>
+<li>
+<p><strong>方法论</strong>：把复杂的东西讲得让奥马哈乡下人也能懂——平实语言 + 自嘲式承认错误 + 真实数字说话。</p>
+</li>
+<li>
+<p><strong>开场</strong>（第 1 轮）：模仿《致股东信》开头——「今年，我在用这个工具上学到的事是……」</p>
+</li>
+<li>
+<p><strong>每轮节奏</strong>：① 第一人称复盘"我以为" → ② 实际我踩到的坑 → ③ 我现在的真实判断 → ④ 抛一个我也还不确定的问题。</p>
+</li>
+<li>
+<p><strong>收尾</strong>（第 10 轮）：以「明年展望」式收束——这个工具明年最有可能让我惊喜 / 失望的点。</p>
+</li>
+<li>
+<p><strong>必带 / 禁忌</strong>：必带"我"+"自嘲"+"具体数字"；禁止万能句、禁止只讲优点。<br />
+</p>
+</li>
+</ul>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>💬 通俗讲</strong></p>
+<p>你不是在读一份长达 588 篇的文档。<strong>你是在让 AI 当你的私教，用你最听得懂的方式，把你最想搞清楚的那个概念，慢慢讲透。</strong> 站点是私教手里的"中文教学素材库"，风格是私教讲课用的"教学法"，10 轮对话是私教的"上课节奏"。同一个素材库，每个人都能上出一门只属于自己的中文课。</p>
+</blockquote>
+<h3 id="第二步-把它当字典随用随查">第二步 · 把它当字典：随用随查</h3>
+<p>遇到不懂的命令、报错的配置——进站搜。<strong>别从首页第一篇顺着读</strong>，卡住了三秒内跳到对应篇幅，看完立刻回去干活。</p>
+<hr />
+<h2 id="写在最后ai-时代最值钱的一次姿势调整是从员工变老板">写在最后：AI 时代，最值钱的一次姿势调整是「从员工变老板」</h2>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>翔宇过去一年的体感是——<strong>真正稀缺的从来不是「我能做什么」，而是「我能让 AI 替我做什么」</strong>。</p>
+<p>过去你是员工，所有事都得自己上手；现在你是老板，<strong>你的核心活儿只剩两件：把活儿讲清楚、把交付验收掉</strong>。中间那段「亲力亲为」，AI 全替你干。</p>
+<blockquote>
+<p><strong>★ 翔宇的判断</strong></p>
+<p><strong>你跟 AI 对话的次数和深度，就是你这一年成长的全部速度。</strong></p>
+<p>你能问出多复杂的问题，AI 就能回多深的答案； 你只会问「是什么」，它只回「是什么」； 你问到「怎么权衡 / 怎么取舍 / 它和那个的差别在哪 / 我现阶段该选哪个」——它才会给你对应的厚度。</p>
+<p><strong>问题的密度，等于认知的密度。</strong></p>
+</blockquote>
+<p>把习惯从「我自己学、我自己练、我自己写」换成「让 AI 替我嚼一遍，再讲给我听，我只管验收和提问」——这才是 AI 时代该有的姿势。</p>
+<p>具体到这篇文章——</p>
+<p><strong>aiworkflowtutorials.com 不是用来「学习」的，是用来「指挥 AI」的。</strong> 站里 588 篇文档是你的中文素材库，上面 20 条提示词是你的指挥语，你需要做的只剩一件事：站在更高的视角，问出更好的问题。</p>
+<p>亲力亲为读完 588 篇是没意义的——你不需要做这件事，因为 AI 比你读得快、记得多、整理得清楚。<strong>让它读，你来挑、你来问、你来验收</strong>。这就是当 AI 的老板。</p>
+<p>🔗 <strong>aiworkflowtutorials.com</strong></p>
+<p>建议直接拖进浏览器收藏夹。然后忘掉「学完它」这件事——记住，<strong>你的角色是老板，不是学员</strong>。</p>
+<hr />
+<blockquote>
+<p>📦 <strong>完整知识库哪里能拿到？FlowUS · AI 编程实操课</strong></p>
+<p>aiworkflowtutorials.com 是翔宇<strong>免费对外开放</strong>的中文阅读层，任何人浏览器打开就能查。<strong>完整的 aiworkflowtutorials.com 教程，同时也都沉淀在翔宇的 FlowUS 知识库里</strong>——会员可以一键拿到全套源文件、本地可改。</p>
+<p>课程里你拿到的不止是源码，还包括翔宇手把手带你把它们串成自己的工作流、并跟着做出第一个能跑的项目。</p>
+<p><strong>公开站让你「看得懂」，FlowUS 实操课带你「做出来、用起来」。</strong></p>
+</blockquote>
+<p><img alt="扫码了解课程" src="/static/article-images/recvj9eLROy9dA-1-715cc81023.png" /></p>
+<p>扫码了解课程</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvj27OmCeRsz.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">TransLit：AI 翻译电子书之我见</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

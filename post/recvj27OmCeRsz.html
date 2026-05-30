@@ -91,8 +91,22 @@
         <!-- Meta -->
         <div class="detail-meta">
             
+            <span class="card-tag card-tag-primary">人工智能应用</span>
             
-            <span class="detail-reading-time">约 1 分钟阅读</span>
+            
+            <span class="topic-chip">工作流自动化</span>
+            
+            <span class="topic-chip">AI翻译</span>
+            
+            <span class="topic-chip">EPUB电子书</span>
+            
+            <span class="topic-chip">术语表管理</span>
+            
+            <span class="topic-chip">Google AI Studio</span>
+            
+            <span class="topic-chip">Gemini</span>
+            
+            <span class="detail-reading-time">约 22 分钟阅读</span>
         </div>
 
         <!-- Title -->
@@ -104,13 +118,13 @@
             
             <div class="digest-block digest-block-quote">
                 <span class="digest-label">一句话总结</span>
-                <p>译得再慢，也比你读得快——在有限调用速率下，用经济适用型策略实现术语表接力翻译</p>
+                <p>需要人工处理的部分放在最前面让用户设置，可以机械执行的部分用程序解决，剩下的纯粹翻译任务交给大模型 前一位译员完全可以把翻译时发现的新“术语”附在翻译结果后面，传递给下一位，这样就实现了“一遍翻译” 叙述类作品需要选择此项，非叙述类可不选</p>
             </div>
             
             
             <div class="digest-block">
                 <span class="digest-label">核心摘要</span>
-                <p>作者因 Gemini API 配额不足，开始使用 Google AI Studio 调用 Gemini 3.0 Flash 模型，开发了 TransLit 电子书翻译工具。该工具可将 EPUB 内容拆分为 Markdown 片段，分片交给 AI 翻译后合并导出。在开发过程中，作者解决了中文 Markdown 渲染问题（如星号与标点的位置、浏览器缓存等），并重新认识到「术语表」的重要性。通过让每位「译员」在翻译结果后附上新术语，实现了一遍翻译的接力模式，最大程度精简了术语表长度。作者认为虽然翻译速度较慢，但相较于人工阅读仍具优势。</p>
+                <p>本文介绍了作者开发的AI翻译电子书工具TransLit的实用经验。作者利用Google AI Studio和Gemini模型，设计了一个自动化翻译工作台，能将EPUB电子书分片翻译并重新生成。重点解决了术语表在长文本翻译中的一致性问题，并提出了经济适用型的术语传递策略。</p>
             </div>
             
             
@@ -125,23 +139,174 @@
         <!-- Review -->
         
         <div class="detail-review">
-            <strong>点评</strong>这是一篇技术实践色彩浓厚的工具评测文，作者以解决问题的思路递进写作。从工具选型、开发迭代到功能优化，记录了不少实操细节，如 HTML 标签替代 Markdown 星号、术语表接力策略等。对于同样探索 AI 翻译电子书的使用者而言，具有一定的参考价值。不过文中部分技术描述较为简略，末尾似乎未完成，略感遗憾。
+            <strong>点评</strong>本文分享了一款个人开发的AI翻译工具TransLit的实战心得。作者不仅详细介绍了从构思到迭代的过程，更核心的是分享了在应用AI进行长文本翻译时，如何高效管理术语表、保证翻译一致性的具体策略。这种将复杂任务拆解、人机协作的思路，对利用AI工具提升工作效率很有启发。
         </div>
         
 
         <!-- Table of Contents -->
         
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#translitai-翻译电子书之我见" class="toc-link">TransLit：AI 翻译电子书之我见</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#问题出现我再" class="toc-link">问题出现我再——</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#重新发现术语表" class="toc-link">重新发现“术语表”</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#当前版本使用方法" class="toc-link">当前版本使用方法</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#参考资料" class="toc-link">参考资料</a>
+                </li>
+                
+            </ul>
+        </div>
+        
 
         <!-- Content -->
         <div class="content-section-label">正文整理</div>
         <div class="detail-content">
-            <p>作者因 Gemini API 配额不足，开始使用 Google AI Studio 调用 Gemini 3.0 Flash 模型，开发了 TransLit 电子书翻译工具。该工具可将 EPUB 内容拆分为 Markdown 片段，分片交给 AI 翻译后合并导出。在开发过程中，作者解决了中文 Markdown 渲染问题（如星号与标点的位置、浏览器缓存等），并重新认识到「术语表」的重要性。通过让每位「译员」在翻译结果后附上新术语，实现了一遍翻译的接力模式，最大程度精简了术语表长度。作者认为虽然翻译速度较慢，但相较于人工阅读仍具优势。</p>
+            <h1 id="translitai-翻译电子书之我见">TransLit：AI 翻译电子书之我见</h1>
+<p><img alt="TransLit Cover" src="/static/article-images/recvj27OmCeRsz-0-3a010949db.png" /></p>
+<p>TransLit 是我“歪波”（Vibe）出最为“实用”的一款工具。越是实用，越是常用，越容易发现问题，工具也就越发“锋利”。当前版本令到我满意，可以一写，相当于在船身刻上一道印记。</p>
+<h2 id="问题出现我再">问题出现我再——</h2>
+<p><img alt="Illustration" src="/static/article-images/recvj27OmCeRsz-1-8b9eff4abe.png" /></p>
+<p>之所以用 Google AI Studio 写一个新的翻译工具，而不用现成的“沉浸式翻译”、AiNiee[1] 或者 LinguaGacha[2]，主因是我用惯的 Gemini 不再提供足量 API。</p>
+<p>但 Google AI Studio 的原生网页应用，却可以相对充足地调用 Gemini 3.0 Flash 模型。</p>
+<p>我之前的版本答案（详见 <a href="https://mp.weixin.qq.com/s?__biz=MzU3NjcxOTE3Ng==&amp;mid=2247484544&amp;idx=1&amp;sn=b63c6855cdc3f76d11fa553fef77ac8d&amp;scene=21#wechat_redirect">Vol.010 在你手心上写的字</a>），是复制一页 HTML 原文，粘贴到 AI 窗口，然后翻译出 Markdown 格式译文。为了解放人力，我决定简单“歪波”一个 AI 翻译工作台：<strong>需要人工处理的部分放在最前面让用户设置，可以机械执行的部分用程序解决，剩下的纯粹翻译任务交给大模型</strong>。</p>
+<p>于是，我有了第一个版本（详见 <a href="https://mp.weixin.qq.com/s?__biz=MzU3NjcxOTE3Ng==&amp;mid=2247484658&amp;idx=1&amp;sn=d8b0e48e5d110b0071f2b27628742cd1&amp;scene=21#wechat_redirect">Vol.015 个人的体验</a>），可以把 EPUB 内容拆分成 Markdown 片段，然后分片递给 AI 翻译，合并后套用内置的 CSS 样式，导出为固定格式的 EPUB。</p>
+<p>这里需要说明一点，我不认为翻译后要保持原有 EPUB 排版，因为首字下沉之类的西文样式实在不太适合汉字。</p>
+<p>初版基本可用，但还是遇到一些小问题，比如说中文 Markdown 的渲染问题。该问题 Obsidian 也有，简单说就是，星号与标点的位置决定了加粗、倾斜等样式能否正常渲染。</p>
+<p>在 Obsidian 里，我会把句号、逗号等标点固定放在星号标记的外部。但因为 AI 的表达惯性，你只好在提示词中限定，但就像英美式引号的问题，积习难改。</p>
+<p>我最后用了另一种方法（同样写在提示词里）：</p>
+<p><code>遇到需要加粗或斜体文本，请使用 HTML 标签 &lt;b&gt;加粗&lt;/b&gt; 和 &lt;i&gt;斜体&lt;/i&gt;，绝对不要使用 Markdown 的星号（* 或 **）</code></p>
+<p>类似于这样的小问题，还有浏览器缓存（关闭窗口、关机后，下次可以继续翻译）、添加第三方接口配置（能用 API 接其他大模型）等等，但我只是给 AI 描述一番，之后问题就解决了，并不了解实现细节，就不在文中赘述了。</p>
+<h2 id="重新发现术语表">重新发现“术语表”</h2>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>在用 AiNiee 之类工具的时候，需要你自行配置“术语表”，之前我还写过让 AI 提取术语表的提示词。</p>
+<p>但我后来放弃了，心想如果遇到人名不翻译，保留原文，大概就不会出现前后不一致的问题，不需要我专门“跑一趟”了。</p>
+<p>直到近期翻译一本日文小说，我才发现这条指令执行得并不好。若能完整保留日文中人名的汉字，效果应当不错，但翻译时却会冒出“罗马字”。</p>
+<p>提示词针对英译中这一特定场景，我猜想这可能是症结所在。于是，我添加了源语言选项，可以改变提示词中的相应内容（内容源自李继刚的英译中提示词，其实我在读思果的《翻译研究》和《翻译新究》，核心观点也是“翻译是重写”，或许我可以用更多书中原话重写一版“重写式翻译提示词”），比如：</p>
+<p><code>【遗忘之律】忘记[SOURCE_LANG]的句法。忘记[SOURCE_LANG]的语序。只记住它要说的事。</code></p>
+<p>当然是不可行的。</p>
+<p>译完仍有罗马字，可谓“条条大路通罗马”。</p>
+<p><strong>我只好重新发现“术语表”这个东西</strong>。</p>
+<p>Google AI Studio 给了 Flash 模型充足的用量，但调用速率还是有限，所以哪怕作了分片，也还是串行翻译。我只好安慰自己，译得再慢，也比你读得快。</p>
+<p>在这漫长的接龙里，我想，<strong>前一位译员完全可以把翻译时发现的新“术语”附在翻译结果后面，传递给下一位</strong>，这样就实现了“一遍翻译”。</p>
+<p>其他应用是先跑一遍（可能用小一些的模型），记录下全部术语表，之后带着整本书的术语表，并行翻译每一段。但我的调用速率有限，还希望尽可能减少术语表长度，所以想出了这种经济适用型策略。</p>
+<p>多任务处理确实是考验模型，但经过测试，Gemini 3.0 Flash 可以实现这个工作流。为了尽可能精简术语表，我还打了几个“补丁”：</p>
+<p>一是在每个分片添加新条目后，搜索“未翻译文本”，如果没有出现该词，就不要加入术语表。</p>
+<p>二是在每翻译十个分片之后，调用大模型判断有无不适合加入术语表的词汇。比如，有些术语的译法固定，前后文中几乎不可能有差别。</p>
+<p>以下是当前版本的术语表相关提示词，在写术语表的提示词里，我避免用“术语”这个词，这是我有意为之的。</p>
+<pre><code>export const TRANSLATION_PROMPT_GLOSSARY = `【对齐系统】1. **核心原则**：【宁缺毋滥】。   - 仅提取“虚构专有实体”（虚构人名/地名、特殊设定自造词）。 - **严禁包含**      - 译法固定的**专业术语**     - **常规多义词**     - **现实世界已存在**的实体/地名/人名。2. **过滤机制**：     - 提取前请自问：“这是一个只在这本小说里才有的特殊名词吗？”如果答案是“否”或“不确定”，**直接放弃提取**。   - 提取前必须对比已知表格，如果已经存在，**直接忽略，不要重复输出**。3. **格式**：\`SOURCE: {原文} | TARGET: {译文}\`，仅在 &lt;glossary&gt; 标签内列出本段**新发现**且未在已知表中出现的上述高风险/专有条目。4. **一致性**：参考当前表格，确保全文核心译名与特殊词意绝对统一。5. **返回格式约束**：&lt;translation&gt;[Markdown 内容]&lt;/translation&gt;&lt;glossary&gt;SOURCE: [原文1] | TARGET:[译文1]&lt;/glossary&gt;`;export const GLOSSARY_OPTIMIZER_PROMPT = `你是一位专业的“术语表审查专家”。你的任务是清理并精简当前的术语表，使其更具参考价值并降低后续翻译成本。【严禁包含】1. **常识性词汇**：已有标准翻译的客观事物（如：啤酒杯、电击枪、手机）、无他译法的专业术语。2. **汉字重合词**：日中翻译中，汉字意义完全一致且无须转换的词。3. **冗余词条**：意思重复或过于碎片的词条。【执行任务】1. **降噪**：彻底删除所有不符合“必须包含”原则的词条。2. **去重与合并**：如果同一原文有多个译名，选择最符合文学语境或最专业的一个。3. **格式化**：每行一个词条，严格遵循 \`SOURCE: {原文} | TARGET: {译文}\`。输出规范：- 仅输出清理后的术语列表。- 严禁输出任何解释、开场白、Markdown 围栏（\`\`\`）或总结。- 如果没有任何有效术语，请保持输出为空。`;
+</code></pre>
+<h2 id="当前版本使用方法">当前版本使用方法</h2>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>Google AI Studio 访问链接：TransLit[3]。</p>
+<p>可以配置第三方的 API，填好之后，点击下方“Verify API Status”，检查连接是否成功。</p>
+<p>当然，最好直接用 Gemini 3.0 Flash 模型，毕竟是我做这个应用的初衷。</p>
+<p>如果非要使用第三方 API 的话，不妨在 GitHub - TransLit 2.0[4] 下载后本地运行：</p>
+<ol>
+<li>
+<p>解压后在项目目录中打开命令行</p>
+</li>
+<li>
+<p>运行 npm install</p>
+</li>
+<li>
+<p>运行 npm run dev（以后只需运行这句即可）</p>
+</li>
+</ol>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>之后是翻译相关的设置：</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<ol>
+<li>
+<p>选择<strong>源语言</strong>。当然，不选也可以翻译，但前面提到过，源语言与翻译提示词有联动，我还是强迫自己选一下。</p>
+</li>
+<li>
+<p><strong>AI Review</strong></p>
+<p>是 AI 校对，也就是翻译完再校对一遍。Gemini 3.0 模型不太会出现掺杂其他语言单词的情况，所以我一般不选这一项，基本没用过。</p>
+</li>
+<li>
+<p><strong>Auto Skip</strong></p>
+<p>是事先跳过一些目录、参考文献等不值得翻译的页面。这部分是匹配实现的，所以不算准，还是需要在 Chapter 页面手动选择；</p>
+</li>
+<li>
+<p><strong>Glossary</strong></p>
+<p>是术语表系统。根据经验，<strong>叙述类作品需要选择此项，非叙述类可不选</strong>。</p>
+</li>
+<li>
+<p><strong>Lit Mode</strong></p>
+<p>是使用保存在后台的翻译提示词。不选此项，可在下方填写自定义提示词。</p>
+</li>
+</ol>
+<p>把 EPUB 电子书拖入框中，即可进行翻译。</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>界面右侧，可以看到三个选项卡——</p>
+<p>先去<strong>CHAPTER 页面</strong>手动处理一下 EPUB 页面（并非小说的“章”）：</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>图中四个按钮分别是“预览”（方便用户判断）、“不译”（不翻译但保留原文）、“删除”（不翻译而且直接删除）和“重译”（一般是流程结束后，翻译不成功时使用）。</p>
+<p><strong>CONSOLE 页面</strong>用来展示翻译进度：</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p><strong>GLOSSARY 页面</strong>用来记录当前术语表，可以自行编辑（增删改），注意修改后及时保存。</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>翻译结束后再次查看 <strong>CHAPTER 页面</strong>。如下图所示，橙色表示有片段翻译不成功，可以连接第三方 API 重试。</p>
+<div class="detail-image-missing" role="img" aria-label="Illustration">Illustration：来源内容未完整抓取</div>
+
+<p>翻译之后 EPUB 效果如下，这部分我一直没有升级过：</p>
+<p><img alt="Illustration" src="/static/article-images/recvj27OmCeRsz-2-7a2c601c92.png" /></p>
+<h3 id="参考资料">参考资料</h3>
+<ul>
+<li>
+<p>[1] AiNiee:<br />
+    https://github.com/NEKOparapa/AiNiee</p>
+</li>
+<li>
+<p>[2] LinguaGacha:<br />
+    https://github.com/neavo/LinguaGacha</p>
+</li>
+<li>
+<p>[3] TransLit:<br />
+    https://ai.studio/apps/b184f80d-4fa5-4fce-a431-029da0140dce</p>
+</li>
+<li>
+<p>[4] GitHub - TransLit 2.0:<br />
+    https://github.com/fengyukongzhou/TransLit-2.0</p>
+</li>
+</ul>
         </div>
     </article>
 
     <!-- Prev / Next Navigation -->
     
     <nav class="article-nav">
+        
+        <a href="recvj9eLROy9dA.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">我把 10 大 AI 编程工具翻成了中文教程，588 篇免费，尽快收藏！</span>
+        </a>
         
         
         <a href="recvj22A00XyeZ.html" class="article-nav-link next">
