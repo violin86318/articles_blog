@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>开源「淘金小镇.Skill」,让你的Agent挖出每个排行榜里隐藏的信息差！ — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI工具</span>
+            
+            
+            <span class="topic-chip">Agent Skills</span>
+            
+            <span class="topic-chip">自动化</span>
+            
+            <span class="topic-chip">数据抓取</span>
+            
+            <span class="topic-chip">榜单分析</span>
+            
+            <span class="topic-chip">ClawHub</span>
+            
+            <span class="topic-chip">信息差</span>
+            
+            <span class="detail-reading-time">约 14 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">开源「淘金小镇.Skill」,让你的Agent挖出每个排行榜里隐藏的信息差！</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>人类是很难拒绝榜单的。 它把一个每天都会变的公开信息源，变成了一个可以被Agent复盘的情报网。 不是找到唯一正确的Skill。而是在一堆沙子里，先把那些会发光的东西捞出来。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>文章介绍了开源Skill「淘金小镇」，它通过每天抓取ClawHub等平台的下载榜数据，生成对比报告和榜单快照。作者分享了利用Agent自动化复盘信息差的过程，从浏览器自动化转向更稳定的数据查询方式，帮助用户高效发现有价值的新兴Skill，避免被信息流淹没。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/sMVPbndu87sykzsAq7cXpg" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文生动地分享了作者开发「淘金小镇」Skill的实战经验，它通过自动化抓取和对比平台榜单，将动态信息转化为可分析的情报，有效解决了Agent Skill生态信息过载的难题。文章强调了从用户视角复现数据获取方式的重要性，体现了利用AI应对快速变化生态的实用思路。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#开源淘金小镇skill让你的agent挖出每个排行榜里隐藏的信息差" class="toc-link">开源「淘金小镇.Skill」,让你的Agent挖出每个排行榜里隐藏的信息差！</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#我发现囤agent的skills有瘾" class="toc-link">我发现囤Agent的Skills有瘾，</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="开源淘金小镇skill让你的agent挖出每个排行榜里隐藏的信息差">开源「淘金小镇.Skill」,让你的Agent挖出每个排行榜里隐藏的信息差！</h1>
+<h2 id="我发现囤agent的skills有瘾">我发现囤Agent的Skills有瘾，</h2>
+<p>今天刚装了一大堆同类Skill，还没用熟就想提前知道这类里最好的到底是哪一个。转头又发现某个佬推荐了自留的20个Skills，回回路过我都忍不住点进去看。</p>
+<p>这事就很像以前我看App Store榜单和Steam新品榜。</p>
+<p>人类是很难拒绝榜单的。</p>
+<p>尤其是那种带一点幸存者偏差，带一点我替你试过了踩过坑的榜单。</p>
+<p>所以我就在想，既然我每天都在被Skill选都选不过来的苦恼折磨，</p>
+<p>那为什么不让Agent也体验一下呢。</p>
+<p><img alt="图片" src="/static/article-images/recviXZ1TOo6gt-0-1139fdc93a.webp" /></p>
+<p>于是就有了一个新Skill，</p>
+<p>我给它起名叫淘金小镇。</p>
+<p>它干的第一件事就是，每天去ClawHub上看一眼下载榜Top100，把当天榜单存下来，生成一份对比报告，再部署到一个GitHub Pages页上。</p>
+<p>当然，如果只能用来看Clawhub的话，也没必要做成Skill了，我就挂一个静态网页，每天更新一下，给大家看结论就好了。这个Skill还能够针对一些像Claude Code的更新日志，或者像AA Index这种模型排行榜，观测它们的更新，让模型以最少的环境依赖稳定地运行多次数据分析。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>🔗 github.com/LearnPrompt/skillrush-town</p>
+<p>做着做着我发现，网页其实是最不重要的一层。</p>
+<p>真正有意思的是，它把一个每天都会变的公开信息源，变成了一个可以被Agent复盘的情报网。</p>
+<p>淘金小镇最早我是用Codex去做的。当时ClawHub没有一个现成公开API，所以我一开始走的是浏览器自动化，让Agent像人一样打开网页，看页面，请求数据，然后把结果存下来。</p>
+<p>但就是浏览器自动化这个东西吧，</p>
+<p>你说它不靠谱，它能干很多API覆盖不到的活。</p>
+<p>你说它靠谱吧，它又经常在你最不想管它的时候出问题。浏览器环境没了，登录态变了，页面加载慢了，本地依赖抽风了一大堆。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>就算我写了足够复杂足够详细的提示语，一周还是有三天是失败的。</p>
+<p>当时我就觉得，这不行，</p>
+<p>不然就加大token消耗，我直接上GPT 5.5 high，但失败率还是超高。</p>
+<p>那直接推倒重来，让新版Codex上无限循环模式（/goal），目标就是找出依赖最少的方案，循环30次都可以把ClawHub的Top100拉下来。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>这样比我在提示语里面上十几个限制都好用，断掉也可以重连，模型还可以发挥自己想象力。</p>
+<p>到第五个小时的时候GPT发现了一条新路，clawhub.ai/skills?sort=downloads这个地址，点开后怎么看都是榜单地址，但本质上只是一个入口，没数据的，背后是一个Convex服务。</p>
+<p>Convex你可以先理解成一种云端数据库加后端函数。很多网站会把数据存在Convex里，前端页面打开以后，再通过一个query去问它要数据。</p>
+<p>ClawHub这里对应的query path叫skills:listPublicPageV4，大概就是公开Skill列表页的第四版查询。</p>
+<p>再继续看参数，这里面有几个关键条件。</p>
+<p>按下载量排序，sort=downloads。</p>
+<p>从高到低，dir=desc。</p>
+<p>只看非可疑Skill，nonSuspiciousOnly=true。</p>
+<p>每页25条，numItems=25。</p>
+<p>到这一步，还不能直接说拿到了Top100。</p>
+<p>因为它一次只吐25条。</p>
+<p>但返回结果里有一个nextCursor，</p>
+<p>这个东西你可以把它理解成下一页书签。你拿着这个书签，就可以拿到下一页。</p>
+<p>连续问4次，25条乘4，Top100就出来了。</p>
+<p>这就是淘金小镇最早成型的思路。</p>
+<p>它不是随便抓了一个页面文本，</p>
+<p>是尽量复刻了ClawHub页面自己拿数据的方式。</p>
+<p>网页怎么问，我就怎么问。</p>
+<p>这样拿到的榜单，才更接近用户看到的。</p>
+<p>连续运行两天就能清晰感受到差别了。</p>
+<p>今天第17名是哪个，哪个Skill掉排名了。哪个Skill今天突然冲上来。哪个作者做的Skill连续几天都在增长。</p>
+<p>这些东西，网页本身不会告诉你。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>当这些数据开始连续存在的时候，榜单就变成了一条时间线。</p>
+<p>我印象很深的像Self-Improving Agent这类自进化的Skill，后来它跟另一个Proactive Agent融合，做了一个新Skill，Self-Improving + Proactive Agent，很快就冲上前三了。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>但如果我只是在X上随机刷到，甚至会因为这名字觉得只是个二创。</p>
+<p>如果每天留快照，我们能清晰地知道新上榜的Skill跟我们已经安装Skill有什么区别，使用频率不高的情况下，值不值得花时间去重新适应。</p>
+<p>光看新进榜的话误导性有点高，很可能只是刚好被某个大号推荐了。有些Skill可能上榜很久了，但因为版本更新更好用了，排名就一下子往上窜了，但有的时候真的会下意识把它忽略掉。</p>
+<p>我就是这样水灵灵错过了agent-browser的大更新半个月。</p>
+<p>所以我给淘金小镇追加了几条新规。</p>
+<p>前100名里最近排名一下子提了8名以上的，</p>
+<p>下载量增长排进前20的，</p>
+<p>下载和星标都提升了10名的,</p>
+<p>都挖出来跟我原有的Skill体系做差距对比。</p>
+<p>好处就是它不太受我们的信息流影响。</p>
+<p>最近我就看到Polymarket的Skill上榜了，平时光顾着装一大堆UI设计和HTML PPT的skill了，原来都开始把预测市场也接进Agent工作流了。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>还有就是像Agent上下文管理这类Skill真的是每过一段时间就有个新神出来，就我刚把LLM Wiki做成Skill接进来，GBrain就火了。刚刚下了一个QMD，让本地模型管理上下文，有5个内存层的Elite Longterm Memory又火了。</p>
+<p>从同一类能力的排名变动可以看出大家最近在用同一种能力的时候，会有什么样的偏好。</p>
+<p>这就是我觉得淘金小镇有意思的地方，</p>
+<p>它是在帮我把值得判断的金子先捞出来。</p>
+<p>你想想看，</p>
+<p>现在Agent的Skill生态其实有点像早期的Chrome插件市场，</p>
+<p>所有人都在上传，</p>
+<p>名字一个比一个猛，说明一个比一个玄。</p>
+<p>问题是我不可能每天把所有新的都试一遍。</p>
+<p>因为信息流真的太快了。</p>
+<p>你今天觉得一个工具火，明天可能没人提了。</p>
+<p>你今天错过一个小Skill，三天后它可能已经变成很多Agent工作流里的基础设施。</p>
+<p>人眼是追不上这个速度的。</p>
+<p>但Agent可以。</p>
+<p>给它一个固定路线，让它每天去同一个地方，拿同一类数据做比较，然后把值得看的捞上来。</p>
+<p>今天谁还在，谁是新来的，</p>
+<p>谁掉下去了，谁突然很多人开始用。</p>
+<p>你看一眼就都知道了。</p>
+<p>对我来说，这就是淘金。</p>
+<p>不是找到唯一正确的Skill。</p>
+<p>而是在一堆沙子里，</p>
+<p>先把那些会发光的东西捞出来。</p>
+<p>剩下的，再慢慢试。</p>
+<p>@ 作者 / 卡尔</p>
+<hr />
+<p>最后，感谢你看到这里👏如果喜欢这篇文章，不妨顺手给我们<em>点赞｜在看｜转发｜评论 📣</em></p>
+<p>如果想要第一时间收到推送，不妨给我个星标🌟</p>
+<p>如果你有更有趣的玩法，欢迎在评论区聊聊🤝</p>
+<p>更多的内容正在不断填坑中……</p>
+<p><img alt="图片" src="/static/article-images/recviXZ1TOo6gt-1-876935a80f.webp" /></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvj22A00XyeZ.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">装了这个AI热点Skill之后，你再也不需要自己去刷AI新闻了。</span>
+        </a>
+        
+        
+        <a href="recviXBQnZiw2t.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">试了一下最近image2很火的【分镜说明书】效果真的还不错</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

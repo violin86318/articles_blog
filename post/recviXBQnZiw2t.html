@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>试了一下最近image2很火的【分镜说明书】效果真的还不错 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI工具教程</span>
+            
+            
+            <span class="topic-chip">视频生成</span>
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">AI绘画</span>
+            
+            <span class="topic-chip">效率工具</span>
+            
+            <span class="topic-chip">image2</span>
+            
+            <span class="topic-chip">分镜说明书</span>
+            
+            <span class="detail-reading-time">约 7 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">试了一下最近image2很火的【分镜说明书】效果真的还不错</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>自己也上手实测了一下并生成视频，效果真的还不错 可以通过这种方式，快速生成一些成片，挑一些能用的素材重新做剪辑后期，这样其实可以快速，低成本的应对一些优先级没那么高的需求 这个流程真的非常的省心啊</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文分享了使用image2的“分镜说明书”功能快速生成视频的实测流程，包括生成主体对象、创建分镜说明书图片、反推提示词并导入视频生成器，强调该方法低成本、高效率，适合快速产出素材。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/RvWOvqPCMQT2qIx65hq9Kw" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>作者实测了image2分镜说明书功能在视频生成中的应用，分享了从角色设定到视频出片的详细步骤。文章强调了该方法的高效与低成本优势，适合资源有限或非核心需求的项目。尽管成片可能存在瑕疵，但通过迭代优化和后期剪辑仍能达到可用水平，体现了对工具实用性的务实态度。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#试了一下最近image2很火的分镜说明书效果真的还不错" class="toc-link">试了一下最近image2很火的【分镜说明书】效果真的还不错</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="试了一下最近image2很火的分镜说明书效果真的还不错">试了一下最近image2很火的【分镜说明书】效果真的还不错</h1>
+<p>喜欢冲浪的朋友应该最近都刷到了这种图</p>
+<p><img alt="图片" src="/static/article-images/recviXBQnZiw2t-0-e38d72984f.png" /></p>
+<p>就是借用image2超强语义理解能力生成的分镜说明书</p>
+<p>可以在一张图里塞下：角色三视图/运镜路线/场景设定/镜头类型/音频氛围等一系列参数；</p>
+<p>我自己也上手实测了一下并生成视频，效果真的还不错🔽</p>
+<p>我盲猜我说这效果不错，肯定又会有“高人”跳脚了😅</p>
+<p>“啧啧这就不错了？审美就这样了？”</p>
+<p>“笑死，这玩意能用？”</p>
+<p>首先咱们得知道，这个片子从分镜到出片我也就花了不到十分钟；</p>
+<p>这个世界上的需求是多样化的，不要动辄就拿高标准来约束所有人，你得知道有些小老弟小老妹的账号就没有那么多积分，你试错的成本是有限的，客户也不一定追求那么高质量</p>
+<p>所以我们其实可以通过这种方式，快速生成一些成片，挑一些能用的素材重新做剪辑后期，这样其实可以快速，低成本的应对一些优先级没那么高的需求</p>
+<p>好，我的甲叠完了，如果还有要杠的我承认你是大哥😎</p>
+<p>那来看下我是怎么做的</p>
+<p>第一步🔽</p>
+<p>第一步很简单，快速生成一个主体对象，不用三视图</p>
+<p>我这是重新生成的角色，用的女性代替，如果你看到我的视频是男的，说明我之前用的是另外一个设定，不用担心，这个流程还是很稳的</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>第二步🔽</p>
+<p>新建一个image2图片生成器，选择4K高画质（不然效果不理想）</p>
+<p>下面是提示词（蓝色底为必须构成部分，尽量别删改）</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>创建一个极具动感的奔驰跑车的电影制作板/视觉规划表，比例16:9，展示奔驰跑车性能的完整概念。</p>
+<p>布局简洁，结构清晰。</p>
+<p>内容需要包含有</p>
+<p>艺术指导（顶部栏）：概述项目内容，如镜头数量，统一色卡，以及影片环境。 </p>
+<p>角色与风格参考部分：多个角度展示的模型（正面、背面、侧面、特写、放松姿态），配有服装和具体配饰参考。</p>
+<p>严格保持角色主体的一致性，允许在特定场景中进行细微变化。 </p>
+<p>环境和场景设计部分： 一个极具有电影感的夜晚赛车场，以及一个俯视示意图，说明在空间中的移动路径。</p>
+<p>包括摄像机位置和沿路线标注的拍摄类型 </p>
+<p>故事板部分： 有详细编号的分镜（16:9尺寸，共计8 个镜头）展示分镜的完整拍摄进程（赛车手在车内必须佩戴头盔，并且有赛车漂移的镜头），如果分镜需要呈现速度感，一定要加上运动模糊；禁止出现赛车手在车外的画面</p>
+<p>每个分镜包括：摄像机类型/镜头感觉 镜头大小（广角、中景、特写、微距） 运动方式（静态、跟踪、手持等） 动作和情绪进展的简要描述</p>
+<p>灯光/情绪/风格备注： 灯光、氛围、风格相关的视觉示例和简短描述</p>
+<p>情绪和关键词块：指导作品的情绪、基调、主题描述。 </p>
+<p>音频/音调部分： 配乐风格、环境音、特效音效和整体声音氛围的指导。</p>
+<p>镜头类型部分： 包括镜头特性、运动风格和后期处理感觉的视觉呈现哲学。 </p>
+<p>整个版面必须保持分镜连贯、体现影视级的专业水准：可以作为导演的拍摄指南，一眼传达出影片基调、节奏和视觉叙事</p>
+<p>第三步🔽</p>
+<p>把你生成的图片，直接拿到GEMINI，让他帮你反推中文提示词</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>然后就可以直接把这张图片连接视频生成器，直接把提示词复制进去就行</p>
+<p>记得使用seedance2.0，时长直接拉到15秒就好</p>
+<p>这样抽卡出来的视频，单条成片可能会有点BUG</p>
+<p>但如果项目有更高的追求，你可以再生成多几条，并且不断优化中文提示词，在剪辑软件里面拼一拼剪一剪，出来的成片水平基本都能在线，关键是这个流程真的非常的省心啊，老板们！</p>
+<p><img alt="图片" src="/static/article-images/recviXBQnZiw2t-1-6a6c0527fa.png" /></p>
+<p><img alt="图片" src="/static/article-images/recviXBQnZiw2t-2-38b070b64b.png" /></p>
+<p>喜欢文章内容的朋友可以点点赞，你们的关注对我真的很重要❤</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recviXZ1TOo6gt.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">开源「淘金小镇.Skill」,让你的Agent挖出每个排行榜里隐藏的信息差！</span>
+        </a>
+        
+        
+        <a href="recviXAZmmTzKc.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">我用3周研究怎么做AI网红，把所有干货整理在这里了</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

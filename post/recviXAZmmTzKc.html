@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我用3周研究怎么做AI网红，把所有干货整理在这里了 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AIGC</span>
+            
+            
+            <span class="topic-chip">视频生成</span>
+            
+            <span class="topic-chip">内容策略</span>
+            
+            <span class="topic-chip">AI网红</span>
+            
+            <span class="topic-chip">Kling</span>
+            
+            <span class="topic-chip">垂直领域</span>
+            
+            <span class="topic-chip">CapCut后期</span>
+            
+            <span class="detail-reading-time">约 20 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">我用3周研究怎么做AI网红，把所有干货整理在这里了</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>垂类决定了：模型的外貌和风格，内容做什么形式，触点在哪，用户会不会留下来，账号能不能长。 直接用AI生成的脸，长相都是平均值。但你刷一圈新出的AI账号会发现，每张脸都像从同一个模子里出来的——没有辨识度，记不住。 后期的目标是把这层塑料感去掉，让视频看起来像手机随手拍的。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>文章分享了作者用三周时间研究AI网红创作的完整方法，包括选择垂直领域、生成独特面部特征、制作视频和后期处理等关键步骤，提供了实用工具和技巧，帮助创作者避免常见陷阱，提升内容质量和互动效果。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/KPtnHjCypXqg5J_ewx_fQw" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文系统梳理了AI网红创作的全流程，从战略层面的垂类选择到技术细节的面部融合、视频生成与后期处理，逻辑清晰、干货密集。作者结合实操经验，强调了内容定位、辨识度塑造和真实性优化的核心价值，并提供了可落地的工具与参数建议，对探索AIGC内容创作的从业者具有很高的参考价值。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#我用3周研究怎么做ai网红把所有干货整理在这里了" class="toc-link">我用3周研究怎么做AI网红，把所有干货整理在这里了</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第一步选垂类" class="toc-link">第一步：选垂类</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第二步生成面部" class="toc-link">第二步：生成面部</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第三步生成视频" class="toc-link">第三步：生成视频</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#31-找参考视频" class="toc-link">3.1 找参考视频</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#32-制作起始帧" class="toc-link">3.2 制作起始帧</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#33-在-kling-里生成" class="toc-link">3.3 在 Kling 里生成</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#34-在-capcut-里后期" class="toc-link">3.4 在 CapCut 里后期</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#完整流程" class="toc-link">完整流程</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="我用3周研究怎么做ai网红把所有干货整理在这里了">我用3周研究怎么做AI网红，把所有干货整理在这里了</h1>
+<p><strong>作者：</strong> RetroChainer (@RetroChainer)<br />
+<strong>日期：</strong> 2026年5月6日<br />
+<strong>来源：</strong>I spent 3 weeks figuring out how to make AI influencers. Here's everything you need to know.</p>
+<p>AI网红这件事，这几个月突然冒出来很多人在做。我花了3周时间把这套流程从头摸了一遍，从选垂类到生成视频，每个环节都踩过一遍坑。</p>
+<p>这篇是我整理出来的完整方法，能少走很多弯路。</p>
+<hr />
+<h2 id="第一步选垂类">第一步：选垂类</h2>
+<p>很多人一开始就在纠结用什么工具、怎么生成更逼真的脸。但说实话，工具只是执行层面的事。真正决定账号能不能做起来的，是垂类。</p>
+<p>垂类决定了：</p>
+<ul>
+<li>
+<p>• 模型的外貌和风格</p>
+</li>
+<li>
+<p>• 内容做什么形式，触点在哪</p>
+</li>
+<li>
+<p>• 用户会不会留下来，账号能不能长</p>
+</li>
+</ul>
+<p>AI网红这个市场，也就是几个月前才冒出来的。现在各个垂类还远没到饱和。照着别人成功的路子抄没什么意义——你得找到属于自己的方向。</p>
+<p>目前跑得通的方向有三个：</p>
+<p><img alt="Image" src="/static/article-images/recviXAZmmTzKc-0-090628b863.webp" /></p>
+<p>Image</p>
+<p><strong>亚文化</strong>是最稳的一类。动漫、cosplay、游戏女主播、某个足球俱乐部的女球迷——这些话题经久不衰，受众的参与热情极高。</p>
+<p>可以拿一段女性CS2主播的视频，把主播换成你的AI模型。或者做一个漫威宇宙的cosplay角色账号。亚文化圈子有个特点：一个帖子只要踩中社区内部的某个争议点，哪怕只是一个小细节，互动量就会爆发式增长。</p>
+<p><strong>旅行和活动</strong>是另一个思路。你的模型可以出现在戛纳红毯上，可以在东京街头，可以在某场演唱会现场——这些地方你连家都不用出。这类内容看起来很有质感，因为观看的人隐约能感觉到背后的功夫，会觉得"这拍起来一定很贵"。</p>
+<p><strong>外貌特征</strong>可以做加分项，但不能当核心。胎记、疤痕、特殊的面部特征，作为辨识点是有效果的，但不适合作为整个账号的立身之本。几个月前那种夸张不真实的外貌还能引起轰动，现在已经没人觉得稀奇了。</p>
+<p>Image</p>
+<blockquote>
+<p><strong>一个可以试的思路：</strong> 做一个某支球队的铁杆女球迷，定期强调某位球员是全队最强。仇恨评论涌来，支持的也跟着涌来，两边加在一起就是互动量，算法会给你加权。</p>
+</blockquote>
+<hr />
+<h2 id="第二步生成面部">第二步：生成面部</h2>
+<p>先说一个很多人踩的坑：直接用AI生成的脸，长相都是平均值。</p>
+<p>技术层面没什么问题，看起来也不难看。但你刷一圈新出的AI账号会发现，每张脸都像从同一个模子里出来的——没有辨识度，记不住。原因就是没有参考图，AI只能输出"最大公约数"。</p>
+<p><strong>需要用到两个工具：</strong></p>
+<ul>
+<li>
+<p>• Pinterest — 用来收集参考图</p>
+</li>
+<li>
+<p>• Nano Banana Pro (Higgsfield) — 用来做面部融合</p>
+</li>
+</ul>
+<p>Image</p>
+<p><strong>操作方法很直接：</strong></p>
+<p>第一步，找两张面部清晰的不同女孩照片。</p>
+<p>第二步，把两张照片和以下提示词一起上传到 Nano Banana Pro：</p>
+<blockquote>
+<p>Integrate a face into an existing scene. Substitute the face in the reference image with the face from the donor image. The objective is a seamless merge: the new face must inherit the exact expression, pose, and lighting interaction from the reference, while its color attributes (hair and eyes) are adapted from the donor for a perfectly harmonious and natural result.</p>
+<p>将一张脸融入现有场景。用融合脸的脸替换基底脸中的脸。目标是无缝融合：新的脸要完全继承基底脸的表情、姿势和光线关系，同时发色和眼睛颜色从融合脸提取，最终呈现和谐自然的效果。</p>
+</blockquote>
+<p>Image</p>
+<p>第三步，拿到融合结果。如果想加强辨识度，可以添加一个特征——胎记、特殊眼睛颜色都行。</p>
+<p><strong>怎么挑这两张脸，有讲究。</strong></p>
+<p>最常见的错误是选两张长得相近的。神经网络会把差异磨平，融合出来还是平均结果。</p>
+<p>要选对比鲜明的两张脸，而且要提前想好各自的角色：</p>
+<ul>
+<li>
+<p>• <strong>第一张</strong>（基底脸）：定整体气质，比如高颧骨、冷感眼神</p>
+</li>
+<li>
+<p>• <strong>第二张</strong>（融合脸）：软化基底，增加亲和力，比如娃娃脸、丰唇</p>
+</li>
+</ul>
+<p>Image</p>
+<p>不同垂类适合不同脸型，可以参考：</p>
+<ul>
+<li>
+<p>• <strong>Cosplay、动漫、游戏角色</strong> — 辨识度强的脸，特征鲜明</p>
+</li>
+<li>
+<p>• <strong>哥特风、暗黑少女</strong> — 硬朗、有棱角</p>
+</li>
+</ul>
+<p>Image</p>
+<ul>
+<li>• <strong>时尚、精致生活方式</strong> — 柔和、带点浪漫感</li>
+</ul>
+<p>Image</p>
+<blockquote>
+<p><strong>一个可以试的思路：</strong> 在动漫女孩垂类里，找不同种族女孩的照片融合，再加上胎记作为辨识点。这样一下子把亚文化和外貌特征两个触点都抓住了。</p>
+</blockquote>
+<hr />
+<h2 id="第三步生成视频">第三步：生成视频</h2>
+<p>这套方法的核心逻辑是：让AI复制参考视频里真人的动作，然后把画面里的人完全替换成你的模型。</p>
+<h3 id="31-找参考视频">3.1 找参考视频</h3>
+<p>去 TikTok 和 Instagram 搜，搜索词就用你的垂类关键词——哥特女孩、动漫女孩、cosplay。</p>
+<p>挑视频时注意这几点：</p>
+<ul>
+<li>
+<p>• 播放量要高</p>
+</li>
+<li>
+<p>• 面部表情有感染力，动作有张力</p>
+</li>
+<li>
+<p>• 带点浪漫感</p>
+</li>
+<li>
+<p>• 踩中你垂类的触点</p>
+</li>
+</ul>
+<p>有一点要记住：<strong>参考视频里的人和你的模型长得越像，生成出来的效果越真实。</strong> Kling 在处理发型差异很大的情况时会出问题，比如把长发女孩的动作迁移到短发模型上，效果就会很怪。</p>
+<h3 id="32-制作起始帧">3.2 制作起始帧</h3>
+<p>很多人的第一反应是把模型照片直接丢进去生成。这样不对。</p>
+<p>Kling 读取的是你上传照片里的背景和姿势，而不是参考视频里的。所以你需要先做一帧起始图，让背景和姿势对齐参考视频的第一帧。</p>
+<p>上传到 Nano Banana Pro：</p>
+<ol>
+<li>1. 你的 AI 模型照片</li>
+</ol>
+<p>Image</p>
+<ol>
+<li>2. 参考视频第一帧的截图</li>
+</ol>
+<p>Image</p>
+<ol>
+<li>3. 提示词：</li>
+</ol>
+<blockquote>
+<p>Take the girl's face and body from the first image, and the pose, emotion, and background from the second. Use the girl's face from the first image as the character's face and replace it in the second image, it is necessary to accurately convey emotion and playfulness, it is necessary to accurately convey the appearance of the girl from the first image without changing her appearance, the photo must be alive, the girl is not a doll, sincere real, photo taken on an iPhone phone camera.</p>
+<p>从第一张图取女孩的脸和身体，从第二张图取姿势、表情和背景。用第一张图的女孩的脸作为角色的脸，替换到第二张图中。要准确还原她的神情和俏皮感，要准确还原第一张图中女孩的外貌，不能改变她的样子。照片要有生气，女孩不是娃娃，要真实自然，像用 iPhone 拍出来的。</p>
+</blockquote>
+<p>Image</p>
+<h3 id="33-在-kling-里生成">3.3 在 Kling 里生成</h3>
+<p>把起始帧和参考视频一起上传到 Kling Motion Control，在高级设置里粘贴下面这段提示词：</p>
+<p><code>Use the attached reference video as the sole motion blueprint and transfer its movement onto the character from the attached photo(s), preserving the character's exact identity, body proportions, face and hair features, skin texture, clothing fit, and overall silhouette with zero morphing, zero style drift, and no added accessories; match the reference motion precisely frame-by-frame including timing, speed, acceleration/deceleration, weight shifts, center-of-mass trajectory, foot placement, heel-to-toe roll, balance corrections, hand paths, finger articulation, head turns, eye-line direction, micro-expressions, breathing rhythm, and any subtle pauses, ensuring strict real-world biomechanics and believable inertia, muscle tension, and joint limits without exaggeration or "animation-like" elasticity; keep the action grounded in realistic physics with consistent gravity, natural momentum, correct contact forces, and clean interaction with the ground and body (no foot sliding, no limb stretching, no jitter, no teleporting, no sudden snaps), and do not invent any new gestures, effects, camera tricks, slow motion, extra movement, or transitions beyond what exists in the reference video; maintain stable, artifact-free rendering throughout with crisp continuity and no blur, warping, flicker, double-imaging, or AI glitches while the character performs the exact same motion sequence from start to finish.</code></p>
+<p><code>以附加的参考视频为唯一动作蓝本，将其动作迁移到附加照片中的角色身上。严格保留角色的身份特征、体型比例、脸部与发型、皮肤质感、服装合身度和整体轮廓，零变形、零风格漂移、不添加任何配饰。逐帧精确匹配参考动作，涵盖时间节奏、速度、加减速、重心转移、质心轨迹、脚的落点、脚跟到脚尖的滚动、平衡修正、手臂路径、手指关节、头部转动、视线方向、微表情、呼吸节律，以及任何细微的停顿；确保严格遵循真实世界的生物力学，具备可信的惯性感、肌肉张力和关节限制，不夸张，无"动画感"弹性。动作须基于真实物理规律，保持重力一致、动量自然、接触力正确，身体与地面的交互干净利落（无脚步滑动、无肢体拉伸、无抖动、无瞬移、无突然卡顿）。不得在参考视频之外自行发明任何新手势、特效、运镜技巧、慢动作、额外动作或转场。全程保持稳定、无瑕疵的渲染，画面连贯清晰，无模糊、变形、闪烁、重影或 AI 故障，角色从头到尾执行与参考视频完全一致的动作序列。</code></p>
+<p>Kling 有两个老毛病：外貌漂移（生成过程中脸越来越不像原来的模型）和画面瑕疵。这段提示词针对这两个问题，把动作的生物力学参数锁死，让模型不会自己发挥。</p>
+<h3 id="34-在-capcut-里后期">3.4 在 CapCut 里后期</h3>
+<p>Kling 出来的原始渲染，一眼就能看出是 AI 做的。那种质感太"塑料"——太过平滑、太均匀。后期的目标是把这层塑料感去掉，让视频看起来像手机随手拍的。</p>
+<p><strong>后期之前有一个容易忽视的步骤：</strong> 先把视频通过 Telegram 或 AirDrop 从电脑传到手机。AI 工具生成的视频文件里会带着元数据，标记着"AI 生成"。这次传输能把这个标记清掉，平台就会把这条视频当成普通用户内容来处理。</p>
+<p>CapCut 参数参考：</p>
+<p>|<br />
+参数</p>
+<p>|</p>
+<p>数值</p>
+<p>|</p>
+<p>作用</p>
+<p>|<br />
+| --- | --- | --- |<br />
+|</p>
+<p>颗粒</p>
+<p>|</p>
+<p>40</p>
+<p>|</p>
+<p>去掉 AI 的塑料感</p>
+<p>|<br />
+|</p>
+<p>清晰度</p>
+<p>|</p>
+<p>20</p>
+<p>|</p>
+<p>还原面部和服装细节</p>
+<p>|<br />
+|</p>
+<p>亮度</p>
+<p>|</p>
+<p>–5 到 –10</p>
+<p>|</p>
+<p>增加层次，去除"塑料"观感</p>
+<p>|<br />
+|</p>
+<p>暗角</p>
+<p>|</p>
+<p>10–15</p>
+<p>|</p>
+<p>增加电影质感</p>
+<p>|</p>
+<p>这些数值是参考，不是死规则。场景本来就暗就别动亮度；对比度高就把颗粒调小一点。真正影响结果的核心变量是颗粒和亮度这两个。</p>
+<blockquote>
+<p><strong>一个可以验证的实验：</strong> 同一条视频做两个版本，一个有后期处理，一个没有，间隔几天分别发出去。对比触达量，你就知道后期这一步对算法到底有多大影响了。</p>
+</blockquote>
+<hr />
+<h2 id="完整流程">完整流程</h2>
+<p><strong>选垂类 → 做面部</strong>（Nano Banana Pro）<strong>→ 做起始帧</strong>（Nano Banana Pro）<strong>→ 生成视频</strong>（Kling Motion Control）<strong>→ 后期处理</strong>（Telegram → CapCut）</p>
+<p>Kling 上手简单，但不是最强的工具。搭建一套完整的自有工作流，出来的质量会明显更高——这个话题我们下次单独聊。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recviXBQnZiw2t.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">试了一下最近image2很火的【分镜说明书】效果真的还不错</span>
+        </a>
+        
+        
+        <a href="recvikqHEUjU3T.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">OpenAI Codex 完整教程 2026：100 分钟，四个关键概念 + 六个实战项目</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
