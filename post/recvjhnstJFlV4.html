@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>浅尝AI写作工具之「炼字工坊」：流程化创作，半自动写网文 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI工具评测</span>
+            
+            
+            <span class="topic-chip">AI写作</span>
+            
+            <span class="topic-chip">炼字工坊</span>
+            
+            <span class="topic-chip">网文创作</span>
+            
+            <span class="topic-chip">写作软件</span>
+            
+            <span class="topic-chip">测评</span>
+            
+            <span class="topic-chip">流程化创作</span>
+            
+            <span class="detail-reading-time">约 39 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">浅尝AI写作工具之「炼字工坊」：流程化创作，半自动写网文</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>单从文笔来看，有少量AI痕迹，但场景内节奏紧凑，这点AI味对阅读体验的影响可以忽略不计。 最大的问题是，这是女频文啊！！！谁家女频文开篇打架打三章？ 现在的写法，相当于直接把花魁人设丢了，变成纯纯女兵王，人形绞肉机。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文测试了AI写作工具「炼字工坊」在长篇网文创作中的应用，详细记录了从开书立项、生成黄金三章到补充设定与大纲的完整流程，并对生成内容的效果进行了点评，指出其流程化、半自动化的特点及在文风、剧情设计上的优缺点。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/BADH9LAPhtZ-rVLygSu-3A" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>这篇测评详细拆解了「炼字工坊」从创意到成文的流程，展示了AI在网文创作中的辅助潜力与当前局限。优点是流程清晰、设定生成高效，但生成内容在剧情连贯性、文风适配（如女频文风）方面仍需人工调整。它体现了AI写作工具正朝着更结构化、可控的方向发展，但距离完全替代创作者还有距离，更适合作为激发灵感和提效的助手。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#浅尝ai写作工具之炼字工坊流程化创作半自动写网文" class="toc-link">浅尝AI写作工具之「炼字工坊」：流程化创作，半自动写网文</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="浅尝ai写作工具之炼字工坊流程化创作半自动写网文">浅尝AI写作工具之「炼字工坊」：流程化创作，半自动写网文</h1>
+<p>最近，有好几个小伙伴让我去测一款AI写作软件，名为「炼字工坊」。</p>
+<p><img alt="图片" src="/static/article-images/recvjhnstJFlV4-0-78d58be806.png" /></p>
+<p><img alt="图片" src="/static/article-images/recvjhnstJFlV4-1-e1bad91774.png" /></p>
+<p>「炼字工坊」集小说、剧本、漫剧创作于一身，提供番茄扫榜，支持用户发布提示词。</p>
+<p>今天我就拿长篇网文创作的场景来测试一下，看这款产品的使用体验和生成效果如何。</p>
+<p><strong>开书立项</strong></p>
+<p>我们先来创建一部小说试试看，开书即刻进入如下引导流程：</p>
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 15 张未完整抓取的图片，已合并省略</div>
+<p>单从文笔来看，有少量AI痕迹，但场景内节奏紧凑，这点AI味对阅读体验的影响可以忽略不计。</p>
+<p>开篇危机，借配角之口自然交代世界背景，迅速带入剧情，这些都做得还不错。</p>
+<p>但是，最大的问题是，这是女频文啊！！！谁家女频文开篇打架打三章？当然，男频文这么个打法，也不太适合如今的读者，剧情有些单薄了。</p>
+<p>女主是谁，什么身份，文中有一些暗示，但缺少清晰、明确的介绍。</p>
+<p>从剧情设计上来看，女主的行动是够杀伐果断的，但有些一根筋了，杀伐果断就一定要嘎嘎乱杀吗？其实这个故事创意非常适合扮猪吃虎，情节可以更多元一点，安排一些有趣的情节，把兵王的杀伐属性放在关键时刻更有奇效。现在的写法，相当于直接把花魁人设丢了，变成纯纯女兵王，人形绞肉机。</p>
+<p>有可能这套提示词，更偏向男频文一些，实际用的时候，可以自己找找看有没有匹配自己作品的提示词。</p>
+<p><strong>设定与大纲</strong></p>
+<p>完成黄金三章后，「炼字工坊」的引导流程就进入「设定与大纲」的环节了。</p>
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 6 张未完整抓取的图片，已合并省略</div>
+<p>这个界面让人有点费解，咱来捋捋。</p>
+<p>上面世界观、地点场景、物品道具、关键事件属于分类，下面血沁玉簪这些才是实际的设定条目。如果点上面的分类，下面会自动做筛选进行展示。</p>
+<p>同样，这里的设定也并不是已在故事中呈现的内容，大多还没有进入剧情中。</p>
+<p>再来看看自动生成的伏笔：</p>
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 3 张未完整抓取的图片，已合并省略</div>
+<p>总纲直出了15000+字，来看看这套大纲什么样。</p>
+<p>第一部分是总体规划，包括篇幅和写作目标、核心灵感、主角成长路线、势力与世界观、感情线、人物线等。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>第二部分则进入分卷的规划，每一卷都做了详细设计，以第1卷为例：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>每个分卷规划了章节区间、卷名、核心地图、主角提升目标、主线与辅线设计。</p>
+<p>而后，会将每一个分卷分为五个阶段，分别是：</p>
+<ul>
+<li>
+<p>Phase 1：目标+主线引入</p>
+</li>
+<li>
+<p>Phase 2：阻碍+支线并行</p>
+</li>
+<li>
+<p>Phase 3：伏笔主笔揭露+多转折铺垫</p>
+</li>
+<li>
+<p>Phase 4：爆发+情绪释放</p>
+</li>
+<li>
+<p>Phase 5：收尾+地位转化</p>
+</li>
+</ul>
+<p>每个阶段下包含5个大事件，共同支撑起整卷剧情脉络。这是一套模板化的设计思路，以模板严格控制各个阶段的剧情节奏。</p>
+<p>当然，生成结果来自选用的提示词，换一套提示词又会有不同的结果。</p>
+<p>这次其实没有把大纲生成完，出到第4卷阶段1，生成就中断了，不知道后面还有没有其他内容板块。</p>
+<p>生成完总纲，就可以进入下一环节了，界面上是叫生成「卷纲」：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>实际上，是一次性直出50章的章纲。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>黄金三章已经出了，那么就以第4章为例，来看看章纲的设计思路叭~</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>章纲同样采用了模板化的思路，来看看这套模板有哪些板块。</p>
+<p>首先是类型，这一章的类型是「战斗/BOSS战」，我翻了下后面的章节，还有诸如「冒险」、「揭秘/回忆」、「打脸」、「铺垫/备战」、「审问/铺垫」之类的类型，我感觉有点像是提示词里定义了一些剧情类型的创作技巧，然后设计章纲的时候选取1~2种来进行设计。</p>
+<p>然后是逻辑控制台，这部分会规划出场角色、核心场景、时间跨度、核心爽点、底层博弈、本章收益，定出总体的框架。</p>
+<p>对应Phase节点和剧情进度自检，则是用来关联总纲中对应的分卷设计，和确定本章进度要求，确保不偏离规划。</p>
+<p>重头戏是剧情推演部分，这里采用起承转合的结构，按照切入与危机→冲突升级/压抑→关键破局（高潮）→余波与代价的发展脉络，完成单章剧情设计。</p>
+<p>最后留下黄金钩子，引诱读者追更。看了下，钩子似乎也做了类型库，当前可见的有：</p>
+<ul>
+<li>
+<p>类型A：危机钩</p>
+</li>
+<li>
+<p>类型B：信息钩</p>
+</li>
+<li>
+<p>类型C：情绪钩</p>
+</li>
+</ul>
+<p>这套提示词出来的剧情，和之前黄金三章有同样的问题，剧情单薄。</p>
+<p>从章纲来看，主角从第1章打架打到了第18章，阿门~</p>
+<p><strong>正文</strong></p>
+<p>生成完第1卷的章纲后，「炼字工坊」继续引导生成正文，从第4章开始：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>这时，会触发检测机制，提醒更新设定：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>这一轮发现了8条需要更新的设定：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>看着有点乱，其实就是对应之前设定目录下那些角色、设定之类的，全部进行结构化和编码管理。</p>
+<p>处理完这些更新，就可以继续生成正文了。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>正文质量从前面黄金三章的产出，即可窥见一斑，这里就不再赘述了。</p>
+<p>这样，新手引导就跑完了，长篇创作的各个环节也都走了一遍。</p>
+<p><strong>小结</strong></p>
+<p>来总结一下测试的效果吧。</p>
+<p>前面各个环节，其实有对生成效果做简短的点评。不过，像这种支持UGC提示词的平台，还是得把提示词和平台本身分开来看，不能完全混为一谈。</p>
+<p>测试下来，这套官方默认的提示词可能更偏男频一点，剧情设计上还有不少问题，作者得深度参与进来，才能出质量好一点的内容。实际使用的时候，可以尝试下其他提示词，看看有没有跟自己的作品和写作习惯匹配的。</p>
+<p>再来说说平台方面，「炼字工坊」的引导性比较强，新手流程跑完，基本就能无障碍使用了。AI对话这块的设计也比较有意思，不是像网页版DeepSeek那样就单纯地对话生成，而是融合了推送卡片机制，适时给用户推送引导、福利等，更加主动，可以在后续创作中，持续提供使用引导。</p>
+<p>在一些生成动作中，「炼字工坊」应该有埋入一些自动触发机制，例如上述过程中检测并更新设定的场景，让作品中信息对齐半自动化，对作者来说省时省力。不过，之前我测过的其他产品也有类似机制，这里会有一点隐患，就是这种自动提取生成，可能会出现故事线索泛滥的问题。当前「炼字工坊」有一点这方面的迹象，后期是不是能做好收敛，需要更长期的使用才能知道。</p>
+<p>以上是实测「炼字工坊」辅助写长篇的详细过程，感兴趣的小伙伴，可以亲自体验试试看~</p>
+<p>「炼字工坊」地址：https://lianzigongfang.com/login?invite=MR53YK</p>
+<p>(๑•̀ㅂ•́)و✧</p>
+<p><strong>往期精彩内容</strong></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654971266&amp;idx=1&amp;sn=83906bbee62db0c84051a939cacf6e66&amp;scene=21#wechat_redirect">课程 |「AI写网文」提示词入门教程</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxODQwMzA2Mg==&amp;mid=2654972941&amp;idx=1&amp;sn=95a28e9056772ee3149570afd443c64e&amp;scene=21#wechat_redirect">课程 |「AI写网文」提示词进阶教程</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=3718550945471414275&amp;scene=126&amp;sessionid=1762240741514#wechat_redirect">教程 | 用「obsidian」搭建写网文工作台</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=4281205832005713923&amp;scene=126&amp;sessionid=1765330770265#wechat_redirect">教程 | 用「Claude Code」搭建写网文工作台</a></p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxODQwMzA2Mg==&amp;action=getalbum&amp;album_id=4347603766829858832&amp;scene=126&amp;sessionid=1769001753291#wechat_redirect">教程 | 用「Antigravity」搭建写网文工作台</a></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvjdhlbG4fHK.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">一张图直出15秒电影：GPTimage2故事板+Seedance2.0的作弊级工作流</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
