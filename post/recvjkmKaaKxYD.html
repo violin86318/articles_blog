@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​ — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI工具</span>
+            
+            
+            <span class="topic-chip">AI设计</span>
+            
+            <span class="topic-chip">PPT生成</span>
+            
+            <span class="topic-chip">设计系统</span>
+            
+            <span class="topic-chip">效率提升</span>
+            
+            <span class="topic-chip">演示文稿</span>
+            
+            <span class="topic-chip">开源Agent</span>
+            
+            <span class="detail-reading-time">约 20 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>Open Design 的核心决策很反直觉：作为一个设计工具，它不带 AI 引擎。 它真正做的事情是给 agent 加纪律，靠三层东西：31 个内置 Skill、72 套 Design System、Discovery Form。 它最适合的角色是“deck 起稿工具”：一句话需求出一份结构完整、视觉统一的初稿，然后你在这个基础上改内容、调细节。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Open Design是一个开源设计Agent，不自带AI引擎，而是通过调用用户电脑上已有的coding agent CLI（如Claude Code、Codex）作为设计引擎，并为其注入设计系统、视觉规范和流程约束，从而实现一键生成风格统一的演示文稿。作者用它快速制作了Milvus 2.6路演PPT的初稿骨架，验证了其在起稿效率、视觉一致性方面的优势，但也指出了它在内容准确性、输出格式（非.pptx）和复杂交互等方面的局限。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/NHcpPJmXUx9a31305p-LsA" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文深入评测了开源项目Open Design，它通过‘纪律’而非自研AI引擎的方式，将现有coding agent改造为专业的设计工具，巧妙解决了AI生成演示文稿时风格随机、缺乏一致性的问题。作者以实战制作路演PPT为例，展示了其高效起稿和视觉统一的能力，同时客观分析了其在内容准确性、输出格式和品牌定制等方面的局限。对于已拥有AI编程助手的开发者而言，这是一个能极大提升非代码创作效率的实用工具，体现了‘复用’和‘约束’的工程智慧。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#这个-35k-star-的开源设计-agent-帮我一键打开-ppt-新世界" class="toc-link">这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#直接让-agent-做-ppt问题出在哪" class="toc-link">直接让 agent 做 PPT，问题出在哪</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#open-design-的做法不造-agent造纪律" class="toc-link">Open Design 的做法：不造 agent，造纪律</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#实操做一份-milvus-26-路演-deck" class="toc-link">实操：做一份 Milvus 2.6 路演 deck</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#前置条件" class="toc-link">前置条件</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#下载和启动" class="toc-link">下载和启动</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#配置-agent" class="toc-link">配置 agent</a>
+                </li>
+                
+                <li class="toc-item level-5">
+                    <a href="#选择设计类型ppt" class="toc-link">选择设计类型：PPT</a>
+                </li>
+                
+                <li class="toc-item level-5">
+                    <a href="#选择设计体系" class="toc-link">选择设计体系</a>
+                </li>
+                
+                <li class="toc-item level-5">
+                    <a href="#一句话需求" class="toc-link">一句话需求</a>
+                </li>
+                
+                <li class="toc-item level-5">
+                    <a href="#生成完成" class="toc-link">生成完成</a>
+                </li>
+                
+                <li class="toc-item level-5">
+                    <a href="#查看结果" class="toc-link">查看结果</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#生成结果能不能用" class="toc-link">生成结果能不能用</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#它省掉的到底是什么" class="toc-link">它省掉的到底是什么</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#边界在哪" class="toc-link">边界在哪</a>
+                </li>
+                
+                <li class="toc-item level-4">
+                    <a href="#写在最后" class="toc-link">写在最后</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="这个-35k-star-的开源设计-agent-帮我一键打开-ppt-新世界">这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​</h1>
+<p>我最近要做一份 Milvus 2.6 的路演 deck。按以前的路径，要么打开 PowerPoint 从空白页开始拼（封面怎么排、目录放哪、章节怎么分，全靠自己想），要么找个模板改（改完发现配色对不上、版式逻辑乱）。</p>
+<p>Claude Design 能做这事，但它付费、云端、锁死 Anthropic 模型。我电脑上已经有 Claude Code 了，每天用它写代码，凭什么做个路演 PPT 还得再开一个工具、再付一份钱？</p>
+<p>后来发现 Open Design 这个项目。它不自带 AI 引擎，直接用你电脑上已有的 coding agent CLI 当设计引擎——装了 Claude Code 就用 Claude Code，装了 Codex 就用 Codex，一共支持 16 种。给它们套上设计系统和流程约束，同一个 agent 就能从写代码切到做 PPT。</p>
+<p><img alt="image.png" src="/static/article-images/recvjkmKaaKxYD-0-5422487e96.webp" /></p>
+<p>这篇文章记录我用它做 Milvus 2.6 路演 deck 的完整过程，以及它到底解决了什么、解决不了什么。</p>
+<h3 id="直接让-agent-做-ppt问题出在哪">直接让 agent 做 PPT，问题出在哪</h3>
+<p>用 coding agent 生成演示材料，技术上完全可行。但跑过的人都知道结果：配色随机，排版没章法，同一个 prompt 跑三次出三种风格。封面像海报、目录像文档、正文像网页，前后统一不了。</p>
+<p>问题不在模型能力。你让 agent “做一个路演 PPT”，它不知道该用什么视觉节奏、什么配色逻辑、章节之间怎么衔接，只能自由发挥。每次都是一次抽奖。</p>
+<p>Claude Design 用一套闭源的 prompt 工程和设计系统解决了这个问题。但代价是全套锁定——模型不能换、本地不能跑、工作流不能接。对于已经有 coding agent 的开发者来说，这个代价没必要付。</p>
+<h3 id="open-design-的做法不造-agent造纪律">Open Design 的做法：不造 agent，造纪律</h3>
+<p>Open Design 的核心决策很反直觉：作为一个设计工具，它不带 AI 引擎。</p>
+<p>启动时 daemon 扫描你的 PATH，找到哪些 coding agent CLI 已经装好，找到谁就用谁，界面上一键切换。没装任何 CLI 也行，填一个 OpenAI 兼容的 API 地址就能跑。</p>
+<p>它真正做的事情是给 agent 加纪律，靠三层东西：</p>
+<p>31 个内置 Skill——每个是一个文件夹，里面有模板、排版规则、检查清单。你要做 PPT，daemon 就把 deck 类 skill（比如内置的 guizang-ppt）的全套规范注入 agent 的 prompt——杂志式排版、WebGL 封面背景、P0/P1/P2 质量检查清单。agent 不再自由发挥，而是按规矩出活。</p>
+<p>72 套 Design System——Markdown 格式的品牌级视觉规范。选 Claude 体系就出 Claude 风格，选 Stripe 就出 Stripe。配色、字体、间距全锁死，不给 agent 自由发挥配色的空间。</p>
+<p>Discovery Form——每次新任务先弹表单锁需求（给谁看、什么调性、什么规模），再从 5 种视觉方向里选一个，每种背后是确定性的调色板和字体栈。填完 agent 才动手。</p>
+<p>最后还有一道 5 维自检：agent 生成完自己打分，不及格自己改。</p>
+<p>这套东西加起来，agent 的能力是底座，Open Design 提供的是让它稳定出活的纪律。</p>
+<h3 id="实操做一份-milvus-26-路演-deck">实操：做一份 Milvus 2.6 路演 deck</h3>
+<h4 id="前置条件">前置条件</h4>
+<ul>
+<li>
+<p>至少安装 Claude Code 或 Codex 其中一个 CLI</p>
+</li>
+<li>
+<p>准备好可用的模型 API Key</p>
+</li>
+<li>
+<p>Node 24、pnpm</p>
+</li>
+</ul>
+<h4 id="下载和启动">下载和启动</h4>
+<p>git clone https://github.com/nexu-io/open-design.git </p>
+<p>cd open-design </p>
+<p>corepack enable </p>
+<p>corepack pnpm --version   # should print 10.33.2 </p>
+<p>pnpm install </p>
+<p>pnpm tools-dev run web </p>
+<p>启动后终端会打印一个本地 URL。整个过程就是标准的 Node 项目启动流程，没有额外的配置文件要改。</p>
+<div class="detail-image-missing" role="note" aria-label="图片缺失提示">原文包含 10 张未完整抓取的图片，已合并省略</div>
+<h4 id="生成结果能不能用">生成结果能不能用</h4>
+<p>先说结论：作为路演 deck 的初稿骨架，能用；作为最终交付稿，不够。</p>
+<p>能用的部分：整体结构是合理的——从概念介绍到架构、到核心功能、到实战场景，章节划分符合"从入门到精通"的逻辑。封面、目录、章节分隔页的视觉风格统一，配色和排版遵循了选定的设计体系，不是随机拼凑。作为一份"先把骨架搭好、再往里填内容"的起点，它省掉了最费时间的起稿阶段。</p>
+<p>需要改的部分：技术内容的准确性需要人工校验——agent 对 Milvus 2.6 的具体特性了解有限，可能存在版本细节错误或表述不精确的地方。另外，它输出的是 HTML artifact 而不是 .pptx 文件。这意味着你在浏览器里看到的效果很好，但如果要拿去公司模板里用、或者需要 PowerPoint 格式交付，还需要一步导出或手动搬运。</p>
+<p>关于输出格式要多说一句：Open Design 的 PPT 模式生成的是单页 HTML，用浏览器横向翻页，视觉上就是一份 deck。它支持导出 PDF，但不直接输出 .pptx。如果你的场景是投屏演示或发 PDF，它的输出可以直接用；如果必须交付 PowerPoint 源文件，这里有一步格式转换的成本。</p>
+<h4 id="它省掉的到底是什么">它省掉的到底是什么</h4>
+<p>从做路演 deck 这个场景看，Open Design 省掉的是三件最费时间的事：</p>
+<p>一是起稿。从空白页到有一个完整的章节骨架（封面、目录、N 个章节页、结尾页），以前要花半小时到一小时想结构、调版式。现在一句 prompt 出来了。</p>
+<p>二是视觉方向。配色用什么、字体用什么、封面怎么排、章节页怎么分隔——这些以前要么翻模板库挑半天，要么自己试错。现在选一个 Design System 就锁定了，agent 按规矩出活。</p>
+<p>三是风格一致性。手动做 deck 最烦的是做到第 8 页发现和第 2 页风格对不上。Open Design 的 Design System 从头锁到尾，每一页都在同一套视觉语言里。</p>
+<p>它没省掉的是内容本身。agent 能帮你搭骨架、排版式，但"Milvus 2.6 到底有哪些新特性、路演时该强调什么"这些判断还是你自己的事。</p>
+<h4 id="边界在哪">边界在哪</h4>
+<p>几个场景它撑不住：</p>
+<p>内容准确性。agent 对特定技术产品的了解有限，生成的技术细节需要人工校验。把它当内容起稿工具，不要当事实来源。</p>
+<p>品牌视觉的精确还原。如果你的公司有严格的品牌手册——指定字体、指定色号、指定 logo 间距——Open Design 的 72 套 Design System 里大概率没有你的品牌。它出的是"好看且统一"的通用设计，不是"精确符合品牌规范"的定制设计。</p>
+<p>复杂动画和交互。它输出的是静态 HTML deck，没有 PowerPoint 那种入场动画、路径动画、触发器交互。如果你的路演依赖动画叙事，这里是硬伤。</p>
+<p>最终交付格式。输出是 HTML / PDF，不是 .pptx。如果对方要求 PowerPoint 源文件可编辑，你需要额外一步格式转换，或者把 Open Design 的输出当作视觉参考、在 PowerPoint 里手动重建。</p>
+<p>还有一个隐性边界：agent CLI 本身的能力上限就是 Open Design 的上限。你用的 agent 对 HTML/CSS 生成不稳定，框架再好也救不回来。目前跑下来 Claude Code 和 Codex 效果最稳。</p>
+<h4 id="写在最后">写在最后</h4>
+<p>如果你经常要做技术路演、产品分享、团队汇报这类 deck，而且你电脑上已经有 Claude Code 或 Codex，Open Design 值得一试。</p>
+<p>它最适合的角色是"deck 起稿工具"：一句话需求出一份结构完整、视觉统一的初稿，然后你在这个基础上改内容、调细节。比从空白页开始快得多，比翻模板库挑半天靠谱。</p>
+<p>它不适合的场景：需要精确品牌视觉、需要 .pptx 源文件、需要复杂动画、需要内容零校验直接交付。</p>
+<p>三条命令启动，不需要新 API key，不需要学新工具，不需要付费。门槛几乎为零，值得你花十分钟跑一次看看效果。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvjzLjFijVhE.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">OnePod： 每日精选最新英文播客，用刷文字的方式听播客</span>
+        </a>
+        
+        
+        <a href="recvjixdYX1HYB.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">全世界第一个音频Infra上线，让调用音乐像调用模型一样简单</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

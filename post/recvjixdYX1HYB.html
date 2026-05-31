@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>全世界第一个音频Infra上线，让调用音乐像调用模型一样简单 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">人工智能</span>
+            
+            
+            <span class="topic-chip">AI音乐</span>
+            
+            <span class="topic-chip">音频API</span>
+            
+            <span class="topic-chip">开发者服务</span>
+            
+            <span class="topic-chip">低成本集成</span>
+            
+            <span class="topic-chip">开源音频</span>
+            
+            <span class="topic-chip">Audiolib</span>
+            
+            <span class="detail-reading-time">约 12 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">全世界第一个音频Infra上线，让调用音乐像调用模型一样简单</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>不是用户不需要,是开发者搞不动。 像调模型一样调音乐，像烧token一样烧音乐。 任何一个独立开发者都付得起, 任何一个跑得起来的产品都用得起。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>Audiib.ai推出全球首个音频基础设施，让开发者通过API一键调用音乐。该服务提供10万+高质量AI生成音乐，覆盖多种场景和风格，按调用次数计费，成本极低，旨在解决App中音乐接入门槛高的问题。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/UAXfMM7I2O-eZyPPdESu7A" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>Audiolib.ai通过API化音频资源，大幅降低了开发者为产品集成音乐的门槛与成本。其将海量AI生成音乐封装为易用的基建层，不仅是技术创新，更是对应用场景的深刻洞察。这种模式可能催生更多&#39;有声&#39;应用，丰富用户体验。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#全世界第一个音频infra上线让调用音乐像调用模型一样简单" class="toc-link">全世界第一个音频Infra上线，让调用音乐像调用模型一样简单</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#你有没有想过为什么全世界99的app和网站是没有声音的" class="toc-link">你有没有想过，为什么全世界99%的App和网站是没有声音的？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#它是什么-音频版的openrouter" class="toc-link">它是什么: 音频版的OpenRouter</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#我们做了什么准备工作你才能这么便宜地用" class="toc-link">我们做了什么准备工作,你才能这么便宜地用</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#你的产品里其实有十几个地方可以放音乐你只是没想到" class="toc-link">你的产品里其实有十几个地方可以放音乐,你只是没想到</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#怎么开始" class="toc-link">怎么开始？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#我为什么做这件事" class="toc-link">我为什么做这件事？</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="全世界第一个音频infra上线让调用音乐像调用模型一样简单">全世界第一个音频Infra上线，让调用音乐像调用模型一样简单</h1>
+<p><img alt="图片" src="/static/article-images/recvjixdYX1HYB-0-4aa2a1771f.webp" /></p>
+<p>过去1年，我和43Music团队创作了10万首歌，过去一个月，我开发了一个Audio Infra，把这些音乐全部开源了。</p>
+<p>这就是Audiolib.ai，全世界第一个服务于开发者的音频基建层。</p>
+<h2 id="你有没有想过为什么全世界99的app和网站是没有声音的">你有没有想过，为什么全世界99%的App和网站是没有声音的？</h2>
+<p>因为这个事在Ai时代来临之前门槛太高了，去哪里搞曲库? 版权怎么办? 授权一年多少钱? CDN 谁来扛? 要不要自己搭一个播放器? 要不要做一个后台让运营选歌? 这事干完得多少钱、多少人、多少天? </p>
+<p>而在Ai爆发之后，这事也没有变的很简单，你可以很轻松的用Ai做几首歌，但是你有没有人、时间和专业能力做出足够多的高质量音乐？对多数开发者来说，这不是自己的业务专长所在，想到这里就放弃了。</p>
+<p><strong>不是用户不需要,是开发者搞不动。</strong></p>
+<p>Audiolib 就是为了让你搞得动而做的。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<h2 id="它是什么-音频版的openrouter">它是什么: 音频版的OpenRouter</h2>
+<p>你已经知道怎么调一个大模型了。</p>
+<pre><code>POST /v1/chat/completionsAuthorization: Bearer sk_xxxxx
+</code></pre>
+<pre><code>
+</code></pre>
+<p>Audiolib 让你用<strong>一模一样的姿势</strong>调一首音乐。</p>
+<pre><code>POST https://api.audiolib.ai/v1/audioAuthorization: Bearer alp_xxxxxContent-Type: application/json{&quot;library&quot;:&quot;audio.focus&quot;}
+</code></pre>
+<p>没有 SDK, 没有播放器, 没有后台, 没有版权谈判, 没有曲库管理, 只需一个Key一个曲库名称，直接在你的产品里播放音乐。</p>
+<p>把它理解成:<strong>硅基流动给你模型, Audiolib给你音乐</strong>。</p>
+<p>模型按 token 计费, 音乐按唤起计费，每一次成功调用 = 1首歌。</p>
+<p><strong>每调用一次, 完整播放一首歌, 使用成本最低仅0.0003美元。</strong></p>
+<p>播放10,000首歌3美元。</p>
+<p>让用户在你的产品里全天候听音乐, 你一个月可能花不到10美元。</p>
+<p>像烧token一样烧音乐，但你完全不需要为"用户会不会听太多"焦虑——这个单价就是为了让你<strong>不焦虑地把音乐铺进产品里</strong>。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>定价档位:</p>
+<ul>
+<li>
+<p><strong>Free</strong></p>
+<p>— 300 calls/月, 免费试试, 不用花钱</p>
+</li>
+<li>
+<p><strong>Starter</strong></p>
+<p>— $2.90/月, 1,500 calls</p>
+</li>
+<li>
+<p><strong>Standard</strong></p>
+<p>— $9.90/月, 15,000 calls</p>
+</li>
+<li>
+<p><strong>Pro</strong></p>
+<p>— $29.90/月, 50,000 calls</p>
+</li>
+<li>
+<p><strong>Max</strong></p>
+<p>— $99.00/月, 200,000 calls</p>
+</li>
+<li>
+<p>超量按 $0.00032/call</p>
+</li>
+</ul>
+<p><strong>任何一个独立开发者都付得起, 任何一个跑得起来的产品都用得起。</strong></p>
+<h2 id="我们做了什么准备工作你才能这么便宜地用">我们做了什么准备工作,你才能这么便宜地用</h2>
+<p>Audiolib不是一个聚合器, 不是版权代理, 不是 Suno 的中转。</p>
+<p>是我们团队自己用一年多时间生成、筛选、分类、标注的 <strong>10 万+ 首各种类型的音乐</strong>, 按场景和风格切分成几十个曲库。</p>
+<p>每一个曲库都有清晰的定位:</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p><strong>功能向</strong>(audio.focus / audio.relax / audio.sleep / audio.workout / audio.meditation / audio.study / audio.energy / audio.running / audio.emotional / audio.flow / audio.healing / audio.background...)</p>
+<p><strong>风格向</strong>(audio.lofi / audio.ambient / audio.house / audio.pop / audio.rock / audio.electronic / audio.chinese-pop / audio.mandarin-ballad / audio.disco / audio.trance / audio.techno / audio.dubstep / audio.new-age / audio.world-music / audio.jazz...)</p>
+<p>每个曲库从数百到上千首音乐作品，每次 call 随机返回一首, 支持"无限播放"的效果。</p>
+<p><strong>等于我把自己创作的 10 万首音乐, 以 API 形式开源给了所有开发者。</strong></p>
+<h2 id="你的产品里其实有十几个地方可以放音乐你只是没想到">你的产品里其实有十几个地方可以放音乐,你只是没想到</h2>
+<p>我替你想了几个:</p>
+<p><strong>冥想 / 睡眠 / 助眠类 App</strong> — <code>audio.meditation</code> / <code>audio.sleep</code> / <code>audio.healing</code>, 用户一打开就该有声音。</p>
+<p><strong>运动 / 跑步 / 健身 App</strong> — <code>audio.workout</code> / <code>audio.running</code> / <code>audio.energy</code>, 心率上去音乐就该跟上。</p>
+<p><strong>专注 / 番茄钟 / 写作工具</strong> — <code>audio.focus</code> / <code>audio.lofi</code> / <code>audio.study</code>, 白噪音替代品,黏性极强。</p>
+<p><strong>AI 陪伴 / 聊天角色 / 虚拟伴侣</strong> — 不同角色配不同曲库, 情绪场景切换 = 调用不同 library。</p>
+<p><strong>塔罗 / 占卜 / 星座类内容产品</strong> — <code>audio.ambient</code> / <code>audio.healing</code>, 氛围立刻拉满。</p>
+<p><strong>儿童故事 / 有声内容 App</strong> — 背景配乐自动循环, 不用一首一首挑。</p>
+<p><strong>游戏 idle 界面 / loading 页 / 场景切换</strong> — 单机或弱联网游戏的 BGM 自动化方案。</p>
+<p><strong>电商 / 直播 / 内容平台后台</strong> — 主播 BGM、店铺背景音,版权安全。</p>
+<p><strong>冷启动的 Podcast / 播客剪辑工具</strong> — 一键给空白片段填配乐。</p>
+<p><strong>电台 / 网络广播 / FM App</strong> — 全天 24 小时音乐流, 无人值守。</p>
+<h2 id="怎么开始">怎么开始？</h2>
+<ol>
+<li>
+<p>去audiolib.ai 注册,免费拿 300 calls/月</p>
+</li>
+<li>
+<p>Dashboard 生成 API Key</p>
+</li>
+<li>
+<p>选一个曲库, 试听是否符合你的需求</p>
+</li>
+<li>
+<p>把一行 fetch 放进你的产品</p>
+</li>
+</ol>
+<p>整个过程不超过五分钟。</p>
+<p><img alt="图片" src="/static/article-images/recvjixdYX1HYB-1-d205b92c40.webp" /></p>
+<h2 id="我为什么做这件事">我为什么做这件事？</h2>
+<p>两个月前，有一天橘子问我能不能把我做的那么多音乐开源，让别人也能用，我当天就开始思考这事应该怎么做，三天之后我就把它做出来了，后面一直在调试和给我们的B端合作伙伴使用，今天正式开放给所有开发者。传统的音乐很多，开发者用不起，Ai生成音乐很容易，但开发者没时间生产那么多。我们把这俩事都做完了，大家用就行了。</p>
+<p>在这里特别谢谢Agent橘子。</p>
+<p>像调模型一样调音乐，像烧token一样烧音乐。</p>
+<p>让世界上不再有死寂的App。</p>
+<p><strong>Audiolib.ai — 今天正式上线。</strong></p>
+<p><strong>写宣传稿真的比写代码难，就这样吧，点击阅读原文直达</strong></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvjkmKaaKxYD.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​</span>
+        </a>
+        
+        
+        <a href="recvjhnstJFlV4.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">浅尝AI写作工具之「炼字工坊」：流程化创作，半自动写网文</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>OnePod： 每日精选最新英文播客，用刷文字的方式听播客 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI应用</span>
+            
+            
+            <span class="topic-chip">AI Agent</span>
+            
+            <span class="topic-chip">内容自动化</span>
+            
+            <span class="topic-chip">开源项目</span>
+            
+            <span class="topic-chip">播客</span>
+            
+            <span class="topic-chip">信息筛选</span>
+            
+            <span class="topic-chip">飞书集成</span>
+            
+            <span class="detail-reading-time">约 16 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">OnePod： 每日精选最新英文播客，用刷文字的方式听播客</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>follow builders, not influencers。 AI 的出现彻底打破了信息获取的门槛，Agent 则解决了筛选成本太高的问题。 Agent 负责采集和处理，飞书负责存储和编辑，网站负责展示和分发。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍了Onepod这一产品，它能每天自动精选海外英文播客，通过AI翻译、总结并生成中文文章，帮助用户高效获取海外播客中的核心观点和信息。作者分享了产品的使用方法、实现思路以及开源价值，展示了如何利用AI Agent构建一个持续运行的内容系统。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/UR9_ucU3Km5kLmAB8VwY-Q" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>Onepod是一个巧妙的个人AI产品，它将信息筛选、翻译和内容生成自动化，解决了用户因时间和语言限制无法高效获取海外优质播客内容的问题。文章详细介绍了其从半自动到全自动的演进过程、技术实现，以及开源的愿景，展示了AI Agent在构建持续内容系统上的潜力，对信息过载时代的知识获取有启发意义。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#onepod-每日精选最新英文播客用刷文字的方式听播客" class="toc-link">OnePod： 每日精选最新英文播客，用刷文字的方式听播客</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="onepod-每日精选最新英文播客用刷文字的方式听播客">OnePod： 每日精选最新英文播客，用刷文字的方式听播客</h1>
+<p><strong>我几乎每天都要听播客。</strong></p>
+<p>这是我过去一段时间收听的播客的时长和栏目排行。</p>
+<p><img alt="飞书文档 - 图片" src="/static/article-images/recvjzLjFijVhE-0-d9157249f4.webp" /></p>
+<p>但受限于时间和语言，我能听的也只有中文播客，一天连一集都不一定听得完，这导致我会错大量海外的优质内容。</p>
+<p><strong>follow builders, not influencers。</strong></p>
+<p>在 AI、科技、投资这些方向，里面的一手信息、非共识观点、最锋利的产品判断，绝大多数都藏在海外 builder 的长对话里。</p>
+<p>我也精翻过不少优质访谈，精翻有它的极限。再认真的转写也比不上原对话的原汁原味，看别人总结过的东西永远会隔一层。</p>
+<p>对话的过程是没有文字描述的那么顺畅的，有时候散，但可以都得到他们怎么定义问题、怎么取舍、怎么判断一个趋势是真是假，全在那一段段没修饰过的对话里。</p>
+<p>Onepod 就是专门解决这个问题，</p>
+<p>我用这个流程跑了三个月，现在做了有 75 个精选的播客内容。</p>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<p>它每天会从海量的海外播客里精选一篇做翻译总结。选取的都是最近刚更新的英文播客节目，根据点赞和播放量来进行筛选，获取最优质内容。</p>
+<p>这是我最近每天晚上 vibecoding 慢慢的把每个功能都磨出来的小产品。</p>
+<p>地址：Onepod.site</p>
+<p>它把每天我想听但没时间听的海外播客，自动转成可以快速阅读的中文文章。</p>
+<p>每篇内容会包含：</p>
+<ul>
+<li>
+<p>播客基本信息（嘉宾、主题、发布时间、来源地址）</p>
+</li>
+<li>
+<p>十几个核心观点、几段最精彩的对话片段、</p>
+</li>
+<li>
+<p>YouTube 封面和原始链接、飞书原文入口。</p>
+</li>
+</ul>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<p>接下来讲讲这个产品我自己怎么用，另一块是它背后的实现思路，对想要把自己关注的信息，每天定时收到精编内容的人会有帮助。</p>
+<p><strong>这个产品怎么用</strong></p>
+<p>Onepod 的首页是一个信息流，访问地址 onepod.site</p>
+<p>每张卡片对应一期海外播客，配封面、标题、频道名、抓取时间。</p>
+<p>我们可以把视频播客当文字信息来刷，看到感兴趣的就点进去。</p>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<p>详情页包含三部分</p>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<ul>
+<li>
+<p>左侧目录：点击可以切换不同的播客</p>
+</li>
+<li>
+<p>中间内容：显示简介、核心观点、精彩片段</p>
+</li>
+<li>
+<p>右侧标注：原文位置、原播客信息</p>
+</li>
+</ul>
+<p>最推荐你读的是中间内容的核心观点，大多数时候我打开一篇内容的目的非常具体——快速判断这一期值不值得花一个小时深入。</p>
+<p>新观点有没有？有没有可以展开写成文章的角度？有没有一句话让我想回到原视频里再确认一遍？</p>
+<p>如果有，再跳回 YouTube 或者飞书原文继续看。</p>
+<p>Onepod 它不取代原播客，它只是在海外信息和我之间加了一个筛选层。</p>
+<p>以前一集播客听完要一个小时，现在我几分钟就能判断这一期对我有没有价值。</p>
+<p>这个产品完全由我和 AI 打造，而现在的信息完全由 Agent 自己选择——翻译——分发，我只需要每天静静的等待它给我推送最值得看的那篇播客内容。</p>
+<p><strong>AI 的出现彻底打破了信息获取的门槛，</strong></p>
+<p><strong>Agent 则解决了筛选成本太高的问题。</strong></p>
+<p><strong>这个产品是怎么自动跑起来的？</strong></p>
+<p>一开始 Onepod 是半自动的。</p>
+<p>我用几个 skill 对接到 openclaw，openclaw 连到飞书。</p>
+<p>这个 skill 给大家开源下，可以拿去修改：</p>
+<p>https://github.com/zephyrwang6/myskill/tree/main/podcast-workflow</p>
+<p>Agent 每天通过飞书告诉我哪些播客值得看，我从里面选一个，然后让它去抓字幕、翻译、整理、写成文章。跑了一段时间我发现，这件事其实可以完全交出去。</p>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<p>现在它的整套流程是这样：</p>
+<p>1 Agent 每天定时去抓海外播客</p>
+<p>2 按播放量、点赞、频道质量自动筛选最值得处理的</p>
+<p>3 抓字幕或 transcript</p>
+<p>4 调模型改写成中文文章</p>
+<p>5 自动存到飞书</p>
+<p>6 Onepod 网站从飞书同步内容</p>
+<p>7 前端自动更新</p>
+<p>我几乎不参与其中任何一步。</p>
+<p>这件事给我的启发挺大的。Agent 可以变成一个持续运行的内容系统，每天固定为我生产一份信息资产。</p>
+<p>以前我们把社交媒体分为 PGC、UGC，<strong>现在有了一种新的形式 AgentGC</strong>，你来定义 Agent 的获取信息的范围、写作形式，定时给你推送内容。</p>
+<p>这跟"我让 AI 帮我写一篇文章"是两件完全不同尺度的事。工具和系统的差别就在这里。</p>
+<p><strong>实现思路</strong></p>
+<p>Onepod 实现起来不复杂，它把几件原本独立的事情串了起来。</p>
+<p><strong>第一，内容运营总结成 skill 交给 Agent。</strong></p>
+<p>核心是一个叫 podcast-workflow 的 skill，它把选题、抓取、转写、翻译、总结、改写、入库这一长串动作串成一条链。</p>
+<p>以前每个环节都得手动跑一遍，现在让 Agent 跑一次完事。最开始我还参与选题，后来选题这一步也彻底交给 Agent。</p>
+<p>这就是 vibecoding 让我最上头的地方。你不是在写一个一次性的脚本，而是在把自己日常的工作流一件一件外包给 Agent，最后这些 Agent 组合起来就是产品本身。</p>
+<p><strong>第二，飞书做内容后台。</strong></p>
+<p>文章最终都保存到飞书。飞书的好处是既能编辑也能存储。我平时直接在飞书里看文章、改文章、整理分类，网站则通过飞书开放平台读取这些文档。</p>
+<p>对我来说飞书承担了 CMS 的角色，但比 CMS 轻得多——我不用单独搭一套后台、维护登录态、写权限系统。只要飞书里有新文章，网站就同步更新。</p>
+<p><strong>第三，Onepod 网站负责展示。</strong></p>
+<p>网站部署在 Cloudflare。前端读 Cloudflare KV 里的缓存数据，定时同步 Worker 会定期从飞书拉取最新内容。这样不用每次新增文章都重新部署，新内容几分钟就上线。</p>
+<p>整套链路画出来大概是这样：</p>
+<div class="detail-image-missing" role="img" aria-label="飞书文档 - 图片">飞书文档 - 图片：来源内容未完整抓取</div>
+
+<p><strong>第四，产品运维都交给 Agent。</strong></p>
+<p>代码在 GitHub，部署在 Cloudflare。日常的开发和维护我基本上让 Agent 来做：改代码、提交、配置 Cloudflare、部署 Worker、修同步逻辑、调页面设计。只要给 Agent 提供 CLI 和 API key，它已经能完成相当一部分产品运维工作</p>
+<p>以前一个小产品需要你会前端、后端、部署、运维、内容运营，现在这些事可以一件件交给 Agent，自己只需要判断方向、验收结果、持续调教。</p>
+<p><strong>它现在还有什么问题</strong></p>
+<p>Onepod 远远谈不上完美。</p>
+<p><strong>第一个问题是 AI 写出来的内容还是有点固定。</strong></p>
+<p>结构、转折、句式经常落在同一个模板里，读多了能闻到 AI 味。但这事对我来说没那么关键，因为我打开文章的目的是获取观点，不是阅读文学。</p>
+<p><strong>第二个问题是模型选择上换过太多次。</strong></p>
+<p>最开始我用 Claude Code，写出来的中文最舒服，但成本扛不住。</p>
+<p>后来陆续切了几家国产模型，目前主力是 Minimax 的包月套餐——量大、单价低、跑批量任务最划算。</p>
+<p>但模型换来换去也带来一个明显的副作用：不同时期生成的文章在格式和文风上不完全统一，读起来能感觉到接缝。</p>
+<p>但整体下来，这套系统已经足够帮我每天稳定获取海外播客里最核心的信息。</p>
+<p><strong>开源这套思路的价值</strong></p>
+<p>Onepod 开源地址：github.com/zephyrwang6/onepod</p>
+<p>把 Onepod 开源出来，是因为它更像一个模板。</p>
+<p>它的逻辑不限于海外播客。<strong>换一套数据源，它可以变成每天追 AI 论文的工具、</strong></p>
+<ul>
+<li>
+<p>每天整理投资访谈的工具、</p>
+</li>
+<li>
+<p>每天总结某个 YouTube 频道的工具、</p>
+</li>
+<li>
+<p>每天生成行业简报的工具。</p>
+</li>
+</ul>
+<p>任何"信息源稳定 + 想结构化沉淀"的场景，都能套这一套架构。</p>
+<p>Onepod 真正的形态更靠近一个个人信息系统的雏形。</p>
+<p><strong>Agent 负责采集和处理，飞书负责存储和编辑，网站负责展示和分发。</strong></p>
+<p>三块拼在一起，就是一个能 24 小时自己跑的内容流水线。</p>
+<p>再往前走一步，它可以变成一个内容产品。</p>
+<p>这是我下一步想做的，用的人多，或者感兴趣，可以<strong>扫码加内测群</strong>，我会提供上述功能的内测版本，用 Agent 为你定制可共享的信息流。</p>
+<p><img alt="飞书文档 - 图片" src="/static/article-images/recvjzLjFijVhE-1-a60902d2e6.webp" /></p>
+<p>AI 更重要的作用是让一个人能维护一套原本需要团队才能跑起来的系统。</p>
+<p>Onepod 就是这样一个小系统。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvjkmKaaKxYD.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">这个 35k Star 的开源设计 Agent 帮我一键打开 PPT 新世界！​</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
