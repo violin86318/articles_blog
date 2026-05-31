@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>Hermes 装好了，然后呢？8 个 CLI 动作让 Agent 开干 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">开发工具</span>
+            
+            
+            <span class="topic-chip">Hermes</span>
+            
+            <span class="topic-chip">CLI</span>
+            
+            <span class="topic-chip">Agent</span>
+            
+            <span class="topic-chip">工作流</span>
+            
+            <span class="topic-chip">后台任务</span>
+            
+            <span class="topic-chip">会话管理</span>
+            
+            <span class="detail-reading-time">约 20 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">Hermes 装好了，然后呢？8 个 CLI 动作让 Agent 开干</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>不要把它当聊天框，把它当控制台。 真正拉开差距的不是：问得更聪明，而是你会不会用这些动作组织任务。 后台任务会启动一个完全独立的Agent会话。它不阻塞前台，你可以继续聊天、继续推进主任务。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>本文介绍了Hermes Agent CLI的8个核心动作，包括进入交互界面、查看工具、切模型、浏览技能、开后台任务、恢复会话等，强调应将Hermes视为持续工作的控制台而非简单聊天框，通过有效组织任务来真正发挥其能力。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/mTHlz8bHvNLxaJLbLzZR7g" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文系统梳理了Hermes CLI的实用技巧，从基础命令到高级工作流，为开发者提供了清晰的操作指南。通过强调“控制台思维”和任务链式推进，有效纠正了将AI Agent仅作为问答工具的常见误区，对提升开发效率具有实际指导意义。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#hermes-装好了然后呢8-个-cli-动作让-agent-开干" class="toc-link">Hermes 装好了，然后呢？8 个 CLI 动作让 Agent 开干</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#1-不要只问一句" class="toc-link">1. 不要只问一句</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#举个例子" class="toc-link">举个例子</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#2-新手先会这-8-个动作" class="toc-link">2. 新手先会这 8 个动作</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#①-进入交互界面" class="toc-link">① 进入交互界面</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#②-单次查询" class="toc-link">② 单次查询</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#③-看工具" class="toc-link">③ 看工具</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#④-切模型" class="toc-link">④ 切模型</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#⑤-看技能" class="toc-link">⑤ 看技能</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#⑥-开后台任务" class="toc-link">⑥ 开后台任务</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#⑦-恢复最近会话" class="toc-link">⑦ 恢复最近会话</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#⑧-列历史会话" class="toc-link">⑧ 列历史会话</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#3-一次真实工作流应该长这样" class="toc-link">3. 一次真实工作流应该长这样</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第一步进入项目目录然后启动" class="toc-link">第一步：进入项目目录，然后启动</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第二步让它读现场而不是猜" class="toc-link">第二步：让它读现场，而不是猜</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第三步让它拆任务" class="toc-link">第三步：让它拆任务</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第四步遇到可以独立跑的分析开后台" class="toc-link">第四步：遇到可以独立跑的分析，开后台</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第五步主会话继续做决策" class="toc-link">第五步：主会话继续做决策</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#第六步退出后恢复" class="toc-link">第六步：退出后恢复</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#4-状态栏要看它不是摆设" class="toc-link">4. 状态栏要看，它不是摆设</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#上下文颜色含义" class="toc-link">上下文颜色含义</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#查看详细用量" class="toc-link">查看详细用量</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#上下文压缩" class="toc-link">上下文压缩</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#5-后台任务和会话恢复是两个完全不同的能力" class="toc-link">5. 后台任务和会话恢复，是两个完全不同的能力</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#background-prompt-解决的是并行" class="toc-link">/background &lt;prompt&gt; 解决的是并行</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#hermes-continue-解决的是续上" class="toc-link">hermes --continue 解决的是续上</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#6-快捷键决定你能不能控住现场" class="toc-link">6. 快捷键决定你能不能控住现场</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#7-什么时候用-worktree" class="toc-link">7. 什么时候用 worktree？</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#学习路径建议" class="toc-link">学习路径建议</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第二篇只记一句话" class="toc-link">第二篇只记一句话</a>
+                </li>
+                
+                <li class="toc-item level-3">
+                    <a href="#8-个核心动作" class="toc-link">8 个核心动作</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="hermes-装好了然后呢8-个-cli-动作让-agent-开干">Hermes 装好了，然后呢？8 个 CLI 动作让 Agent 开干</h1>
+<blockquote>
+<p><strong>本文基于 Hermes 官方 CLI 文档和快速入门整理</strong><br />
+重点解决：装好以后怎么用？如何让 Agent 真正干活？</p>
+</blockquote>
+<p>昨天我们讲了 <strong>Hermes Agent 怎么从安装跑到第一轮对话</strong>。</p>
+<p>很多人安装完后，就不知道下一步要怎么做。打开 <code>hermes</code>，看到一个终端界面，然后就像普通聊天框一样问问题——问一句、等一句、再问一句。</p>
+<p><strong>这样用太浪费了。</strong></p>
+<p>今天我们就讲一下，怎么去<strong>真正发挥 Hermes 的能力</strong>。</p>
+<p><img alt="01-cover-4k.png" src="/static/article-images/recvjC1iidvlzZ-0-561dcff82d.webp" /></p>
+<blockquote>
+<p><strong>💡 核心理念：</strong><br />
+Hermes CLI 真正有意思的地方，在于它能不能<strong>进入你的工作现场</strong>：<br />
+✅ 看状态<br />
+✅ 调工具<br />
+✅ 开后台任务<br />
+✅ 恢复会话<br />
+✅ 管理上下文</p>
+<p><strong>把一个任务从头推进到尾。</strong></p>
+</blockquote>
+<hr />
+<h2 id="1-不要只问一句">1. 不要只问一句</h2>
+<p>官方 CLI 文档说得很明确：<strong>Hermes 的 CLI 是一个完整的终端用户界面（TUI）</strong>。</p>
+<p>想到deepseek的TUI作者哈哈</p>
+<div class="detail-image-missing" role="img" aria-label="image.png">image.png：来源内容未完整抓取</div>
+
+<blockquote>
+<p><strong>⚠️ 重要理解：</strong><br />
+不要把 Hermes 理解为网页 UI。它不是只输入一行命令就结束的工具。</p>
+<p><strong>它支持：</strong></p>
+<ul>
+<li>
+<p>✅ 多行编辑</p>
+</li>
+<li>
+<p>✅ 命令补全</p>
+</li>
+<li>
+<p>✅ 对话历史记录</p>
+</li>
+<li>
+<p>✅ 中断当前对话</p>
+</li>
+<li>
+<p>✅ 流式输出</p>
+</li>
+</ul>
+<p><strong>所以特别适合程序员这种长期在终端工作的人。</strong></p>
+</blockquote>
+<p><strong>应该把它当一个可以持续工作的控制台。</strong></p>
+<h3 id="举个例子">举个例子</h3>
+<p>比如你今天要分析一个项目，<strong>不要只问：</strong></p>
+<p>这个项目怎么样？ </p>
+<p>❌ 这样问太虚了。</p>
+<p><strong>更好的方式是让它先进入现场：</strong></p>
+<p>请先浏览当前目录结构，告诉我这个项目的主要模块、入口文件和可能的运行方式。先不要改文件。 </p>
+<p>等它看完，再继续问：</p>
+<p>基于你刚才看到的结构，帮我列出 3 个最值得先检查的问题，并说明为什么。 </p>
+<blockquote>
+<p><strong>💡 这才像是在带一个 Agent 做事，而不是把它当搜索框。</strong></p>
+</blockquote>
+<h2 id="2-新手先会这-8-个动作">2. 新手先会这 8 个动作</h2>
+<p>如果只背一页速查表，我建议<strong>先记这 8 个</strong>：</p>
+<div class="detail-image-missing" role="img" aria-label="02-eight-actions-4k.png">02-eight-actions-4k.png：来源内容未完整抓取</div>
+
+<h3 id="①-进入交互界面">① 进入交互界面</h3>
+<p>hermes </p>
+<h3 id="②-单次查询">② 单次查询</h3>
+<p>hermes chat -q "Hello" </p>
+<blockquote>
+<p>适合临时问一句，不想进入完整 TUI 的时候用。</p>
+</blockquote>
+<h3 id="③-看工具">③ 看工具</h3>
+<p>/tools </p>
+<p><strong>你得知道当前 Agent 能不能读文件、能不能跑终端、能不能访问网络，否则很多任务会问得很虚。</strong></p>
+<h3 id="④-切模型">④ 切模型</h3>
+<p>/model </p>
+<p>或者从命令行指定：</p>
+<p>hermes chat --model "anthropic/claude-sonnet-4" </p>
+<h3 id="⑤-看技能">⑤ 看技能</h3>
+<p>/skills browse </p>
+<blockquote>
+<p><strong>🔥 重点：</strong> Hermes 里安装的 Skills 会自动变成斜杠命令。<br />
+这个点很重要，因为它会让<strong>通用 Agent 变得更像带工具包的专家</strong>。</p>
+</blockquote>
+<h3 id="⑥-开后台任务">⑥ 开后台任务</h3>
+<p>/background Analyze the logs and summarize errors from today </p>
+<h3 id="⑦-恢复最近会话">⑦ 恢复最近会话</h3>
+<p>hermes --continue </p>
+<h3 id="⑧-列历史会话">⑧ 列历史会话</h3>
+<p>hermes sessions list </p>
+<hr />
+<blockquote>
+<p><strong>💡 核心总结：</strong><br />
+这 8 个动作练熟以后，Hermes 就不再只是“你问它答”。<br />
+<strong>它会变成一个能挂住工作现场的 Agent 控制台。</strong></p>
+</blockquote>
+<h2 id="3-一次真实工作流应该长这样">3. 一次真实工作流应该长这样</h2>
+<p>很多人用 Agent 的问题是：<strong>任务刚开始，就让它直接给结论。</strong></p>
+<p>❌ 这很容易得到一堆空话。</p>
+<blockquote>
+<p><strong>✅ 更稳的方式，是把任务拆成一条链：</strong></p>
+</blockquote>
+<div class="detail-image-missing" role="img" aria-label="03-workflow-4k.png">03-workflow-4k.png：来源内容未完整抓取</div>
+
+<h3 id="第一步进入项目目录然后启动">第一步：进入项目目录，然后启动</h3>
+<p>hermes </p>
+<h3 id="第二步让它读现场而不是猜">第二步：让它读现场，而不是猜</h3>
+<p>先浏览当前项目目录，判断这是一个什么类型的项目。只总结结构，不要修改文件。 </p>
+<h3 id="第三步让它拆任务">第三步：让它拆任务</h3>
+<p>基于项目结构，给我一个排查计划：先查哪些文件，为什么，预期能发现什么。 </p>
+<h3 id="第四步遇到可以独立跑的分析开后台">第四步：遇到可以独立跑的分析，开后台</h3>
+<p>/background 检查当前项目里所有 Markdown 文件，找出标题重复、链接失效和明显格式问题。 </p>
+<blockquote>
+<p><strong>💡 官方 CLI 文档说明：</strong><br />
+后台任务会启动一个<strong>完全独立的 Agent 会话</strong>。<br />
+它不阻塞前台，你可以继续聊天、继续推进主任务。</p>
+</blockquote>
+<h3 id="第五步主会话继续做决策">第五步：主会话继续做决策</h3>
+<p>先不用等后台结果，我们继续看主入口文件。请解释启动流程。 </p>
+<h3 id="第六步退出后恢复">第六步：退出后恢复</h3>
+<p>hermes --continue </p>
+<hr />
+<blockquote>
+<p><strong>🎯 这才是 CLI 实战的感觉：</strong></p>
+<ul>
+<li>
+<p>❌ 不是每次从零开始</p>
+</li>
+<li>
+<p>❌ 不是问一句断一次</p>
+</li>
+<li>
+<p>✅ 而是让一个任务<strong>有现场、有分支、有恢复</strong><br />
+</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="4-状态栏要看它不是摆设">4. 状态栏要看，它不是摆设</h2>
+<p><strong>Hermes CLI 的状态栏会显示：</strong></p>
+<ul>
+<li>
+<p>模型</p>
+</li>
+<li>
+<p>Token 使用量</p>
+</li>
+<li>
+<p>上下文条</p>
+</li>
+<li>
+<p>预估成本</p>
+</li>
+<li>
+<p>会话时长</p>
+</li>
+</ul>
+<p>官方文档里的示例大概是这种结构：</p>
+<p>model │ 12.4K/200K │ [context bar] 6% │ $0.06 │ 15m </p>
+<div class="detail-image-missing" role="img" aria-label="04-status-bar-4k.png">04-status-bar-4k.png：来源内容未完整抓取</div>
+
+<h3 id="上下文颜色含义">上下文颜色含义</h3>
+<blockquote>
+<p><strong>官方文档把上下文颜色分成几档：</strong></p>
+<ul>
+<li>
+<p>🟢 <strong>绿色</strong>：低于 50%，空间充足</p>
+</li>
+<li>
+<p>🟡 <strong>黄色</strong>：50% 到 80%，逐渐填满</p>
+</li>
+<li>
+<p>🟠 <strong>橙色</strong>：80% 到 95%，接近上限</p>
+</li>
+<li>
+<p>🔴 <strong>红色</strong>：95% 以上，接近溢出，建议使用 <code>/compress</code><br />
+</p>
+</li>
+</ul>
+</blockquote>
+<p>⚠️ <strong>这东西别等红了才看。</strong></p>
+<p>长任务里，Agent 会读文件、跑工具、总结结果，<strong>上下文涨得很快</strong>。</p>
+<h3 id="查看详细用量">查看详细用量</h3>
+<p>/usage </p>
+<h3 id="上下文压缩">上下文压缩</h3>
+<p>快爆的时候用：</p>
+<p>/compress </p>
+<blockquote>
+<p><strong>💡 官方 CLI 文档说明：</strong><br />
+长对话接近限制时会<strong>自动摘要</strong>，中间轮次会被摘要，而<strong>前 3 轮和后 4 轮会保留</strong>。</p>
+<p><strong>这个设计说明 Hermes 是认真把“长会话工作”当核心场景来做的。</strong></p>
+</blockquote>
+<h2 id="5-后台任务和会话恢复是两个完全不同的能力">5. 后台任务和会话恢复，是两个完全不同的能力</h2>
+<p>很多人会把 <code>/background</code> 和 <code>--continue</code> 混在一起。</p>
+<blockquote>
+<p><strong>⚠️ 其实它们解决的是两个问题。</strong></p>
+</blockquote>
+<div class="detail-image-missing" role="img" aria-label="05-background-resume-4k.png">05-background-resume-4k.png：来源内容未完整抓取</div>
+
+<h3 id="background-prompt-解决的是并行"><code>/background &lt;prompt&gt;</code> 解决的是并行</h3>
+<p>比如你在主会话里分析代码结构，同时让后台去检查日志、扫描文件、整理资料。</p>
+<blockquote>
+<p><strong>📌 官方文档说明：</strong><br />
+每个后台任务都是<strong>独立 Agent 会话</strong>，继承当前模型、提供商、工具集和推理设置，但<strong>不共享当前对话历史</strong>。</p>
+</blockquote>
+<p><strong>这意味着你写后台提示时要给足上下文。</strong></p>
+<p>❌ <strong>不要只写：</strong></p>
+<p>/background 看一下 </p>
+<p>✅ <strong>要写清楚：</strong></p>
+<p>/background 分析当前项目下所有 Python 文件，列出可能的安全风险，并按严重程度排序。 </p>
+<h3 id="hermes-continue-解决的是续上"><code>hermes --continue</code> 解决的是续上</h3>
+<p>比如你今天分析到一半关了终端，明天继续：</p>
+<p>hermes --continue </p>
+<p>如果要恢复指定会话，可以用：</p>
+<p>hermes --resume <session\_id></session\_id> </p>
+<p>或者先看：</p>
+<p>hermes sessions list </p>
+<p>我建议重要任务一开始就命名：</p>
+<p>/title 项目依赖清理 </p>
+<p>这样后面找会话不会全靠记忆。</p>
+<h2 id="6-快捷键决定你能不能控住现场">6. 快捷键决定你能不能控住现场</h2>
+<p>CLI 里最怕什么？</p>
+<p>Agent 开始跑以后，你只能盯着它跑完。</p>
+<p>Hermes 官方 CLI 文档给了一组关键快捷键：</p>
+<div class="detail-image-missing" role="img" aria-label="06-keybindings-4k.png">06-keybindings-4k.png：来源内容未完整抓取</div>
+
+<p>最常用的是这几个。</p>
+<p>发送消息：</p>
+<p>Enter </p>
+<p>输入多行：</p>
+<p>Alt+Enter </p>
+<p>Ctrl+J </p>
+<p>中断当前任务：</p>
+<p>Ctrl+C </p>
+<p>退出：</p>
+<p>Ctrl+D </p>
+<p>补全斜杠命令：</p>
+<p>Tab </p>
+<p>Unix 系统下暂停到后台：</p>
+<p>Ctrl+Z </p>
+<p>输入多行这个能力很有用。你可以一次性贴一段需求、一个错误日志、一段代码说明，而不是每行拆开问。</p>
+<p>中断也很重要。官方文档说，在 Agent 工作时输入新消息并按 Enter，会中断当前操作并处理新指令；<code>Ctrl+C</code> 也能中断，2 秒内连续按两次可强制退出。</p>
+<p>这意味着你发现方向错了，不用等它跑完。</p>
+<p>直接改方向。</p>
+<h2 id="7-什么时候用-worktree">7. 什么时候用 worktree？</h2>
+<div class="detail-image-missing" role="img" aria-label="Hermes Agent CLI 教程封面 - 大图版">Hermes Agent CLI 教程封面 - 大图版：来源内容未完整抓取</div>
+
+<p>官方 CLI 文档还列了 <strong>worktree 模式</strong>：</p>
+<p>hermes -w </p>
+<p>hermes -w -q "Fix issue #123" </p>
+<blockquote>
+<p><strong>📌 用途：</strong><br />
+隔离 Git worktree，适合<strong>并行运行多个代理</strong>。</p>
+</blockquote>
+<p><strong>新手不用一上来就开。</strong></p>
+<p>但如果你已经在做代码任务，尤其是多个方向同时探索，worktree 会很有用。它能让不同 Agent 在相对隔离的工作区里跑，减少互相影响。</p>
+<h3 id="学习路径建议">学习路径建议</h3>
+<blockquote>
+<p><strong>我会把它放在第二阶段：</strong></p>
+<ol>
+<li>
+<p>✅ 先熟悉普通 CLI</p>
+</li>
+<li>
+<p>✅ 再熟悉后台任务</p>
+</li>
+<li>
+<p>✅ 最后再考虑 worktree 并行<br />
+</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="第二篇只记一句话">第二篇只记一句话</h2>
+<blockquote>
+<p><strong>🎯 核心理念：</strong><br />
+Hermes 装好以后，<strong>不要把它当聊天框</strong>。<br />
+<strong>把它当控制台。</strong></p>
+</blockquote>
+<p>真正拉开差距的不是：问得更聪明，而是<strong>你会不会用这些动作组织任务</strong>：</p>
+<h3 id="8-个核心动作">8 个核心动作</h3>
+<ol>
+<li>
+<p>✅ 用 <code>hermes</code> 进入现场</p>
+</li>
+<li>
+<p>✅ 用 <code>/tools</code> 看它能做什么</p>
+</li>
+<li>
+<p>✅ 用 <code>/skills browse</code> 找能力</p>
+</li>
+<li>
+<p>✅ 用 <code>/background</code> 开分支任务</p>
+</li>
+<li>
+<p>✅ 用状态栏盯上下文</p>
+</li>
+<li>
+<p>✅ 用 <code>/compress</code> 管长会话</p>
+</li>
+<li>
+<p>✅ 用 <code>--continue</code> 接着干</p>
+</li>
+<li>
+<p>✅ 用 <code>sessions list</code> 管历史</p>
+</li>
+</ol>
+<hr />
+<p><img alt="图片" src="/static/article-images/recvjC1iidvlzZ-1-a97a8de2f3.webp" /></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvjZxavoZytu.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">Seedance 2.0 真人视频总不过审？先用这 5 个办法跑通（附提示词）</span>
+        </a>
+        
+        
+        <a href="recvjzLjFijVhE.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">OnePod： 每日精选最新英文播客，用刷文字的方式听播客</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
