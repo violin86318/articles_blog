@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>我让 GLM-5.1 HighSpeed 做了一个真正能用的 AI 选题雷达和微信自动Agent — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">AI应用开发</span>
+            
+            
+            <span class="topic-chip">AI开发</span>
+            
+            <span class="topic-chip">微信Agent</span>
+            
+            <span class="topic-chip">自动化</span>
+            
+            <span class="topic-chip">GLM-5.1 HighSpeed</span>
+            
+            <span class="topic-chip">全栈开发</span>
+            
+            <span class="topic-chip">开发效率</span>
+            
+            <span class="detail-reading-time">约 19 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">我让 GLM-5.1 HighSpeed 做了一个真正能用的 AI 选题雷达和微信自动Agent</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>整个过程不到 20 分钟。。。速度快到几乎没有了摸鱼时间！ 从 PRD 出发，做视觉原型、搭前后端、设计数据结构、写接口、修 bug，最后交付一个能打开、能点击、能截图的产品。 国产模型，国内直连，性能强大，速度飞起，这次我觉得挺值得说的。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>作者利用GLM-5.1 HighSpeed高速模型，在20分钟内完成了AI选题雷达的全栈开发，包括PRD设计、视觉原型、前后端搭建和bug修复。同时，通过微信与Hermes Agent交互，开发了一个微信群自动回复的学习委员Agent，全程无需打开电脑终端。文章展示了高速模型在复杂开发任务中的效率和能力。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/mGbJVbwYnDnWelqr9evcaQ" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文以亲身体验生动展示了GLM-5.1 HighSpeed模型在实际产品开发中的惊人效率与强大能力。从AI选题雷达的快速构建到微信Agent的“散步式开发”，作者通过具体案例和细节（如踩坑与解决过程）有力论证了高速模型不仅“快”且“能力不缩水”，能显著提升开发节奏和专注度。文章内容详实，对开发者有较高参考价值，结尾的呼吁也颇具说服力。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#我让-glm-51-highspeed-做了一个真正能用的-ai-选题雷达和微信自动agent" class="toc-link">我让 GLM-5.1 HighSpeed 做了一个真正能用的 AI 选题雷达和微信自动Agent</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#先说第一个产品背景我每天的信息焦虑" class="toc-link">先说第一个产品，背景：我每天的信息焦虑</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第一步给它一个-prd" class="toc-link">第一步：给它一个 PRD</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#不到-1-分钟首页就出来了" class="toc-link">不到 1 分钟，首页就出来了</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#然后它一口气把前后端全做完了" class="toc-link">然后它一口气把前后端全做完了</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#是选题判断系统" class="toc-link">是选题判断系统</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#然后又加了选题库和白天模式" class="toc-link">然后又加了选题库和白天模式</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#另外我还用微信开发了一个-agent-学习委员" class="toc-link">另外我还用微信开发了一个 Agent 学习委员</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第一步让它读懂微信消息" class="toc-link">第一步：让它读懂微信消息</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第二步把飞书知识库喂给它" class="toc-link">第二步：把飞书知识库喂给它</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#第三步怎么在微信里发消息" class="toc-link">第三步：怎么在微信里发消息？</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#组装完成" class="toc-link">组装完成</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#真的开跑" class="toc-link">真的开跑！</a>
+                </li>
+                
+                <li class="toc-item level-2">
+                    <a href="#最后说说为什么是-glm-51-highspeed" class="toc-link">最后说说为什么是 GLM-5.1 HighSpeed</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="我让-glm-51-highspeed-做了一个真正能用的-ai-选题雷达和微信自动agent">我让 GLM-5.1 HighSpeed 做了一个真正能用的 AI 选题雷达和微信自动Agent</h1>
+<p>我本来以为高速模型就是“回复快一点”，直到我用它做了两个完整的产品开发。</p>
+<p>是从 PRD 出发，做视觉原型、搭前后端、设计数据结构、写接口、修 bug，最后交付一个能打开、能点击、能截图的产品。</p>
+<p>整个过程不到 20 分钟。。。速度快到几乎没有了摸鱼时间！</p>
+<p>然后我还接入了Hermes Agent，手机上也完成了一个微信自动回复的学习委员～直呼666了</p>
+<h2 id="先说第一个产品背景我每天的信息焦虑">先说第一个产品，背景：我每天的信息焦虑</h2>
+<p>我每天要从 X/Twitter、公众号、HackerNews、AIHOT、Reddit 五个信源的 100 多条 AI 新闻里找选题。</p>
+<p>信息源是够的，我之前已经搭了一套多源抓取工程，每天自动把这些平台的内容拉下来。但问题不在信息不够，在于判断成本太高。</p>
+<p>100 条新闻扫一遍，哪些值得讲？适合拍视频还是写公众号？外网已经火了的国内有没有人讲？能不能做出演示效果？每个问题都要花时间想。</p>
+<p>所以我想：能不能让 AI 来帮我做这个判断？</p>
+<h2 id="第一步给它一个-prd">第一步：给它一个 PRD</h2>
+<p>PRD核心要求就一句话：做一个 AI 选题雷达，帮我在 3 分钟内找到“今天最值得讲什么、怎么讲”，以及基于这个做的一些扩展。</p>
+<p>然后我开始用 Claude Code，背后接的是 GLM-5.1 HighSpeed，让它一口气开发。</p>
+<h2 id="不到-1-分钟首页就出来了">不到 1 分钟，首页就出来了</h2>
+<p>我没有上来就让它直接开发，而是想先看一下它生成的原型是什么样的。</p>
+<p>很震惊的是，整个原型生成过程不到1分钟。。。要知道过去的Claude至少要3~5分钟，足够我去好好的把茶泡上，下面这条视频总共1分钟，大家可以拉到最后去查看结果：</p>
+<h2 id="然后它一口气把前后端全做完了">然后它一口气把前后端全做完了</h2>
+<p>有了首页原型之后，我没有重新解释需求，直接说“继续别停，一口气全部弄完”。</p>
+<p>然后它就开始了：</p>
+<ul>
+<li>先读了已有的抓取工程的代码，理解了数据结构</li>
+<li>设计了 Source、Event、TopicScore、TopicCard、DailyReport 五个数据契约</li>
+<li>用 Python FastAPI 搭了后端 API，public 路由和 internal 路由都写了</li>
+<li>用 Next.js 搭了前端，首页、筛选、搜索、详情抽屉、选题卡弹窗全做了</li>
+<li>规则评分引擎也写了——不依赖 LLM，用关键词和规则给每条新闻打分，输出 S/A/B/C 等级</li>
+</ul>
+<p>中间停了一次，总耗时大约 10 分钟。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>第二轮又花了 7 分钟，把交互细节和数据流进一步补齐。到这一步，整个产品已经可以跑起来了。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>可以看一下效果：</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<h2 id="是选题判断系统">是选题判断系统</h2>
+<p>这一步我觉得特别重要：我并不需要一个纯粹的新闻资讯站。</p>
+<p>首页每张选题卡片上直接出现了推荐理由、信息差、可演示性、需求强度、观点空间——这些维度是内容创作者真正关心的，不是普通读者会看的。</p>
+<p>右侧 AI 日报直接给今天的主线判断、关键动态、推荐拍摄方向。</p>
+<p>信源管理面板让用户知道数据从哪里来、抓取状态是否健康。</p>
+<p>还有个功能我特别喜欢：一键生成选题卡。点一下，它就把一条新闻拆成选题角度——核心判断、推荐平台、视频钩子、演示方案、内容结构（opening → background → change → demo → takeaway）</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>从看到信息到可以开拍，中间那些我本来要自己想的判断，它帮我做了。</p>
+<h2 id="然后又加了选题库和白天模式">然后又加了选题库和白天模式</h2>
+<p>产品主体做完之后，我又追了两个需求。</p>
+<p>第一个是选题库。我想的就是，看到好的选题，点一下就能收藏，左侧栏能随时看已经收藏了多少条。听起来很简单对吧？</p>
+<p>但实际上要处理的细节还挺多的——卡片上要有收藏按钮，详情抽屉里也要有，选题卡弹窗里还要有一个"保存到选题库"的入口。点了之后要存到 localStorage，刷新页面不能丢。左侧栏要显示数量，没收藏的时候要有引导文案。点"选题库"进去，feed 要切换成只显示收藏的内容。</p>
+<p>我跟它说了一遍，它直接一整个 page.tsx 重写了，780 行代码，所有入口都没漏。这块挺让我意外的，因为这种到处都要加按钮但逻辑要统一的需求，特别容易漏一个。</p>
+<div class="detail-image-missing" role="img" aria-label="Image">Image：来源内容未完整抓取</div>
+
+<p>第二个是白天模式。这个更有意思了，踩了个坑。</p>
+<p>我让它加了右上角的主题切换按钮，CSS 变量也定义了两套（深色/浅色），data-theme="light" 的覆盖也写了。结果切过去一看——纹丝不动，整个页面还是黑的。</p>
+<p>排查了一下才发现，是 Tailwind CSS v4 的 @theme inline 搞的鬼。这个 inline 的意思是：颜色值直接内联到工具类里，不生成 CSS 变量。所以不管你怎么覆盖 CSS 变量，Tailwind 生成的类里写死的还是深色的值。</p>
+<p>把 inline 去掉就好了。但这个坑如果自己查，可能要翻半天 Tailwind v4 的文档。</p>
+<p>然后还有一波坑：页面里 20 多处内联 style 里硬编码了颜色值，比如进度条轨道用的 rgba(255,255,255,0.06)，在深色背景下看着正常，切到浅色直接变透明了——进度条消失了。推荐理由的背景色块、评分条、各种 tint 颜色都是这个问题。</p>
+<p>GLM-5.1 HighSpeed 的做法挺聪明的：把所有硬编码颜色抽成了 CSS 变量（--color-track、--color-tint-cyan、--color-tint-red 这些），然后浅色主题重新定义一套值。一次全改完，20 多处一个没漏。</p>
+<p>踩坑本身不烦，烦的是等回复。GLM-5.1 HighSpeed 几秒出结果，你说一个问题它回一个方案，看一眼就能接着改。</p>
+<p>之前这一整套流程，是我花了很长时间打磨Skill出来的，一直没有做可视化，没想到用GLM 5.1 HighSpeed，20分钟就跑通了整个前后端，这个在过去真的是不可想象的。</p>
+<h2 id="另外我还用微信开发了一个-agent-学习委员">另外我还用微信开发了一个 Agent 学习委员</h2>
+<p>选题雷达是在电脑上做的。再说一个更野的。</p>
+<p>我做了个 Agent 超级个体社群，目前 4 个班群。学员每天在群里问各种问题，“CC 怎么安装？”“报错了怎么办？”“那个教程链接能再发一下吗？”</p>
+<p>说实话这些问题的答案，飞书知识库里都有。68 篇教程文档，从安装到实战基本全覆盖。但学员不会自己找啊，扔群里就等回复。</p>
+<p>所以需求很明确：做一个 7×24 的自动Agent助教。</p>
+<p>重点来了：我全程没打开过电脑上的终端或 IDE。拿着手机，在微信里跟 Hermes Agent 聊天，背后接 GLM-5.1 HighSpeed，就把这事干完了。</p>
+<p>需求就一句话，发给微信 ClawBot，然后指定了群聊：</p>
+<p>从这条消息开始，所有开发指令都在微信对话框里完成。整个过程，我全程在外面散步，就完成了开发。大家看到的截图上面的WiFi是我回家之后才去翻看，来进行截图的。</p>
+<p>之前用 Codex 接 Hermes，一条响应经常十几分钟。这次 GLM-5.1 HighSpeed，不到一分钟一轮，节奏跟聊天一样。</p>
+<p>下面给大家说一下怎么做：</p>
+<h2 id="第一步让它读懂微信消息">第一步：让它读懂微信消息</h2>
+<p>先让 AI 能"看到"群里说了什么。我之前装了 wechat-cli，能读微信本地数据库。它直接调 wechat-cli 拉群消息：</p>
+<blockquote>
+<p>我：帮我看下 4 个正式班群的消息能不能读到夏夏：[跑命令] ✅ 四个群都能读到，这是 chatroom ID……</p>
+</blockquote>
+<h2 id="第二步把飞书知识库喂给它">第二步：把飞书知识库喂给它</h2>
+<p>消息能读了，下一步让它"懂"这些消息。</p>
+<p>Hermes 自动调 lark-cli，把飞书知识库 68 篇文档的标题和链接全拉下来，建成索引。然后用 GLM-5.1 HighSpeed 对比“学员的提问”和“68 篇文档标题”，找到最相关的教程，生成带链接的回复。这一步用快速模型也很重要，因为我们需要尽快的答复用户。</p>
+<p>这一步我没干预，GLM-5.1 HighSpeed直接完成了。</p>
+<h2 id="第三步怎么在微信里发消息">第三步：怎么在微信里发消息？</h2>
+<p>这是最大的坑。</p>
+<p>微信没有开放的“发消息”接口。直接写本地数据库？封号风险太高。最终方案是模拟操作：用 pyautogui 控制键盘鼠标，在微信窗口里搜索群名、切到对应群、粘贴回复、按回车。</p>
+<p>踩了两个坑：macOS 需要给 Python 授权"辅助功能"权限，不然按键不生效；微信桌面端同时跑 3 个进程，得按窗口尺寸定位到正确的主窗口。</p>
+<p>每个坑都是在微信里跟Hermes描述问题，她几秒给出方案，我确认后她接着改。全程没切到 IDE 调试、没手动改过一行代码，就是聊天。</p>
+<h2 id="组装完成">组装完成</h2>
+<p>最终产出是一个 850 行的 Python 脚本：每 120 秒轮询一次只处理新消息，关键词匹配 + LLM 判断检测提问，GLM-5.1 HighSpeed 对比 68 篇文档生成回复，模拟键盘操作发到群里，同一个群 120 秒内不重复回复。</p>
+<h2 id="真的开跑">真的开跑！</h2>
+<p>我在四个群里分别发了测试提问：</p>
+<p>正式班B："Agent Team怎么用？"<br />
+→ 匹配到《用Agent Team让Skills多Agent工作+自进化》✅</p>
+<p>正式班D："我记得有个教程是教微博热搜的Skill，是啥来着？"<br />
+→ 匹配到《使用Claude Skills从微博热搜提取产品创意》✅</p>
+<p>这种模糊描述都能精准匹配，68篇文档里准确捞出来。</p>
+<p>然后还来了一个真实用户提问——正式班D的"小祝"问了"Hermes接微信不是只能通过OpenClaw吗"，机器人也捕获到了，匹配了相关教程回复。</p>
+<p>很有意思的是，当时我在餐桌上吃早餐，所以是拿手机在跟大家聊，大家还以为我是用CC或者CodeX的Computer Use来完成的上面流程，我说不是的，其实我是用Hermes Agent加GLM 5.1 High Speed来开发的.</p>
+<p>然后正好这个时候，刚才开发好的脚本，它每两分钟轮询，看到了一个群友提的问题，就自动在电脑上给我回复了，大家都笑了，说Agent会抢答了。</p>
+<p>每次成功回复后，我的“微信ClawBot”都会收到一条通知：</p>
+<p>社群自动回复已发送<br />
+群：正式班D<br />
+提问人：小祝 腾讯有调<br />
+问题：……</p>
+<p>全程无人值守！</p>
+<p>从 19:08 开始聊需求，到 19:52 初步完成开发，中间还有我去刷短视频的时间。感觉不到半小时就搞完了。</p>
+<h2 id="最后说说为什么是-glm-51-highspeed">最后说说为什么是 GLM-5.1 HighSpeed</h2>
+<p>说实话我之前对“高速模型”没太大感觉。快一点慢一点，差个几秒，能怎样？但做完这两个Case 之后我改想法了。</p>
+<p>选题雷达那个项目，从 PRD 到能跑的产品，中间经历了多少轮模型调用？前端代码、后端 API、数据契约、评分引擎、路由拆分、样式冲突、主题切换……每一轮都是我提个需求，它生成代码，我看一眼产品说哪里不对，它改完我再确认。以及细节调整，加起来至少十几轮。</p>
+<p>如果每轮多等几分钟，十几轮就是一两个小时出去了。中间我大概率会去刷个手机、回个消息，回来的时候已经忘了上一轮在改什么了。</p>
+<p>但 GLM-5.1 HighSpeed 每轮非常快。十几轮下来，我全程没离开过椅子。真是快到我根本没时间走神。</p>
+<p>之前高速模型基本都是轻量级的，快是快，但能力缩水，复杂任务撑不住。GLM-5.1 HighSpeed 不一样，它是完整的 GLM-5.1 旗舰模型，400 tokens/s 的输出速度，能力没有打折。选题雷达这种前后端+数据结构+多轮迭代的活儿，轻量模型根本干不了。</p>
+<p>国产模型，国内直连，性能强大，速度飞起，这次我觉得挺值得说的。</p>
+<p>试试看，很可能用过就回不去了。</p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        
+        <a href="recvkjft6qtGP6.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">一段超绝提示词，帮你挖出ima「订阅知识库」里的认知金矿</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

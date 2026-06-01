@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="拾读库 — 收藏过的微信公众号文章，一页读懂">
+    <meta name="theme-color" content="#f4f7f2">
+    <title>一段超绝提示词，帮你挖出ima「订阅知识库」里的认知金矿 — 拾读库</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23c62f36'/><text x='50' y='66' text-anchor='middle' font-size='54' fill='white'>拾</text></svg>">
+</head>
+
+<body>
+    <!-- Reading Progress Bar (detail page only) -->
+    
+<div class="progress-bar" id="progressBar"></div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">
+                <span class="nav-brand-mark">拾</span>
+                <span class="nav-brand-text">拾读库</span>
+            </a>
+            <div class="nav-actions">
+                <button class="nav-btn desktop-only" id="searchBtn" aria-label="搜索" title="搜索">
+                    <span aria-hidden="true">⌕</span>
+                </button>
+                <button class="nav-btn desktop-only" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span aria-hidden="true">◐</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="关闭菜单">×</button>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">导航</div>
+            <a href="../index.html" class="mobile-theme-btn">首页</a>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">搜索</div>
+            <button class="mobile-theme-btn" id="mobileSearchBtn">搜索文章</button>
+        </div>
+        <div class="mobile-nav-section">
+            <div class="mobile-nav-title">外观</div>
+            <button class="mobile-theme-btn" id="mobileThemeToggle">深色模式</button>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="搜索文章">
+        <div class="search-container">
+            <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索标题、摘要、标签或金句..."
+                    autocomplete="off">
+                <button class="search-close" id="searchClose" aria-label="关闭搜索">Esc</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-hint">输入关键词开始搜索</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    
+<div class="detail-wrapper">
+    <!-- Top Bar: Back + Share -->
+    <div class="detail-top-bar">
+        <a href="../index.html" class="back-link">
+            <span aria-hidden="true">←</span>
+            返回首页
+        </a>
+        <button class="share-btn" id="shareBtn">
+            分享
+        </button>
+    </div>
+
+    <!-- Article -->
+    <article class="detail-container" id="articleContent">
+        <!-- Meta -->
+        <div class="detail-meta">
+            
+            <span class="card-tag card-tag-primary">知识管理</span>
+            
+            
+            <span class="topic-chip">提示词</span>
+            
+            <span class="topic-chip">知识萃取</span>
+            
+            <span class="topic-chip">ima</span>
+            
+            <span class="topic-chip">体系化</span>
+            
+            <span class="topic-chip">知识外化</span>
+            
+            <span class="detail-reading-time">约 21 分钟阅读</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="detail-title">一段超绝提示词，帮你挖出ima「订阅知识库」里的认知金矿</h1>
+
+        <!-- Digest -->
+        
+        <section class="digest-panel">
+            
+            <div class="digest-block digest-block-quote">
+                <span class="digest-label">一句话总结</span>
+                <p>不要让AI回答你的问题，让它替你发现你的「订阅知识库」里有什么。 你订阅的知识库里，藏着你从没看见过的完整体系。 从碎片到体系，就这一步。</p>
+            </div>
+            
+            
+            <div class="digest-block">
+                <span class="digest-label">核心摘要</span>
+                <p>作者分享了一个精心设计的提示词，旨在通过AI系统性地萃取订阅知识库中散落的信息，揭示其内在的完整知识体系。文章通过多个领域（个人成长、跑步等）的成功试验，展示了该提示词如何将碎片化知识转化为结构化方法论，并强调了从“经验萃取”和“内容萃取”两条路径实现完整知识外化的价值。</p>
+            </div>
+            
+            
+            <a class="source-link" href="https://mp.weixin.qq.com/s/fQuTCSqRDdCK2Dp_YlfRZQ" target="_blank" rel="noopener">
+                <span>查看原文</span>
+                <strong>原文链接</strong>
+            </a>
+            
+        </section>
+        
+
+        <!-- Review -->
+        
+        <div class="detail-review">
+            <strong>点评</strong>本文以自身实践为引，提供了一个极具操作性的AI提示词，旨在解决用户订阅知识库“只问不看”的普遍痛点。其核心价值在于转变了用户与知识库的交互范式，从被动问答转向主动发现与体系构建。文中通过跨领域的实证，有力地展示了该方法的通用性与效果，为知识管理爱好者提供了一条高效路径，将知识外化的“组合”过程提速，具有启发性和实用价值。
+        </div>
+        
+
+        <!-- Table of Contents -->
+        
+        <div class="toc" id="toc">
+            <div class="toc-header" id="tocHeader">
+                <span class="toc-title">目录</span>
+                <span class="toc-toggle" aria-hidden="true">⌄</span>
+            </div>
+            <ul class="toc-list">
+                
+                <li class="toc-item level-1">
+                    <a href="#一段超绝提示词帮你挖出ima订阅知识库里的认知金矿" class="toc-link">一段超绝提示词，帮你挖出ima「订阅知识库」里的认知金矿</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Content -->
+        <div class="content-section-label">正文整理</div>
+        <div class="detail-content">
+            <h1 id="一段超绝提示词帮你挖出ima订阅知识库里的认知金矿">一段超绝提示词，帮你挖出ima「订阅知识库」里的认知金矿</h1>
+<p>我最近琢磨出一个提示词，试了几个知识库，结果把自己吓了一跳。</p>
+<p>先说背景。</p>
+<p>我之前分享的「知识外化」，主要是把自己的经验萃取出来，变成显性的知识文档，再改造成AI可执行的Skill。</p>
+<p>这条路我一直觉得很重要，但后来我发现一个问题——大部分人用AI知识库，根本还没走到「经验萃取」这一步。</p>
+<p>他们卡在一个更前面的问题上：订阅了一大堆别人的知识库，里面已经存了很多东西了，但从来没整体看过。</p>
+<p>平时用订阅知识库的方式是什么？</p>
+<p>遇到问题了，想起来去问一句。问完了，拿到答案，关掉。</p>
+<p>下次又是遇到新问题了，再进去问一句。每一次提问都是随机的、零散的。你永远在问自己已经知道要问的问题。</p>
+<p>但你有没有想过，这些散落在「订阅知识库」里的文档之间有没有关联？有没有一套潜在的理论把那些看似无关的内容串在一起？</p>
+<p>你不知道。因为你从来没问过那个问题。</p>
+<p>这就像你走进一座图书馆，每次只借一本书看完还回去，读了100本，但你永远不知道这些书之间有什么关系。直到有一天你把同一主题的书全部抽出来摆在一起，你才发现——哦，原来这些书讲的是同一件事，只不过角度不同。</p>
+<p>所以我就想，能不能做一个提示词，让AI替你发现「订阅知识库」里有什么？</p>
+<p>✦ ✦ ✦</p>
+<p><strong>我设计了一个「知识萃取」提示词</strong></p>
+<p>琢磨了一段时间之后，我写出了这个提示词，起名叫「知识萃取专家-知识文档版」。</p>
+<p>核心思路就一句话：<strong>不要让AI回答你的问题，让它替你发现你的「订阅知识库」里有什么。</strong></p>
+<p><strong>提示词的设计分四步走</strong></p>
+<p><strong>第一步，核心观点解构</strong>——让AI全景扫描输入文档中关于该主题的高价值观点，按逻辑维度归类，然后用Mermaid思维导图呈现知识体系全景。先给你一张概念地图。</p>
+<p><strong>第二步，知识体系与方法论重塑</strong>——提炼体系运行的第一性原理或底层驱动力，重构支撑该体系的核心支柱，说明它们之间的动态关系。这一步用流畅的文字阐述，不干巴巴地罗列。</p>
+<p><strong>第三步，关键原文溯源</strong>——把提炼出的观点跟原文做对照，精准引用，确保体系不脱离原材料。用轻量级表格把「提炼的观点」和「原文溯源」放在一起看。</p>
+<p><strong>第四步，实战转化与应用建议</strong>——映射真实场景，提供立刻能执行的「最小可行性动作」，同时指出潜在的失败点和应对策略。</p>
+<p>四步下来，从碎片到体系到溯源到行动，形成一个完整的闭环。</p>
+<p>提示词写好了，但我不知道它好不好使。得试一下。</p>
+<pre><code># Role：知识萃取专家-知识文档版（完整提示词请到文末获取）# Profile：你是一位擅长从复杂信息中抽丝剥茧的知识架构师，也是致力于将理论落地的实战应用导师。你擅长从多源、异构的知识文档中提炼核心观点，构建底层逻辑严密的方法论体系，并将其转化为极具操作性的现实行动指南。你擅长运用 Mermaid 图表呈现全局骨架，在文字阐述中穿插局部轻量级表格进行直观对照，确保内容既有体系感又有极佳的阅读体验。# Task：围绕用户提供的主题及知识库文档，进行系统性知识萃取，输出一套完整的结构化方法论，并打通&quot;从知到行&quot;的鸿沟。# Workflow：## Step 1：核心观点解构- 略。## Step 2：知识体系与方法论重塑- 略。## Step 3：关键原文溯源- 略。## Step 4：实战转化与应用建议- 略。# Constraints：- 略。# Input：- 略。
+</code></pre>
+<p>✦ ✦ ✦</p>
+<p><strong>第一次试验：周岭老师的200多条问答</strong></p>
+<p>我有个朋友建了一个ima共享知识库，把周岭老师——就是写《认知觉醒》《认知驱动》的那位——在社群里回答群友的200多条回答全部收集了进去。</p>
+<p>我把主题改成「个人成长」，内容范围设为整个知识库，把这段提示词发了进去。</p>
+<p>不到1分钟后，结果出来了。</p>
+<p>它提炼出的概念地图，跟周岭老师两本书里揭示的核心思想，几乎完全吻合。什么元认知、什么舒适区边缘……那些我读他书时觉得醍醐灌顶的概念，原来早就散落在这200条回答里了。只是它们一直零散地躺在那里，我从来没看见过它们之间的关联。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p><strong>那一刻我心里想：这个提示词，可能真有点东西。</strong></p>
+<p>✦ ✦ ✦</p>
+<p><strong>第二次试验：一个跑步知识库</strong></p>
+<p>同一个提示词，我换了个完全不同领域的知识库——跑步。里面全是各种关于科学跑步的书籍和文章，比较散乱，但主题聚焦。</p>
+<p>同样一段提示词，把主题改成「跑步」，内容范围设为整个知识库，跑出来的结果又是一套相当完整的跑步理论体系。</p>
+<p>这次放「Step 3：关键原文溯源」这部分生成的表格，表明我们得到的知识萃取结果是有依据的。</p>
+<p>|<br />
+方法论</p>
+<p>|</p>
+<p>原文溯源</p>
+<p>|<br />
+| --- | --- |<br />
+|</p>
+<p>第一性原理：重力驱动</p>
+<p>|</p>
+<p>“跑步只是把支撑点从一条腿转换到另一条腿而已……你唯一的目标是尽可能加快‘关键跑步姿势’在两条腿间的转换速度。”——《跑步，该怎么跑？》 “移动，是由于失去平衡所造成的；身体会随重力自由落下的动物移动速度最快。”——《跑步革命》</p>
+<p>|<br />
+|</p>
+<p>第一性原理：身体感知</p>
+<p>|</p>
+<p>“要了解知觉系统，你首先要知道如何区分感官资讯、意识和感觉……良好的知觉能力可以使你在完成技术动作时，洞察到细微的动作差别。”——《跑步革命》</p>
+<p>|<br />
+|</p>
+<p>支柱一：身体功能基础</p>
+<p>|</p>
+<p>“无伤跑法是一个体系……将跑步训练提炼为金字塔模型训练理论。塔基是身体功能（灵活性和稳定性）……良好的身体灵活性可以让跑者在全幅度下自由、协调、灵活地运动。”——《无伤跑法2》</p>
+<p>|<br />
+|</p>
+<p>支柱二：高效跑步技术</p>
+<p>|</p>
+<p>“我确认了跑步的3个基本要素……关键跑姿、落下和上拉。”——《跑步革命》 “优秀跑步技术的规则……膝关节始终保持弯曲，不要伸直……使你的支撑点和体重落在跖球部上。”——《跑步，该怎么跑？》</p>
+<p>|<br />
+|</p>
+<p>支柱三：科学训练体系</p>
+<p>|</p>
+<p>“在马拉松备赛周期的不同阶段应用不同的训练手段和方法。有些理论支持先发展基础耐力，再强化专项耐力，丹尼尔斯训练法就是如此。”——《无伤跑法2》 “MAF训练法……建立强大的有氧基础。”——《耐力：无伤、燃脂、轻松的MAF训练法》</p>
+<p>|<br />
+|</p>
+<p>压力与恢复平衡</p>
+<p>|</p>
+<p>“变强，发生在压力之后的恢复期。”——《你可以跑得更快》 “如果晨起心率相比以往每分钟增加12次以上，常常表明前一天跑步带来的疲劳没有完全消除或者提示身体过度疲劳。”——《无伤跑法》</p>
+<p>|</p>
+<p><strong>✦ ✦ ✦</strong></p>
+<p><strong>更多尝试</strong></p>
+<p>AI博主「阿真Irene」小姐姐分享的订阅知识库，概念地图如下：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>某个Skill知识库：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>适合老师关注的「AI高质量教学」订阅知识库：</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>几次试验，不同领域，不同类型的素材，结果都指向同一个结论：</p>
+<p><strong>你订阅的知识库里，藏着你从没看见过的完整体系。</strong></p>
+<p>从碎片到体系，就这一步。</p>
+<p>✦ ✦ ✦</p>
+<p><strong>后记：这段提示词经历了一版迭代</strong></p>
+<p>第一版跑出来的时候，有一个问题：全是文字，读起来很枯燥。</p>
+<p>你自己想象一下，一个知识体系如果纯用文字描述，层级关系、分类逻辑全靠段落缩进来表达，看的人得多累。尤其是知识体系这种东西，天然就是有层级、有分支的，文字的表达力根本不够。</p>
+<p>其实我在设计提示词的时候就已经考虑到这个问题了，所以第一步的输出要求就写了「使用Mermaid思维导图呈现知识体系全景」，第三步写了「使用轻量级表格做对照」。</p>
+<p>思维导图让你一眼看到全貌，表格让你快速对照观点和原文，文字部分负责深入阐述。三种表达方式各司其职。</p>
+<p>✦ ✦ ✦</p>
+<p><strong>知识外化，其实就两条路</strong></p>
+<p>顺着这个再聊聊。</p>
+<p>我之前分享的「知识外化」主要是第一条路——把自己的经验萃取出来。怎么把脑子里那些做了十几年、已经变成肌肉记忆的东西变成显性的、体系化的知识文档，然后再改造成AI可执行的Skill。</p>
+<p>我之前五一期间做的两个Skill就是这么来的，把反复在做的「公众号封面设计流程」和「小红书图文生成流程」一步一步写下来，存成Skill，下次一句话就能触发。</p>
+<p>这条路的重点是把隐性知识显性化。</p>
+<p>但今天说的这个，是第二条路——把别人的内容萃取出来。</p>
+<p>你关注的「订阅知识库」里存了一堆书、一堆文章、一堆报告，它们各自独立，但你从来没从整体上去看过它们到底在说什么。现在你可以用这段提示词，快速把散落的信息碎片整合成一个框架。</p>
+<p>两条路加在一起才是一个完整的知识外化过程。</p>
+<p>一条向内挖，把你的经验掏出来。</p>
+<p>一条向外看，把散乱的文档串起来。</p>
+<p>我之前提到过，日本知识管理学者野中郁次郎提出过一个经典的知识管理模型——SECI，讲的就是知识在隐性跟显性之间怎么转化的。其中有一个环节叫「组合」，就是把各种显性知识碎片重新排列组合成新的知识体系。我做的这个提示词干的事情，说白了就是在加速这个组合的过程。</p>
+<div class="detail-image-missing" role="img" aria-label="图片">图片：来源内容未完整抓取</div>
+
+<p>也有人把它比作拼图——你手里每一块都是现成的，但如果你不把它们拼到一起，就永远看不到完整的画面。</p>
+<p>✦ ✦ ✦</p>
+<p><strong>今天就能试的一件事</strong></p>
+<p>如果你也在用ima或者任何AI知识库，里面存了不少东西，但从来没整体看过——</p>
+<p>现在不妨花几分钟，用这段提示词给你关注的订阅知识库做一次全面萃取。</p>
+<p>关注「AI蝶变工坊」，后台回复"<strong>知识萃取</strong>"获取完整提示词二维码，扫描第二个「知识文档版」的提示词就行。后台回复「ima共学」，和小伙伴们一起共学ima。</p>
+<p>你只需要改两个地方：把「主题」改成你知识库的核心主题，把「文档内容」改成你的知识库文件范围。</p>
+<p>PS：建议订阅知识库要尽可能选择主题聚焦的那种，否则我也不确定能萃取出一个什么玩意儿。</p>
+<p>拿到了体系，你再看知识库里的每一篇文档，感觉会完全不一样。</p>
+<p>以前是盲人摸象，摸到腿以为是柱子，摸到尾巴以为是绳子。</p>
+<p>现在是站在高处看完整的大象，再决定你想研究哪个部位。</p>
+<p>看到了，你就多了一条路。</p>
+<p>✦ ✦ ✦</p>
+<p>我是墨凡｜20年资深咨询顾问，一个致力于用AI工具为职场人系统化知识、自动化工作的同行者。不贩卖焦虑，不讲大道理，只有亲自验证过的方法和踩过的坑。</p>
+<p>👋如果觉得文章不错，随手点个赞、转发、在看吧！</p>
+<p>👇关注本账号，公众号右上角「设为星标」，下次更新早知道。</p>
+<p>🎁 公众号后台输入【知识萃取】，领取知识萃取专家系列提示词。</p>
+<p>📚 <strong>AI知识库系列文章 · 持续更新中</strong></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490855&amp;idx=1&amp;sn=5da0465ec0df21a9cd935392724d40c1&amp;scene=21#wechat_redirect">7000字讲清楚：我是如何用ima搭建个人知识库的？</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247491040&amp;idx=1&amp;sn=322b02abf6d7e82013091e4e9e18bb24&amp;scene=21#wechat_redirect">脑子里那些「理所当然」的经验，我在ima里做成了Skills</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490946&amp;idx=1&amp;sn=90b1cfee3a50bf6071f99e19cca3eb51&amp;scene=21#wechat_redirect">我把ima知识库的信息源想清楚了，就这三层（附ima操作）</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490916&amp;idx=1&amp;sn=3685762e374ab0cd8303418994787b0d&amp;scene=21#wechat_redirect">别再把ima用成“高级网盘”了：做好导入这一步，你的知识库就赢了80%的人</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490723&amp;idx=1&amp;sn=301aaca96586ce4e0cd16d658642e710&amp;scene=21#wechat_redirect">把ima当"临时工棚"：一个极简流程，解决你眼下的写作焦虑</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490702&amp;idx=1&amp;sn=bfb1efb23e8f96da43c81e98cfb6565d&amp;scene=21#wechat_redirect">当我把1000多条笔记丢给ima，神奇的事情发生了......</a></p>
+<p>▸<a href="https://mp.weixin.qq.com/s?__biz=MzUxMjg4NDAxMA==&amp;mid=2247490564&amp;idx=1&amp;sn=b32c2def99796f46416e3613f3cbeb6d&amp;scene=21#wechat_redirect">你绝对想不到，ima的这个小功能，居然是一条AI智能体流水线</a></p>
+        </div>
+    </article>
+
+    <!-- Prev / Next Navigation -->
+    
+    <nav class="article-nav">
+        
+        <a href="recvkkxe42oxZm.html" class="article-nav-link prev">
+            <span class="article-nav-label">← 上一篇</span>
+            <span class="article-nav-title">我让 GLM-5.1 HighSpeed 做了一个真正能用的 AI 选题雷达和微信自动Agent</span>
+        </a>
+        
+        
+        <a href="recvjZxavoZytu.html" class="article-nav-link next">
+            <span class="article-nav-label">下一篇 →</span>
+            <span class="article-nav-title">Seedance 2.0 真人视频总不过审？先用这 5 个办法跑通（附提示词）</span>
+        </a>
+        
+    </nav>
+    
+
+    <!-- Footer -->
+    <footer class="site-footer" style="margin-top: 48px;">
+        <p>© 2026 拾读库 · 由 <a href="https://www.feishu.cn" target="_blank">飞书多维表格</a> 驱动</p>
+    </footer>
+</div>
+
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Article Data for Search (injected by templates) -->
+    
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>
